@@ -19,7 +19,7 @@ public class PlayerBullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.name == "Enemy")
+        if(other.gameObject.name.StartsWith("Enemy"))
         {
             GameUI.Default.gamePass.SetActive(true);
             Time.timeScale = 0;

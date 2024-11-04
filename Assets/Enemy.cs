@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(state == States.FollowPlayer)
+        if (state == States.FollowPlayer)
         {
             currentScd += Time.deltaTime;
 
@@ -41,11 +41,14 @@ public class Enemy : MonoBehaviour
                 currentScd = 0;
             }
 
-            var direction2Player = (player.transform.position - transform.position).normalized;
+            if (Global.player)
+            {
+                var direction2Player = (Global.player.transform.position - transform.position).normalized;
 
-            transform.Translate(direction2Player * Time.deltaTime);
+                transform.Translate(direction2Player * Time.deltaTime);
+            }
         }
-        else if(state == States.Shoot)
+        else if (state == States.Shoot)
         {
             currentScd += Time.deltaTime;
 
@@ -59,11 +62,14 @@ public class Enemy : MonoBehaviour
 
             if(Time.frameCount % 20 == 0)
             {
-                var bullet = Instantiate(enemyBullet);
-                bullet.transform.position = transform.position;
-                var direction2Player = (player.transform.position - transform.position).normalized;
-                bullet.direction = direction2Player;
-                bullet.gameObject.SetActive(true);
+                if(Global.player)
+                {
+                    var bullet = Instantiate(enemyBullet);
+                    bullet.transform.position = transform.position;
+                    var direction2Player = (Global.player.transform.position - transform.position).normalized;
+                    bullet.direction = direction2Player;
+                    bullet.gameObject.SetActive(true);
+                }
             }
         }
     }

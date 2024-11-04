@@ -19,7 +19,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.name == "Player")
+        if (other.gameObject.name.StartsWith("Player"))
         {
             GameUI.Default.gameOver.SetActive(true);
             Time.timeScale = 0;
