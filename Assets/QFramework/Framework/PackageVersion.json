@@ -1,0 +1,20 @@
+{
+    "Id": "",
+    "Version": "v1.0.159",
+    "Type": 0,
+    "AccessRight": 0,
+    "DownloadUrl": "",
+    "InstallPath": "Assets/QFramework/Framework/",
+    "IncludeFileOrFolders": [
+        "Assets/QFramework/Framework",
+        "Assets/QFramework/Toolkits"
+    ],
+    "DocUrl": "https://liangxiegame.com",
+    "Readme": {
+        "version": "v1.0.159",
+        "content": "Markdown 的皮肤放到 Editor Resources 里",
+        "author": "liangxie",
+        "date": "2024 年 11 月 05 日 15:28",
+        "PackageId": ""
+    }
+}

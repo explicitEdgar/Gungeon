@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621f3f918dd5423d93a746ad8fc9082d, type: 3}
+  m_Name: Pipeline
+  m_EditorClassIdentifier: 
+  CurrentTask:
+    ShowLog: 0
+    Status: 1
+    GameObject: {fileID: 0}
+    From: 0
+    NameToFullName: []
+    BindInfos:
+    - TypeName: SpriteRenderer
+      PathToRoot: Sprite
+      MemberName: Sprite
+    - TypeName: PlayerBullet
+      PathToRoot: Bullet
+      MemberName: Bullet
+    ScriptsFolder: Assets\Scripts\Game\Weapon
+    ClassName: Pistol
+    Namespace: QFramework.Gungeon
+    MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
+      partial class Pistol : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:ad1b4c98-72dc-471f-af4d-144b126ffa9a\r\nusing UnityEngine;\r\n\r\nnamespace
+      QFramework.Gungeon\r\n{\r\n\tpublic partial class Pistol\r\n\t{\r\n\r\n\t\tpublic
+      SpriteRenderer Sprite;\r\n\r\n\t\tpublic PlayerBullet Bullet;\r\n\r\n\t\tpublic
+      UnityEngine.AudioSource SelfAudioSource;\r\n\r\n\t}\r\n}\r\n"
