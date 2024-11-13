@@ -4,29 +4,12 @@ using UnityEngine;
 
 namespace QFramework.Gungeon
 {
-    public partial class Pistol : ViewController
+    public partial class Pistol : Gun
     {
 
-        public List<AudioClip> ShootSounds = new List<AudioClip>();
+        public override PlayerBullet BulletPrefab => Bullet;
 
-        public void ShootDown(Vector2 direction)
-        {
-            var bullet = Instantiate(Bullet);
-            bullet.transform.position = Bullet.transform.position;
-            bullet.direction = direction;
-            bullet.gameObject.SetActive(true);
+        public override AudioSource AudioPlayer => SelfAudioSource;
 
-            var soundIndex = Random.Range(0, ShootSounds.Count);
-            SelfAudioSource.clip = ShootSounds[soundIndex];
-            SelfAudioSource.Play();
-        }
-        public void Shooting(Vector2 direction)
-        {
-
-        }
-        public void ShootUp(Vector2 direction)
-        {
-
-        }
     }
 }

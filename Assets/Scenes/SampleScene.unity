@@ -274,7 +274,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 59519b93a23aef64ab80f654d94b64f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a5bd77f79ab5cb24892d78639dc4093f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -805,7 +805,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 59519b93a23aef64ab80f654d94b64f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b08512b1895cdb34283e1d378ff96997, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1793,6 +1793,7 @@ GameObject:
   - component: {fileID: 655880156}
   - component: {fileID: 655880155}
   - component: {fileID: 655880154}
+  - component: {fileID: 655880158}
   m_Layer: 6
   m_Name: Bullet
   m_TagString: Untagged
@@ -1942,6 +1943,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &655880158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655880152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: Bullet
+  CustomComment: 
+  mComponentName: PlayerBullet
 --- !u!1 &659470027
 GameObject:
   m_ObjectHideFlags: 0
@@ -2135,7 +2152,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 59519b93a23aef64ab80f654d94b64f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8215718f6bd18aa47924e08ef4753e67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2635,7 +2652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &934730585
 Transform:
   m_ObjectHideFlags: 0
@@ -3413,7 +3430,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 59519b93a23aef64ab80f654d94b64f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cffa9f14adcbeda4fb364f21c06dc80c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4144,7 +4161,7 @@ MonoBehaviour:
   mrigidbody2D: {fileID: 1525299622}
   spriteRenderer: {fileID: 1583943704}
   weapon: {fileID: 500253771}
-  pistol: {fileID: 934730586}
+  gun: {fileID: 0}
 --- !u!4 &1525299620
 Transform:
   m_ObjectHideFlags: 0
@@ -4297,7 +4314,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 59519b93a23aef64ab80f654d94b64f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4273d0575b992b24b9b7d454a19e5fdb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4581,6 +4598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1620050459}
   - component: {fileID: 1620050460}
+  - component: {fileID: 1620050461}
   m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
@@ -4644,7 +4662,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 59519b93a23aef64ab80f654d94b64f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8e3308a42e083c41b033ff7a3979cff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4655,6 +4673,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1620050461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620050458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: Sprite
+  CustomComment: 
+  mComponentName: SpriteRenderer
 --- !u!1 &1678473082
 GameObject:
   m_ObjectHideFlags: 0
@@ -4926,7 +4960,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 59519b93a23aef64ab80f654d94b64f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8cb53f094aaa0e842ae0621dd98f1bfd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5290,13 +5324,14 @@ GameObject:
   - component: {fileID: 1769165514}
   - component: {fileID: 1769165515}
   - component: {fileID: 1769165516}
+  - component: {fileID: 1769165517}
   m_Layer: 3
   m_Name: MP5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1769165514
 Transform:
   m_ObjectHideFlags: 0
@@ -5333,12 +5368,13 @@ MonoBehaviour:
   PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
-  playerBullet: {fileID: 655880156}
   ShootSounds:
   - {fileID: 8300000, guid: 80bbb2ad3f504c547b8fd9ff97dc2f11, type: 3}
   - {fileID: 8300000, guid: 2a671a4dad20ca04290707c02069ee9e, type: 3}
   - {fileID: 8300000, guid: 2eadb06290bcb7f49afc6ba984620bf5, type: 3}
-  ShootSoundPlayer: {fileID: 0}
+  Sprite: {fileID: 1620050460}
+  Bullet: {fileID: 655880156}
+  SelfAudioSource: {fileID: 1769165516}
 --- !u!82 &1769165516
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5435,6 +5471,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1769165517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769165513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411e729afed24c62a04e2b99d9122e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binds:
+  - MemberName: SelfAudioSource
+    Object: {fileID: 1769165516}
 --- !u!1 &1778840535
 GameObject:
   m_ObjectHideFlags: 0

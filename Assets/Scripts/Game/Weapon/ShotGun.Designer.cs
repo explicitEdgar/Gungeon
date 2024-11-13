@@ -1,9 +1,9 @@
-// Generate Id:1b1209aa-0384-4a5a-aa52-376a2f5eb374
+// Generate Id:e9014954-5f13-48bb-a5df-3cc1bc32f74b
 using UnityEngine;
 
 namespace QFramework.Gungeon
 {
-	public partial class MP5
+	public partial class ShotGun
 	{
 
 		public SpriteRenderer Sprite;

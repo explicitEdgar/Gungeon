@@ -4,33 +4,48 @@ using System.Collections.Generic;
 
 namespace QFramework.Gungeon
 {
-	public partial class MP5 : ViewController
+	public partial class MP5 : Gun
 	{
 
-        public PlayerBullet playerBullet;
+        public override PlayerBullet BulletPrefab => Bullet;
 
-        public List<AudioClip> ShootSounds = new List<AudioClip>();
+        public override AudioSource AudioPlayer => SelfAudioSource;
 
-        public AudioSource ShootSoundPlayer;
-
-        public void ShootDown(Vector2 direction)
+        public void Shoot(Vector2 direction)
         {
-            var bullet = Instantiate(playerBullet);
-            bullet.transform.position = playerBullet.transform.position;
+            var bullet = Instantiate(BulletPrefab);
+            bullet.transform.position = BulletPrefab.transform.position;
             bullet.direction = direction;
             bullet.gameObject.SetActive(true);
 
-            var soundIndex = Random.Range(0, ShootSounds.Count);
-            ShootSoundPlayer.clip = ShootSounds[soundIndex];
-            ShootSoundPlayer.Play();
         }
-        public void Shooting(Vector2 direction)
-        {
 
-        }
-        public void ShootUp(Vector2 direction)
+        public override void ShootDown(Vector2 direction)
         {
+            Shoot(direction);
 
+            AudioPlayer.clip = ShootSounds[0];
+            AudioPlayer.loop = true;
+            AudioPlayer.Play();
         }
+
+        private float mCurrentScd = 0f;
+        public override void Shooting(Vector2 direction)
+        {
+            if(mCurrentScd >= 0.1f)
+            {
+                Shoot(direction);
+                mCurrentScd = 0f;
+            }
+
+            mCurrentScd += Time.deltaTime;
+        }
+
+        public override void ShootUp(Vector2 direction)
+        {
+            mCurrentScd = 0f;
+            AudioPlayer.Stop();
+        }
+
     }
 }

@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 
     public Transform weapon;
 
-    public Pistol pistol;
+    public Gun gun;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +59,15 @@ public class Player : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0))
         {
-            pistol.ShootDown(bulletDirection);
+            gun.ShootDown(bulletDirection);
+        }
+        if (Input.GetMouseButton(0))
+        {
+            gun.Shooting(bulletDirection);
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            gun.ShootUp(bulletDirection);
         }
     }
 

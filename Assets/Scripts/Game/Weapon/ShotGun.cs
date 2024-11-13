@@ -1,0 +1,55 @@
+using UnityEngine;
+using QFramework;
+
+namespace QFramework.Gungeon
+{
+	public partial class ShotGun : QFramework.Gungeon.Gun
+	{
+        public override PlayerBullet BulletPrefab => Bullet;
+
+        public override AudioSource AudioPlayer => SelfAudioSource;
+
+        public void Shoot(Vector2 pos,Vector2 direction)
+        {
+            var bullet = Instantiate(BulletPrefab);
+            bullet.transform.position = pos;
+            bullet.direction = direction.normalized;
+            bullet.gameObject.SetActive(true);
+        }
+
+        public override void ShootDown(Vector2 direction)
+        {
+            var angle = direction.ToAngle();
+            var originPos = transform.parent.Position2D();
+            var radius = (BulletPrefab.Position2D() - originPos).magnitude;
+            var pos = originPos + radius * direction.normalized;
+
+            var angle1 = angle + 8;
+            var direction1 = angle1.AngleToDirection2D();
+            var pos1 = originPos + radius * direction1;
+
+            var angle2 = angle - 8;
+            var direction2 = angle2.AngleToDirection2D();
+            var pos2 = originPos + radius * direction2;
+
+            var angle3 = angle + 4;
+            var direction3 = angle3.AngleToDirection2D();
+            var pos3 = originPos + radius * direction3;
+
+            var angle4 = angle - 4;
+            var direction4 = angle4.AngleToDirection2D();
+            var pos4 = originPos + radius * direction4;
+
+
+            Shoot(pos,direction);
+            Shoot(pos1, direction1);
+            Shoot(pos2, direction2);
+            Shoot(pos3, direction3);
+            Shoot(pos4, direction4);
+
+            AudioPlayer.clip = ShootSounds[0];
+            AudioPlayer.Play();
+        }
+
+    }
+}
