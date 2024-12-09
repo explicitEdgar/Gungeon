@@ -17,39 +17,51 @@ namespace QFramework.Gungeon
             bullet.gameObject.SetActive(true);
         }
 
+        private float mlastShootTime = 0;
+        private float ShootDuration = 1f;
         public override void ShootDown(Vector2 direction)
-        {
-            var angle = direction.ToAngle();
-            var originPos = transform.parent.Position2D();
-            var radius = (BulletPrefab.Position2D() - originPos).magnitude;
-            var pos = originPos + radius * direction.normalized;
+        {   
+            if(Time.time - mlastShootTime >= ShootDuration || mlastShootTime == 0)
+            {
+                mlastShootTime = Time.time;
 
-            var angle1 = angle + 8;
-            var direction1 = angle1.AngleToDirection2D();
-            var pos1 = originPos + radius * direction1;
+                var angle = direction.ToAngle();
+                var originPos = transform.parent.Position2D();
+                var radius = (BulletPrefab.Position2D() - originPos).magnitude;
+                var pos = originPos + radius * direction.normalized;
 
-            var angle2 = angle - 8;
-            var direction2 = angle2.AngleToDirection2D();
-            var pos2 = originPos + radius * direction2;
+                var angle1 = angle + 8;
+                var direction1 = angle1.AngleToDirection2D();
+                var pos1 = originPos + radius * direction1;
 
-            var angle3 = angle + 4;
-            var direction3 = angle3.AngleToDirection2D();
-            var pos3 = originPos + radius * direction3;
+                var angle2 = angle - 8;
+                var direction2 = angle2.AngleToDirection2D();
+                var pos2 = originPos + radius * direction2;
 
-            var angle4 = angle - 4;
-            var direction4 = angle4.AngleToDirection2D();
-            var pos4 = originPos + radius * direction4;
+                var angle3 = angle + 4;
+                var direction3 = angle3.AngleToDirection2D();
+                var pos3 = originPos + radius * direction3;
+
+                var angle4 = angle - 4;
+                var direction4 = angle4.AngleToDirection2D();
+                var pos4 = originPos + radius * direction4;
 
 
-            Shoot(pos,direction);
-            Shoot(pos1, direction1);
-            Shoot(pos2, direction2);
-            Shoot(pos3, direction3);
-            Shoot(pos4, direction4);
+                Shoot(pos, direction);
+                Shoot(pos1, direction1);
+                Shoot(pos2, direction2);
+                Shoot(pos3, direction3);
+                Shoot(pos4, direction4);
 
-            AudioPlayer.clip = ShootSounds[0];
-            AudioPlayer.Play();
+                AudioPlayer.clip = ShootSounds[0];
+                AudioPlayer.Play();
+            }
+            
         }
 
+        public override void Shooting(Vector2 direction)
+        {
+            ShootDown(direction);
+        }
     }
 }

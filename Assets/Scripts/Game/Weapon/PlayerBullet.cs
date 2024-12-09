@@ -5,6 +5,13 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
     public Vector2 direction;
+
+    private Rigidbody2D mRigidbody2D;
+    private void Awake()
+    {
+        mRigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -12,9 +19,9 @@ public class PlayerBullet : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.Translate(direction * Time.deltaTime * 24);
+        mRigidbody2D.velocity = direction * 24;
     }
 
     private void OnCollisionEnter2D(Collision2D other)

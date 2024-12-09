@@ -25,13 +25,16 @@ MonoBehaviour:
     - TypeName: PlayerBullet
       PathToRoot: Bullet
       MemberName: Bullet
+    - TypeName: SpriteRenderer
+      PathToRoot: Ready
+      MemberName: Ready
     ScriptsFolder: Assets/Scripts/Game/Weapon
-    ClassName: ShotGun
+    ClassName: Bow
     Namespace: QFramework.Gungeon
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
-      partial class ShotGun : QFramework.Gungeon.Gun\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class Bow : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:e9014954-5f13-48bb-a5df-3cc1bc32f74b\r\nusing UnityEngine;\r\n\r\nnamespace
-      QFramework.Gungeon\r\n{\r\n\tpublic partial class ShotGun\r\n\t{\r\n\r\n\t\tpublic
+    DesignerCode: "// Generate Id:eaaf182d-5ad1-4e3d-bc8a-b5a61b034eff\r\nusing UnityEngine;\r\n\r\nnamespace
+      QFramework.Gungeon\r\n{\r\n\tpublic partial class Bow\r\n\t{\r\n\r\n\t\tpublic
       SpriteRenderer Sprite;\r\n\r\n\t\tpublic PlayerBullet Bullet;\r\n\r\n\t\tpublic
-      UnityEngine.AudioSource SelfAudioSource;\r\n\r\n\t}\r\n}\r\n"
+      SpriteRenderer Ready;\r\n\r\n\t\tpublic UnityEngine.AudioSource SelfAudioSource;\r\n\r\n\t}\r\n}\r\n"
