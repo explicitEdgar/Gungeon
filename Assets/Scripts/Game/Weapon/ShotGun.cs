@@ -17,13 +17,12 @@ namespace QFramework.Gungeon
             bullet.gameObject.SetActive(true);
         }
 
-        private float mlastShootTime = 0;
-        private float ShootDuration = 1f;
+        public ShootDuration shootDuration = new ShootDuration(1f);
         public override void ShootDown(Vector2 direction)
         {   
-            if(Time.time - mlastShootTime >= ShootDuration || mlastShootTime == 0)
+            if(shootDuration.CanShoot)
             {
-                mlastShootTime = Time.time;
+                shootDuration.RecordShootTime();
 
                 var angle = direction.ToAngle();
                 var originPos = transform.parent.Position2D();

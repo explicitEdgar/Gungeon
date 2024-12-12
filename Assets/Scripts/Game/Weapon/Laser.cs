@@ -11,6 +11,8 @@ namespace QFramework.Gungeon
 
         private bool mShooting = false;
 
+        public ShootDuration shootDuration = new ShootDuration(0.02f);
+
         public void Shoot(Vector2 direction)
         {
             var bullet = Instantiate(BulletPrefab);
@@ -32,16 +34,12 @@ namespace QFramework.Gungeon
             SelfLineRenderer.enabled = true;
         }
 
-        private float mCurrentScd = 0f;
         public override void Shooting(Vector2 direction)
         {
-            if (mCurrentScd >= 0.02f)
+            if (shootDuration.CanShoot)
             {
                 Shoot(direction);
-                mCurrentScd = 0f;
             }
-
-            mCurrentScd += Time.deltaTime;
 
             if(mShooting)
             {
@@ -56,7 +54,6 @@ namespace QFramework.Gungeon
 
         public override void ShootUp(Vector2 direction)
         {
-            mCurrentScd = 0f;
             AudioPlayer.Stop();
 
             SelfLineRenderer.enabled = false;

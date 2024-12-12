@@ -9,6 +9,8 @@ namespace QFramework.Gungeon
 
         public override AudioSource AudioPlayer => SelfAudioSource;
 
+        public ShootDuration shootDuration = new ShootDuration(2f);
+
         public void Shoot(Vector2 pos, Vector2 direction)
         {
             var bullet = Instantiate(BulletPrefab);
@@ -18,13 +20,11 @@ namespace QFramework.Gungeon
             bullet.transform.right = direction;
         }
 
-        private float mlastShootTime = 0;
-        private float ShootDuration = 2f;
         public override void ShootDown(Vector2 direction)
         {
-            if (Time.time - mlastShootTime >= ShootDuration || mlastShootTime == 0)
+            if (shootDuration.CanShoot)
             {
-                mlastShootTime = Time.time;
+                shootDuration.RecordShootTime();
 
                 Shoot(Bullet.Position2D(), direction);
 

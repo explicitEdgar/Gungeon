@@ -28,7 +28,7 @@ public class PlayerBullet : MonoBehaviour
     {
         if(other.gameObject.GetComponent<Enemy>())
         {
-            other.gameObject.SetActive(false);
+            other.gameObject.GetComponent<Enemy>().Hurt(1);
         }
         Destroy(gameObject);
     }

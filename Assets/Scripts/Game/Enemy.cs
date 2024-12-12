@@ -30,6 +30,9 @@ public class Enemy : MonoBehaviour
 
     public AudioSource ShootSoundPlayer;
 
+    private float Hp = 3;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -103,6 +106,15 @@ public class Enemy : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    public void Hurt(float damage)
+    {
+        Hp -= damage;
+        if(Hp <= 0f)
+        {
+            Destroy(gameObject);
         }
     }
 }
