@@ -33,5 +33,11 @@ namespace QFramework.Gungeon
         {
 
         }
+
+        public virtual void Reload()
+        {
+            
+        }
+
     }
 }

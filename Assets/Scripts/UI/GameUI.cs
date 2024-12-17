@@ -1,58 +1,63 @@
+using QFramework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameUI : MonoBehaviour
+namespace QFramework.Gungeon
 {
-    public static GameUI Default;
-
-    public GameObject gamePass;
-
-    public GameObject gameOver;
-
-    public Text HPText;
-
-    private void Awake()
+    public partial class GameUI : ViewController
     {
-        Default = this;
-    }
+        public static GameUI Default;
 
-    private void OnDestroy()
-    {
-        Default = null;
+        public GameObject gamePass;
 
-        Global.HPChangedEvent -= UpdateHPText;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        gamePass.transform.Find("RestartBtn").GetComponent<Button>()
-            .onClick.AddListener(() =>
-            {
-                SceneManager.LoadScene("SampleScene");
-                Global.ResetData();
-            });
+        public GameObject gameOver;
 
-        gameOver.transform.Find("RestartBtn").GetComponent<Button>()
-            .onClick.AddListener(() =>
-            {
-                SceneManager.LoadScene("SampleScene");
-                Global.ResetData();
-            });
+        public Text HPText;
 
-        Global.HPChangedEvent += UpdateHPText;
-    }
+        private void Awake()
+        {
+            Default = this;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        private void OnDestroy()
+        {
+            Default = null;
 
-    public void UpdateHPText()
-    {
-        HPText.text = "生命值:" + Global.HP;
+            Global.HPChangedEvent -= UpdateHPText;
+        }
+        // Start is called before the first frame update
+        void Start()
+        {
+            gamePass.transform.Find("RestartBtn").GetComponent<Button>()
+                .onClick.AddListener(() =>
+                {
+                    SceneManager.LoadScene("SampleScene");
+                    Global.ResetData();
+                });
+
+            gameOver.transform.Find("RestartBtn").GetComponent<Button>()
+                .onClick.AddListener(() =>
+                {
+                    SceneManager.LoadScene("SampleScene");
+                    Global.ResetData();
+                });
+
+            Global.HPChangedEvent += UpdateHPText;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        public void UpdateHPText()
+        {
+            HPText.text = "生命值:" + Global.HP;
+        }
+
     }
 }

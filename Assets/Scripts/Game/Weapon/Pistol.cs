@@ -11,11 +11,23 @@ namespace QFramework.Gungeon
 
         public override AudioSource AudioPlayer => SelfAudioSource;
 
+        private Clip clip = new Clip(15);
+
         public ShootDuration shootDuration = new ShootDuration(0.4f);
+
+        private void Start()
+        {
+            clip.UIReload();
+        }
+
+        public override void Reload()
+        {
+            clip.Reload();
+        }
 
         public override void ShootDown(Vector2 direction)
         {   
-            if(shootDuration.CanShoot)
+            if(shootDuration.CanShoot && clip.CanShoot)
             {
                 shootDuration.RecordShootTime();
 
@@ -27,6 +39,8 @@ namespace QFramework.Gungeon
                 var soundIndex = Random.Range(0, ShootSounds.Count);
                 AudioPlayer.clip = ShootSounds[soundIndex];
                 AudioPlayer.Play();
+
+                clip.UseBullet();
             }
         }
         public override void Shooting(Vector2 direction)

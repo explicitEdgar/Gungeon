@@ -9,9 +9,21 @@ namespace QFramework.Gungeon
 
         public override AudioSource AudioPlayer => SelfAudioSource;
 
+        private Clip clip = new Clip(100);
+
         private bool mShooting = false;
 
         public ShootDuration shootDuration = new ShootDuration(0.02f);
+
+        private void Start()
+        {
+            clip.UIReload();
+        }
+
+        public override void Reload()
+        {
+            clip.Reload();
+        }
 
         public void Shoot(Vector2 direction)
         {
@@ -20,10 +32,13 @@ namespace QFramework.Gungeon
             bullet.direction = direction;
             bullet.gameObject.SetActive(true);
 
+            clip.UseBullet();
+
         }
 
         public override void ShootDown(Vector2 direction)
         {
+            if (!clip.CanShoot) return;
             Shoot(direction);
 
             AudioPlayer.clip = ShootSounds[0];
@@ -36,19 +51,29 @@ namespace QFramework.Gungeon
 
         public override void Shooting(Vector2 direction)
         {
-            if (shootDuration.CanShoot)
+            if (clip.CanShoot)
             {
-                Shoot(direction);
-            }
+                if (shootDuration.CanShoot)
+                {
+                    Shoot(direction);
+                }
 
-            if(mShooting)
+                if (mShooting)
+                {
+                    //获得敌人和墙的Layer
+                    var layers = LayerMask.GetMask("Default", "Enemy");
+                    //从枪口发射一条物理射线
+                    var hit = Physics2D.Raycast(BulletPrefab.Position2D(), direction, float.MaxValue, layers);
+                    SelfLineRenderer.SetPosition(0, BulletPrefab.Position2D());
+                    SelfLineRenderer.SetPosition(1, hit.point);
+                }
+            }
+            else
             {
-                //获得敌人和墙的Layer
-                var layers = LayerMask.GetMask("Default", "Enemy");
-                //从枪口发射一条物理射线
-                var hit = Physics2D.Raycast(BulletPrefab.Position2D(), direction, float.MaxValue, layers);
-                SelfLineRenderer.SetPosition(0, BulletPrefab.Position2D());
-                SelfLineRenderer.SetPosition(1, hit.point);
+                AudioPlayer.Stop();
+
+                SelfLineRenderer.enabled = false;
+                mShooting = false;
             }
         }
 

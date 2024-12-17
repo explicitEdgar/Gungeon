@@ -9,6 +9,18 @@ namespace QFramework.Gungeon
 
         public override AudioSource AudioPlayer => SelfAudioSource;
 
+        private Clip clip = new Clip(1);
+
+        private void Start()
+        {
+            clip.UIReload();
+        }
+
+        public override void Reload()
+        {
+            clip.Reload();
+        }
+
         public void Shoot(Vector2 pos, Vector2 direction)
         {
             var bullet = Instantiate(BulletPrefab);
@@ -16,6 +28,8 @@ namespace QFramework.Gungeon
             bullet.direction = direction.normalized;
             bullet.gameObject.SetActive(true);
             bullet.transform.right = direction;
+
+            clip.UseBullet();
 
             var soundIndex = Random.Range(0, ShootSounds.Count);
             AudioPlayer.clip = ShootSounds[soundIndex];
@@ -27,13 +41,15 @@ namespace QFramework.Gungeon
 
         public override void ShootDown(Vector2 direction)
         {
+            if (!clip.CanShoot) return;
             mCurrentScd = 0f;
             isPressing = true;
         }
 
         public override void Shooting(Vector2 direction)
         {
-            if(isPressing)
+            if (!clip.CanShoot) return;
+            if (isPressing)
             {
                 mCurrentScd += Time.deltaTime;
             }
@@ -50,7 +66,8 @@ namespace QFramework.Gungeon
 
         public override void ShootUp(Vector2 direction)
         {
-            if(mCurrentScd >= 1f)
+            if (!clip.CanShoot) return;
+            if (mCurrentScd >= 1f)
             {
                 Shoot(BulletPrefab.Position2D(),direction);
             }
