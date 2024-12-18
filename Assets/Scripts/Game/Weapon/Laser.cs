@@ -15,14 +15,14 @@ namespace QFramework.Gungeon
 
         public ShootDuration shootDuration = new ShootDuration(0.02f);
 
-        private void Start()
+        public override void OnGunUse()
         {
             clip.UIReload();
         }
 
         public override void Reload()
         {
-            clip.Reload();
+            clip.Reload(ReloadSound);
         }
 
         public void Shoot(Vector2 direction)
@@ -41,9 +41,7 @@ namespace QFramework.Gungeon
             if (!clip.CanShoot) return;
             Shoot(direction);
 
-            AudioPlayer.clip = ShootSounds[0];
-            AudioPlayer.loop = true;
-            AudioPlayer.Play();
+            TryPlayShootSound(true);
 
             mShooting = true;
             SelfLineRenderer.enabled = true;

@@ -8,7 +8,9 @@ namespace QFramework.Gungeon
 
         public int currentClipBullet;
 
-        public bool CanShoot => currentClipBullet > 0;
+        public bool CanShoot => currentClipBullet > 0 && !reloading;
+
+        public bool reloading = false;
 
         public Clip(int clipBullet)
         {
@@ -16,10 +18,17 @@ namespace QFramework.Gungeon
             currentClipBullet = this.clipBullet;
         }
 
-        public void Reload()
+        public void Reload(AudioClip reloadSound)
         {
-            currentClipBullet = clipBullet;
-            UIReload();
+            reloading = true;
+            ActionKit.Sequence()
+                .PlaySound(reloadSound)
+                .Callback(() =>
+                {
+                    reloading = false;
+                    currentClipBullet = clipBullet;
+                    UIReload();
+                }).StartCurrentScene();
         }
 
         public void UseBullet()

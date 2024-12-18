@@ -11,14 +11,16 @@ namespace QFramework.Gungeon
 
         private Clip clip = new Clip(8);
 
-        private void Start()
+        public ShootLight shootLight = new ShootLight();
+
+        public override void OnGunUse()
         {
             clip.UIReload();
         }
 
         public override void Reload()
         {
-            clip.Reload();
+            clip.Reload(ReloadSound);
         }
 
         public void Shoot(Vector2 pos,Vector2 direction)
@@ -63,6 +65,8 @@ namespace QFramework.Gungeon
                 Shoot(pos2, direction2);
                 Shoot(pos3, direction3);
                 Shoot(pos4, direction4);
+
+                shootLight.ShowLight(BulletPrefab.Position2D(), direction);
 
                 clip.UseBullet();
 

@@ -13,14 +13,16 @@ namespace QFramework.Gungeon
 
         public ShootDuration shootDuration = new ShootDuration(2f);
 
-        private void Start()
+        public ShootLight shootLight = new ShootLight();
+
+        public override void OnGunUse()
         {
             clip.UIReload();
         }
 
         public override void Reload()
         {
-            clip.Reload();
+            clip.Reload(ReloadSound);
         }
 
         public void Shoot(Vector2 pos, Vector2 direction)
@@ -39,6 +41,8 @@ namespace QFramework.Gungeon
                 shootDuration.RecordShootTime();
 
                 Shoot(Bullet.Position2D(), direction);
+
+                shootLight.ShowLight(BulletPrefab.Position2D(), direction);
 
                 clip.UseBullet();
 

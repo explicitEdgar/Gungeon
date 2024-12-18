@@ -606,6 +606,7 @@ GameObject:
   - component: {fileID: 82444509}
   - component: {fileID: 82444508}
   - component: {fileID: 82444510}
+  - component: {fileID: 82444511}
   m_Layer: 3
   m_Name: Laser
   m_TagString: Untagged
@@ -747,6 +748,7 @@ MonoBehaviour:
   ViewControllerFullTypeName: 
   ShootSounds:
   - {fileID: 8300000, guid: a47ae33fddc18f2458dd9e49e7bd97bf, type: 3}
+  ReloadSound: {fileID: 8300000, guid: b20694c1c6483a04ebc47c3e07eaaa19, type: 3}
   Sprite: {fileID: 53095168}
   Bullet: {fileID: 1470137571}
   SelfAudioSource: {fileID: 82444507}
@@ -872,6 +874,22 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &82444511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82444505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: Laser
+  CustomComment: 
+  mComponentName: QFramework.Gungeon.Laser
 --- !u!1 &139901355
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,6 +902,7 @@ GameObject:
   - component: {fileID: 139901357}
   - component: {fileID: 139901359}
   - component: {fileID: 139901358}
+  - component: {fileID: 139901360}
   m_Layer: 3
   m_Name: RocketGun
   m_TagString: Untagged
@@ -1026,6 +1045,7 @@ MonoBehaviour:
   ShootSounds:
   - {fileID: 8300000, guid: 27f60e62abb5b4648a67bf6d07203670, type: 3}
   - {fileID: 8300000, guid: 15320fba090434d45b149eeb404f1256, type: 3}
+  ReloadSound: {fileID: 8300000, guid: 8ff2120254c5acc4ba83a9b4a6f74ebf, type: 3}
   Sprite: {fileID: 1536973102}
   Bullet: {fileID: 880631929}
   SelfAudioSource: {fileID: 139901357}
@@ -1044,6 +1064,22 @@ MonoBehaviour:
   Binds:
   - MemberName: SelfAudioSource
     Object: {fileID: 139901357}
+--- !u!114 &139901360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139901355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: RocketGun
+  CustomComment: 
+  mComponentName: QFramework.Gungeon.RocketGun
 --- !u!1 &184169036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,6 +1694,7 @@ GameObject:
   - component: {fileID: 383152872}
   - component: {fileID: 383152874}
   - component: {fileID: 383152873}
+  - component: {fileID: 383152875}
   m_Layer: 3
   m_Name: ShotGun
   m_TagString: Untagged
@@ -1799,6 +1836,7 @@ MonoBehaviour:
   ViewControllerFullTypeName: QFramework.Gungeon.Gun
   ShootSounds:
   - {fileID: 8300000, guid: 2f5fd0b08675ec7409d0ce339c07cac1, type: 3}
+  ReloadSound: {fileID: 8300000, guid: 8ff2120254c5acc4ba83a9b4a6f74ebf, type: 3}
   Sprite: {fileID: 1696435961}
   Bullet: {fileID: 80240911}
   SelfAudioSource: {fileID: 383152872}
@@ -1817,6 +1855,22 @@ MonoBehaviour:
   Binds:
   - MemberName: SelfAudioSource
     Object: {fileID: 383152872}
+--- !u!114 &383152875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383152870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: ShotGun
+  CustomComment: 
+  mComponentName: QFramework.Gungeon.ShotGun
 --- !u!1 &500253770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1854,6 +1908,7 @@ Transform:
   - {fileID: 82444506}
   - {fileID: 1778840536}
   - {fileID: 139901356}
+  - {fileID: 948966633}
   m_Father: {fileID: 1525299620}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
@@ -3184,13 +3239,14 @@ GameObject:
   - component: {fileID: 934730586}
   - component: {fileID: 934730587}
   - component: {fileID: 934730588}
+  - component: {fileID: 934730589}
   m_Layer: 3
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &934730585
 Transform:
   m_ObjectHideFlags: 0
@@ -3231,6 +3287,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 80bbb2ad3f504c547b8fd9ff97dc2f11, type: 3}
   - {fileID: 8300000, guid: 2a671a4dad20ca04290707c02069ee9e, type: 3}
   - {fileID: 8300000, guid: 2eadb06290bcb7f49afc6ba984620bf5, type: 3}
+  ReloadSound: {fileID: 8300000, guid: 5fd48f6922f51a241bfdd89576efaefc, type: 3}
   Sprite: {fileID: 1733933298}
   Bullet: {fileID: 1614870224}
   SelfAudioSource: {fileID: 934730587}
@@ -3345,6 +3402,123 @@ MonoBehaviour:
   Binds:
   - MemberName: SelfAudioSource
     Object: {fileID: 934730587}
+--- !u!114 &934730589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934730584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: Pistol
+  CustomComment: 
+  mComponentName: QFramework.Gungeon.Pistol
+--- !u!1 &948966632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 948966633}
+  - component: {fileID: 948966634}
+  - component: {fileID: 948966635}
+  m_Layer: 3
+  m_Name: GunShootLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &948966633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948966632}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.242, y: -0.078, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 500253771}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &948966634
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948966632}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 982b7affc3b31e341bdde6c0b465c075, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &948966635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948966632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: GunShootLight
+  CustomComment: 
+  mComponentName: UnityEngine.SpriteRenderer
 --- !u!1 &973142140
 GameObject:
   m_ObjectHideFlags: 0
@@ -4187,6 +4361,7 @@ GameObject:
   - component: {fileID: 1490392121}
   - component: {fileID: 1490392123}
   - component: {fileID: 1490392122}
+  - component: {fileID: 1490392124}
   m_Layer: 3
   m_Name: AWP
   m_TagString: Untagged
@@ -4328,6 +4503,7 @@ MonoBehaviour:
   ViewControllerFullTypeName: 
   ShootSounds:
   - {fileID: 8300000, guid: 64b31e63ab48d0e428910c2b4adce453, type: 3}
+  ReloadSound: {fileID: 8300000, guid: b20694c1c6483a04ebc47c3e07eaaa19, type: 3}
   Sprite: {fileID: 184169038}
   Bullet: {fileID: 1496306652}
   SelfAudioSource: {fileID: 1490392121}
@@ -4346,6 +4522,22 @@ MonoBehaviour:
   Binds:
   - MemberName: SelfAudioSource
     Object: {fileID: 1490392121}
+--- !u!114 &1490392124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490392119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: AWP
+  CustomComment: 
+  mComponentName: QFramework.Gungeon.AWP
 --- !u!1 &1496306648
 GameObject:
   m_ObjectHideFlags: 0
@@ -4757,6 +4949,8 @@ GameObject:
   - component: {fileID: 1525299618}
   - component: {fileID: 1525299621}
   - component: {fileID: 1525299622}
+  - component: {fileID: 1525299624}
+  - component: {fileID: 1525299623}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -4776,11 +4970,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c74789b2a09f6b94eb8f4c4acc3d0da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Namespace: QFramework.Gungeon
+  ScriptName: Player
+  ScriptsFolder: Assets/Scripts/Game
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
   playerBullet: {fileID: 1614870224}
   mrigidbody2D: {fileID: 1525299622}
   spriteRenderer: {fileID: 1583943704}
   weapon: {fileID: 500253771}
   gun: {fileID: 934730586}
+  Gunlist: []
+  gunTakeSfxs: []
+  Pistol: {fileID: 934730586}
+  MP5: {fileID: 1769165515}
+  ShotGun: {fileID: 383152873}
+  AK: {fileID: 1883776798}
+  AWP: {fileID: 1490392122}
+  Laser: {fileID: 82444508}
+  Bow: {fileID: 1778840538}
+  RocketGun: {fileID: 139901358}
+  GunShootLight: {fileID: 948966634}
+  GunTake1: {fileID: 8300000, guid: e624b7e6ac86c344e94df035e25283e5, type: 3}
+  GunTake2: {fileID: 8300000, guid: 13c12a42cb32a604ea7b8e10b771fd69, type: 3}
+  GunTake3: {fileID: 8300000, guid: 38d6e819c6d33794fb6301b0016799a9, type: 3}
+  GunTake4: {fileID: 8300000, guid: 9fc66bce2a0508e4c9ff3f68a9098f9b, type: 3}
+  GunTake5: {fileID: 8300000, guid: 4fd2a756873c71e499c55a785dd40a15, type: 3}
+  SelfAudioSource: {fileID: 1525299623}
 --- !u!4 &1525299620
 Transform:
   m_ObjectHideFlags: 0
@@ -4860,6 +5078,127 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!82 &1525299623
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525299617}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1525299624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525299617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411e729afed24c62a04e2b99d9122e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binds:
+  - MemberName: GunTake1
+    Object: {fileID: 8300000, guid: e624b7e6ac86c344e94df035e25283e5, type: 3}
+  - MemberName: GunTake2
+    Object: {fileID: 8300000, guid: 13c12a42cb32a604ea7b8e10b771fd69, type: 3}
+  - MemberName: GunTake3
+    Object: {fileID: 8300000, guid: 38d6e819c6d33794fb6301b0016799a9, type: 3}
+  - MemberName: GunTake4
+    Object: {fileID: 8300000, guid: 9fc66bce2a0508e4c9ff3f68a9098f9b, type: 3}
+  - MemberName: GunTake5
+    Object: {fileID: 8300000, guid: 4fd2a756873c71e499c55a785dd40a15, type: 3}
+  - MemberName: SelfAudioSource
+    Object: {fileID: 1525299623}
 --- !u!1 &1536973100
 GameObject:
   m_ObjectHideFlags: 0
@@ -5978,6 +6317,7 @@ GameObject:
   - component: {fileID: 1769165515}
   - component: {fileID: 1769165516}
   - component: {fileID: 1769165517}
+  - component: {fileID: 1769165518}
   m_Layer: 3
   m_Name: MP5
   m_TagString: Untagged
@@ -6023,6 +6363,7 @@ MonoBehaviour:
   ViewControllerFullTypeName: 
   ShootSounds:
   - {fileID: 8300000, guid: b25774619551da549bccf95ed6f0f6f1, type: 3}
+  ReloadSound: {fileID: 8300000, guid: 963ee98f008e53a4dbb57595319cd3c1, type: 3}
   Sprite: {fileID: 1620050460}
   Bullet: {fileID: 655880156}
   SelfAudioSource: {fileID: 1769165516}
@@ -6137,6 +6478,22 @@ MonoBehaviour:
   Binds:
   - MemberName: SelfAudioSource
     Object: {fileID: 1769165516}
+--- !u!114 &1769165518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769165513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: MP5
+  CustomComment: 
+  mComponentName: QFramework.Gungeon.MP5
 --- !u!1 &1778840535
 GameObject:
   m_ObjectHideFlags: 0
@@ -6149,6 +6506,7 @@ GameObject:
   - component: {fileID: 1778840537}
   - component: {fileID: 1778840539}
   - component: {fileID: 1778840538}
+  - component: {fileID: 1778840540}
   m_Layer: 3
   m_Name: Bow
   m_TagString: Untagged
@@ -6298,6 +6656,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 615561a8934a0214597e668d0dc92b96, type: 3}
   - {fileID: 8300000, guid: cd44e395f185f674e9361bc2a693d1d6, type: 3}
   - {fileID: 8300000, guid: 92e42f651b8368b4f824480657b45a97, type: 3}
+  ReloadSound: {fileID: 8300000, guid: d75109697e85e4341a6b990b76176ffa, type: 3}
   Sprite: {fileID: 1399494065}
   Bullet: {fileID: 206246579}
   Ready: {fileID: 704753868}
@@ -6317,6 +6676,22 @@ MonoBehaviour:
   Binds:
   - MemberName: SelfAudioSource
     Object: {fileID: 1778840537}
+--- !u!114 &1778840540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778840535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: Bow
+  CustomComment: 
+  mComponentName: QFramework.Gungeon.Bow
 --- !u!1 &1883776795
 GameObject:
   m_ObjectHideFlags: 0
@@ -6329,6 +6704,7 @@ GameObject:
   - component: {fileID: 1883776797}
   - component: {fileID: 1883776799}
   - component: {fileID: 1883776798}
+  - component: {fileID: 1883776800}
   m_Layer: 3
   m_Name: AK
   m_TagString: Untagged
@@ -6470,6 +6846,7 @@ MonoBehaviour:
   ViewControllerFullTypeName: 
   ShootSounds:
   - {fileID: 8300000, guid: bc9b151ac4cf2c841bfdee1aa17a88af, type: 3}
+  ReloadSound: {fileID: 8300000, guid: a850b775587c2dc45be5ca18c6f51213, type: 3}
   Sprite: {fileID: 737876092}
   Bullet: {fileID: 208517952}
   SelfAudioSource: {fileID: 1883776797}
@@ -6491,6 +6868,22 @@ MonoBehaviour:
     Object: {fileID: 1883776797}
   - MemberName: AKShootEnd
     Object: {fileID: 8300000, guid: 8ce85719c51782f4b9d7a4f8943562ef, type: 3}
+--- !u!114 &1883776800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883776795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: AK
+  CustomComment: 
+  mComponentName: QFramework.Gungeon.AK
 --- !u!1 &1899733803
 GameObject:
   m_ObjectHideFlags: 0

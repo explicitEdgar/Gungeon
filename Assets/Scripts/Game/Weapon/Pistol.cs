@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 namespace QFramework.Gungeon
 {
@@ -15,14 +16,16 @@ namespace QFramework.Gungeon
 
         public ShootDuration shootDuration = new ShootDuration(0.4f);
 
-        private void Start()
+        public ShootLight shootLight = new ShootLight();
+
+        public override void OnGunUse()
         {
             clip.UIReload();
         }
 
         public override void Reload()
         {
-            clip.Reload();
+            clip.Reload(ReloadSound);
         }
 
         public override void ShootDown(Vector2 direction)
@@ -35,10 +38,12 @@ namespace QFramework.Gungeon
                 bullet.transform.position = BulletPrefab.transform.position;
                 bullet.direction = direction;
                 bullet.gameObject.SetActive(true);
-
+                
                 var soundIndex = Random.Range(0, ShootSounds.Count);
                 AudioPlayer.clip = ShootSounds[soundIndex];
                 AudioPlayer.Play();
+
+                shootLight.ShowLight(BulletPrefab.Position2D(), direction);
 
                 clip.UseBullet();
             }

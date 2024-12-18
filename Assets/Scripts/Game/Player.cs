@@ -21,8 +21,14 @@ namespace QFramework.Gungeon
 
         public List<Gun> Gunlist = new List<Gun>();
 
+        public List<AudioClip> gunTakeSfxs = new List<AudioClip>();
+
+        public static Player Default;
+
         private void Awake()
         {
+            Default = this;
+
             Gunlist.Add(AK);
             Gunlist.Add(AWP);
             Gunlist.Add(Bow);
@@ -32,6 +38,12 @@ namespace QFramework.Gungeon
             Gunlist.Add(RocketGun);
             Gunlist.Add(ShotGun);
 
+            gunTakeSfxs.Add(GunTake1);
+            gunTakeSfxs.Add(GunTake2);
+            gunTakeSfxs.Add(GunTake3);
+            gunTakeSfxs.Add(GunTake4);
+            gunTakeSfxs.Add(GunTake5);
+
             UseGun(0);
         }
 
@@ -40,12 +52,22 @@ namespace QFramework.Gungeon
             gun.Hide();
             gun = Gunlist[index];
             gun.Show();
+            gun.OnGunUse();
+
+            var gunTakeSfx = gunTakeSfxs.GetRandomItem();
+            SelfAudioSource.clip = gunTakeSfx;
+            SelfAudioSource.Play();
         }
 
         // Start is called before the first frame update
         void Start()
         {
 
+        }
+
+        private void OnDestroy()
+        {
+            Default.DestroySelf();
         }
 
         // Update is called once per frame
@@ -68,22 +90,15 @@ namespace QFramework.Gungeon
             if (bulletDirection.x > 0)
             {
                 weapon.transform.localScale = new Vector3(1, 1, 1);
+                spriteRenderer.flipX = false;
             }
-            else
+            else if(bulletDirection.x < 0)
             {
                 weapon.transform.localScale = new Vector3(1, -1, 1);
+                spriteRenderer.flipX = true;
             }
 
             mrigidbody2D.velocity = new Vector3(horizontal, vertical).normalized * 5;
-
-            if (horizontal < 0)
-            {
-                spriteRenderer.flipX = true;
-            }
-            else
-            {
-                spriteRenderer.flipX = false;
-            }
 
             if (Input.GetMouseButtonDown(0))
             {

@@ -15,14 +15,16 @@ namespace QFramework.Gungeon
 
         public ShootDuration shootDuration = new ShootDuration(0.1f);
 
-        private void Start()
+        public ShootLight shootLight = new ShootLight();
+
+        public override void OnGunUse()
         {
             clip.UIReload();
         }
 
         public override void Reload()
         {
-            clip.Reload();
+            clip.Reload(ReloadSound);
         }
 
         public void Shoot(Vector2 direction)
@@ -34,6 +36,8 @@ namespace QFramework.Gungeon
                 bullet.direction = direction;
                 bullet.gameObject.SetActive(true);
 
+                shootLight.ShowLight(BulletPrefab.Position2D(), direction);
+
                 clip.UseBullet();
             }
         }
@@ -43,9 +47,7 @@ namespace QFramework.Gungeon
             if (!clip.CanShoot) return;
             Shoot(direction);
 
-            AudioPlayer.clip = ShootSounds[0];
-            AudioPlayer.loop = true;
-            AudioPlayer.Play();
+            TryPlayShootSound(true);
         }
 
         public override void Shooting(Vector2 direction)

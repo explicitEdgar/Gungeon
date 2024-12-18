@@ -11,14 +11,14 @@ namespace QFramework.Gungeon
 
         private Clip clip = new Clip(1);
 
-        private void Start()
+        public override void OnGunUse()
         {
             clip.UIReload();
         }
 
         public override void Reload()
         {
-            clip.Reload();
+            clip.Reload(ReloadSound);
         }
 
         public void Shoot(Vector2 pos, Vector2 direction)
