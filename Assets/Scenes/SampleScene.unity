@@ -748,7 +748,7 @@ MonoBehaviour:
   ViewControllerFullTypeName: 
   ShootSounds:
   - {fileID: 8300000, guid: a47ae33fddc18f2458dd9e49e7bd97bf, type: 3}
-  ReloadSound: {fileID: 8300000, guid: b20694c1c6483a04ebc47c3e07eaaa19, type: 3}
+  reloadSound: {fileID: 8300000, guid: b20694c1c6483a04ebc47c3e07eaaa19, type: 3}
   Sprite: {fileID: 53095168}
   Bullet: {fileID: 1470137571}
   SelfAudioSource: {fileID: 82444507}
@@ -1045,7 +1045,7 @@ MonoBehaviour:
   ShootSounds:
   - {fileID: 8300000, guid: 27f60e62abb5b4648a67bf6d07203670, type: 3}
   - {fileID: 8300000, guid: 15320fba090434d45b149eeb404f1256, type: 3}
-  ReloadSound: {fileID: 8300000, guid: 8ff2120254c5acc4ba83a9b4a6f74ebf, type: 3}
+  reloadSound: {fileID: 8300000, guid: 8ff2120254c5acc4ba83a9b4a6f74ebf, type: 3}
   Sprite: {fileID: 1536973102}
   Bullet: {fileID: 880631929}
   SelfAudioSource: {fileID: 139901357}
@@ -1836,7 +1836,7 @@ MonoBehaviour:
   ViewControllerFullTypeName: QFramework.Gungeon.Gun
   ShootSounds:
   - {fileID: 8300000, guid: 2f5fd0b08675ec7409d0ce339c07cac1, type: 3}
-  ReloadSound: {fileID: 8300000, guid: 8ff2120254c5acc4ba83a9b4a6f74ebf, type: 3}
+  reloadSound: {fileID: 8300000, guid: 8ff2120254c5acc4ba83a9b4a6f74ebf, type: 3}
   Sprite: {fileID: 1696435961}
   Bullet: {fileID: 80240911}
   SelfAudioSource: {fileID: 383152872}
@@ -3287,7 +3287,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 80bbb2ad3f504c547b8fd9ff97dc2f11, type: 3}
   - {fileID: 8300000, guid: 2a671a4dad20ca04290707c02069ee9e, type: 3}
   - {fileID: 8300000, guid: 2eadb06290bcb7f49afc6ba984620bf5, type: 3}
-  ReloadSound: {fileID: 8300000, guid: 5fd48f6922f51a241bfdd89576efaefc, type: 3}
+  reloadSound: {fileID: 8300000, guid: 5fd48f6922f51a241bfdd89576efaefc, type: 3}
   Sprite: {fileID: 1733933298}
   Bullet: {fileID: 1614870224}
   SelfAudioSource: {fileID: 934730587}
@@ -4503,7 +4503,7 @@ MonoBehaviour:
   ViewControllerFullTypeName: 
   ShootSounds:
   - {fileID: 8300000, guid: 64b31e63ab48d0e428910c2b4adce453, type: 3}
-  ReloadSound: {fileID: 8300000, guid: b20694c1c6483a04ebc47c3e07eaaa19, type: 3}
+  reloadSound: {fileID: 8300000, guid: b20694c1c6483a04ebc47c3e07eaaa19, type: 3}
   Sprite: {fileID: 184169038}
   Bullet: {fileID: 1496306652}
   SelfAudioSource: {fileID: 1490392121}
@@ -6363,7 +6363,7 @@ MonoBehaviour:
   ViewControllerFullTypeName: 
   ShootSounds:
   - {fileID: 8300000, guid: b25774619551da549bccf95ed6f0f6f1, type: 3}
-  ReloadSound: {fileID: 8300000, guid: 963ee98f008e53a4dbb57595319cd3c1, type: 3}
+  reloadSound: {fileID: 8300000, guid: 963ee98f008e53a4dbb57595319cd3c1, type: 3}
   Sprite: {fileID: 1620050460}
   Bullet: {fileID: 655880156}
   SelfAudioSource: {fileID: 1769165516}
@@ -6656,7 +6656,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 615561a8934a0214597e668d0dc92b96, type: 3}
   - {fileID: 8300000, guid: cd44e395f185f674e9361bc2a693d1d6, type: 3}
   - {fileID: 8300000, guid: 92e42f651b8368b4f824480657b45a97, type: 3}
-  ReloadSound: {fileID: 8300000, guid: d75109697e85e4341a6b990b76176ffa, type: 3}
+  reloadSound: {fileID: 8300000, guid: d75109697e85e4341a6b990b76176ffa, type: 3}
   Sprite: {fileID: 1399494065}
   Bullet: {fileID: 206246579}
   Ready: {fileID: 704753868}
@@ -6846,7 +6846,7 @@ MonoBehaviour:
   ViewControllerFullTypeName: 
   ShootSounds:
   - {fileID: 8300000, guid: bc9b151ac4cf2c841bfdee1aa17a88af, type: 3}
-  ReloadSound: {fileID: 8300000, guid: a850b775587c2dc45be5ca18c6f51213, type: 3}
+  reloadSound: {fileID: 8300000, guid: a850b775587c2dc45be5ca18c6f51213, type: 3}
   Sprite: {fileID: 737876092}
   Bullet: {fileID: 208517952}
   SelfAudioSource: {fileID: 1883776797}

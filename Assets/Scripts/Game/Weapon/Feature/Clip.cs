@@ -8,9 +8,13 @@ namespace QFramework.Gungeon
 
         public int currentClipBullet;
 
+        public int NeedCount => clipBullet - currentClipBullet;
+
         public bool CanShoot => currentClipBullet > 0 && !reloading;
 
         public bool reloading = false;
+
+        public bool Full => currentClipBullet == clipBullet;
 
         public Clip(int clipBullet)
         {
@@ -18,15 +22,16 @@ namespace QFramework.Gungeon
             currentClipBullet = this.clipBullet;
         }
 
-        public void Reload(AudioClip reloadSound)
+        public void Reload(AudioClip reloadSound,int needCount = -1)
         {
+            if (needCount == -1) needCount = NeedCount;
             reloading = true;
             ActionKit.Sequence()
                 .PlaySound(reloadSound)
                 .Callback(() =>
                 {
                     reloading = false;
-                    currentClipBullet = clipBullet;
+                    currentClipBullet += needCount;
                     UIReload();
                 }).StartCurrentScene();
         }
@@ -39,7 +44,7 @@ namespace QFramework.Gungeon
 
         public void UIReload()
         {
-            GameUI.Default.GunInfo.text = "弹夹容量:" + currentClipBullet + "/" + clipBullet + "(按R换弹)" ;
+            GameUI.UpdateGunInfo(this);
         }
 
 

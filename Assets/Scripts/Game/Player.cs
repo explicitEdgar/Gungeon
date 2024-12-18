@@ -112,9 +112,10 @@ namespace QFramework.Gungeon
             {
                 gun.ShootUp(bulletDirection);
             }
-            if (Input.GetKey(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.R))
             {
                 gun.Reload();
+                Debug.Log("ºÏ≤‚µΩR ‰»Î");
             }
             if (Input.GetKeyDown(KeyCode.E))
             {

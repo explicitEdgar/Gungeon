@@ -7,6 +7,8 @@ public class PlayerBullet : MonoBehaviour
     public Vector2 direction;
 
     private Rigidbody2D mRigidbody2D;
+
+    public float Damage { get; set; } = 1;
     private void Awake()
     {
         mRigidbody2D = GetComponent<Rigidbody2D>();
@@ -28,7 +30,7 @@ public class PlayerBullet : MonoBehaviour
     {
         if(other.gameObject.GetComponent<Enemy>())
         {
-            other.gameObject.GetComponent<Enemy>().Hurt(1);
+            other.gameObject.GetComponent<Enemy>().Hurt(Damage);
         }
         Destroy(gameObject);
     }

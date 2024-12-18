@@ -17,6 +17,8 @@ namespace QFramework.Gungeon
 
         public ShootLight shootLight = new ShootLight();
 
+        public override BulletBag bulletBag { get; set; } = new BulletBag(60, 60);
+
         public override void OnGunUse()
         {
             clip.UIReload();
@@ -24,7 +26,7 @@ namespace QFramework.Gungeon
 
         public override void Reload()
         {
-            clip.Reload(ReloadSound);
+            bulletBag.Reload(clip, reloadSound);
         }
 
         public void Shoot(Vector2 direction)
@@ -34,6 +36,7 @@ namespace QFramework.Gungeon
                 var bullet = Instantiate(BulletPrefab);
                 bullet.transform.position = BulletPrefab.transform.position;
                 bullet.direction = direction;
+                bullet.Damage = Random.Range(1.0f, 2.0f);
                 bullet.gameObject.SetActive(true);
 
                 shootLight.ShowLight(BulletPrefab.Position2D(), direction);
@@ -45,7 +48,7 @@ namespace QFramework.Gungeon
         public override void ShootDown(Vector2 direction)
         {
             if (!clip.CanShoot) return;
-            Shoot(direction);
+            //Shoot(direction);
 
             TryPlayShootSound(true);
         }

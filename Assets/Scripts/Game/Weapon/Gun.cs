@@ -10,12 +10,13 @@ namespace QFramework.Gungeon
 
         public List<AudioClip> ShootSounds = new List<AudioClip>();
 
-        public AudioClip ReloadSound;
+        public AudioClip reloadSound;
 
-        public abstract PlayerBullet BulletPrefab { get;  }
+        public abstract PlayerBullet BulletPrefab { get; }
 
         public abstract AudioSource AudioPlayer { get; }
 
+        public virtual BulletBag bulletBag { get; set; }
 
 
         public virtual void ShootDown(Vector2 direction)
