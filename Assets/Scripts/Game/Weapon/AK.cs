@@ -65,20 +65,19 @@ namespace QFramework.Gungeon
             if(!clip.CanShoot)
             {
                 AudioPlayer.Stop();
-
-                AudioPlayer.clip = AKShootEnd;
-                AudioPlayer.loop = false;
-                AudioPlayer.Play();
             }
         }
 
         public override void ShootUp(Vector2 direction)
         {
-            AudioPlayer.Stop();
+            if (clip.CanShoot)
+            {
+                AudioPlayer.Stop();
 
-            AudioPlayer.clip = AKShootEnd;
-            AudioPlayer.loop = false;
-            AudioPlayer.Play();
+                AudioPlayer.clip = AKShootEnd;
+                AudioPlayer.loop = false;
+                AudioPlayer.Play();
+            }
         }
     }
 }
