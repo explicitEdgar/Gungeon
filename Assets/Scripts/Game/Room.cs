@@ -15,14 +15,37 @@ namespace QFramework.Gungeon
         }
 
         public RoomStates State { get; set; } = RoomStates.Close;
+
 		private List<Vector3> mEnemyGeneratePoses = new List<Vector3>();
         private List<Door> doors = new List<Door>();
         private HashSet<Enemy> mEnemies = new HashSet<Enemy>();
+        private List<EnemyWaveConfig> mWaves = new List<EnemyWaveConfig>()
+        {
+            new EnemyWaveConfig(),
+            new EnemyWaveConfig(),
+            new EnemyWaveConfig(),
+        };
+        public EnemyWaveConfig curWave;
+
+
         public RoomConfig Config { get; private set; }
         public Room WithConfig(RoomConfig roomConfig)
         {
             Config = roomConfig;
             return this;
+        }
+
+        public void GenerateEnemy()
+        {
+            mWaves.RemoveAt(0);
+            foreach (var enemyGeneratePose in mEnemyGeneratePoses)
+            {
+                var newEnemy = Instantiate(LevelController.Default.enemy);
+                newEnemy.transform.position = enemyGeneratePose;
+                newEnemy.gameObject.SetActive(true);
+
+                mEnemies.Add(newEnemy);
+            }
         }
 
         void Start()
@@ -40,12 +63,19 @@ namespace QFramework.Gungeon
                 {
                     if(State == RoomStates.PlayerIn)
                     {
-                        State = RoomStates.Unlocked;
-                    }
+                        if (mWaves.Count > 0)
+                        {
+                            GenerateEnemy();
+                        }
+                        else
+                        {
+                            State = RoomStates.Unlocked;
+                            foreach (var door in doors)
+                            {
+                                door.Hide();
+                            }
+                        }
 
-                    foreach (var door in doors)
-                    {
-                        door.Hide();
                     }
                 }
             }
@@ -64,14 +94,7 @@ namespace QFramework.Gungeon
                 {
                     State = RoomStates.PlayerIn;
 
-                    foreach (var enemyGeneratePose in mEnemyGeneratePoses)
-                    {
-                        var newEnemy = Instantiate(LevelController.Default.enemy);
-                        newEnemy.transform.position = enemyGeneratePose;
-                        newEnemy.gameObject.SetActive(true);
-
-                        mEnemies.Add(newEnemy);
-                    }
+                    GenerateEnemy();
 
                     foreach (var door in doors)
                     {

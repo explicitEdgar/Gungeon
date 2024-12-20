@@ -39,6 +39,10 @@ namespace QFramework.Gungeon
         public void UseBullet()
         {
             this.currentClipBullet--;
+            if(currentClipBullet <= 0)
+            {
+                Player.DisplayText("我没有子弹了", 2f);
+            }
             UIReload();
         }
 

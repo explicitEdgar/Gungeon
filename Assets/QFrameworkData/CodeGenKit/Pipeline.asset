@@ -19,18 +19,50 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: QFramework.Gungeon.Room
-      PathToRoot: Room
-      MemberName: Room
-    - TypeName: QFramework.Gungeon.Door
-      PathToRoot: Door
-      MemberName: Door
+    - TypeName: QFramework.Gungeon.Pistol
+      PathToRoot: Weapon/Pistol
+      MemberName: Pistol
+    - TypeName: QFramework.Gungeon.MP5
+      PathToRoot: Weapon/MP5
+      MemberName: MP5
+    - TypeName: QFramework.Gungeon.ShotGun
+      PathToRoot: Weapon/ShotGun
+      MemberName: ShotGun
+    - TypeName: QFramework.Gungeon.AK
+      PathToRoot: Weapon/AK
+      MemberName: AK
+    - TypeName: QFramework.Gungeon.AWP
+      PathToRoot: Weapon/AWP
+      MemberName: AWP
+    - TypeName: QFramework.Gungeon.Laser
+      PathToRoot: Weapon/Laser
+      MemberName: Laser
+    - TypeName: QFramework.Gungeon.Bow
+      PathToRoot: Weapon/Bow
+      MemberName: Bow
+    - TypeName: QFramework.Gungeon.RocketGun
+      PathToRoot: Weapon/RocketGun
+      MemberName: RocketGun
+    - TypeName: UnityEngine.SpriteRenderer
+      PathToRoot: Weapon/GunShootLight
+      MemberName: GunShootLight
+    - TypeName: UnityEngine.UI.Text
+      PathToRoot: Canvas/Text
+      MemberName: Text
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: LevelController
+    ClassName: Player
     Namespace: QFramework.Gungeon
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
-      partial class LevelController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class Player : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:00ecb702-db21-465d-b51d-81d2234fb7ec\r\nusing UnityEngine;\r\n\r\nnamespace
-      QFramework.Gungeon\r\n{\r\n\tpublic partial class LevelController\r\n\t{\r\n\r\n\t\tpublic
-      QFramework.Gungeon.Room Room;\r\n\r\n\t\tpublic QFramework.Gungeon.Door Door;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:ec791a91-cf04-45e2-9cbe-21116c385972\r\nusing UnityEngine;\r\n\r\nnamespace
+      QFramework.Gungeon\r\n{\r\n\tpublic partial class Player\r\n\t{\r\n\r\n\t\tpublic
+      QFramework.Gungeon.Pistol Pistol;\r\n\r\n\t\tpublic QFramework.Gungeon.MP5
+      MP5;\r\n\r\n\t\tpublic QFramework.Gungeon.ShotGun ShotGun;\r\n\r\n\t\tpublic
+      QFramework.Gungeon.AK AK;\r\n\r\n\t\tpublic QFramework.Gungeon.AWP AWP;\r\n\r\n\t\tpublic
+      QFramework.Gungeon.Laser Laser;\r\n\r\n\t\tpublic QFramework.Gungeon.Bow Bow;\r\n\r\n\t\tpublic
+      QFramework.Gungeon.RocketGun RocketGun;\r\n\r\n\t\tpublic UnityEngine.SpriteRenderer
+      GunShootLight;\r\n\r\n\t\tpublic UnityEngine.UI.Text Text;\r\n\r\n\t\tpublic
+      UnityEngine.AudioClip GunTake1;\r\n\r\n\t\tpublic UnityEngine.AudioClip GunTake2;\r\n\r\n\t\tpublic
+      UnityEngine.AudioClip GunTake3;\r\n\r\n\t\tpublic UnityEngine.AudioClip GunTake4;\r\n\r\n\t\tpublic
+      UnityEngine.AudioClip GunTake5;\r\n\r\n\t\tpublic UnityEngine.AudioSource SelfAudioSource;\r\n\r\n\t}\r\n}\r\n"

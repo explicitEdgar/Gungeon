@@ -86,10 +86,14 @@ namespace QFramework.Gungeon
         {
             Room.Hide();
             GenerateRoom(currentX, Config.initRoom);
-            currentX += Config.initRoom.Codes.First().Length;
-            GenerateRoom(currentX + 2, Config.normalRoom);
-            currentX += Config.normalRoom.Codes.First().Length;
-            GenerateRoom(currentX + 4, Config.finalRoom);
+            currentX += Config.initRoom.Codes.First().Length + 2;
+            GenerateRoom(currentX, Config.normalRooms.GetRandomItem());
+            currentX += Config.initRoom.Codes.First().Length + 2;
+            GenerateRoom(currentX, Config.normalRooms.GetRandomItem());
+            currentX += Config.initRoom.Codes.First().Length + 2;
+            GenerateRoom(currentX, Config.normalRooms.GetRandomItem());
+            currentX += Config.initRoom.Codes.First().Length + 2;
+            GenerateRoom(currentX, Config.finalRoom);
         }
 
         // Update is called once per frame

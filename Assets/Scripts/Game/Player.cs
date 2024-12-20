@@ -8,7 +8,20 @@ using UnityEngine;
 namespace QFramework.Gungeon
 {
     public partial class Player : ViewController
-    {
+    {   
+        public static void DisplayText(string text,float duration)
+        {
+            Default.StartCoroutine(Default.DoDisplayText(text, duration));
+        }
+
+        IEnumerator DoDisplayText(string text,float duration)
+        {
+            Text.text = text;
+            Text.Show();
+            yield return new WaitForSeconds(duration);
+            Text.Hide();
+        }
+
         public PlayerBullet playerBullet;
 
         public Rigidbody2D mrigidbody2D;
@@ -28,6 +41,8 @@ namespace QFramework.Gungeon
         private void Awake()
         {
             Default = this;
+
+            Text.Hide();
 
             Gunlist.Add(AK);
             Gunlist.Add(AWP);

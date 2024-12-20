@@ -34,7 +34,7 @@ namespace QFramework.Gungeon
             {
                 var bullet = Instantiate(BulletPrefab);
                 bullet.transform.position = BulletPrefab.transform.position;
-                bullet.direction = direction;
+                bullet.velocity = direction.normalized * 50;
                 bullet.Damage = Random.Range(8f, 10f);
                 bullet.gameObject.SetActive(true);
 

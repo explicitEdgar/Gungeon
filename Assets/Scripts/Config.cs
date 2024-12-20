@@ -11,7 +11,13 @@ namespace QFramework.Gungeon
         Normal,
         Final,
     }
-        
+
+    public class EnemyWaveConfig
+    {
+        //敌人波次配置代码
+    }
+    
+    //配置房间
     public class Config
     {
         /*
@@ -43,7 +49,9 @@ namespace QFramework.Gungeon
             .L("1                 1")
             .L("1111111111111111111");
 
-        public static RoomConfig normalRoom = new RoomConfig()
+        public static List<RoomConfig> normalRooms = new List<RoomConfig>()
+        {
+            new RoomConfig()
             .Type(RoomTypes.Normal)
             .L("1111111111111111111")
             .L("1                 1")
@@ -63,7 +71,50 @@ namespace QFramework.Gungeon
             .L("1   e        e    1")
             .L("1                 1")
             .L("1                 1")
-            .L("1111111111111111111");       
+            .L("1111111111111111111"),
+            new RoomConfig()
+            .Type(RoomTypes.Normal)
+            .L("1111111111111111111")
+            .L("1                 1")
+            .L("1                 1")
+            .L("1   1e      e1    1")
+            .L("1   e        e    1")
+            .L("1                 1")
+            .L("1                 1")
+            .L("d                 d")
+            .L("d        1        d")
+            .L("d                 d")
+            .L("1                 1")
+            .L("1                 1")
+            .L("1                 1")
+            .L("1                 1")
+            .L("1   e        e    1")
+            .L("1   1e      e1    1")
+            .L("1                 1")
+            .L("1                 1")
+            .L("1111111111111111111"),
+            new RoomConfig()
+            .Type(RoomTypes.Normal)
+            .L("1111111111111111111")
+            .L("1                 1")
+            .L("1                 1")
+            .L("1   1111  1111    1")
+            .L("1   1        1    1")
+            .L("1   1        1    1")
+            .L("1   1        1    1")
+            .L("d       eee       d")
+            .L("d       eee       d")
+            .L("d       eee       d")
+            .L("1   1        1    1")
+            .L("1   1        1    1")
+            .L("1   1        1    1")
+            .L("1   1        1    1")
+            .L("1   1        1    1")
+            .L("1   1111  1111    1")
+            .L("1                 1")
+            .L("1                 1")
+            .L("1111111111111111111"),
+    };    
         
         public static RoomConfig finalRoom = new RoomConfig()
             .Type(RoomTypes.Final)

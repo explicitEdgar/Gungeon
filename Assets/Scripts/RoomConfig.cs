@@ -5,9 +5,11 @@ using UnityEngine;
 namespace QFramework.Gungeon
 {
     public class RoomConfig
-    {
+    {   
+        //房间类型
         public RoomTypes RoomType;
 
+        //房间生成代码
         public List<string> Codes = new List<string>();
 
         public RoomConfig Type(RoomTypes type)
