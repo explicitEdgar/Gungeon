@@ -29,12 +29,12 @@ namespace QFramework.Gungeon
                     //填满
                     clip.Reload(reloadSound, needCount);
                     RemainBulletCount -= needCount;
-                    Debug.Log("花了" + needCount);
+                    //Debug.Log("花了" + needCount);
                 }
                 else
                 {
                     //用完剩余子弹
-                    Debug.Log("花了" + RemainBulletCount);
+                    //Debug.Log("花了" + RemainBulletCount);
                     clip.Reload(reloadSound, RemainBulletCount);
                     RemainBulletCount = 0;
                 }
