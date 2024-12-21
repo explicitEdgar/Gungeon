@@ -12,7 +12,7 @@ namespace QFramework.Gungeon
 
         public override AudioSource AudioPlayer => SelfAudioSource;
 
-        private Clip clip = new Clip(15);
+        public override Clip clip { get; set; } = new Clip(15);
 
         public ShootDuration shootDuration = new ShootDuration(0.4f);
 
@@ -49,6 +49,11 @@ namespace QFramework.Gungeon
                 shootLight.ShowLight(BulletPrefab.Position2D(), direction);
 
                 clip.UseBullet();
+            }
+
+            if (!clip.CanShoot)
+            {
+                AudioKit.PlaySound("Resources://EmptyBulletSound");
             }
         }
         public override void Shooting(Vector2 direction)

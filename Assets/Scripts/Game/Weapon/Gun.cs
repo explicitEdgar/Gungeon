@@ -18,6 +18,8 @@ namespace QFramework.Gungeon
 
         public virtual BulletBag bulletBag { get; set; }
 
+        public virtual Clip clip { get; set; }
+
 
         public virtual void ShootDown(Vector2 direction)
         {
@@ -47,6 +49,19 @@ namespace QFramework.Gungeon
             AudioPlayer.clip = ShootSounds[0];
             AudioPlayer.loop = loop;
             AudioPlayer.Play();
+        }
+
+        public void TryPlayEmptySound()
+        {
+            if (!clip.CanShoot)
+            {
+                AudioPlayer.Stop();
+
+                if (Time.frameCount % 30 == 0)
+                {
+                    AudioKit.PlaySound("Resources://EmptyBulletSound");
+                }
+            }
         }
     }
 }

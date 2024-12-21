@@ -2,6 +2,7 @@ using UnityEngine;
 using QFramework;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 namespace QFramework.Gungeon
 {
@@ -35,10 +36,19 @@ namespace QFramework.Gungeon
             return this;
         }
 
+        
+
         public void GenerateEnemy()
         {
             mWaves.RemoveAt(0);
-            foreach (var enemyGeneratePose in mEnemyGeneratePoses)
+
+            var enemyCount = UnityEngine.Random.Range(3, 5 + 1);
+
+            var waveEnemyPositions = mEnemyGeneratePoses
+                .OrderByDescending(e => (Player.Default.Position2D() - e.ToVector2()).magnitude)
+                .Take(enemyCount).ToList();
+
+            foreach (var enemyGeneratePose in waveEnemyPositions)
             {
                 var newEnemy = Instantiate(LevelController.Default.enemy);
                 newEnemy.transform.position = enemyGeneratePose;

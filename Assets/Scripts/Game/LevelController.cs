@@ -3,6 +3,7 @@ using QFramework.Gungeon;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.Rendering.Universal.Internal;
 using UnityEngine.Tilemaps;
@@ -94,6 +95,25 @@ namespace QFramework.Gungeon
             GenerateRoom(currentX, Config.normalRooms.GetRandomItem());
             currentX += Config.initRoom.Codes.First().Length + 2;
             GenerateRoom(currentX, Config.finalRoom);
+
+            var roomWidth = Config.initRoom.Codes.First().Length;
+            var roomHeight = Config.initRoom.Codes.Count();
+
+            for(int index = 0;index < 4;index++)
+            {
+                currentX = index * (roomWidth + 2);
+                var doorStartX = currentX + roomWidth;
+                var doorStartY = 0 + roomHeight / 2 + 2;
+
+                for(int i = 0;i < 2;i++)
+                {
+                    floorMap.SetTile(new Vector3Int(doorStartX + i, doorStartY, 0), Floor);
+                    floorMap.SetTile(new Vector3Int(doorStartX + i, doorStartY + 1, 0), Floor);
+                    floorMap.SetTile(new Vector3Int(doorStartX + i, doorStartY - 1, 0), Floor);
+                    wallMap.SetTile(new Vector3Int(doorStartX + i, doorStartY + 2, 0), Wall);
+                    wallMap.SetTile(new Vector3Int(doorStartX + i, doorStartY - 2, 0), Wall);
+                }
+            }
         }
 
         // Update is called once per frame

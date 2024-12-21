@@ -9,7 +9,7 @@ namespace QFramework.Gungeon
 
         public override AudioSource AudioPlayer => SelfAudioSource;
 
-        private Clip clip = new Clip(8);
+        public override Clip clip { get; set; } = new Clip(8);
 
         public ShootLight shootLight = new ShootLight();
 
@@ -82,6 +82,8 @@ namespace QFramework.Gungeon
         public override void Shooting(Vector2 direction)
         {
             ShootDown(direction);
+
+            TryPlayEmptySound();
         }
     }
 }

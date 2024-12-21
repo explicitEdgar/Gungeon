@@ -9,7 +9,7 @@ namespace QFramework.Gungeon
 
         public override AudioSource AudioPlayer => SelfAudioSource;
 
-        private Clip clip = new Clip(1);
+        public override Clip clip { get; set; } = new Clip(5);
 
         public override BulletBag bulletBag { get; set; } = new BulletBag(30, 30);
 
@@ -44,15 +44,22 @@ namespace QFramework.Gungeon
 
         public override void ShootDown(Vector2 direction)
         {
-            if (!clip.CanShoot) return;
+            if (!clip.CanShoot)
+            {
+                TryPlayEmptySound();
+                return;
+            }
             mCurrentScd = 0f;
             isPressing = true;
         }
 
         public override void Shooting(Vector2 direction)
         {
-            if (!clip.CanShoot) return;
-            if (isPressing)
+            if (!clip.CanShoot)
+            {
+                return;
+            }
+                if (isPressing)
             {
                 mCurrentScd += Time.deltaTime;
             }

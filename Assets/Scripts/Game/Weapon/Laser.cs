@@ -9,7 +9,7 @@ namespace QFramework.Gungeon
 
         public override AudioSource AudioPlayer => SelfAudioSource;
 
-        private Clip clip = new Clip(1000);
+        public override Clip clip { get; set; } = new Clip(1000);
 
         private bool mShooting = false;
 
@@ -71,7 +71,7 @@ namespace QFramework.Gungeon
             }
             else
             {
-                AudioPlayer.Stop();
+                TryPlayEmptySound();
 
                 SelfLineRenderer.enabled = false;
                 mShooting = false;

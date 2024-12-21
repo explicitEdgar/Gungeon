@@ -39,8 +39,10 @@ namespace QFramework.Gungeon
         public static Player Default;
 
         private void Awake()
-        {
+        {   
             Default = this;
+
+            Application.targetFrameRate = 60;
 
             Text.Hide();
 
