@@ -7,6 +7,7 @@ using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.Rendering.Universal.Internal;
 using UnityEngine.Tilemaps;
+using static QFramework.Gungeon.RoomConfig;
 
 namespace QFramework.Gungeon
 {
@@ -82,38 +83,196 @@ namespace QFramework.Gungeon
             enemy.gameObject.SetActive(false);
         }
 
+        public class RoomGenerateNode
+        {
+            public RoomNode Node { get; set; }
+
+            public HashSet<DoorDirections> Directions { get; set; }
+            public int X { get; set; }
+            public int Y { get; set; }
+        }
+
+        public enum DoorDirections
+        { 
+            Up,
+            Down,
+            Left,
+            Right
+        }
+
         // Start is called before the first frame update
         void Start()
         {
             Room.Hide();
-            GenerateRoom(currentX, Config.initRoom);
-            currentX += Config.initRoom.Codes.First().Length + 2;
-            GenerateRoom(currentX, Config.normalRooms.GetRandomItem());
-            currentX += Config.initRoom.Codes.First().Length + 2;
-            GenerateRoom(currentX, Config.normalRooms.GetRandomItem());
-            currentX += Config.initRoom.Codes.First().Length + 2;
-            GenerateRoom(currentX, Config.normalRooms.GetRandomItem());
-            currentX += Config.initRoom.Codes.First().Length + 2;
-            GenerateRoom(currentX, Config.finalRoom);
 
-            var roomWidth = Config.initRoom.Codes.First().Length;
-            var roomHeight = Config.initRoom.Codes.Count();
+            
 
-            for(int index = 0;index < 4;index++)
+            var layout = new RoomNode(RoomTypes.Init);
+            layout.Next(RoomTypes.Normal)
+                .Next(RoomTypes.Normal)
+                .Next(RoomTypes.Chest)
+                .Next(RoomTypes.Normal)
+                .Next(RoomTypes.Normal)
+                .Next(RoomTypes.Normal)
+                .Next(RoomTypes.Final);
+
+            var layoutGrid = new DynaGrid<RoomGenerateNode>();
+
+            void GenerateLayoutBFS(RoomNode roomNode, DynaGrid<RoomGenerateNode> layoutGrid)
             {
-                currentX = index * (roomWidth + 2);
-                var doorStartX = currentX + roomWidth;
-                var doorStartY = 0 + roomHeight / 2 + 2;
-
-                for(int i = 0;i < 2;i++)
+                var queue = new Queue<RoomGenerateNode>();
+                queue.Enqueue(new RoomGenerateNode()
                 {
-                    floorMap.SetTile(new Vector3Int(doorStartX + i, doorStartY, 0), Floor);
-                    floorMap.SetTile(new Vector3Int(doorStartX + i, doorStartY + 1, 0), Floor);
-                    floorMap.SetTile(new Vector3Int(doorStartX + i, doorStartY - 1, 0), Floor);
-                    wallMap.SetTile(new Vector3Int(doorStartX + i, doorStartY + 2, 0), Wall);
-                    wallMap.SetTile(new Vector3Int(doorStartX + i, doorStartY - 2, 0), Wall);
+                    X = 0,
+                    Y = 0,
+                    Node = roomNode,
+                    Directions = new HashSet<DoorDirections>(),
+                });
+
+                while (queue.Count > 0)
+                {
+                    var roomGenerateNode = queue.Dequeue();
+
+                    layoutGrid[roomGenerateNode.X, roomGenerateNode.Y] = roomGenerateNode;
+
+                    var availableDirections = new List<DoorDirections>();
+                    if (layoutGrid[roomGenerateNode.X + 1, roomGenerateNode.Y] == null)
+                    {
+                        availableDirections.Add(DoorDirections.Right);
+                    }
+                    if (layoutGrid[roomGenerateNode.X - 1, roomGenerateNode.Y] == null)
+                    {
+                        availableDirections.Add(DoorDirections.Left);
+                    }
+                    if (layoutGrid[roomGenerateNode.X, roomGenerateNode.Y + 1] == null)
+                    {
+                        availableDirections.Add(DoorDirections.Up);
+                    }
+                    if (layoutGrid[roomGenerateNode.X, roomGenerateNode.Y - 1] == null)
+                    {
+                        availableDirections.Add(DoorDirections.Down);
+                    }
+
+
+                    foreach(var roomNodeChild in roomGenerateNode.Node.Children)
+                    {
+                        var nextRoomDirection = availableDirections.GetRandomItem();
+
+                        if (nextRoomDirection == DoorDirections.Right)
+                        {
+                            roomGenerateNode.Directions.Add(DoorDirections.Right);
+                            queue.Enqueue(new RoomGenerateNode
+                            {
+                                X = roomGenerateNode.X + 1,
+                                Y = roomGenerateNode.Y,
+                                Node = roomNodeChild,
+                                Directions = new HashSet<DoorDirections>()
+                                {
+                                    DoorDirections.Left
+                                },
+                            });
+                        }
+                        else if (nextRoomDirection == DoorDirections.Left)
+                        {
+                            roomGenerateNode.Directions.Add(DoorDirections.Left);
+                            queue.Enqueue(new RoomGenerateNode
+                            {
+                                X = roomGenerateNode.X - 1,
+                                Y = roomGenerateNode.Y,
+                                Node = roomNodeChild,
+                                Directions = new HashSet<DoorDirections>()
+                                {
+                                    DoorDirections.Right
+                                },
+                            });
+                        }
+                        else if (nextRoomDirection == DoorDirections.Up)
+                        {
+                            roomGenerateNode.Directions.Add(DoorDirections.Up);
+                            queue.Enqueue(new RoomGenerateNode
+                            {
+                                X = roomGenerateNode.X,
+                                Y = roomGenerateNode.Y + 1,
+                                Node = roomNodeChild,
+                                Directions = new HashSet<DoorDirections>()
+                                {
+                                    DoorDirections.Down
+                                },
+                            });
+                        }
+                        else if (nextRoomDirection == DoorDirections.Down)
+                        {
+                            roomGenerateNode.Directions.Add(DoorDirections.Down);
+                            queue.Enqueue(new RoomGenerateNode
+                            {
+                                X = roomGenerateNode.X,
+                                Y = roomGenerateNode.Y - 1,
+                                Node = roomNodeChild,
+                                Directions = new HashSet<DoorDirections>()
+                                {
+                                    DoorDirections.Up
+                                },
+                            });
+                        }
+                    }
                 }
             }
+
+            GenerateLayoutBFS(layout, layoutGrid);
+
+            layoutGrid.ForEach((x, y, generateNode) =>
+            {
+                GenerateRoomByNode(x, y, generateNode);
+            });
+
+            currentX = 0;
+            void GenerateRoomByNode(int x,int y,RoomGenerateNode roomNode)
+            {
+                var roomPosX = x * (Config.initRoom.Codes.First().Length + 2);
+                var roomPosY = y * (Config.initRoom.Codes.Count + 2);
+
+                if(roomNode.Node.RoomType == RoomTypes.Init)
+                {
+                    GenerateRoom(roomPosX,roomPosY,Config.initRoom, roomNode);
+                }
+                else if(roomNode.Node.RoomType == RoomTypes.Normal)
+                {
+                    GenerateRoom(roomPosX, roomPosY,Config.normalRooms.GetRandomItem(), roomNode);
+                }
+                else if (roomNode.Node.RoomType == RoomTypes.Chest)
+                {
+                    GenerateRoom(roomPosX, roomPosY, Config.chestRoom, roomNode);
+                }
+                else if(roomNode.Node.RoomType == RoomTypes.Final)
+                {
+                    GenerateRoom(roomPosX, roomPosY, Config.finalRoom, roomNode);
+                }
+            }
+           
+            void GenerateCorridor(int roomNumber)
+            {
+                var roomWidth = Config.initRoom.Codes.First().Length;
+                var roomHeight = Config.initRoom.Codes.Count();
+
+                for (int index = 0; index < roomNumber - 1; index++)
+                {
+                    currentX = index * (roomWidth + 2);
+                    var doorStartX = currentX + roomWidth;
+                    var doorStartY = 0 + roomHeight / 2 + 2;
+
+                    for (int i = 0; i < 2; i++)
+                    {
+                        floorMap.SetTile(new Vector3Int(doorStartX + i, doorStartY, 0), Floor);
+                        floorMap.SetTile(new Vector3Int(doorStartX + i, doorStartY + 1, 0), Floor);
+                        floorMap.SetTile(new Vector3Int(doorStartX + i, doorStartY - 1, 0), Floor);
+                        wallMap.SetTile(new Vector3Int(doorStartX + i, doorStartY + 2, 0), Wall);
+                        wallMap.SetTile(new Vector3Int(doorStartX + i, doorStartY - 2, 0), Wall);
+                    }
+                }
+            }
+
+            //GenerateRoomByNode(layout);
+            //GenerateCorridor(8);
         }
 
         // Update is called once per frame
@@ -127,19 +286,21 @@ namespace QFramework.Gungeon
             Default.DestroySelf();
         }
 
-        void GenerateRoom(int currentX, RoomConfig roomConfig)
+        void GenerateRoom(int currentX,int currentY, RoomConfig roomConfig,RoomGenerateNode node)
         {
             var RoomCode = roomConfig.Codes;
             var roomWidth = RoomCode[0].Length;
             var roomHeight = RoomCode.Count;
 
             var roomPosX = currentX + roomWidth * 0.5f;
-            var roomPosY = 1f + roomHeight * 0.5f;
+            var roomPosY = currentY + 1f + roomHeight * 0.5f;
 
             var room = Room.InstantiateWithParent(this)
                 .WithConfig(roomConfig)
                 .Position(roomPosX, roomPosY)
                 .Show();
+
+            room.GenerateNode = node;
 
             room.SelfBoxCollider2D.size = new Vector2(roomWidth - 2, roomHeight - 2);
     
@@ -151,7 +312,7 @@ namespace QFramework.Gungeon
                     var code = rowCode[j];
 
                     int x = j + currentX;
-                    int y = RoomCode.Count - i;
+                    int y = currentY + RoomCode.Count - i;
 
                     floorMap.SetTile(new Vector3Int(x, y, 0), Floor);
 
@@ -180,11 +341,85 @@ namespace QFramework.Gungeon
                     }
                     else if (code == 'd')
                     {
-                        var door = Door.InstantiateWithParent(room)
-                            .Position2D(new Vector3(x + 0.5f, y + 0.5f, 0))
-                            .Hide();
+                        var doorDistance = new Vector2(x + 0.5f, y + 0.5f) - new Vector2(roomPosX, roomPosY);
+                        
+                        if(doorDistance.x.Abs() > doorDistance.y.Abs())
+                        {
+                            if(doorDistance.x > 0)
+                            {
+                                if(node.Directions.Contains(DoorDirections.Right))
+                                {
+                                    var door = Door.InstantiateWithParent(room)
+                                      .Position2D(new Vector3(x + 0.5f, y + 0.5f, 0))
+                                      .Hide();  
 
-                        room.AddDoor(door);
+                                    room.AddDoor(door);
+                                }
+                                else
+                                {
+                                    wallMap.SetTile(new Vector3Int(x, y, 0), Wall);
+                                }
+                            }
+                            else
+                            {
+                                if (node.Directions.Contains(DoorDirections.Left))
+                                {
+                                    var door = Door.InstantiateWithParent(room)
+                                      .Position2D(new Vector3(x + 0.5f, y + 0.5f, 0))
+                                      .Hide();
+
+                                    room.AddDoor(door);
+                                }
+                                else
+                                {
+                                    wallMap.SetTile(new Vector3Int(x, y, 0), Wall);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (doorDistance.y > 0)
+                            {
+                                if (node.Directions.Contains(DoorDirections.Up))
+                                {
+                                    var door = Door.InstantiateWithParent(room)
+                                      .Position2D(new Vector3(x + 0.5f, y + 0.5f, 0))
+                                      .Hide();
+
+                                    room.AddDoor(door);
+                                }
+                                else
+                                {
+                                    wallMap.SetTile(new Vector3Int(x, y, 0), Wall);
+                                }
+                            }
+                            else
+                            {
+                                if (node.Directions.Contains(DoorDirections.Down))
+                                {
+                                    var door = Door.InstantiateWithParent(room)
+                                      .Position2D(new Vector3(x + 0.5f, y + 0.5f, 0))
+                                      .Hide();
+
+                                    room.AddDoor(door);
+                                }
+                                else
+                                {
+                                    wallMap.SetTile(new Vector3Int(x, y, 0), Wall);
+                                }
+                            }
+                        }
+
+
+
+
+                      
+                    }
+                    else if (code == 'c')
+                    {
+                        var newChest = Instantiate(Chest);
+                        newChest.transform.position = new Vector3(x, y, 0);
+                        newChest.gameObject.SetActive(true);
                     }
                 }
             }

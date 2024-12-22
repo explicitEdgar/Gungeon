@@ -23,5 +23,23 @@ namespace QFramework.Gungeon
             Codes.Add(code);
             return this;
         }
+
+        public class RoomNode
+        {
+            public RoomTypes RoomType = RoomTypes.Init;
+            public List<RoomNode> Children = new List<RoomNode>();
+
+            public RoomNode(RoomTypes type)
+            {
+                RoomType = type;
+            }
+
+            public RoomNode Next(RoomTypes type)
+            {
+                var roomNode = new RoomNode(type);
+                Children.Add(roomNode);
+                return roomNode;
+            }
+        }
     }
 }

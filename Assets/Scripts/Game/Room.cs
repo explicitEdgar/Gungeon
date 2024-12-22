@@ -36,7 +36,7 @@ namespace QFramework.Gungeon
             return this;
         }
 
-        
+        public LevelController.RoomGenerateNode GenerateNode { get; set; }
 
         public void GenerateEnemy()
         {
