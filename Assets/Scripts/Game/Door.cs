@@ -7,9 +7,11 @@ namespace QFramework.Gungeon
 	public partial class Door : ViewController
 	{	
 		public enum States
-		{
+		{   
+            IdleOpen,
+			IdleClose,
 			Open,
-			Close,
+            BattleClose,
 		}
 		public int X { get; set; }
 		public int Y { get; set; }
@@ -17,31 +19,45 @@ namespace QFramework.Gungeon
 
 		public FSM<States> State = new FSM<States>();
 
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Player") && State.CurrentStateId == States.IdleClose)
+            {
+                State.ChangeState(States.Open);
+            }
+        }
+
         private void Awake()
         {
-			State.State(States.Open)
-				.OnEnter(() =>
-				{
-					GetComponent<BoxCollider2D>().isTrigger = true;
-					GetComponent<SpriteRenderer>().sprite = DoorOpen;
-				})
-                .OnExit(() =>
-                {
-                    AudioKit.PlaySound("Resources://DoorOpen");
-                });
-
-            State.State(States.Close)
+            State.State(States.IdleOpen)
+               .OnEnter(() =>
+               {
+                   SelfBoxCollider2D.Disable();
+                   SelfSpriteRenderer.sprite = DoorOpen;
+               });
+            State.State(States.IdleClose)
                 .OnEnter(() =>
                 {
-                    GetComponent<BoxCollider2D>().isTrigger = false;
-                    GetComponent<SpriteRenderer>().sprite = DoorClose;
-                })
-				.OnExit(() =>
+                    SelfBoxCollider2D.isTrigger = true;
+                    SelfSpriteRenderer.sprite = DoorClose;
+                });
+            State.State(States.Open)
+				.OnEnter(() =>
 				{
 					AudioKit.PlaySound("Resources://DoorOpen");
+                    SelfBoxCollider2D.Enable(false);
+                    SelfSpriteRenderer.sprite = DoorOpen;
 				});
+            State.State(States.BattleClose)
+                .OnEnter(() =>
+                {
+                    AudioKit.PlaySound("Resources://DoorOpen");
+                    SelfBoxCollider2D.isTrigger = false;
+                    SelfBoxCollider2D.Enable(true);
+                    SelfSpriteRenderer.sprite = DoorClose;
+                });
 
-			State.StartState(States.Open);
+            State.StartState(States.IdleClose);
         }
     }
 }

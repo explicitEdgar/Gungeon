@@ -46,14 +46,17 @@ namespace QFramework.Gungeon
 
         public void TryPlayShootSound(bool loop = false)
         {
-            AudioPlayer.clip = ShootSounds[0];
-            AudioPlayer.loop = loop;
-            AudioPlayer.Play();
+            if (!ShootSounds.Contains(AudioPlayer.clip) || !AudioPlayer.isPlaying)
+            {
+                AudioPlayer.clip = ShootSounds[0];
+                AudioPlayer.loop = loop;
+                AudioPlayer.Play();
+            }
         }
 
         public void TryPlayEmptySound()
         {
-            if (!clip.CanShoot)
+            if (!clip.CanShoot && !clip.reloading)
             {
                 AudioPlayer.Stop();
 

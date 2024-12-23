@@ -59,6 +59,7 @@ namespace QFramework.Gungeon
             {
                 Shoot(direction);
                 shootDuration.RecordShootTime();
+                TryPlayShootSound(true);
             }
 
             TryPlayEmptySound();

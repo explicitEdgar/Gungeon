@@ -61,7 +61,13 @@ namespace QFramework.Gungeon
 
         void Start()
 		{
-			// Code 
+			if(Config.RoomType == RoomTypes.Init)
+            {
+                foreach(var door in Doors)
+                {
+                    door.State.ChangeState(Door.States.IdleOpen);
+                }
+            }
 		}
 
         private void Update()
@@ -109,7 +115,7 @@ namespace QFramework.Gungeon
 
                     foreach (var door in doors)
                     {
-                        door.State.ChangeState(Door.States.Close);
+                        door.State.ChangeState(Door.States.BattleClose);
                     }
                 }
             }

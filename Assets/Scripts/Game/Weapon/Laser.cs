@@ -57,6 +57,9 @@ namespace QFramework.Gungeon
                 if (shootDuration.CanShoot)
                 {
                     Shoot(direction);
+                    TryPlayShootSound(true);
+                    mShooting = true;
+                    SelfLineRenderer.enabled = true;
                 }
 
                 if (mShooting)
@@ -72,9 +75,8 @@ namespace QFramework.Gungeon
             else
             {
                 TryPlayEmptySound();
-
-                SelfLineRenderer.enabled = false;
                 mShooting = false;
+                SelfLineRenderer.enabled = false;
             }
         }
 

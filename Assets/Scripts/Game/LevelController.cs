@@ -69,7 +69,7 @@ namespace QFramework.Gungeon
         public Player player;
 
         public Enemy enemy;
-
+        
         public Final final;
 
         //private int currentX = 0;
@@ -179,14 +179,22 @@ namespace QFramework.Gungeon
                 {
                     var roomGenerateNode = queue.Dequeue();
 
-                    layoutGrid[roomGenerateNode.X, roomGenerateNode.Y] = roomGenerateNode;
-
                     var availableDirections = LevelGenHelper.GetAvailableDirections(layoutGrid, roomGenerateNode.X, roomGenerateNode.Y);
 
                     if (availableDirections.Count < roomGenerateNode.Node.Children.Count)
                     {
                         Debug.Log("出现冲突");
                         return false; 
+                    }
+
+                    if (layoutGrid[roomGenerateNode.X, roomGenerateNode.Y] == null)
+                    {
+                        layoutGrid[roomGenerateNode.X, roomGenerateNode.Y] = roomGenerateNode;
+                    }
+                    else
+                    {
+                        Debug.Log("出现冲突");
+                        return false;
                     }
 
                     var directionWithCount = LevelGenHelper.Predict(layoutGrid, roomGenerateNode.X, roomGenerateNode.Y);
@@ -269,6 +277,10 @@ namespace QFramework.Gungeon
                                     DoorDirections.Up
                                 },
                             });
+                        }
+                        else
+                        {
+                            return false;
                         }
                     }
                 }

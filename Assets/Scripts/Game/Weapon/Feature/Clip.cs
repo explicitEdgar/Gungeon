@@ -26,6 +26,7 @@ namespace QFramework.Gungeon
         {
             if (needCount == -1) needCount = NeedCount;
             reloading = true;
+            Player.Default.gun.AudioPlayer.Stop();
             ActionKit.Sequence()
                 .PlaySound(reloadSound)
                 .Callback(() =>

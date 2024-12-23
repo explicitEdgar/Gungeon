@@ -83,7 +83,10 @@ namespace QFramework.Gungeon
         {
             ShootDown(direction);
 
-            TryPlayEmptySound();
+            if (!clip.CanShoot && !AudioPlayer.isPlaying)
+            {
+                TryPlayEmptySound();
+            }
         }
     }
 }

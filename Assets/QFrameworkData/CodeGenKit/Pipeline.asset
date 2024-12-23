@@ -25,6 +25,8 @@ MonoBehaviour:
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
       partial class Door : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:e962bcc8-c18d-4694-8bf7-7321258c010a\r\nusing UnityEngine;\r\n\r\nnamespace
+    DesignerCode: "// Generate Id:fb153bfe-7cbf-4837-8b04-a1263e2b550a\r\nusing UnityEngine;\r\n\r\nnamespace
       QFramework.Gungeon\r\n{\r\n\tpublic partial class Door\r\n\t{\r\n\r\n\t\tpublic
-      UnityEngine.Sprite DoorClose;\r\n\r\n\t\tpublic UnityEngine.Sprite DoorOpen;\r\n\r\n\t}\r\n}\r\n"
+      UnityEngine.Sprite DoorClose;\r\n\r\n\t\tpublic UnityEngine.Sprite DoorOpen;\r\n\r\n\t\tpublic
+      UnityEngine.BoxCollider2D SelfBoxCollider2D;\r\n\r\n\t\tpublic UnityEngine.SpriteRenderer
+      SelfSpriteRenderer;\r\n\r\n\t}\r\n}\r\n"
