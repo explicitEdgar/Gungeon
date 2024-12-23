@@ -19,14 +19,13 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos: []
-    ScriptsFolder: Assets/Scripts/Game
-    ClassName: Door
+    ScriptsFolder: Assets/Scripts/Game/Weapon
+    ClassName: Aim
     Namespace: QFramework.Gungeon
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
-      partial class Door : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class Aim : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:fb153bfe-7cbf-4837-8b04-a1263e2b550a\r\nusing UnityEngine;\r\n\r\nnamespace
-      QFramework.Gungeon\r\n{\r\n\tpublic partial class Door\r\n\t{\r\n\r\n\t\tpublic
-      UnityEngine.Sprite DoorClose;\r\n\r\n\t\tpublic UnityEngine.Sprite DoorOpen;\r\n\r\n\t\tpublic
-      UnityEngine.BoxCollider2D SelfBoxCollider2D;\r\n\r\n\t\tpublic UnityEngine.SpriteRenderer
-      SelfSpriteRenderer;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:2e59ec45-255a-45c8-ae2d-342a1ef06ee3\r\nusing UnityEngine;\r\n\r\nnamespace
+      QFramework.Gungeon\r\n{\r\n\tpublic partial class Aim\r\n\t{\r\n\r\n\t\tpublic
+      UnityEngine.Sprite Aim1;\r\n\r\n\t\tpublic UnityEngine.Sprite Aim2;\r\n\r\n\t\tpublic
+      UnityEngine.Sprite Aim3;\r\n\r\n\t\tpublic UnityEngine.SpriteRenderer SelfSpriteRenderer;\r\n\r\n\t}\r\n}\r\n"

@@ -65,7 +65,7 @@ namespace QFramework.Gungeon
                 if (mShooting)
                 {
                     //获得敌人和墙的Layer
-                    var layers = LayerMask.GetMask("Default", "Enemy");
+                    var layers = LayerMask.GetMask("Default", "Enemy","Wall");
                     //从枪口发射一条物理射线
                     var hit = Physics2D.Raycast(BulletPrefab.Position2D(), direction, float.MaxValue, layers);
                     SelfLineRenderer.SetPosition(0, BulletPrefab.Position2D());

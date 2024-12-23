@@ -1,6 +1,7 @@
 using QFramework.Gungeon;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Serialization;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -87,6 +88,7 @@ namespace QFramework.Gungeon
             Default.DestroySelf();
         }
 
+        private Enemy targetEnemy = null;
         // Update is called once per frame
         void Update()
         {
@@ -97,6 +99,39 @@ namespace QFramework.Gungeon
             var mouseScreePosition = Input.mousePosition;
             var mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreePosition);
             var bulletDirection = (mouseWorldPosition - transform.position).normalized;
+
+            if (Global.currentRoom && Global.currentRoom.Enemies.Count > 0)
+            {
+                targetEnemy = Global.currentRoom.Enemies
+                .Where(e => e)
+                .OrderBy(e => (e.Position2D() - mouseWorldPosition.ToVector2()).magnitude)
+                .FirstOrDefault(e =>
+                {
+                    var direction = this.Direction2DTo(e);
+
+                    if (Physics2D.Raycast(this.Position2D(), direction.normalized, direction.magnitude, LayerMask.GetMask("Wall")))
+                    {
+                        return false;
+                    }
+
+                    return true;
+                });
+
+                if (targetEnemy)
+                {
+                    bulletDirection = this.NormalizedDirection2DTo(targetEnemy);
+                    Aim.Position2D(targetEnemy.Position2D());
+                    Aim.Show();
+                }
+                else
+                {
+                    Aim.Hide();
+                }
+            }
+            else
+            {
+                Aim.Hide();
+            }
 
             //ÎäÆ÷Ðý×ª
             var radius = Mathf.Atan2(bulletDirection.y, bulletDirection.x);

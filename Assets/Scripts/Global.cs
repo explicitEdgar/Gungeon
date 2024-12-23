@@ -2,17 +2,22 @@ using QFramework.Gungeon;
 using System;
 using UnityEngine;
 
-public class Global
+namespace QFramework.Gungeon
 {
-    public static Player player;
-
-    public static int HP = 3;
-
-    public static Action HPChangedEvent;
-
-    public static void ResetData()
+    public class Global
     {
-        HP = 3;
-        Time.timeScale = 1;
+        public static Player player;
+
+        public static Room currentRoom;
+
+        public static int HP = 3;
+
+        public static Action HPChangedEvent;
+
+        public static void ResetData()
+        {
+            HP = 3;
+            Time.timeScale = 1;
+        }
     }
 }

@@ -21,6 +21,7 @@ namespace QFramework.Gungeon
         private List<Door> doors = new List<Door>();
         public List<Door> Doors => doors;
         private HashSet<Enemy> mEnemies = new HashSet<Enemy>();
+        public HashSet<Enemy> Enemies => mEnemies;
         private List<EnemyWaveConfig> mWaves = new List<EnemyWaveConfig>();
         public EnemyWaveConfig curWave;
 
@@ -111,6 +112,7 @@ namespace QFramework.Gungeon
         {
             if(collision.CompareTag("Player") && Config.RoomType == RoomTypes.Normal)
 			{
+                Global.currentRoom = this;
                 if (State == RoomStates.Close)
                 {
                     State = RoomStates.PlayerIn;
