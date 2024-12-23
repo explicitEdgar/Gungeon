@@ -18,26 +18,13 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos:
-    - TypeName: QFramework.Gungeon.Room
-      PathToRoot: Room
-      MemberName: Room
-    - TypeName: QFramework.Gungeon.Door
-      PathToRoot: Door
-      MemberName: Door
-    - TypeName: QFramework.Gungeon.Hp1
-      PathToRoot: Hp1
-      MemberName: Hp1
-    - TypeName: QFramework.Gungeon.Chest
-      PathToRoot: Chest
-      MemberName: Chest
+    BindInfos: []
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: LevelController
+    ClassName: Door
     Namespace: QFramework.Gungeon
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
-      partial class LevelController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class Door : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:4ca799c7-c711-4886-8c78-8eb4042fbb23\r\nusing UnityEngine;\r\n\r\nnamespace
-      QFramework.Gungeon\r\n{\r\n\tpublic partial class LevelController\r\n\t{\r\n\r\n\t\tpublic
-      QFramework.Gungeon.Room Room;\r\n\r\n\t\tpublic QFramework.Gungeon.Door Door;\r\n\r\n\t\tpublic
-      QFramework.Gungeon.Hp1 Hp1;\r\n\r\n\t\tpublic QFramework.Gungeon.Chest Chest;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:e962bcc8-c18d-4694-8bf7-7321258c010a\r\nusing UnityEngine;\r\n\r\nnamespace
+      QFramework.Gungeon\r\n{\r\n\tpublic partial class Door\r\n\t{\r\n\r\n\t\tpublic
+      UnityEngine.Sprite DoorClose;\r\n\r\n\t\tpublic UnityEngine.Sprite DoorOpen;\r\n\r\n\t}\r\n}\r\n"

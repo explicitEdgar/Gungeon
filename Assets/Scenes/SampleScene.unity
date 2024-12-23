@@ -3014,6 +3014,7 @@ MonoBehaviour:
   player: {fileID: 1525299618}
   enemy: {fileID: 1519130558}
   final: {fileID: 332397079}
+  test: 0
   Room: {fileID: 910477992}
   Door: {fileID: 1800401126}
   Hp1: {fileID: 75743308}
@@ -3534,11 +3535,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81936539ae2d84665a86a2b3f531955f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Namespace: 
-  ScriptName: 
-  ScriptsFolder: 
+  Namespace: QFramework.Gungeon
+  ScriptName: Room
+  ScriptsFolder: Assets/Scripts/Game
   GeneratePrefab: 0
-  PrefabFolder: 
+  PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
 --- !u!1 &914167051
@@ -7463,6 +7464,7 @@ GameObject:
   - component: {fileID: 1800401127}
   - component: {fileID: 1800401126}
   - component: {fileID: 1800401130}
+  - component: {fileID: 1800401131}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -7489,6 +7491,8 @@ MonoBehaviour:
   PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
+  DoorClose: {fileID: 21300000, guid: ee0df3b48ecc72044973b0442fb8fd0b, type: 3}
+  DoorOpen: {fileID: 21300000, guid: b2a2d359904375d47875da90ab23787b, type: 3}
 --- !u!114 &1800401127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7617,6 +7621,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1800401131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800401125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411e729afed24c62a04e2b99d9122e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binds:
+  - MemberName: DoorClose
+    Object: {fileID: 21300000, guid: ee0df3b48ecc72044973b0442fb8fd0b, type: 3}
+  - MemberName: DoorOpen
+    Object: {fileID: 21300000, guid: b2a2d359904375d47875da90ab23787b, type: 3}
 --- !u!1 &1883776795
 GameObject:
   m_ObjectHideFlags: 0
