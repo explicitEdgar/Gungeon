@@ -112,7 +112,51 @@ namespace QFramework.Gungeon
             var layout = new RoomNode(RoomTypes.Init);
             layout.Next(RoomTypes.Normal)
                 .Next(RoomTypes.Normal)
+                .Next(RoomTypes.Chest,n =>
+                {
+                    n.Next(RoomTypes.Chest)
+                    .Next(RoomTypes.Chest)
+                    .Next(RoomTypes.Normal)
+                    .Next(RoomTypes.Normal)
+                    .Next(RoomTypes.Normal)
+                    .Next(RoomTypes.Normal)
+                    .Next(RoomTypes.Normal)
+                    .Next(RoomTypes.Normal)
+                    .Next(RoomTypes.Normal)
+                    .Next(RoomTypes.Normal)
+                    .Next(RoomTypes.Normal);
+                })
                 .Next(RoomTypes.Chest)
+                .Next(RoomTypes.Normal)
+                .Next(RoomTypes.Normal)
+                .Next(RoomTypes.Normal)
+                .Next(RoomTypes.Normal)
+                .Next(RoomTypes.Normal)
+                .Next(RoomTypes.Chest,n =>
+                {
+                    n.Next(RoomTypes.Chest)
+                    .Next(RoomTypes.Chest)
+                    .Next(RoomTypes.Normal)
+                    .Next(RoomTypes.Normal)
+                    .Next(RoomTypes.Normal)
+                    .Next(RoomTypes.Normal)
+                    .Next(RoomTypes.Normal)
+                    .Next(RoomTypes.Normal)
+                    .Next(RoomTypes.Normal)
+                    .Next(RoomTypes.Normal)
+                    .Next(RoomTypes.Normal);
+                })
+                .Next(RoomTypes.Normal)
+                .Next(RoomTypes.Normal)
+                .Next(RoomTypes.Normal,n =>
+                {
+                    n.Next(RoomTypes.Chest)
+                    .Next(RoomTypes.Normal)
+                    .Next(RoomTypes.Normal)
+                    .Next(RoomTypes.Normal);
+                })
+                .Next(RoomTypes.Normal)
+                .Next(RoomTypes.Normal)
                 .Next(RoomTypes.Normal)
                 .Next(RoomTypes.Normal)
                 .Next(RoomTypes.Normal)
@@ -120,7 +164,7 @@ namespace QFramework.Gungeon
 
             var layoutGrid = new DynaGrid<RoomGenerateNode>();
 
-            void GenerateLayoutBFS(RoomNode roomNode, DynaGrid<RoomGenerateNode> layoutGrid)
+            bool GenerateLayoutBFS(RoomNode roomNode, DynaGrid<RoomGenerateNode> layoutGrid,int predictWeight = 0)
             {
                 var queue = new Queue<RoomGenerateNode>();
                 queue.Enqueue(new RoomGenerateNode()
@@ -137,28 +181,38 @@ namespace QFramework.Gungeon
 
                     layoutGrid[roomGenerateNode.X, roomGenerateNode.Y] = roomGenerateNode;
 
-                    var availableDirections = new List<DoorDirections>();
-                    if (layoutGrid[roomGenerateNode.X + 1, roomGenerateNode.Y] == null)
+                    var availableDirections = LevelGenHelper.GetAvailableDirections(layoutGrid, roomGenerateNode.X, roomGenerateNode.Y);
+
+                    if (availableDirections.Count < roomGenerateNode.Node.Children.Count)
                     {
-                        availableDirections.Add(DoorDirections.Right);
-                    }
-                    if (layoutGrid[roomGenerateNode.X - 1, roomGenerateNode.Y] == null)
-                    {
-                        availableDirections.Add(DoorDirections.Left);
-                    }
-                    if (layoutGrid[roomGenerateNode.X, roomGenerateNode.Y + 1] == null)
-                    {
-                        availableDirections.Add(DoorDirections.Up);
-                    }
-                    if (layoutGrid[roomGenerateNode.X, roomGenerateNode.Y - 1] == null)
-                    {
-                        availableDirections.Add(DoorDirections.Down);
+                        Debug.Log("³öÏÖ³åÍ»");
+                        return false; 
                     }
 
-
-                    foreach(var roomNodeChild in roomGenerateNode.Node.Children)
+                    var directionWithCount = LevelGenHelper.Predict(layoutGrid, roomGenerateNode.X, roomGenerateNode.Y);
+                    directionWithCount.Sort((a, b) =>
                     {
-                        var nextRoomDirection = availableDirections.GetRandomItem();
+                        return b.count - a.count;
+                    });
+
+                    bool predictGenerate = false;
+                    if(Random.Range(0,100) < predictWeight)
+                    {
+                        predictGenerate = true;
+                    }
+                    else
+                    {
+                        predictGenerate = false;
+                    }
+
+                    foreach (var roomNodeChild in roomGenerateNode.Node.Children)
+                    {
+                        var nextRoomDirection = predictGenerate ? directionWithCount.First().direction : directionWithCount.GetRandomItem().direction;
+
+                        if (predictGenerate)
+                        {
+                            directionWithCount.RemoveAt(0);
+                        }
 
                         if (nextRoomDirection == DoorDirections.Right)
                         {
@@ -218,9 +272,20 @@ namespace QFramework.Gungeon
                         }
                     }
                 }
+
+                return true;
             }
 
-            GenerateLayoutBFS(layout, layoutGrid);
+            var predictWeight = 0;
+            print(predictWeight + ": generate");
+
+            while (!GenerateLayoutBFS(layout, layoutGrid,predictWeight))
+            {
+                predictWeight++;
+                print(predictWeight + ": generate");
+                layoutGrid.Clear();
+            }
+            
 
             var roomGrid = new DynaGrid<Room>();
             layoutGrid.ForEach((x, y, generateNode) =>
@@ -343,7 +408,6 @@ namespace QFramework.Gungeon
                 //}
             }
 
-            //GenerateRoomByNode(layout);
             GenerateCorridor();
         }
 
