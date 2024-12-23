@@ -21,12 +21,7 @@ namespace QFramework.Gungeon
         private List<Door> doors = new List<Door>();
         public List<Door> Doors => doors;
         private HashSet<Enemy> mEnemies = new HashSet<Enemy>();
-        private List<EnemyWaveConfig> mWaves = new List<EnemyWaveConfig>()
-        {
-            new EnemyWaveConfig(),
-            new EnemyWaveConfig(),
-            new EnemyWaveConfig(),
-        };
+        private List<EnemyWaveConfig> mWaves = new List<EnemyWaveConfig>();
         public EnemyWaveConfig curWave;
 
 
@@ -66,6 +61,15 @@ namespace QFramework.Gungeon
                 foreach(var door in Doors)
                 {
                     door.State.ChangeState(Door.States.IdleOpen);
+                }
+            }
+            else if(Config.RoomType == RoomTypes.Normal)
+            {
+                var waveCount = UnityEngine.Random.Range(1, 3 + 1);
+
+                for(var i = 0;i < waveCount;i++)
+                {
+                    mWaves.Add(new EnemyWaveConfig());
                 }
             }
 		}

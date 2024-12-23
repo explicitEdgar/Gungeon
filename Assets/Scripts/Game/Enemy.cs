@@ -1,3 +1,4 @@
+using QFramework;
 using QFramework.Gungeon;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,8 +29,6 @@ public class Enemy : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     public List<AudioClip> ShootSounds = new List<AudioClip>();
-
-    public AudioSource ShootSoundPlayer;
 
     private float Hp = 3;
 
@@ -94,8 +93,7 @@ public class Enemy : MonoBehaviour
                     bullet.gameObject.SetActive(true);
 
                     var soundIndex = Random.Range(0, ShootSounds.Count);
-                    ShootSoundPlayer.clip = ShootSounds[soundIndex];
-                    ShootSoundPlayer.Play();
+                    AudioKit.PlaySound(ShootSounds[soundIndex]);
 
                     if (direction2Player.x < 0)
                     {
