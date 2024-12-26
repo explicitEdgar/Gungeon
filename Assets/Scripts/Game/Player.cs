@@ -88,7 +88,7 @@ namespace QFramework.Gungeon
             Default.DestroySelf();
         }
 
-        private Enemy targetEnemy = null;
+        private IEnemy targetEnemy = null;
         // Update is called once per frame
         void Update()
         {
@@ -103,11 +103,11 @@ namespace QFramework.Gungeon
             if (Global.currentRoom && Global.currentRoom.Enemies.Count > 0)
             {
                 targetEnemy = Global.currentRoom.Enemies
-                .Where(e => e)
-                .OrderBy(e => (e.Position2D() - mouseWorldPosition.ToVector2()).magnitude)
+                .Where(e => e.GameObject)
+                .OrderBy(e => (e.GameObject.Position2D() - mouseWorldPosition.ToVector2()).magnitude)
                 .FirstOrDefault(e =>
                 {
-                    var direction = this.Direction2DTo(e);
+                    var direction = this.Direction2DTo(e.GameObject);
 
                     if (Physics2D.Raycast(this.Position2D(), direction.normalized, direction.magnitude, LayerMask.GetMask("Wall")))
                     {
@@ -117,10 +117,10 @@ namespace QFramework.Gungeon
                     return true;
                 });
 
-                if (targetEnemy)
+                if (targetEnemy != null && targetEnemy.GameObject)
                 {
-                    bulletDirection = this.NormalizedDirection2DTo(targetEnemy);
-                    Aim.Position2D(targetEnemy.Position2D());
+                    bulletDirection = this.NormalizedDirection2DTo(targetEnemy.GameObject);
+                    Aim.Position2D(targetEnemy.GameObject.Position2D());
                     Aim.Show();
                 }
                 else

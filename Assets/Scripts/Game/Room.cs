@@ -20,8 +20,8 @@ namespace QFramework.Gungeon
 		private List<Vector3> mEnemyGeneratePoses = new List<Vector3>();
         private List<Door> doors = new List<Door>();
         public List<Door> Doors => doors;
-        private HashSet<Enemy> mEnemies = new HashSet<Enemy>();
-        public HashSet<Enemy> Enemies => mEnemies;
+        private HashSet<IEnemy> mEnemies = new HashSet<IEnemy>();
+        public HashSet<IEnemy> Enemies => mEnemies;
         private List<EnemyWaveConfig> mWaves = new List<EnemyWaveConfig>();
         public EnemyWaveConfig curWave;
 
@@ -47,11 +47,11 @@ namespace QFramework.Gungeon
 
             foreach (var enemyGeneratePose in waveEnemyPositions)
             {
-                var newEnemy = Instantiate(LevelController.Default.enemy);
+                var newEnemy = Instantiate(LevelController.Default.Enemy.GameObject);
                 newEnemy.transform.position = enemyGeneratePose;
                 newEnemy.gameObject.SetActive(true);
 
-                mEnemies.Add(newEnemy);
+                mEnemies.Add(newEnemy.GetComponent<IEnemy>());
             }
         }
 
@@ -79,7 +79,7 @@ namespace QFramework.Gungeon
         {
             if(Time.frameCount % 30 == 0)
             {
-                mEnemies.RemoveWhere(e => !e);
+                mEnemies.RemoveWhere(e => !e.GameObject);
 
                 if(mEnemies.Count == 0)
                 {

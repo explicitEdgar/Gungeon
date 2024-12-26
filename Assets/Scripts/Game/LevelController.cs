@@ -68,7 +68,7 @@ namespace QFramework.Gungeon
 
         public Player player;
 
-        public Enemy enemy;
+        public IEnemy Enemy => EnemyB.GetComponent<IEnemy>();
         
         public Final final;
 
@@ -82,7 +82,7 @@ namespace QFramework.Gungeon
         {
             Default = this;
             player.gameObject.SetActive(false);
-            enemy.gameObject.SetActive(false);
+            Enemy.GameObject.SetActive(false);
         }
 
         public class RoomGenerateNode

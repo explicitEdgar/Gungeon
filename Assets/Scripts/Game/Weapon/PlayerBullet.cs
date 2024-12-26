@@ -2,36 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBullet : MonoBehaviour
+namespace QFramework.Gungeon
 {
-    public Vector2 velocity;
-
-    private Rigidbody2D mRigidbody2D;
-
-    public float Damage { get; set; } = 1;
-    private void Awake()
+    public class PlayerBullet : MonoBehaviour
     {
-        mRigidbody2D = GetComponent<Rigidbody2D>();
-    }
+        public Vector2 velocity;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+        private Rigidbody2D mRigidbody2D;
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        mRigidbody2D.velocity = this.velocity;
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if(other.gameObject.GetComponent<Enemy>())
+        public float Damage { get; set; } = 1;
+        private void Awake()
         {
-            other.gameObject.GetComponent<Enemy>().Hurt(Damage);
+            mRigidbody2D = GetComponent<Rigidbody2D>();
         }
-        Destroy(gameObject);
+
+        // Start is called before the first frame update
+        void Start()
+        {
+
+        }
+
+        // Update is called once per frame
+        void FixedUpdate()
+        {
+            mRigidbody2D.velocity = this.velocity;
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.GetComponent<Enemy>())
+            {
+                other.gameObject.GetComponent<Enemy>().Hurt(Damage);
+            }
+            Destroy(gameObject);
+        }
     }
 }

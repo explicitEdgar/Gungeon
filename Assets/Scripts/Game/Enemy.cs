@@ -4,116 +4,128 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
-{
-    public Player player;
-
-    public EnemyBullet enemyBullet;
-
-    public Rigidbody2D mrigidbody2D;
-
-    public enum States
+namespace QFramework.Gungeon
+{   
+    public interface IEnemy
     {
-        FollowPlayer,
-        Shoot,
+        GameObject GameObject { get; }
     }
 
-    public States state = States.FollowPlayer;
 
-    public float followPlayerScd = 3.0f;
-
-    public float shootScd = 1.0f;
-
-    public float currentScd = 0f;
-
-    public SpriteRenderer spriteRenderer;
-
-    public List<AudioClip> ShootSounds = new List<AudioClip>();
-
-    private float Hp = 3;
-
-
-    // Start is called before the first frame update
-    void Start()
+    public class Enemy : MonoBehaviour, IEnemy
     {
-        Application.targetFrameRate = 60;
-    }
+        public GameObject GameObject => gameObject;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (state == States.FollowPlayer)
+        public Player player;
+
+        public EnemyBullet enemyBullet;
+
+        public Rigidbody2D mrigidbody2D;
+
+        public enum States
         {
-            currentScd += Time.deltaTime;
-
-            if (currentScd >= followPlayerScd)
-            {
-                state = States.Shoot;
-                currentScd = 0;
-            }
-
-            if (Global.player)
-            {
-                var direction2Player = (Global.player.transform.position - transform.position).normalized;
-
-                mrigidbody2D.velocity = direction2Player;
-
-                if(direction2Player.x < 0)
-                {
-                    spriteRenderer.flipX = true;
-                }
-                else
-                {
-                    spriteRenderer.flipX = false;
-                }
-            }
+            FollowPlayer,
+            Shoot,
         }
-        else if (state == States.Shoot)
+
+        public FSM<States> State = new FSM<States>();
+
+        public float followPlayerScd = 3.0f;
+
+        public float shootScd = 1.0f;
+
+        public SpriteRenderer spriteRenderer;
+
+        public List<AudioClip> ShootSounds = new List<AudioClip>();
+
+        private float Hp = 3;
+
+
+        // Start is called before the first frame update
+        void Start()
         {
-            currentScd += Time.deltaTime;
+            Application.targetFrameRate = 60;
+        }
 
-            if(currentScd >= shootScd)
-            {
-                state = States.FollowPlayer;
-                currentScd = 0;
-
-                followPlayerScd = Random.Range(1.0f, 4.0f);
-            }
-
-            mrigidbody2D.velocity = new Vector2(0,0);
-
-            if (Time.frameCount % 20 == 0)
-            {
-                if(Global.player)
+        public void Awake()
+        {
+            State.State(States.FollowPlayer)
+                .OnEnter(() =>
                 {
-                    var bullet = Instantiate(enemyBullet);
-                    bullet.transform.position = transform.position;
-                    var direction2Player = (Global.player.transform.position - transform.position).normalized;
-                    bullet.direction = direction2Player;
-                    bullet.gameObject.SetActive(true);
-
-                    var soundIndex = Random.Range(0, ShootSounds.Count);
-                    AudioKit.PlaySound(ShootSounds[soundIndex]);
-
-                    if (direction2Player.x < 0)
+                    followPlayerScd = Random.Range(1.0f, 4.0f);
+                })
+                .OnUpdate(() =>
+                {
+                    if (Global.player)
                     {
-                        spriteRenderer.flipX = true;
+                        var direction2Player = (Global.player.transform.position - transform.position).normalized;
+
+                        mrigidbody2D.velocity = direction2Player;
+
+                        if (direction2Player.x < 0)
+                        {
+                            spriteRenderer.flipX = true;
+                        }
+                        else
+                        {
+                            spriteRenderer.flipX = false;
+                        }
                     }
-                    else
+
+                    if (State.SecondsOfCurrentState >= followPlayerScd)
                     {
-                        spriteRenderer.flipX = false;
+                        State.ChangeState(States.Shoot);
                     }
-                }
+                });
+
+            State.State(States.Shoot)
+                .OnEnter(() =>
+                {
+                    if (Global.player)
+                    {
+                        mrigidbody2D.velocity = new Vector2(0, 0);
+                        var bullet = Instantiate(enemyBullet);
+                        bullet.transform.position = transform.position;
+                        var direction2Player = (Global.player.transform.position - transform.position).normalized;
+                        bullet.velocity = direction2Player.normalized * 5;
+                        bullet.gameObject.SetActive(true);
+
+                        var soundIndex = Random.Range(0, ShootSounds.Count);
+                        AudioKit.PlaySound(ShootSounds[soundIndex]);
+
+                        if (direction2Player.x < 0)
+                        {
+                            spriteRenderer.flipX = true;
+                        }
+                        else
+                        {
+                            spriteRenderer.flipX = false;
+                        }
+                    }
+                })
+                .OnUpdate(() =>
+                {
+
+                    if (State.SecondsOfCurrentState >= shootScd)
+                    {
+                        State.ChangeState(States.FollowPlayer);
+                    }
+                });
+
+            State.StartState(States.FollowPlayer);
+        }
+
+        // Update is called once per frame
+        void Update() => State.Update();
+
+        public void Hurt(float damage)
+        {
+            Hp -= damage;
+            if (Hp <= 0f)
+            {
+                Destroy(gameObject);
             }
         }
-    }
 
-    public void Hurt(float damage)
-    {
-        Hp -= damage;
-        if(Hp <= 0f)
-        {
-            Destroy(gameObject);
-        }
     }
 }
