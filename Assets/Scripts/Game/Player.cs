@@ -45,6 +45,8 @@ namespace QFramework.Gungeon
 
             Application.targetFrameRate = 60;
 
+            AudioKit.PlaySoundMode = AudioKit.PlaySoundModes.IgnoreSameSoundInSoundFrames;
+
             Text.Hide();
 
             Gunlist.Add(AK);
@@ -103,7 +105,6 @@ namespace QFramework.Gungeon
             if (Global.currentRoom && Global.currentRoom.Enemies.Count > 0)
             {
                 targetEnemy = Global.currentRoom.Enemies
-                .Where(e => e.GameObject)
                 .OrderBy(e => (e.GameObject.Position2D() - mouseWorldPosition.ToVector2()).magnitude)
                 .FirstOrDefault(e =>
                 {

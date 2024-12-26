@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyB : MonoBehaviour,IEnemy
+public class EnemyD : MonoBehaviour, IEnemy
 {
     public GameObject GameObject => gameObject;
 
@@ -78,16 +78,14 @@ public class EnemyB : MonoBehaviour,IEnemy
                 if (Global.player)
                 {
                     mrigidbody2D.velocity = new Vector2(0, 0);
-                  
-                    var direction2Player = (Global.player.transform.position - transform.position).normalized;
 
-                    var count = 3;
-                    var durationAngle = 15;
+                    var count = 18;
+                    var durationAngle = 360 / count;
 
-                    var mainAngle = direction2Player.ToVector2().ToAngle();
-                    for(int i = 1;i <= count;i++)
+                    var angleOffset = Random.Range(0,360);
+                    for (int i = 0; i < count; i++)
                     {
-                        var angle = mainAngle + i * durationAngle - (count / 2 + 1) * durationAngle;
+                        var angle = angleOffset + i * durationAngle;
                         var direction = angle.AngleToDirection2D();
                         var pos = transform.Position2D() + 0.5f * direction.normalized;
 
@@ -99,15 +97,6 @@ public class EnemyB : MonoBehaviour,IEnemy
 
                     var soundIndex = Random.Range(0, ShootSounds.Count);
                     AudioKit.PlaySound(ShootSounds[soundIndex]);
-
-                    if (direction2Player.x < 0)
-                    {
-                        spriteRenderer.flipX = true;
-                    }
-                    else
-                    {
-                        spriteRenderer.flipX = false;
-                    }
                 }
             })
             .OnUpdate(() =>

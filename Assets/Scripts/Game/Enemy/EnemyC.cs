@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyB : MonoBehaviour,IEnemy
+public class EnemyC : MonoBehaviour, IEnemy
 {
     public GameObject GameObject => gameObject;
 
@@ -78,27 +78,44 @@ public class EnemyB : MonoBehaviour,IEnemy
                 if (Global.player)
                 {
                     mrigidbody2D.velocity = new Vector2(0, 0);
-                  
                     var direction2Player = (Global.player.transform.position - transform.position).normalized;
 
-                    var count = 3;
-                    var durationAngle = 15;
-
-                    var mainAngle = direction2Player.ToVector2().ToAngle();
-                    for(int i = 1;i <= count;i++)
+                    ActionKit.Sequence()
+                    .Callback(() =>
                     {
-                        var angle = mainAngle + i * durationAngle - (count / 2 + 1) * durationAngle;
-                        var direction = angle.AngleToDirection2D();
-                        var pos = transform.Position2D() + 0.5f * direction.normalized;
-
                         var bullet = Instantiate(enemyBullet);
-                        bullet.transform.position = pos;
-                        bullet.velocity = direction * 5;
+                        bullet.transform.position = transform.position;
+                        bullet.velocity = direction2Player.normalized * 5;
                         bullet.gameObject.SetActive(true);
-                    }
 
-                    var soundIndex = Random.Range(0, ShootSounds.Count);
-                    AudioKit.PlaySound(ShootSounds[soundIndex]);
+                        var soundIndex = Random.Range(0, ShootSounds.Count);
+                        AudioKit.PlaySound(ShootSounds[soundIndex]);
+                    })
+                    .Delay(0.2f)
+                    .Callback(() =>
+                    {
+                        var bullet = Instantiate(enemyBullet);
+                        bullet.transform.position = transform.position;
+                        bullet.velocity = direction2Player.normalized * 5;
+                        bullet.gameObject.SetActive(true);
+
+                        var soundIndex = Random.Range(0, ShootSounds.Count);
+                        AudioKit.PlaySound(ShootSounds[soundIndex]);
+                    })
+                    .Delay(0.2f)
+                    .Callback(() =>
+                    {
+                        var bullet = Instantiate(enemyBullet);
+                        bullet.transform.position = transform.position;
+                        bullet.velocity = direction2Player.normalized * 5;
+                        bullet.gameObject.SetActive(true);
+
+                        var soundIndex = Random.Range(0, ShootSounds.Count);
+                        AudioKit.PlaySound(ShootSounds[soundIndex]);
+                    })
+                    .Start(this);
+                    
+                    
 
                     if (direction2Player.x < 0)
                     {

@@ -48,10 +48,13 @@ namespace QFramework.Gungeon
             foreach (var enemyGeneratePose in waveEnemyPositions)
             {
                 var newEnemy = Instantiate(LevelController.Default.Enemy.GameObject);
+                var enemy = newEnemy.GetComponent<IEnemy>();
+
                 newEnemy.transform.position = enemyGeneratePose;
                 newEnemy.gameObject.SetActive(true);
+                enemy.Room = this;
 
-                mEnemies.Add(newEnemy.GetComponent<IEnemy>());
+                mEnemies.Add(enemy);
             }
         }
 
@@ -79,7 +82,6 @@ namespace QFramework.Gungeon
         {
             if(Time.frameCount % 30 == 0)
             {
-                mEnemies.RemoveWhere(e => !e.GameObject);
 
                 if(mEnemies.Count == 0)
                 {

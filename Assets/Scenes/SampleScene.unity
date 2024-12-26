@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a9ff3e8fb684d4dbdc06a5b96e785e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
+  velocity: {x: 0, y: 0}
   mrigidbody2D: {fileID: 12462502}
 --- !u!212 &12462505
 SpriteRenderer:
@@ -1948,7 +1948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a9ff3e8fb684d4dbdc06a5b96e785e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
+  velocity: {x: 0, y: 0}
   mrigidbody2D: {fileID: 201081556}
 --- !u!212 &201081559
 SpriteRenderer:
@@ -2589,7 +2589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a9ff3e8fb684d4dbdc06a5b96e785e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
+  velocity: {x: 0, y: 0}
   mrigidbody2D: {fileID: 308826550}
 --- !u!212 &308826553
 SpriteRenderer:
@@ -2738,7 +2738,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 332397076}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ead0b0f37a340b24f96d7e5a2e4eee98, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c39ad2237cfa824a835c1c1075770c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &332397080
@@ -3270,7 +3270,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 388770054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a8061b91407133499a4612e169c4318, type: 3}
+  m_Script: {fileID: 11500000, guid: 7741eca512a4f4940851f4638a48fa8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1525299618}
@@ -3470,7 +3470,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62f9bad982b0bd549babb7505c8a2122, type: 3}
+  m_Script: {fileID: 11500000, guid: ed657163cf8e90845b4c26b12929c7ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1525299617}
@@ -3581,7 +3581,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 548751861}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a8061b91407133499a4612e169c4318, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c04f117f9117b54186613f560b81148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1525299618}
@@ -3785,7 +3785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a9ff3e8fb684d4dbdc06a5b96e785e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
+  velocity: {x: 0, y: 0}
   mrigidbody2D: {fileID: 624378720}
 --- !u!212 &624378723
 SpriteRenderer:
@@ -4444,6 +4444,7 @@ GameObject:
   - component: {fileID: 749609642}
   - component: {fileID: 749609641}
   - component: {fileID: 749609643}
+  - component: {fileID: 749609644}
   m_Layer: 0
   m_Name: LevelController
   m_TagString: Untagged
@@ -4460,7 +4461,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 749609640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51aed423d689d74458d6e6161b3565b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 539bf8fa8389e704bac37bc237b0fbd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Namespace: QFramework.Gungeon
@@ -4481,7 +4482,6 @@ MonoBehaviour:
   wallMap: {fileID: 1339042818}
   floorMap: {fileID: 1725049808}
   player: {fileID: 1525299618}
-  enemy: {fileID: 1519130558}
   final: {fileID: 332397079}
   test: 0
   Room: {fileID: 910477992}
@@ -4546,6 +4546,25 @@ MonoBehaviour:
     Object: {fileID: 232443156}
   - MemberName: EnemyH
     Object: {fileID: 28532434}
+--- !u!114 &749609644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749609640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81936539ae2d84665a86a2b3f531955f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: QFramework.Gungeon
+  ScriptName: LevelController
+  ScriptsFolder: Assets/Scripts/Game
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
 --- !u!1 &781412616
 GameObject:
   m_ObjectHideFlags: 0
@@ -4827,7 +4846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a9ff3e8fb684d4dbdc06a5b96e785e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
+  velocity: {x: 0, y: 0}
   mrigidbody2D: {fileID: 875390354}
 --- !u!212 &875390357
 SpriteRenderer:
@@ -5105,7 +5124,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 910477990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f7174e418feb0245b6ddf13a1b1fbd8, type: 3}
+  m_Script: {fileID: 11500000, guid: c14f1a7d74cabc54a9417c0a12fb0fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Namespace: QFramework.Gungeon
@@ -5874,7 +5893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a9ff3e8fb684d4dbdc06a5b96e785e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
+  velocity: {x: 0, y: 0}
   mrigidbody2D: {fileID: 1035186975}
 --- !u!212 &1035186978
 SpriteRenderer:
@@ -6037,7 +6056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a9ff3e8fb684d4dbdc06a5b96e785e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
+  velocity: {x: 0, y: 0}
   mrigidbody2D: {fileID: 1215480959}
 --- !u!212 &1215480962
 SpriteRenderer:
@@ -6582,7 +6601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a9ff3e8fb684d4dbdc06a5b96e785e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
+  velocity: {x: 0, y: 0}
   mrigidbody2D: {fileID: 1367912492}
 --- !u!58 &1367912491
 CircleCollider2D:
@@ -8144,7 +8163,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1571707669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a8061b91407133499a4612e169c4318, type: 3}
+  m_Script: {fileID: 11500000, guid: 77d36c9a33e81b44c89febfa5e4d4ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1525299618}
@@ -8628,7 +8647,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1664932346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a8061b91407133499a4612e169c4318, type: 3}
+  m_Script: {fileID: 11500000, guid: d4b9571689d157245be37d2df0e7f00f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1525299618}
@@ -10038,6 +10057,7 @@ GameObject:
   - component: {fileID: 1800401126}
   - component: {fileID: 1800401130}
   - component: {fileID: 1800401131}
+  - component: {fileID: 1800401132}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -10217,6 +10237,25 @@ MonoBehaviour:
     Object: {fileID: 1800401130}
   - MemberName: SelfSpriteRenderer
     Object: {fileID: 1800401128}
+--- !u!114 &1800401132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800401125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81936539ae2d84665a86a2b3f531955f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: QFramework.Gungeon
+  ScriptName: Door
+  ScriptsFolder: Assets/Scripts/Game
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
 --- !u!1 &1883776795
 GameObject:
   m_ObjectHideFlags: 0

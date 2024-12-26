@@ -9,12 +9,18 @@ namespace QFramework.Gungeon
     public interface IEnemy
     {
         GameObject GameObject { get; }
+
+        Room Room { get; set; }
+
+        void Hurt(float damage);
     }
 
 
     public class Enemy : MonoBehaviour, IEnemy
     {
         public GameObject GameObject => gameObject;
+
+        public Room Room { get; set; }
 
         public Player player;
 
@@ -117,6 +123,11 @@ namespace QFramework.Gungeon
 
         // Update is called once per frame
         void Update() => State.Update();
+
+        private void OnDestroy()
+        {
+            Room.Enemies.Remove(this);
+        }
 
         public void Hurt(float damage)
         {

@@ -30,9 +30,9 @@ namespace QFramework.Gungeon
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.GetComponent<Enemy>())
+            if (other.gameObject.GetComponent<IEnemy>() != null)
             {
-                other.gameObject.GetComponent<Enemy>().Hurt(Damage);
+                other.gameObject.GetComponent<IEnemy>().Hurt(Damage);
             }
             Destroy(gameObject);
         }
