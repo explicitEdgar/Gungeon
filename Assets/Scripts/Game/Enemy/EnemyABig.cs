@@ -5,18 +5,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace QFramework.Gungeon
-{   
-    public interface IEnemy
-    {
-        GameObject GameObject { get; }
-
-        Room Room { get; set; }
-
-        void Hurt(float damage);
-    }
+{
 
 
-    public class Enemy : MonoBehaviour, IEnemy
+    public class EnemyABig : MonoBehaviour, IEnemy
     {
         public GameObject GameObject => gameObject;
 
@@ -44,7 +36,7 @@ namespace QFramework.Gungeon
 
         public List<AudioClip> ShootSounds = new List<AudioClip>();
 
-        private float Hp = 3;
+        private float Hp = 10;
 
 
         // Start is called before the first frame update
@@ -93,7 +85,7 @@ namespace QFramework.Gungeon
                         var bullet = Instantiate(enemyBullet);
                         bullet.transform.position = transform.position;
                         var direction2Player = (Global.player.transform.position - transform.position).normalized;
-                        bullet.velocity = direction2Player.normalized * 5;
+                        bullet.velocity = direction2Player.normalized * 10;
                         bullet.gameObject.SetActive(true);
 
                         var soundIndex = Random.Range(0, ShootSounds.Count);

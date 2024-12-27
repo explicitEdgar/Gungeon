@@ -4,9 +4,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyB : MonoBehaviour,IEnemy
+public class EnemyF : MonoBehaviour, IEnemy
 {
     public GameObject GameObject => gameObject;
+
 
     public Room Room { get; set; }
 
@@ -78,12 +79,35 @@ public class EnemyB : MonoBehaviour,IEnemy
                 if (Global.player)
                 {
                     mrigidbody2D.velocity = new Vector2(0, 0);
-
                     var direction2Player = (Global.player.transform.position - transform.position).normalized;
-                    BulletHelper.ShootSpread(3, transform.Position2D(), direction2Player.ToVector2(), 0.5f, enemyBullet, 15f);
 
-                    var soundIndex = Random.Range(0, ShootSounds.Count);
-                    AudioKit.PlaySound(ShootSounds[soundIndex]);
+                    ActionKit.Sequence()
+                    .Callback(() =>
+                    {
+                        BulletHelper.ShootAround(18, transform.Position2D(), 0.5f, enemyBullet);
+
+                        var soundIndex = Random.Range(0, ShootSounds.Count);
+                        AudioKit.PlaySound(ShootSounds[soundIndex]);
+                    })
+                    .Delay(0.2f)
+                    .Callback(() =>
+                    {
+                        BulletHelper.ShootAround(18, transform.Position2D(), 0.5f, enemyBullet);
+
+                        var soundIndex = Random.Range(0, ShootSounds.Count);
+                        AudioKit.PlaySound(ShootSounds[soundIndex]);
+                    })
+                    .Delay(0.2f)
+                    .Callback(() =>
+                    {
+                        BulletHelper.ShootAround(18, transform.Position2D(), 0.5f, enemyBullet);
+
+                        var soundIndex = Random.Range(0, ShootSounds.Count);
+                        AudioKit.PlaySound(ShootSounds[soundIndex]);
+                    })
+                    .Start(this);
+
+
 
                     if (direction2Player.x < 0)
                     {

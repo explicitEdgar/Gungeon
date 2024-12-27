@@ -8,6 +8,7 @@ public class EnemyC : MonoBehaviour, IEnemy
 {
     public GameObject GameObject => gameObject;
 
+
     public Room Room { get; set; }
 
     public Player player;

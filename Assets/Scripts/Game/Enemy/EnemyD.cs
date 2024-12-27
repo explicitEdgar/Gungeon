@@ -79,21 +79,7 @@ public class EnemyD : MonoBehaviour, IEnemy
                 {
                     mrigidbody2D.velocity = new Vector2(0, 0);
 
-                    var count = 18;
-                    var durationAngle = 360 / count;
-
-                    var angleOffset = Random.Range(0,360);
-                    for (int i = 0; i < count; i++)
-                    {
-                        var angle = angleOffset + i * durationAngle;
-                        var direction = angle.AngleToDirection2D();
-                        var pos = transform.Position2D() + 0.5f * direction.normalized;
-
-                        var bullet = Instantiate(enemyBullet);
-                        bullet.transform.position = pos;
-                        bullet.velocity = direction * 5;
-                        bullet.gameObject.SetActive(true);
-                    }
+                    BulletHelper.ShootAround(18, transform.Position2D(), 0.5f, enemyBullet);
 
                     var soundIndex = Random.Range(0, ShootSounds.Count);
                     AudioKit.PlaySound(ShootSounds[soundIndex]);
