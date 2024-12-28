@@ -1,4 +1,4 @@
-// Generate Id:1b1209aa-0384-4a5a-aa52-376a2f5eb374
+// Generate Id:6920ab00-1a43-4b7d-95ef-1fcb436ed26d
 using UnityEngine;
 
 namespace QFramework.Gungeon
@@ -8,7 +8,7 @@ namespace QFramework.Gungeon
 
 		public SpriteRenderer Sprite;
 
-		public PlayerBullet Bullet;
+		public Transform BulletPos;
 
 		public UnityEngine.AudioSource SelfAudioSource;
 

@@ -5,7 +5,6 @@ namespace QFramework.Gungeon
 {
 	public partial class ShotGun : QFramework.Gungeon.Gun
 	{
-        public override PlayerBullet BulletPrefab => Bullet;
 
         public override AudioSource AudioPlayer => SelfAudioSource;
 
@@ -27,11 +26,7 @@ namespace QFramework.Gungeon
 
         public void Shoot(Vector2 pos,Vector2 direction)
         {
-            var bullet = Instantiate(BulletPrefab);
-            bullet.transform.position = pos;
-            bullet.velocity = direction.normalized * 15;
-            bullet.Damage = Random.Range(1.0f, 2.0f);
-            bullet.gameObject.SetActive(true);
+            BulletHelper.Shoot(BulletPos.Position2D(), direction, 15, Random.Range(1.0f, 2.0f));
         }
 
         public ShootDuration shootDuration = new ShootDuration(1f);
@@ -43,7 +38,7 @@ namespace QFramework.Gungeon
 
                 var angle = direction.ToAngle();
                 var originPos = transform.parent.Position2D();
-                var radius = (BulletPrefab.Position2D() - originPos).magnitude;
+                var radius = (BulletPos.Position2D() - originPos).magnitude;
                 var pos = originPos + radius * direction.normalized;
 
                 var angle1 = angle + 8;
@@ -69,7 +64,7 @@ namespace QFramework.Gungeon
                 Shoot(pos3, direction3);
                 Shoot(pos4, direction4);
 
-                shootLight.ShowLight(BulletPrefab.Position2D(), direction);
+                shootLight.ShowLight(BulletPos.Position2D(), direction);
 
                 clip.UseBullet();
 

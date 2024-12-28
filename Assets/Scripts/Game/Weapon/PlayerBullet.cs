@@ -28,13 +28,45 @@ namespace QFramework.Gungeon
             mRigidbody2D.velocity = this.velocity;
         }
 
+        public List<AudioClip> hitEnemySfxs = new List<AudioClip>();
+        public List<AudioClip> hitWallSfxs = new List<AudioClip>();
+
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.GetComponent<IEnemy>() != null)
+            if (other.gameObject.CompareTag("Enemy"))
             {
-                other.gameObject.GetComponent<IEnemy>().Hurt(Damage);
+                this.Hide();
+                var enemy = other.gameObject.GetComponent<IEnemy>();
+                enemy.Hurt(Damage);
+                if (hitEnemySfxs.Count > 0)
+                {
+                    var hitEnemySfx = hitEnemySfxs.GetRandomItem();
+                    var audioPlayer = AudioKit.PlaySound(hitEnemySfx, callBack: (_) =>
+                    {
+                        this.DestroyGameObjGracefully();
+                    }, volume: 0.3f);
+                }
+                else
+                {
+                    this.DestroyGameObjGracefully();
+                }
             }
-            Destroy(gameObject);
+            else if(other.gameObject.CompareTag("Wall"))
+            {
+                this.Hide();
+                if (hitWallSfxs.Count > 0)
+                {
+                    var hitWallSfx = hitWallSfxs.GetRandomItem();
+                    var audioPlayer = AudioKit.PlaySound(hitWallSfx, callBack: (_) =>
+                    {
+                        this.DestroyGameObjGracefully();
+                    }, volume: 0.3f);
+                }
+                else
+                {
+                    this.DestroyGameObjGracefully();
+                }
+            }
         }
     }
 }

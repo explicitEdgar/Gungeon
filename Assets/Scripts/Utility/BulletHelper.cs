@@ -6,8 +6,17 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 namespace QFramework.Gungeon
 {
     public class BulletHelper
-    {
-        public static void ShootSpread(int count, Vector2 origin,Vector2 mainDirection ,float radius, EnemyBullet enemyBullet,float durationAngle)
+    {   
+        public static void Shoot(Vector2 pos,Vector2 direction,float speed,float damage)
+        {
+            var bullet = Object.Instantiate(BulletFactory.Default.PistolBullet);
+            bullet.transform.position = pos;
+            bullet.velocity = direction.normalized * speed;
+            bullet.Damage = damage;
+            bullet.gameObject.SetActive(true);
+        }
+
+        public static void ShootSpread(int count, Vector2 origin,Vector2 mainDirection ,float radius, EnemyBullet enemyBullet,float durationAngle,float speed = 5)
         {
 
             var mainAngle = mainDirection.ToAngle();
@@ -19,11 +28,11 @@ namespace QFramework.Gungeon
 
                 var bullet = Object.Instantiate(enemyBullet);
                 bullet.transform.position = pos;
-                bullet.velocity = direction * 5;
+                bullet.velocity = direction * speed;
                 bullet.gameObject.SetActive(true);
             }
         }
-        public static void ShootAround(int count,Vector2 origin,float radius,EnemyBullet enemyBullet)
+        public static void ShootAround(int count,Vector2 origin,float radius,EnemyBullet enemyBullet,float speed = 5)
         {
             var durationAngle = 360 / count;
 
@@ -36,7 +45,7 @@ namespace QFramework.Gungeon
 
                 var bullet = Object.Instantiate(enemyBullet);
                 bullet.transform.position = pos;
-                bullet.velocity = direction * 5;
+                bullet.velocity = direction * speed;
                 bullet.gameObject.SetActive(true);
             }
         }

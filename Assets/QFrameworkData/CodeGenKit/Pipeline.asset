@@ -19,30 +19,19 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: QFramework.Gungeon.Room
-      PathToRoot: Room
-      MemberName: Room
-    - TypeName: QFramework.Gungeon.Door
-      PathToRoot: Door
-      MemberName: Door
-    - TypeName: QFramework.Gungeon.Hp1
-      PathToRoot: Hp1
-      MemberName: Hp1
-    - TypeName: QFramework.Gungeon.Chest
-      PathToRoot: Chest
-      MemberName: Chest
-    ScriptsFolder: Assets/Scripts/Game
-    ClassName: LevelController
+    - TypeName: SpriteRenderer
+      PathToRoot: Sprite
+      MemberName: Sprite
+    - TypeName: Transform
+      PathToRoot: BulletPos
+      MemberName: BulletPos
+    ScriptsFolder: Assets/Scripts/Game/Weapon
+    ClassName: MP5
     Namespace: QFramework.Gungeon
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
-      partial class LevelController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class MP5 : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:ab9b1b20-6346-440d-855a-cedff286e6b3\r\nusing UnityEngine;\r\n\r\nnamespace
-      QFramework.Gungeon\r\n{\r\n\tpublic partial class LevelController\r\n\t{\r\n\r\n\t\tpublic
-      QFramework.Gungeon.Room Room;\r\n\r\n\t\tpublic QFramework.Gungeon.Door Door;\r\n\r\n\t\tpublic
-      QFramework.Gungeon.Hp1 Hp1;\r\n\r\n\t\tpublic QFramework.Gungeon.Chest Chest;\r\n\r\n\t\tpublic
-      UnityEngine.GameObject EnemyA;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyB;\r\n\r\n\t\tpublic
-      UnityEngine.GameObject EnemyC;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyD;\r\n\r\n\t\tpublic
-      UnityEngine.GameObject EnemyE;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyF;\r\n\r\n\t\tpublic
-      UnityEngine.GameObject EnemyG;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyH;\r\n\r\n\t\tpublic
-      UnityEngine.GameObject EnemyABig;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:6920ab00-1a43-4b7d-95ef-1fcb436ed26d\r\nusing UnityEngine;\r\n\r\nnamespace
+      QFramework.Gungeon\r\n{\r\n\tpublic partial class MP5\r\n\t{\r\n\r\n\t\tpublic
+      SpriteRenderer Sprite;\r\n\r\n\t\tpublic Transform BulletPos;\r\n\r\n\t\tpublic
+      UnityEngine.AudioSource SelfAudioSource;\r\n\r\n\t}\r\n}\r\n"
