@@ -18,7 +18,7 @@ TagManager:
   - EnemyBullet
   - RoomTrigger
   - Wall
-  - 
+  - Effect
   - 
   - 
   - 
@@ -42,4 +42,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Effect
+    uniqueID: 1875762293
     locked: 0

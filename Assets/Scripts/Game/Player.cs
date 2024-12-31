@@ -195,6 +195,12 @@ namespace QFramework.Gungeon
 
         public void hurt(int damage)
         {
+            FxFactory.Default.GenerateHurtFx(transform.Position2D(),Color.green);
+
+            AudioKit.PlaySound("Resources://PlayerHurt");
+
+            FxFactory.Default.GeneratePlayerBlood(transform.Position2D());
+
             Global.HP -= damage;
             if (Global.HP <= 0)
             {

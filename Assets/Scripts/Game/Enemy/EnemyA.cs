@@ -131,6 +131,11 @@ namespace QFramework.Gungeon
 
         public void Hurt(float damage)
         {
+            FxFactory.Default.GenerateHurtFx(transform.Position2D());
+
+            FxFactory.Default.GenerateEnemyBlood(transform.Position2D());
+
+
             Hp -= damage;
             if (Hp <= 0f)
             {

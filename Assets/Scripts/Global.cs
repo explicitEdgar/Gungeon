@@ -10,7 +10,7 @@ namespace QFramework.Gungeon
 
         public static Room currentRoom;
 
-        public static int HP = 3;
+        public static int HP = 100;
 
         public static Action HPChangedEvent;
 

@@ -19,19 +19,22 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
+    - TypeName: UnityEngine.ParticleSystem
+      PathToRoot: HurtFx
+      MemberName: HurtFx
     - TypeName: SpriteRenderer
-      PathToRoot: Sprite
-      MemberName: Sprite
-    - TypeName: Transform
-      PathToRoot: BulletPos
-      MemberName: BulletPos
-    ScriptsFolder: Assets/Scripts/Game/Weapon
-    ClassName: MP5
+      PathToRoot: PlayerBlood
+      MemberName: PlayerBlood
+    - TypeName: SpriteRenderer
+      PathToRoot: EnemyBlood
+      MemberName: EnemyBlood
+    ScriptsFolder: Assets/Scripts/Game
+    ClassName: FxFactory
     Namespace: QFramework.Gungeon
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
-      partial class MP5 : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class FxFactory : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:6920ab00-1a43-4b7d-95ef-1fcb436ed26d\r\nusing UnityEngine;\r\n\r\nnamespace
-      QFramework.Gungeon\r\n{\r\n\tpublic partial class MP5\r\n\t{\r\n\r\n\t\tpublic
-      SpriteRenderer Sprite;\r\n\r\n\t\tpublic Transform BulletPos;\r\n\r\n\t\tpublic
-      UnityEngine.AudioSource SelfAudioSource;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:063e3db3-5a55-4ccb-af8c-969c140449cf\r\nusing UnityEngine;\r\n\r\nnamespace
+      QFramework.Gungeon\r\n{\r\n\tpublic partial class FxFactory\r\n\t{\r\n\r\n\t\tpublic
+      UnityEngine.ParticleSystem HurtFx;\r\n\r\n\t\tpublic SpriteRenderer PlayerBlood;\r\n\r\n\t\tpublic
+      SpriteRenderer EnemyBlood;\r\n\r\n\t}\r\n}\r\n"
