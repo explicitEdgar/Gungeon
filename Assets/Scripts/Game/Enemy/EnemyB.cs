@@ -115,7 +115,7 @@ public class EnemyB : MonoBehaviour,IEnemy
         Room.Enemies.Remove(this);
     }
 
-    public void Hurt(float damage)
+    public void Hurt(float damage, Vector2 hitDirection)
     {
         FxFactory.Default.GenerateHurtFx(transform.Position2D());
         FxFactory.Default.GenerateEnemyBlood(transform.Position2D());
@@ -123,6 +123,8 @@ public class EnemyB : MonoBehaviour,IEnemy
         Hp -= damage;
         if (Hp <= 0f)
         {
+            FxFactory.Default.GeneratoEnemyBody(transform.Position2D(), hitDirection, "EnemyBDie", 1.5f);
+            AudioKit.PlaySound("Resources://EnemyDie");
             Destroy(gameObject);
         }
     }

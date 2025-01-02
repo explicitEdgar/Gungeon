@@ -68,7 +68,7 @@ namespace QFramework.Gungeon
 
         public Player player;
 
-        public IEnemy Enemy => RandomUtility.Choose(EnemyA).GetComponent<IEnemy>();
+        public IEnemy Enemy => RandomUtility.Choose(EnemyC,EnemyF,EnemyG).GetComponent<IEnemy>();
         
         public Final final;
 

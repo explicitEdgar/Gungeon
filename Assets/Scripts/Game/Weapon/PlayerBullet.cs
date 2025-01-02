@@ -37,7 +37,7 @@ namespace QFramework.Gungeon
             {
                 this.Hide();
                 var enemy = other.gameObject.GetComponent<IEnemy>();
-                enemy.Hurt(Damage);
+                enemy.Hurt(Damage,-other.GetContact(0).relativeVelocity.normalized);
                 if (hitEnemySfxs.Count > 0)
                 {
                     var hitEnemySfx = hitEnemySfxs.GetRandomItem();

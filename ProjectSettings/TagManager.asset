@@ -43,6 +43,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Effect
+  - name: Floor
+    uniqueID: 2215566257
+    locked: 0
+  - name: OnFloor
+    uniqueID: 506496223
+    locked: 0
+  - name: Instance
     uniqueID: 1875762293
+    locked: 0
+  - name: Wall
+    uniqueID: 194917293
     locked: 0

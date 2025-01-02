@@ -22,6 +22,29 @@ namespace QFramework.Gungeon
 			// Code Here
 		}
 
+        public void GeneratoEnemyBody(Vector2 pos,Vector2 flyDirection,string name,float scale)
+        {
+            var dieBody = Default.transform.Find(name)
+                .GetComponent<SpriteRenderer>()
+                .Instantiate()
+                .LocalScale(scale)
+                .LocalEulerAnglesZ(Random.Range(-45, 45))
+                .Self(self =>
+                {
+                    self.flipX = RandomUtility.Choose(true, false);
+                    self.flipY = RandomUtility.Choose(true, false);
+                })
+                .Show();
+
+            var dieBodyOriginPos = pos;
+            var dieBodyMoveToDistance = Random.Range(0.5f, 1.5f);
+
+            ActionKit.Lerp(0, 1, 0.3f, (p) =>
+            {
+                dieBody.transform.Position2D(Vector2.Lerp(dieBodyOriginPos, dieBodyOriginPos + dieBodyMoveToDistance * flyDirection, p));
+            }).StartCurrentScene();
+
+        }
         public void GenerateHurtFx(Vector2 pos,Color color = default)
         {
             if (color == default) color = Color.red;

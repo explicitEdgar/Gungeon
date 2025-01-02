@@ -148,7 +148,7 @@ public class EnemyC : MonoBehaviour, IEnemy
         Room.Enemies.Remove(this);
     }
 
-    public void Hurt(float damage)
+    public void Hurt(float damage,Vector2 hitDirection)
     {
         FxFactory.Default.GenerateHurtFx(transform.Position2D());
         FxFactory.Default.GenerateEnemyBlood(transform.Position2D());
@@ -156,6 +156,8 @@ public class EnemyC : MonoBehaviour, IEnemy
         Hp -= damage;
         if (Hp <= 0f)
         {
+            FxFactory.Default.GeneratoEnemyBody(transform.Position2D(), hitDirection, "EnemyCDie", 1.5f);
+            AudioKit.PlaySound("Resources://EnemyDieFemale");
             Destroy(gameObject);
         }
     }

@@ -123,7 +123,7 @@ namespace QFramework.Gungeon
             Room.Enemies.Remove(this);
         }
 
-        public void Hurt(float damage)
+        public void Hurt(float damage,Vector2 hitDirection)
         {
             FxFactory.Default.GenerateHurtFx(transform.Position2D());
             FxFactory.Default.GenerateEnemyBlood(transform.Position2D());
@@ -131,6 +131,8 @@ namespace QFramework.Gungeon
             Hp -= damage;
             if (Hp <= 0f)
             {
+                FxFactory.Default.GeneratoEnemyBody(transform.Position2D(), hitDirection, "EnemyGDie", 1.5f);
+                AudioKit.PlaySound("Resources://EnemyDieFemale");
                 Destroy(gameObject);
             }
         }
