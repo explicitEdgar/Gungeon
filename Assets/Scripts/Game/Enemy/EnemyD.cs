@@ -6,10 +6,7 @@ using UnityEngine;
 
 public class EnemyD : Enemy, IEnemy
 {
-    public GameObject GameObject => gameObject;
-
-    public Room Room { get; set; }
-
+    
     public Player player;
 
     public EnemyBullet enemyBullet;
@@ -105,7 +102,7 @@ public class EnemyD : Enemy, IEnemy
         Room.Enemies.Remove(this);
     }
 
-    public void Hurt(float damage,Vector2 hitDirection)
+    public override void Hurt(float damage,Vector2 hitDirection)
     {
         FxFactory.Default.GenerateHurtFx(transform.Position2D());
         FxFactory.Default.GenerateEnemyBlood(transform.Position2D());

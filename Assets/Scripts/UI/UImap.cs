@@ -7,6 +7,7 @@ namespace QFramework.Gungeon
 	{
         private void OnEnable()
         {
+            Global.UIOpened = true;
             Time.timeScale = 0;
             MapItemRoot.DestroyChildren();
 
@@ -14,16 +15,23 @@ namespace QFramework.Gungeon
             {
                 if (room.State == Room.RoomStates.Unlocked)
                 {
-                    MapItem.InstantiateWithParent(MapItemRoot)
+                    MapItem
+                    .InstantiateWithParent(MapItemRoot)
                     .WithData(room)
                     .LocalPosition(x * 60, y * 60)
                     .Show();
+                }
+
+                if(room == Global.currentRoom)
+                {
+                    MapItemRoot.LocalPosition(-x * 60, -y * 60);
                 }
             });
         }
 
         private void OnDisable()
         {
+            Global.UIOpened = false;
             Time.timeScale = 1;
         }
     }

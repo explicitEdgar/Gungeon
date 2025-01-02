@@ -607,6 +607,7 @@ namespace QFramework.Gungeon
                         var newChest = Instantiate(Chest);
                         newChest.transform.position = new Vector3(x, y, 0);
                         newChest.gameObject.SetActive(true);
+                        room.AddPowerUp(newChest);
                     }
                 }
             }

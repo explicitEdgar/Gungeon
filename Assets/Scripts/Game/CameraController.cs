@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace QFramework.Gungeon
 {
-    public class CameraController : Enemy
+    public class CameraController : MonoBehaviour
     {
         public GameObject Player;
         public static EasyEvent<int, float> Shake = new EasyEvent<int, float>();

@@ -18,8 +18,13 @@ namespace QFramework.Gungeon
 
         public static DynaGrid<Room> RoomGrid { get; set; }
 
+        public static bool UIOpened = false;
+
+        public static bool CanDo => !UIOpened;
+
         public static void ResetData()
         {
+            UIOpened = false;
             Coin.Value = 0;
             HP = 3;
             Time.timeScale = 1;

@@ -11,10 +11,7 @@ namespace QFramework.Gungeon
 
     public class EnemyA : Enemy, IEnemy
     {
-        public GameObject GameObject => gameObject;
-
-        public Room Room { get; set; }
-
+        
         public Player player;
 
         public EnemyBullet enemyBullet;
@@ -122,7 +119,7 @@ namespace QFramework.Gungeon
             Room.Enemies.Remove(this);
         }
 
-        public void Hurt(float damage,Vector2 hitDirection)
+        public override void Hurt(float damage,Vector2 hitDirection)
         {
             FxFactory.Default.GenerateHurtFx(transform.Position2D());
 

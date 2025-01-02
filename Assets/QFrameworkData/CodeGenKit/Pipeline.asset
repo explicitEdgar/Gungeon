@@ -37,6 +37,9 @@ MonoBehaviour:
     - TypeName: UnityEngine.UI.Image
       PathToRoot: DownDoor
       MemberName: DownDoor
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Icon
+      MemberName: Icon
     - TypeName: RectTransform
       PathToRoot: IconGroup
       MemberName: IconGroup
@@ -46,9 +49,9 @@ MonoBehaviour:
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
       partial class MapItem : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:57e0f52a-d3cb-4ccd-a500-887622263e81\r\nusing UnityEngine;\r\n\r\nnamespace
+    DesignerCode: "// Generate Id:647a9c36-fbb9-4b46-95bf-a1eef365b16c\r\nusing UnityEngine;\r\n\r\nnamespace
       QFramework.Gungeon\r\n{\r\n\tpublic partial class MapItem\r\n\t{\r\n\r\n\t\tpublic
       UnityEngine.UI.Text TypeText;\r\n\r\n\t\tpublic UnityEngine.UI.Button Button;\r\n\r\n\t\tpublic
       UnityEngine.UI.Image LeftDoor;\r\n\r\n\t\tpublic UnityEngine.UI.Image RightDoor;\r\n\r\n\t\tpublic
       UnityEngine.UI.Image UpDoor;\r\n\r\n\t\tpublic UnityEngine.UI.Image DownDoor;\r\n\r\n\t\tpublic
-      RectTransform IconGroup;\r\n\r\n\t}\r\n}\r\n"
+      UnityEngine.UI.Image Icon;\r\n\r\n\t\tpublic RectTransform IconGroup;\r\n\r\n\t}\r\n}\r\n"

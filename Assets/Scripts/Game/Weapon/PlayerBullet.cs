@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace QFramework.Gungeon
 {
-    public class PlayerBullet : Enemy
+    public class PlayerBullet : MonoBehaviour
     {
         public Vector2 velocity;
 

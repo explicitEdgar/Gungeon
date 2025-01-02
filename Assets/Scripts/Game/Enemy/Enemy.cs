@@ -18,7 +18,7 @@ namespace QFramework.Gungeon
     }
 
 
-    public class Enemy : MonoBehaviour
+    public abstract class Enemy : MonoBehaviour,IEnemy
     {
         protected void OnDeath(Vector2 hitDirection,string bodyName,float scale,string soundName = "EnemyDie")
         {
@@ -26,11 +26,19 @@ namespace QFramework.Gungeon
 
             AudioKit.PlaySound("Resources://" + soundName);
 
-            PowerUpFactory.Default.Coin.Instantiate()
+            var coin = PowerUpFactory.Default.Coin.Instantiate()
                 .Position2D(transform.Position2D())
                 .Show();
 
+            Room.AddPowerUp(coin);
+
             Destroy(gameObject);
         }
+
+        public GameObject GameObject => gameObject;
+
+        public Room Room { get; set; }
+
+        public abstract void Hurt(float damage, Vector2 hitDirection);
     }
 }

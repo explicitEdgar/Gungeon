@@ -3,6 +3,7 @@ using QFramework;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using UnityEngine.Rendering;
 
 namespace QFramework.Gungeon
 {
@@ -24,7 +25,7 @@ namespace QFramework.Gungeon
         public HashSet<IEnemy> Enemies => mEnemies;
         private List<EnemyWaveConfig> mWaves = new List<EnemyWaveConfig>();
         public EnemyWaveConfig curWave;
-
+        public HashSet<IPowerUp> PowerUps = new HashSet<IPowerUp>();
 
         public RoomConfig Config { get; private set; }
         public Room WithConfig(RoomConfig roomConfig)
@@ -129,9 +130,9 @@ namespace QFramework.Gungeon
             }
             else if(collision.CompareTag("Player"))
             {
+                Global.currentRoom = this;
                 if (State == RoomStates.Close)
-                {
-                    Global.currentRoom = this;
+                { 
                     State = RoomStates.Unlocked;
                 }
             }
@@ -140,6 +141,12 @@ namespace QFramework.Gungeon
         public void AddDoor(Door door)
         {
             doors.Add(door);
+        }
+
+        public void AddPowerUp(IPowerUp powerUp)
+        {
+            PowerUps.Add(powerUp);
+            powerUp.Room = this;
         }
     }
 }

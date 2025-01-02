@@ -1,4 +1,4 @@
-// Generate Id:57e0f52a-d3cb-4ccd-a500-887622263e81
+// Generate Id:647a9c36-fbb9-4b46-95bf-a1eef365b16c
 using UnityEngine;
 
 namespace QFramework.Gungeon
@@ -17,6 +17,8 @@ namespace QFramework.Gungeon
 		public UnityEngine.UI.Image UpDoor;
 
 		public UnityEngine.UI.Image DownDoor;
+
+		public UnityEngine.UI.Image Icon;
 
 		public RectTransform IconGroup;
 

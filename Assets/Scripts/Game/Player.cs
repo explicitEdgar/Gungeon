@@ -153,43 +153,46 @@ namespace QFramework.Gungeon
 
             mrigidbody2D.velocity = new Vector3(horizontal, vertical).normalized * 5;
 
-            if (Input.GetMouseButtonDown(0))
+            if (Global.CanDo)
             {
-                gun.ShootDown(bulletDirection);
-            }
-            if (Input.GetMouseButton(0))
-            {
-                gun.Shooting(bulletDirection);
-            }
-            if (Input.GetMouseButtonUp(0))
-            {
-                gun.ShootUp(bulletDirection);
-            }
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                gun.Reload();
-            }
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                var index = Gunlist.FindIndex(gun1 => gun1 == gun);
-                index++;
-                if(index > Gunlist.Count - 1)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    index = 0;
+                    gun.ShootDown(bulletDirection);
                 }
-
-                UseGun(index);
-            }
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                var index = Gunlist.FindIndex(gun1 => gun1 == gun);
-                index--;
-                if (index < 0)
+                if (Input.GetMouseButton(0))
                 {
-                    index = Gunlist.Count - 1;
+                    gun.Shooting(bulletDirection);
                 }
+                if (Input.GetMouseButtonUp(0))
+                {
+                    gun.ShootUp(bulletDirection);
+                }
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    gun.Reload();
+                }
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    var index = Gunlist.FindIndex(gun1 => gun1 == gun);
+                    index++;
+                    if (index > Gunlist.Count - 1)
+                    {
+                        index = 0;
+                    }
 
-                UseGun(index);
+                    UseGun(index);
+                }
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    var index = Gunlist.FindIndex(gun1 => gun1 == gun);
+                    index--;
+                    if (index < 0)
+                    {
+                        index = Gunlist.Count - 1;
+                    }
+
+                    UseGun(index);
+                }
             }
         }
 
@@ -206,6 +209,7 @@ namespace QFramework.Gungeon
             {
                 Global.HP = 0;
                 GameUI.Default.gameOver.SetActive(true);
+                Global.UIOpened = true;
                 Time.timeScale = 0;
             }
             Global.HPChangedEvent();

@@ -3,7 +3,7 @@ using QFramework;
 
 namespace QFramework.Gungeon
 {
-	public partial class Coin : ViewController
+	public partial class Coin : ViewController,IPowerUp
 	{
 		void Start()
 		{
@@ -14,10 +14,15 @@ namespace QFramework.Gungeon
         {
             if (collision.CompareTag("Player"))
             {
+                Room.PowerUps.Remove(this);
+
                 Global.Coin.Value++;
                 AudioKit.PlaySound("Resources://Coin");
                 this.DestroyGameObjGracefully();
             }
         }
+
+        public Room Room { get; set; }
+        public SpriteRenderer SpriteRenderer => this.GetComponent<SpriteRenderer>();
     }
 }
