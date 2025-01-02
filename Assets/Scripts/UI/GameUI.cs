@@ -56,7 +56,17 @@ namespace QFramework.Gungeon
         // Update is called once per frame
         void Update()
         {
-
+            if(Input.GetKeyDown(KeyCode.M))
+            {
+                if(UImap.gameObject.activeSelf)
+                {
+                    UImap.Hide();
+                }
+                else
+                {
+                    UImap.Show();
+                }
+            }
         }
 
         public void UpdateHPText()

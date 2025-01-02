@@ -19,15 +19,36 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: QFramework.Gungeon.Coin
-      PathToRoot: Coin
-      MemberName: Coin
-    ScriptsFolder: Assets/Scripts/Game
-    ClassName: PowerUpFactory
+    - TypeName: UnityEngine.UI.Text
+      PathToRoot: TypeText
+      MemberName: TypeText
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: Button
+      MemberName: Button
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: LeftDoor
+      MemberName: LeftDoor
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: RightDoor
+      MemberName: RightDoor
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: UpDoor
+      MemberName: UpDoor
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: DownDoor
+      MemberName: DownDoor
+    - TypeName: RectTransform
+      PathToRoot: IconGroup
+      MemberName: IconGroup
+    ScriptsFolder: Assets/Scripts/UI
+    ClassName: MapItem
     Namespace: QFramework.Gungeon
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
-      partial class PowerUpFactory : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class MapItem : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:72cbe321-b01b-4773-9386-ebc6fcf792c4\r\nusing UnityEngine;\r\n\r\nnamespace
-      QFramework.Gungeon\r\n{\r\n\tpublic partial class PowerUpFactory\r\n\t{\r\n\r\n\t\tpublic
-      QFramework.Gungeon.Coin Coin;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:57e0f52a-d3cb-4ccd-a500-887622263e81\r\nusing UnityEngine;\r\n\r\nnamespace
+      QFramework.Gungeon\r\n{\r\n\tpublic partial class MapItem\r\n\t{\r\n\r\n\t\tpublic
+      UnityEngine.UI.Text TypeText;\r\n\r\n\t\tpublic UnityEngine.UI.Button Button;\r\n\r\n\t\tpublic
+      UnityEngine.UI.Image LeftDoor;\r\n\r\n\t\tpublic UnityEngine.UI.Image RightDoor;\r\n\r\n\t\tpublic
+      UnityEngine.UI.Image UpDoor;\r\n\r\n\t\tpublic UnityEngine.UI.Image DownDoor;\r\n\r\n\t\tpublic
+      RectTransform IconGroup;\r\n\r\n\t}\r\n}\r\n"

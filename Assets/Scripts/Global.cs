@@ -16,6 +16,8 @@ namespace QFramework.Gungeon
 
         public static BindableProperty<int> Coin = new BindableProperty<int>();
 
+        public static DynaGrid<Room> RoomGrid { get; set; }
+
         public static void ResetData()
         {
             Coin.Value = 0;

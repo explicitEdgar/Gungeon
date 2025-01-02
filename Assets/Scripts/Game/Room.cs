@@ -95,7 +95,7 @@ namespace QFramework.Gungeon
                         {
                             State = RoomStates.Unlocked;
                             foreach (var door in doors)
-                            {
+                            {   
                                 door.State.ChangeState(Door.States.Open);
                             }
                         }
@@ -125,6 +125,14 @@ namespace QFramework.Gungeon
                     {
                         door.State.ChangeState(Door.States.BattleClose);
                     }
+                }
+            }
+            else if(collision.CompareTag("Player"))
+            {
+                if (State == RoomStates.Close)
+                {
+                    Global.currentRoom = this;
+                    State = RoomStates.Unlocked;
                 }
             }
         }
