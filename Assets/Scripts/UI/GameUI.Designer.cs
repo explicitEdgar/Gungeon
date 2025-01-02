@@ -1,4 +1,4 @@
-// Generate Id:9350d52d-ec6c-44bb-9739-b9bf37e2e95c
+// Generate Id:9093207c-4b45-4b42-8b57-479a9193e79d
 using UnityEngine;
 
 namespace QFramework.Gungeon
@@ -7,6 +7,8 @@ namespace QFramework.Gungeon
 	{
 
 		public UnityEngine.UI.Text GunInfo;
+
+		public UnityEngine.UI.Text CoinInfo;
 
 	}
 }

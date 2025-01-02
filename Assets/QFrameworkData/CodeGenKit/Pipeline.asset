@@ -19,50 +19,15 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: UnityEngine.ParticleSystem
-      PathToRoot: HurtFx
-      MemberName: HurtFx
-    - TypeName: SpriteRenderer
-      PathToRoot: PlayerBlood
-      MemberName: PlayerBlood
-    - TypeName: SpriteRenderer
-      PathToRoot: EnemyBlood
-      MemberName: EnemyBlood
-    - TypeName: SpriteRenderer
-      PathToRoot: EnemyADie
-      MemberName: EnemyADie
-    - TypeName: SpriteRenderer
-      PathToRoot: EnemyBDie
-      MemberName: EnemyBDie
-    - TypeName: SpriteRenderer
-      PathToRoot: EnemyCDie
-      MemberName: EnemyCDie
-    - TypeName: SpriteRenderer
-      PathToRoot: EnemyDDie
-      MemberName: EnemyDDie
-    - TypeName: SpriteRenderer
-      PathToRoot: EnemyEDieBody
-      MemberName: EnemyEDieBody
-    - TypeName: SpriteRenderer
-      PathToRoot: EnemyFDieBody
-      MemberName: EnemyFDieBody
-    - TypeName: SpriteRenderer
-      PathToRoot: EnemyGDieBody
-      MemberName: EnemyGDieBody
-    - TypeName: SpriteRenderer
-      PathToRoot: EnemyHDieBody
-      MemberName: EnemyHDieBody
+    - TypeName: QFramework.Gungeon.Coin
+      PathToRoot: Coin
+      MemberName: Coin
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: FxFactory
+    ClassName: PowerUpFactory
     Namespace: QFramework.Gungeon
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
-      partial class FxFactory : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class PowerUpFactory : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:26138304-e346-4e25-807b-ef73e38473c7\r\nusing UnityEngine;\r\n\r\nnamespace
-      QFramework.Gungeon\r\n{\r\n\tpublic partial class FxFactory\r\n\t{\r\n\r\n\t\tpublic
-      UnityEngine.ParticleSystem HurtFx;\r\n\r\n\t\tpublic SpriteRenderer PlayerBlood;\r\n\r\n\t\tpublic
-      SpriteRenderer EnemyBlood;\r\n\r\n\t\tpublic SpriteRenderer EnemyADie;\r\n\r\n\t\tpublic
-      SpriteRenderer EnemyBDie;\r\n\r\n\t\tpublic SpriteRenderer EnemyCDie;\r\n\r\n\t\tpublic
-      SpriteRenderer EnemyDDie;\r\n\r\n\t\tpublic SpriteRenderer EnemyEDieBody;\r\n\r\n\t\tpublic
-      SpriteRenderer EnemyFDieBody;\r\n\r\n\t\tpublic SpriteRenderer EnemyGDieBody;\r\n\r\n\t\tpublic
-      SpriteRenderer EnemyHDieBody;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:72cbe321-b01b-4773-9386-ebc6fcf792c4\r\nusing UnityEngine;\r\n\r\nnamespace
+      QFramework.Gungeon\r\n{\r\n\tpublic partial class PowerUpFactory\r\n\t{\r\n\r\n\t\tpublic
+      QFramework.Gungeon.Coin Coin;\r\n\r\n\t}\r\n}\r\n"

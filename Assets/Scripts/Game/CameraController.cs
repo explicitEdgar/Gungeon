@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace QFramework.Gungeon
 {
-    public class CameraController : MonoBehaviour
+    public class CameraController : Enemy
     {
         public GameObject Player;
         // Start is called before the first frame update

@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyD : MonoBehaviour, IEnemy
+public class EnemyD : Enemy, IEnemy
 {
     public GameObject GameObject => gameObject;
 
@@ -113,9 +113,8 @@ public class EnemyD : MonoBehaviour, IEnemy
         Hp -= damage;
         if (Hp <= 0f)
         {
-            FxFactory.Default.GeneratoEnemyBody(transform.Position2D(), hitDirection, "EnemyDDie", 1.5f);
-            AudioKit.PlaySound("Resources://EnemyDie");
-            Destroy(gameObject);
+            OnDeath(hitDirection, "EnemyDDie", 1.5f);
+
         }
     }
 }

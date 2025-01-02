@@ -8,17 +8,8 @@ using UnityEngine.UIElements;
 
 namespace QFramework.Gungeon
 {   
-    public interface IEnemy
-    {
-        GameObject GameObject { get; }
 
-        Room Room { get; set; }
-
-        void Hurt(float damage,Vector2 hitDirection);
-    }
-
-
-    public class EnemyA : MonoBehaviour, IEnemy
+    public class EnemyA : Enemy, IEnemy
     {
         public GameObject GameObject => gameObject;
 
@@ -139,9 +130,7 @@ namespace QFramework.Gungeon
             Hp -= damage;
             if (Hp <= 0f)
             {
-                FxFactory.Default.GeneratoEnemyBody(transform.Position2D(), hitDirection, "EnemyADie", 1.5f);
-                AudioKit.PlaySound("Resources://EnemyDie");
-                Destroy(gameObject);
+                OnDeath(hitDirection,"EnemyADie",1.5f);
             }
         }
 

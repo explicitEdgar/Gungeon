@@ -46,6 +46,11 @@ namespace QFramework.Gungeon
                 });
 
             Global.HPChangedEvent += UpdateHPText;
+
+            Global.Coin.RegisterWithInitValue(coin =>
+            {
+                CoinInfo.text = coin.ToString();
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
 
         // Update is called once per frame

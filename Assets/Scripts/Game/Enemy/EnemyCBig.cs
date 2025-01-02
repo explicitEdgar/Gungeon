@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCBig : MonoBehaviour, IEnemy
+public class EnemyCBig : Enemy, IEnemy
 {
     public GameObject GameObject => gameObject;
 
@@ -156,9 +156,8 @@ public class EnemyCBig : MonoBehaviour, IEnemy
         Hp -= damage;
         if (Hp <= 0f)
         {
-            FxFactory.Default.GeneratoEnemyBody(transform.Position2D(), hitDirection, "EnemyCDie", 3f);
-            AudioKit.PlaySound("Resources://EnemyDieFemale");
-            Destroy(gameObject);
+            OnDeath(hitDirection, "EnemyCDie", 3f,"EnemyDieFemale");
+
         }
     }
 }

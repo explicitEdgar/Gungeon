@@ -7,7 +7,7 @@ using UnityEngine;
 namespace QFramework.Gungeon
 {
 
-    public class EnemyE : MonoBehaviour, IEnemy
+    public class EnemyE : Enemy, IEnemy
     {
         public GameObject GameObject => gameObject;
 
@@ -134,9 +134,8 @@ namespace QFramework.Gungeon
             Hp -= damage;
             if (Hp <= 0f)
             {
-                FxFactory.Default.GeneratoEnemyBody(transform.Position2D(), hitDirection, "EnemyEDie", 1.5f);
-                AudioKit.PlaySound("Resources://EnemyDie");
-                Destroy(gameObject);
+                OnDeath(hitDirection, "EnemyEDie", 1.5f);
+
             }
         }
 

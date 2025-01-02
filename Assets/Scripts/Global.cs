@@ -14,8 +14,11 @@ namespace QFramework.Gungeon
 
         public static Action HPChangedEvent;
 
+        public static BindableProperty<int> Coin = new BindableProperty<int>();
+
         public static void ResetData()
         {
+            Coin.Value = 0;
             HP = 3;
             Time.timeScale = 1;
         }
