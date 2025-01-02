@@ -70,8 +70,11 @@ namespace QFramework.Gungeon
 
                 AudioPlayer.clip = ShootSounds[0];
                 AudioPlayer.Play();
+
+                CameraController.Shake.Trigger(4, 0.08f);
+
             }
-            
+
         }
 
         public override void Shooting(Vector2 direction)

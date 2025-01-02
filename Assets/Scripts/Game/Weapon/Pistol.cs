@@ -42,6 +42,8 @@ namespace QFramework.Gungeon
 
                 shootLight.ShowLight(BulletPos.Position2D(), direction);
 
+                CameraController.Shake.Trigger(2, 0.05f);
+
                 clip.UseBullet();
             }
 

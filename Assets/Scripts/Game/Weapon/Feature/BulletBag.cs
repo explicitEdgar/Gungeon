@@ -19,12 +19,18 @@ namespace QFramework.Gungeon
         {
             if(clip.Full || !hasBullet)
             {
-
+                return;
             }
             else
             {
                 var needCount = clip.NeedCount;
-                if(needCount <= RemainBulletCount)
+                if(RemainBulletCount == -1)
+                {
+                    //子弹无限
+                    //填满
+                    clip.Reload(reloadSound, needCount);
+                }
+                else if(needCount <= RemainBulletCount)
                 {   
                     //填满
                     clip.Reload(reloadSound, needCount);

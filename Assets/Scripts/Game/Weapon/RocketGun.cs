@@ -51,6 +51,9 @@ namespace QFramework.Gungeon
 
                 AudioPlayer.clip = ShootSounds[0];
                 AudioPlayer.Play();
+
+                CameraController.Shake.Trigger(5, 0.1f);
+
             }
 
         }

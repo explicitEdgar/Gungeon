@@ -631,7 +631,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 313f3a53fabf86144b2059a5a37c0f7b, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -912,9 +912,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 313f3a53fabf86144b2059a5a37c0f7b, type: 3}
     m_FontSize: 20
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
@@ -10524,13 +10524,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 313f3a53fabf86144b2059a5a37c0f7b, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
@@ -10561,7 +10561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -30}
+  m_AnchoredPosition: {x: 98.899994, y: -30}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &826975888
@@ -11338,7 +11338,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 313f3a53fabf86144b2059a5a37c0f7b, type: 3}
     m_FontSize: 71
     m_FontStyle: 1
     m_BestFit: 0
@@ -11813,7 +11813,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 313f3a53fabf86144b2059a5a37c0f7b, type: 3}
     m_FontSize: 71
     m_FontStyle: 1
     m_BestFit: 0
@@ -12322,7 +12322,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 129, y: -94}
+  m_AnchoredPosition: {x: 129, y: -97.8}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1124677635
@@ -12377,7 +12377,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 313f3a53fabf86144b2059a5a37c0f7b, type: 3}
     m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
@@ -12672,7 +12672,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 313f3a53fabf86144b2059a5a37c0f7b, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -13632,7 +13632,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 313f3a53fabf86144b2059a5a37c0f7b, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -14330,6 +14330,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1522705698}
+  - component: {fileID: 1522705699}
   m_Layer: 0
   m_Name: PowerUpFactory
   m_TagString: Untagged
@@ -14353,6 +14354,26 @@ Transform:
   - {fileID: 1718964118}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1522705699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522705697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7230bb3986357824ba4507221e5fb9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: QFramework.Gungeon
+  ScriptName: PowerUpFactory
+  ScriptsFolder: Assets/Scripts/Game
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
+  Coin: {fileID: 1718964120}
 --- !u!1 &1525299617
 GameObject:
   m_ObjectHideFlags: 0
@@ -16117,6 +16138,7 @@ GameObject:
   - component: {fileID: 1718964119}
   - component: {fileID: 1718964120}
   - component: {fileID: 1718964121}
+  - component: {fileID: 1718964122}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -16255,6 +16277,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7675533, y: 0.8823767}
   m_EdgeRadius: 0
+--- !u!114 &1718964122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718964117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: Coin
+  CustomComment: 
+  mComponentName: QFramework.Gungeon.Coin
 --- !u!1 &1719071145
 GameObject:
   m_ObjectHideFlags: 0
