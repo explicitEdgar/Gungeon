@@ -109,59 +109,7 @@ namespace QFramework.Gungeon
 
             
 
-            var layout = new RoomNode(RoomTypes.Init);
-            layout.Next(RoomTypes.Shop)
-                .Next(RoomTypes.Normal)
-                .Next(RoomTypes.Normal)
-                .Next(RoomTypes.Chest,n =>
-                {
-                    n.Next(RoomTypes.Chest)
-                    .Next(RoomTypes.Chest)
-                    .Next(RoomTypes.Normal)
-                    .Next(RoomTypes.Normal)
-                    .Next(RoomTypes.Normal)
-                    .Next(RoomTypes.Normal)
-                    .Next(RoomTypes.Normal)
-                    .Next(RoomTypes.Normal)
-                    .Next(RoomTypes.Normal)
-                    .Next(RoomTypes.Normal)
-                    .Next(RoomTypes.Normal);
-                })
-                .Next(RoomTypes.Chest)
-                .Next(RoomTypes.Normal)
-                .Next(RoomTypes.Normal)
-                .Next(RoomTypes.Normal)
-                .Next(RoomTypes.Normal)
-                .Next(RoomTypes.Normal)
-                .Next(RoomTypes.Chest,n =>
-                {
-                    n.Next(RoomTypes.Chest)
-                    .Next(RoomTypes.Chest)
-                    .Next(RoomTypes.Normal)
-                    .Next(RoomTypes.Normal)
-                    .Next(RoomTypes.Normal)
-                    .Next(RoomTypes.Normal)
-                    .Next(RoomTypes.Normal)
-                    .Next(RoomTypes.Normal)
-                    .Next(RoomTypes.Normal)
-                    .Next(RoomTypes.Normal)
-                    .Next(RoomTypes.Normal);
-                })
-                .Next(RoomTypes.Normal)
-                .Next(RoomTypes.Normal)
-                .Next(RoomTypes.Normal,n =>
-                {
-                    n.Next(RoomTypes.Chest)
-                    .Next(RoomTypes.Normal)
-                    .Next(RoomTypes.Normal)
-                    .Next(RoomTypes.Normal);
-                })
-                .Next(RoomTypes.Normal)
-                .Next(RoomTypes.Normal)
-                .Next(RoomTypes.Normal)
-                .Next(RoomTypes.Normal)
-                .Next(RoomTypes.Normal)
-                .Next(RoomTypes.Final);
+            var layout = Level1.Config.InitRoom;
 
             var layoutGrid = new DynaGrid<RoomGenerateNode>();
 

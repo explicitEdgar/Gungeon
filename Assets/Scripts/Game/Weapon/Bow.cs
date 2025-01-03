@@ -13,6 +13,8 @@ namespace QFramework.Gungeon
 
         public override BulletBag bulletBag { get; set; } = new BulletBag(30, 30);
 
+        public float needTime = 0.5f;
+
         public override void OnGunUse()
         {
             clip.UIReload();
@@ -64,7 +66,7 @@ namespace QFramework.Gungeon
                 mCurrentScd += Time.deltaTime;
             }
 
-            if (mCurrentScd >= 1f)
+            if (mCurrentScd >= needTime)
             {
                 Ready.Show();
             }
@@ -77,7 +79,7 @@ namespace QFramework.Gungeon
         public override void ShootUp(Vector2 direction)
         {
             if (!clip.CanShoot) return;
-            if (mCurrentScd >= 1f)
+            if (mCurrentScd >= needTime)
             {
                 Shoot(BulletPrefab.Position2D(),direction);
             }

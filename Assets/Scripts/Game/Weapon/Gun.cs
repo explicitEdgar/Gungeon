@@ -12,6 +12,8 @@ namespace QFramework.Gungeon
 
         public AudioClip reloadSound;
 
+        public float UnstableRate { get; set; } = 0.1f;
+
         public virtual PlayerBullet BulletPrefab { get; }
 
         public abstract AudioSource AudioPlayer { get; }

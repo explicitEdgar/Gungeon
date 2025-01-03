@@ -34,6 +34,9 @@ namespace QFramework.Gungeon
             {
                 shootDuration.RecordShootTime();
 
+                var angle = direction.ToAngle() + Random.Range(-UnstableRate, UnstableRate) * 30;
+                direction = angle.AngleToDirection2D();
+
                 BulletHelper.Shoot(BulletPos.Position2D(), direction, 15, Random.Range(1.0f, 2.0f));
                 
                 var soundIndex = Random.Range(0, ShootSounds.Count);

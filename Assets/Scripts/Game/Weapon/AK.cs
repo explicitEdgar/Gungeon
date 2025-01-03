@@ -32,6 +32,9 @@ namespace QFramework.Gungeon
         {
             if (clip.CanShoot)
             {
+                var angle = direction.ToAngle() + Random.Range(-UnstableRate, UnstableRate) * 30 * 2.5f;
+                direction = angle.AngleToDirection2D();
+
                 BulletHelper.Shoot(BulletPos.Position2D(), direction, 30, Random.Range(1.5f, 2.5f));
 
                 shootLight.ShowLight(BulletPos.Position2D(), direction);

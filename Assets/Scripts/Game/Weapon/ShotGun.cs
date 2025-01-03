@@ -36,6 +36,9 @@ namespace QFramework.Gungeon
             {
                 shootDuration.RecordShootTime();
 
+                var angleOffset = direction.ToAngle() + Random.Range(-UnstableRate, UnstableRate) * 30 * 2;
+                direction = angleOffset.AngleToDirection2D();
+
                 var angle = direction.ToAngle();
                 var originPos = transform.parent.Position2D();
                 var radius = (BulletPos.Position2D() - originPos).magnitude;
