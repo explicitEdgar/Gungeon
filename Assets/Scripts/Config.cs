@@ -10,6 +10,7 @@ namespace QFramework.Gungeon
         Init,
         Normal,
         Chest,
+        Shop,
         Final,
     }
 
@@ -28,6 +29,7 @@ namespace QFramework.Gungeon
             #代表出口
             d代表门
             c代表宝箱
+            s代表商店摊位
         */
         public static RoomConfig initRoom = new RoomConfig()
             .Type(RoomTypes.Init)
@@ -161,6 +163,28 @@ namespace QFramework.Gungeon
             .L("1                 1")
             .L("1                 1")
             .L("111111111d111111111");
+
+        public static RoomConfig shopRoom = new RoomConfig()
+          .Type(RoomTypes.Shop)
+          .L("111111111d111111111")
+          .L("1                 1")
+          .L("1                 1")
+          .L("1                 1")
+          .L("1                 1")
+          .L("1                 1")
+          .L("1                 1")
+          .L("1                 1")
+          .L("d        s        d")
+          .L("1                 1")
+          .L("1                 1")
+          .L("1                 1")
+          .L("1                 1")
+          .L("1                 1")
+          .L("1                 1")
+          .L("1                 1")
+          .L("1                 1")
+          .L("1                 1")
+          .L("111111111d111111111");
     }
 
 }

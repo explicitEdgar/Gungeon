@@ -22,10 +22,15 @@ namespace QFramework.Gungeon
                 //    .Show();
                 //Room.AddPowerUp(armor);
 
-                var halfBullet = PowerUpFactory.Default.AllBulletHalf.Instantiate()
-                    .Position2D(transform.Position2D())
-                    .Show();
-                Room.AddPowerUp(halfBullet);
+                //var halfBullet = PowerUpFactory.Default.AllBulletHalf.Instantiate()
+                //    .Position2D(transform.Position2D())
+                //    .Show();
+                //Room.AddPowerUp(halfBullet);
+
+                var singleFullBullet = PowerUpFactory.Default.SingleFullBullet.Instantiate()
+                   .Position2D(transform.Position2D())
+                   .Show();
+                Room.AddPowerUp(singleFullBullet);
 
                 AudioKit.PlaySound("Resources://Chest");
                 this.DestroyGameObjGracefully();

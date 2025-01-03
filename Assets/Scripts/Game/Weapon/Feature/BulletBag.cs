@@ -9,6 +9,8 @@ namespace QFramework.Gungeon
 
         public bool hasBullet => RemainBulletCount != 0;
 
+        public bool Full => RemainBulletCount == MaxBulletCount;
+
         public BulletBag(int RemainBulletCount,int MaxBulletCount)
         {
             this.RemainBulletCount = RemainBulletCount;

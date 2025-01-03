@@ -110,7 +110,8 @@ namespace QFramework.Gungeon
             
 
             var layout = new RoomNode(RoomTypes.Init);
-            layout.Next(RoomTypes.Normal)
+            layout.Next(RoomTypes.Shop)
+                .Next(RoomTypes.Normal)
                 .Next(RoomTypes.Normal)
                 .Next(RoomTypes.Chest,n =>
                 {
@@ -322,6 +323,10 @@ namespace QFramework.Gungeon
                 else if (roomNode.Node.RoomType == RoomTypes.Chest)
                 {
                     return GenerateRoom(roomPosX, roomPosY, Config.chestRoom, roomNode);
+                }
+                else if (roomNode.Node.RoomType == RoomTypes.Shop)
+                {
+                    return GenerateRoom(roomPosX, roomPosY, Config.shopRoom, roomNode);
                 }
                 else if(roomNode.Node.RoomType == RoomTypes.Final)
                 {
@@ -608,6 +613,19 @@ namespace QFramework.Gungeon
                         newChest.transform.position = new Vector3(x, y, 0);
                         newChest.gameObject.SetActive(true);
                         room.AddPowerUp(newChest);
+                    }
+                    else if (code == 's')
+                    {
+                        var shopItem = ShopItem.InstantiateWithParent(room)
+                            .Position2D(new Vector3(x, y, 0))
+                            .Self(self =>
+                            {
+                                self.PowerUp = LevelController.Default.Hp1;
+                                self.Room = room;
+                                self.ItemPrice = 8;
+                            })
+                            .UpdateView()
+                            .Show();
                     }
                 }
             }

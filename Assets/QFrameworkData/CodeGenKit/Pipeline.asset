@@ -19,22 +19,36 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: QFramework.Gungeon.Coin
-      PathToRoot: Coin
-      MemberName: Coin
-    - TypeName: QFramework.Gungeon.ArmorDroped
-      PathToRoot: ArmorDroped
-      MemberName: ArmorDroped
-    - TypeName: QFramework.Gungeon.AllBulletHalf
-      PathToRoot: AllBulletHalf
-      MemberName: AllBulletHalf
+    - TypeName: QFramework.Gungeon.Room
+      PathToRoot: Room
+      MemberName: Room
+    - TypeName: QFramework.Gungeon.Door
+      PathToRoot: Door
+      MemberName: Door
+    - TypeName: QFramework.Gungeon.Hp1
+      PathToRoot: Hp1
+      MemberName: Hp1
+    - TypeName: QFramework.Gungeon.Chest
+      PathToRoot: Chest
+      MemberName: Chest
+    - TypeName: QFramework.Gungeon.ShopItem
+      PathToRoot: ShopItem
+      MemberName: ShopItem
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: PowerUpFactory
+    ClassName: LevelController
     Namespace: QFramework.Gungeon
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
-      partial class PowerUpFactory : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class LevelController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:b87ca2c0-9a16-442d-a6c5-2869d92349f5\r\nusing UnityEngine;\r\n\r\nnamespace
-      QFramework.Gungeon\r\n{\r\n\tpublic partial class PowerUpFactory\r\n\t{\r\n\r\n\t\tpublic
-      QFramework.Gungeon.Coin Coin;\r\n\r\n\t\tpublic QFramework.Gungeon.ArmorDroped
-      ArmorDroped;\r\n\r\n\t\tpublic QFramework.Gungeon.AllBulletHalf AllBulletHalf;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:4a45b611-5bd5-467d-93b3-52af21b193f3\r\nusing UnityEngine;\r\n\r\nnamespace
+      QFramework.Gungeon\r\n{\r\n\tpublic partial class LevelController\r\n\t{\r\n\r\n\t\tpublic
+      QFramework.Gungeon.Room Room;\r\n\r\n\t\tpublic QFramework.Gungeon.Door Door;\r\n\r\n\t\tpublic
+      QFramework.Gungeon.Hp1 Hp1;\r\n\r\n\t\tpublic QFramework.Gungeon.Chest Chest;\r\n\r\n\t\tpublic
+      QFramework.Gungeon.ShopItem ShopItem;\r\n\r\n\t\tpublic UnityEngine.GameObject
+      EnemyA;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyB;\r\n\r\n\t\tpublic
+      UnityEngine.GameObject EnemyC;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyD;\r\n\r\n\t\tpublic
+      UnityEngine.GameObject EnemyE;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyF;\r\n\r\n\t\tpublic
+      UnityEngine.GameObject EnemyG;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyH;\r\n\r\n\t\tpublic
+      UnityEngine.GameObject EnemyABig;\r\n\r\n\t\tpublic UnityEngine.GameObject
+      EnemyBBig;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyCBig;\r\n\r\n\t\tpublic
+      UnityEngine.GameObject EnemyDBig;\r\n\r\n\t}\r\n}\r\n"
