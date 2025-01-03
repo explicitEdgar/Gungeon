@@ -93,7 +93,22 @@ namespace QFramework.Gungeon
                             GenerateEnemy();
                         }
                         else
-                        {
+                        {   
+                            if(Config.RoomType == RoomTypes.Normal)
+                            {
+                                foreach(var powerUp in PowerUps.Where(p => p.GetType() == typeof(Coin)))
+                                {
+                                    var cachedPowerUp = powerUp;
+                                    ActionKit.OnFixedUpdate.Register(() =>
+                                    {
+                                        cachedPowerUp.SpriteRenderer.transform.Translate
+                                        (
+                                            cachedPowerUp.SpriteRenderer.NormalizedDirection2DTo(Player.Default) * Time.fixedDeltaTime * 10
+                                        );
+                                    }).UnRegisterWhenGameObjectDestroyed(cachedPowerUp.SpriteRenderer.gameObject);
+                                }
+                            }
+
                             State = RoomStates.Unlocked;
                             foreach (var door in doors)
                             {   

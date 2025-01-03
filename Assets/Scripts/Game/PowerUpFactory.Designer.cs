@@ -1,4 +1,4 @@
-// Generate Id:72cbe321-b01b-4773-9386-ebc6fcf792c4
+// Generate Id:b87ca2c0-9a16-442d-a6c5-2869d92349f5
 using UnityEngine;
 
 namespace QFramework.Gungeon
@@ -7,6 +7,10 @@ namespace QFramework.Gungeon
 	{
 
 		public QFramework.Gungeon.Coin Coin;
+
+		public QFramework.Gungeon.ArmorDroped ArmorDroped;
+
+		public QFramework.Gungeon.AllBulletHalf AllBulletHalf;
 
 	}
 }

@@ -197,22 +197,39 @@ namespace QFramework.Gungeon
         }
 
         public void hurt(int damage)
-        {
+        {   
+            if(Global.Armor.Value > 0)
+            {
+                if(Global.Armor.Value >= damage)
+                {
+                    Global.Armor.Value -= damage;
+                    damage = 0;
+                    AudioKit.PlaySound("Resources://UseArmor");
+                    return;
+                }
+                else
+                {
+                    damage -= Global.Armor.Value;
+                    Global.Armor.Value = 0;
+                    AudioKit.PlaySound("Resources://UseArmor");
+                }
+            }
+
+
             FxFactory.Default.GenerateHurtFx(transform.Position2D(),Color.green);
 
             AudioKit.PlaySound("Resources://PlayerHurt");
 
             FxFactory.Default.GeneratePlayerBlood(transform.Position2D());
 
-            Global.HP -= damage;
-            if (Global.HP <= 0)
+            Global.HP.Value -= damage;
+            if (Global.HP.Value <= 0)
             {
-                Global.HP = 0;
+                Global.HP.Value = 0;
                 GameUI.Default.gameOver.SetActive(true);
                 Global.UIOpened = true;
                 Time.timeScale = 0;
             }
-            Global.HPChangedEvent();
         }
 
     }

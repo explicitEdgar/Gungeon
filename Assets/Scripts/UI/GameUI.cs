@@ -26,7 +26,6 @@ namespace QFramework.Gungeon
         {
             Default = null;
 
-            Global.HPChangedEvent -= UpdateHPText;
         }
         // Start is called before the first frame update
         void Start()
@@ -45,7 +44,15 @@ namespace QFramework.Gungeon
                     Global.ResetData();
                 });
 
-            Global.HPChangedEvent += UpdateHPText;
+            Global.HP.RegisterWithInitValue(hp =>
+            {
+                HPText.text = "生命值：" + hp.ToString();
+            });
+
+            Global.Armor.RegisterWithInitValue(armor =>
+            {
+                ArmorText.text = "护盾：" + armor.ToString();
+            });
 
             Global.Coin.RegisterWithInitValue(coin =>
             {
@@ -67,11 +74,6 @@ namespace QFramework.Gungeon
                     UImap.Show();
                 }
             }
-        }
-
-        public void UpdateHPText()
-        {
-            HPText.text = "生命值:" + Global.HP;
         }
 
         public static void UpdateGunInfo(Clip clip)

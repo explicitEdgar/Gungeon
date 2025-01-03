@@ -10,9 +10,9 @@ namespace QFramework.Gungeon
 
         public static Room currentRoom;
 
-        public static int HP = 100;
+        public static BindableProperty<int> HP = new BindableProperty<int>(3);
 
-        public static Action HPChangedEvent;
+        public static BindableProperty<int> Armor = new BindableProperty<int>(1);
 
         public static BindableProperty<int> Coin = new BindableProperty<int>();
 
@@ -26,7 +26,8 @@ namespace QFramework.Gungeon
         {
             UIOpened = false;
             Coin.Value = 0;
-            HP = 3;
+            HP.Value = 3;
+            Armor.Value = 1;
             Time.timeScale = 1;
         }
     }

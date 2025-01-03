@@ -12,10 +12,20 @@ namespace QFramework.Gungeon
             {
                 Room.PowerUps.Remove(this);
 
-                var hp1 = LevelController.Default.Hp1.Instantiate()
+                //var hp1 = LevelController.Default.Hp1.Instantiate()
+                //    .Position2D(transform.Position2D())
+                //    .Show();
+                //Room.AddPowerUp(hp1);
+
+                //var armor = PowerUpFactory.Default.ArmorDroped.Instantiate()
+                //    .Position2D(transform.Position2D())
+                //    .Show();
+                //Room.AddPowerUp(armor);
+
+                var halfBullet = PowerUpFactory.Default.AllBulletHalf.Instantiate()
                     .Position2D(transform.Position2D())
                     .Show();
-                Room.AddPowerUp(hp1);
+                Room.AddPowerUp(halfBullet);
 
                 AudioKit.PlaySound("Resources://Chest");
                 this.DestroyGameObjGracefully();
