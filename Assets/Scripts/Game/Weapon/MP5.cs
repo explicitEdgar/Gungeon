@@ -41,6 +41,7 @@ namespace QFramework.Gungeon
 
                 CameraController.Shake.Trigger(2, 0.05f);
 
+                BackForce.Shoot(0.05f, 2);
 
                 clip.UseBullet();
             }

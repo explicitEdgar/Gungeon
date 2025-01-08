@@ -6,8 +6,6 @@ namespace QFramework.Gungeon
 	public partial class Bow
 	{
 
-		public SpriteRenderer Sprite;
-
 		public PlayerBullet Bullet;
 
 		public SpriteRenderer Ready;

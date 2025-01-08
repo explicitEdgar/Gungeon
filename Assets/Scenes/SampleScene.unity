@@ -679,7 +679,6 @@ GameObject:
   m_Component:
   - component: {fileID: 53095167}
   - component: {fileID: 53095168}
-  - component: {fileID: 53095169}
   m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
@@ -754,22 +753,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &53095169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53095166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MarkType: 0
-  CustomComponentName: Sprite
-  CustomComment: 
-  mComponentName: SpriteRenderer
 --- !u!1 &65251941
 GameObject:
   m_ObjectHideFlags: 0
@@ -2338,7 +2321,6 @@ GameObject:
   m_Component:
   - component: {fileID: 184169037}
   - component: {fileID: 184169038}
-  - component: {fileID: 184169039}
   m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
@@ -2413,22 +2395,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &184169039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 184169036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MarkType: 0
-  CustomComponentName: Sprite
-  CustomComment: 
-  mComponentName: SpriteRenderer
 --- !u!1 &201081554
 GameObject:
   m_ObjectHideFlags: 0
@@ -10847,7 +10813,6 @@ GameObject:
   m_Component:
   - component: {fileID: 737876091}
   - component: {fileID: 737876092}
-  - component: {fileID: 737876093}
   m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
@@ -10922,22 +10887,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &737876093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 737876090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MarkType: 0
-  CustomComponentName: Sprite
-  CustomComment: 
-  mComponentName: SpriteRenderer
 --- !u!1 &749609640
 GameObject:
   m_ObjectHideFlags: 0
@@ -15220,7 +15169,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1399494064}
   - component: {fileID: 1399494065}
-  - component: {fileID: 1399494066}
   m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
@@ -15295,22 +15243,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1399494066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1399494063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MarkType: 0
-  CustomComponentName: Sprite
-  CustomComment: 
-  mComponentName: SpriteRenderer
 --- !u!1 &1400415276
 GameObject:
   m_ObjectHideFlags: 0
@@ -16523,6 +16455,7 @@ MonoBehaviour:
   gun: {fileID: 934730586}
   Gunlist: []
   gunTakeSfxs: []
+  Sprite: {fileID: 1583943704}
   Pistol: {fileID: 934730586}
   MP5: {fileID: 1769165515}
   ShotGun: {fileID: 383152873}
@@ -16908,7 +16841,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1536973101}
   - component: {fileID: 1536973102}
-  - component: {fileID: 1536973103}
   m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
@@ -16983,22 +16915,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1536973103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536973100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MarkType: 0
-  CustomComponentName: Sprite
-  CustomComment: 
-  mComponentName: SpriteRenderer
 --- !u!1 &1571707669
 GameObject:
   m_ObjectHideFlags: 0
@@ -17146,6 +17062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1583943703}
   - component: {fileID: 1583943704}
+  - component: {fileID: 1583943705}
   m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
@@ -17220,6 +17137,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1583943705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583943702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: Sprite
+  CustomComment: 
+  mComponentName: SpriteRenderer
 --- !u!1 &1612694800
 GameObject:
   m_ObjectHideFlags: 0
@@ -17362,7 +17295,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1620050459}
   - component: {fileID: 1620050460}
-  - component: {fileID: 1620050461}
   m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
@@ -17437,22 +17369,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1620050461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1620050458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MarkType: 0
-  CustomComponentName: Sprite
-  CustomComment: 
-  mComponentName: SpriteRenderer
 --- !u!1 &1664932346
 GameObject:
   m_ObjectHideFlags: 0
@@ -17859,7 +17775,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1696435960}
   - component: {fileID: 1696435961}
-  - component: {fileID: 1696435962}
   m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
@@ -17934,22 +17849,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1696435962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696435959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MarkType: 0
-  CustomComponentName: Sprite
-  CustomComment: 
-  mComponentName: SpriteRenderer
 --- !u!1 &1702342627
 GameObject:
   m_ObjectHideFlags: 0
@@ -18875,7 +18774,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1733933297}
   - component: {fileID: 1733933298}
-  - component: {fileID: 1733933299}
   m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
@@ -18950,22 +18848,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1733933299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1733933296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MarkType: 0
-  CustomComponentName: Sprite
-  CustomComment: 
-  mComponentName: SpriteRenderer
 --- !u!1 &1743114929
 GameObject:
   m_ObjectHideFlags: 0
@@ -19506,8 +19388,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cd44e395f185f674e9361bc2a693d1d6, type: 3}
   - {fileID: 8300000, guid: 92e42f651b8368b4f824480657b45a97, type: 3}
   reloadSound: {fileID: 8300000, guid: d75109697e85e4341a6b990b76176ffa, type: 3}
-  needTime: 0.5
   Sprite: {fileID: 1399494065}
+  needTime: 0.5
   Bullet: {fileID: 206246579}
   Ready: {fileID: 704753868}
   SelfAudioSource: {fileID: 1778840537}

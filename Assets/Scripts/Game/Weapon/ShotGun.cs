@@ -76,6 +76,8 @@ namespace QFramework.Gungeon
 
                 CameraController.Shake.Trigger(4, 0.08f);
 
+                BackForce.Shoot(0.08f, 3);
+
             }
 
         }

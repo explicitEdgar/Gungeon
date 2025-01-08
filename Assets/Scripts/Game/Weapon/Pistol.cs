@@ -17,6 +17,7 @@ namespace QFramework.Gungeon
         public ShootLight shootLight = new ShootLight();
 
         public override BulletBag bulletBag { get; set; } = new BulletBag(-1, -1);
+       
 
         public override void OnGunUse()
         {
@@ -48,6 +49,8 @@ namespace QFramework.Gungeon
                 CameraController.Shake.Trigger(2, 0.05f);
 
                 clip.UseBullet();
+
+                BackForce.Shoot(0.05f, 2);
             }
 
             if (!clip.CanShoot)

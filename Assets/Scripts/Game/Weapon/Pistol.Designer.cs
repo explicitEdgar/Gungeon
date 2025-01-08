@@ -6,8 +6,6 @@ namespace QFramework.Gungeon
 	public partial class Pistol
 	{
 
-		public SpriteRenderer Sprite;
-
 		public Transform BulletPos;
 
 		public UnityEngine.AudioSource SelfAudioSource;

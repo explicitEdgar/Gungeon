@@ -22,6 +22,19 @@ namespace QFramework.Gungeon
 
         public virtual Clip clip { get; set; }
 
+        public ShootBackForce BackForce = new ShootBackForce();
+
+        public SpriteRenderer Sprite;
+
+        public void Start()
+        {
+            BackForce.Setup(Sprite);
+        }
+
+        private void Update()
+        {
+            BackForce.Update();
+        }
 
         public virtual void ShootDown(Vector2 direction)
         {

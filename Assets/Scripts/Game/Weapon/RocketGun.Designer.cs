@@ -5,9 +5,6 @@ namespace QFramework.Gungeon
 {
 	public partial class RocketGun
 	{
-
-		public SpriteRenderer Sprite;
-
 		public PlayerBullet Bullet;
 
 		public UnityEngine.AudioSource SelfAudioSource;

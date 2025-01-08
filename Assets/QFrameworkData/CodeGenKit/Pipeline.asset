@@ -19,53 +19,57 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: QFramework.Gungeon.EnemyA
-      PathToRoot: EnemyA
-      MemberName: EnemyA
-    - TypeName: QFramework.Gungeon.EnemyABig
-      PathToRoot: EnemyABig
-      MemberName: EnemyABig
-    - TypeName: EnemyB
-      PathToRoot: EnemyB
-      MemberName: EnemyB
-    - TypeName: EnemyBBig
-      PathToRoot: EnemyBBig
-      MemberName: EnemyBBig
-    - TypeName: EnemyC
-      PathToRoot: EnemyC
-      MemberName: EnemyC
-    - TypeName: EnemyCBig
-      PathToRoot: EnemyCBig
-      MemberName: EnemyCBig
-    - TypeName: EnemyD
-      PathToRoot: EnemyD
-      MemberName: EnemyD
-    - TypeName: EnemyDBig
-      PathToRoot: EnemyDBig
-      MemberName: EnemyDBig
-    - TypeName: QFramework.Gungeon.EnemyE
-      PathToRoot: EnemyE
-      MemberName: EnemyE
-    - TypeName: EnemyF
-      PathToRoot: EnemyF
-      MemberName: EnemyF
-    - TypeName: QFramework.Gungeon.EnemyG
-      PathToRoot: EnemyG
-      MemberName: EnemyG
-    - TypeName: QFramework.Gungeon.EnemyH
-      PathToRoot: EnemyH
-      MemberName: EnemyH
-    ScriptsFolder: Assets/Scripts/Game/Enemy
-    ClassName: EnemyFactory
+    - TypeName: SpriteRenderer
+      PathToRoot: Sprite
+      MemberName: Sprite
+    - TypeName: QFramework.Gungeon.Pistol
+      PathToRoot: Weapon/Pistol
+      MemberName: Pistol
+    - TypeName: QFramework.Gungeon.MP5
+      PathToRoot: Weapon/MP5
+      MemberName: MP5
+    - TypeName: QFramework.Gungeon.ShotGun
+      PathToRoot: Weapon/ShotGun
+      MemberName: ShotGun
+    - TypeName: QFramework.Gungeon.AK
+      PathToRoot: Weapon/AK
+      MemberName: AK
+    - TypeName: QFramework.Gungeon.AWP
+      PathToRoot: Weapon/AWP
+      MemberName: AWP
+    - TypeName: QFramework.Gungeon.Laser
+      PathToRoot: Weapon/Laser
+      MemberName: Laser
+    - TypeName: QFramework.Gungeon.Bow
+      PathToRoot: Weapon/Bow
+      MemberName: Bow
+    - TypeName: QFramework.Gungeon.RocketGun
+      PathToRoot: Weapon/RocketGun
+      MemberName: RocketGun
+    - TypeName: UnityEngine.SpriteRenderer
+      PathToRoot: Weapon/GunShootLight
+      MemberName: GunShootLight
+    - TypeName: UnityEngine.UI.Text
+      PathToRoot: Canvas/Text
+      MemberName: Text
+    - TypeName: SpriteRenderer
+      PathToRoot: Aim
+      MemberName: Aim
+    ScriptsFolder: Assets/Scripts/Game
+    ClassName: Player
     Namespace: QFramework.Gungeon
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
-      partial class EnemyFactory : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class Player : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:837d9471-f78c-42a1-9bff-11e9d17c3837\r\nusing UnityEngine;\r\n\r\nnamespace
-      QFramework.Gungeon\r\n{\r\n\tpublic partial class EnemyFactory\r\n\t{\r\n\r\n\t\tpublic
-      QFramework.Gungeon.EnemyA EnemyA;\r\n\r\n\t\tpublic QFramework.Gungeon.EnemyABig
-      EnemyABig;\r\n\r\n\t\tpublic EnemyB EnemyB;\r\n\r\n\t\tpublic EnemyBBig EnemyBBig;\r\n\r\n\t\tpublic
-      EnemyC EnemyC;\r\n\r\n\t\tpublic EnemyCBig EnemyCBig;\r\n\r\n\t\tpublic EnemyD
-      EnemyD;\r\n\r\n\t\tpublic EnemyDBig EnemyDBig;\r\n\r\n\t\tpublic QFramework.Gungeon.EnemyE
-      EnemyE;\r\n\r\n\t\tpublic EnemyF EnemyF;\r\n\r\n\t\tpublic QFramework.Gungeon.EnemyG
-      EnemyG;\r\n\r\n\t\tpublic QFramework.Gungeon.EnemyH EnemyH;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:d9f52e5c-019f-42e5-b352-5d2849917078\r\nusing UnityEngine;\r\n\r\nnamespace
+      QFramework.Gungeon\r\n{\r\n\tpublic partial class Player\r\n\t{\r\n\r\n\t\tpublic
+      SpriteRenderer Sprite;\r\n\r\n\t\tpublic QFramework.Gungeon.Pistol Pistol;\r\n\r\n\t\tpublic
+      QFramework.Gungeon.MP5 MP5;\r\n\r\n\t\tpublic QFramework.Gungeon.ShotGun ShotGun;\r\n\r\n\t\tpublic
+      QFramework.Gungeon.AK AK;\r\n\r\n\t\tpublic QFramework.Gungeon.AWP AWP;\r\n\r\n\t\tpublic
+      QFramework.Gungeon.Laser Laser;\r\n\r\n\t\tpublic QFramework.Gungeon.Bow Bow;\r\n\r\n\t\tpublic
+      QFramework.Gungeon.RocketGun RocketGun;\r\n\r\n\t\tpublic UnityEngine.SpriteRenderer
+      GunShootLight;\r\n\r\n\t\tpublic UnityEngine.UI.Text Text;\r\n\r\n\t\tpublic
+      SpriteRenderer Aim;\r\n\r\n\t\tpublic UnityEngine.AudioClip GunTake1;\r\n\r\n\t\tpublic
+      UnityEngine.AudioClip GunTake2;\r\n\r\n\t\tpublic UnityEngine.AudioClip GunTake3;\r\n\r\n\t\tpublic
+      UnityEngine.AudioClip GunTake4;\r\n\r\n\t\tpublic UnityEngine.AudioClip GunTake5;\r\n\r\n\t\tpublic
+      UnityEngine.AudioSource SelfAudioSource;\r\n\r\n\t}\r\n}\r\n"

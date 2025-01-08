@@ -153,6 +153,12 @@ namespace QFramework.Gungeon
 
             mrigidbody2D.velocity = new Vector3(horizontal, vertical).normalized * 5;
 
+            if(horizontal != 0  || vertical != 0)
+            {
+                AnimationHelper.UpDownAnimation(Sprite,0.1f, Time.frameCount, 10);
+                AnimationHelper.UpDownAnimation(weapon,0.1f, Time.frameCount, 10);
+            }
+
             if (Global.CanDo)
             {
                 if (Input.GetMouseButtonDown(0))

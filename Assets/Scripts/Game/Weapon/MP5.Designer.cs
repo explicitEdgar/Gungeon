@@ -5,9 +5,6 @@ namespace QFramework.Gungeon
 {
 	public partial class MP5
 	{
-
-		public SpriteRenderer Sprite;
-
 		public Transform BulletPos;
 
 		public UnityEngine.AudioSource SelfAudioSource;
