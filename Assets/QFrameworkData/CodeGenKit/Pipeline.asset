@@ -19,36 +19,53 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: QFramework.Gungeon.Room
-      PathToRoot: Room
-      MemberName: Room
-    - TypeName: QFramework.Gungeon.Door
-      PathToRoot: Door
-      MemberName: Door
-    - TypeName: QFramework.Gungeon.Hp1
-      PathToRoot: Hp1
-      MemberName: Hp1
-    - TypeName: QFramework.Gungeon.Chest
-      PathToRoot: Chest
-      MemberName: Chest
-    - TypeName: QFramework.Gungeon.ShopItem
-      PathToRoot: ShopItem
-      MemberName: ShopItem
-    ScriptsFolder: Assets/Scripts/Game
-    ClassName: LevelController
+    - TypeName: QFramework.Gungeon.EnemyA
+      PathToRoot: EnemyA
+      MemberName: EnemyA
+    - TypeName: QFramework.Gungeon.EnemyABig
+      PathToRoot: EnemyABig
+      MemberName: EnemyABig
+    - TypeName: EnemyB
+      PathToRoot: EnemyB
+      MemberName: EnemyB
+    - TypeName: EnemyBBig
+      PathToRoot: EnemyBBig
+      MemberName: EnemyBBig
+    - TypeName: EnemyC
+      PathToRoot: EnemyC
+      MemberName: EnemyC
+    - TypeName: EnemyCBig
+      PathToRoot: EnemyCBig
+      MemberName: EnemyCBig
+    - TypeName: EnemyD
+      PathToRoot: EnemyD
+      MemberName: EnemyD
+    - TypeName: EnemyDBig
+      PathToRoot: EnemyDBig
+      MemberName: EnemyDBig
+    - TypeName: QFramework.Gungeon.EnemyE
+      PathToRoot: EnemyE
+      MemberName: EnemyE
+    - TypeName: EnemyF
+      PathToRoot: EnemyF
+      MemberName: EnemyF
+    - TypeName: QFramework.Gungeon.EnemyG
+      PathToRoot: EnemyG
+      MemberName: EnemyG
+    - TypeName: QFramework.Gungeon.EnemyH
+      PathToRoot: EnemyH
+      MemberName: EnemyH
+    ScriptsFolder: Assets/Scripts/Game/Enemy
+    ClassName: EnemyFactory
     Namespace: QFramework.Gungeon
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
-      partial class LevelController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class EnemyFactory : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:4a45b611-5bd5-467d-93b3-52af21b193f3\r\nusing UnityEngine;\r\n\r\nnamespace
-      QFramework.Gungeon\r\n{\r\n\tpublic partial class LevelController\r\n\t{\r\n\r\n\t\tpublic
-      QFramework.Gungeon.Room Room;\r\n\r\n\t\tpublic QFramework.Gungeon.Door Door;\r\n\r\n\t\tpublic
-      QFramework.Gungeon.Hp1 Hp1;\r\n\r\n\t\tpublic QFramework.Gungeon.Chest Chest;\r\n\r\n\t\tpublic
-      QFramework.Gungeon.ShopItem ShopItem;\r\n\r\n\t\tpublic UnityEngine.GameObject
-      EnemyA;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyB;\r\n\r\n\t\tpublic
-      UnityEngine.GameObject EnemyC;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyD;\r\n\r\n\t\tpublic
-      UnityEngine.GameObject EnemyE;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyF;\r\n\r\n\t\tpublic
-      UnityEngine.GameObject EnemyG;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyH;\r\n\r\n\t\tpublic
-      UnityEngine.GameObject EnemyABig;\r\n\r\n\t\tpublic UnityEngine.GameObject
-      EnemyBBig;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyCBig;\r\n\r\n\t\tpublic
-      UnityEngine.GameObject EnemyDBig;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:837d9471-f78c-42a1-9bff-11e9d17c3837\r\nusing UnityEngine;\r\n\r\nnamespace
+      QFramework.Gungeon\r\n{\r\n\tpublic partial class EnemyFactory\r\n\t{\r\n\r\n\t\tpublic
+      QFramework.Gungeon.EnemyA EnemyA;\r\n\r\n\t\tpublic QFramework.Gungeon.EnemyABig
+      EnemyABig;\r\n\r\n\t\tpublic EnemyB EnemyB;\r\n\r\n\t\tpublic EnemyBBig EnemyBBig;\r\n\r\n\t\tpublic
+      EnemyC EnemyC;\r\n\r\n\t\tpublic EnemyCBig EnemyCBig;\r\n\r\n\t\tpublic EnemyD
+      EnemyD;\r\n\r\n\t\tpublic EnemyDBig EnemyDBig;\r\n\r\n\t\tpublic QFramework.Gungeon.EnemyE
+      EnemyE;\r\n\r\n\t\tpublic EnemyF EnemyF;\r\n\r\n\t\tpublic QFramework.Gungeon.EnemyG
+      EnemyG;\r\n\r\n\t\tpublic QFramework.Gungeon.EnemyH EnemyH;\r\n\r\n\t}\r\n}\r\n"

@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace QFramework.Gungeon
 {
-    public class Level1
+    public class Level2
     {
         public static LevelConfig Config = new LevelConfig()
             .Self(self =>
             {
                 self.Pacing = new List<int>()
                 {
-                    1,
+                    2,
                     2,
                     3,
                     2,
                     3,
                     2,
-                    1,
+                    3,
                     3,
                     1,
-                    1,
+                    2,
                 };
             })
             .Self(self =>
@@ -30,6 +30,10 @@ namespace QFramework.Gungeon
                 {
                     case 0:
                         self.InitRoom
+                            .Branch(node =>
+                            {
+                                node.Next(RoomTypes.Normal);
+                            })
                             .Next(RoomTypes.Normal)
                             .Next(RoomTypes.Shop, node =>
                             {
@@ -41,35 +45,6 @@ namespace QFramework.Gungeon
                             .Next(RoomTypes.Normal)
                             .Next(RoomTypes.Final);
                         break;
-
-                    case 1:
-                        self.InitRoom
-                            .Next(RoomTypes.Normal)
-                            .Next(RoomTypes.Chest, node =>
-                            {
-                                node.Next(RoomTypes.Normal)
-                                    .Next(RoomTypes.Normal)
-                                    .Next(RoomTypes.Shop);
-                            })
-                            .Next(RoomTypes.Normal)
-                            .Next(RoomTypes.Normal)
-                            .Next(RoomTypes.Final);
-                        break;
-
-                    case 2:
-                        self.InitRoom
-                            .Next(RoomTypes.Normal)
-                            .Next(RoomTypes.Normal, node =>
-                            {
-                                node.Next(RoomTypes.Shop)
-                                    .Next(RoomTypes.Normal)
-                                    .Next(RoomTypes.Chest);
-                            })
-                            .Next(RoomTypes.Normal)
-                            .Next(RoomTypes.Normal)
-                            .Next(RoomTypes.Final);
-                        break;
-
                     default:
                         break;
                 }

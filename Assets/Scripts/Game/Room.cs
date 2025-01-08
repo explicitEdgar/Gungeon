@@ -36,25 +36,26 @@ namespace QFramework.Gungeon
 
         public LevelController.RoomGenerateNode GenerateNode { get; set; }
 
-        public void GenerateEnemy()
-        {
+        public void GenerateEnemy(EnemyWaveConfig waveConfig)
+        {   
             mWaves.RemoveAt(0);
 
-            var enemyCount = UnityEngine.Random.Range(3, 5 + 1);
+            var enemyCount = waveConfig.EnemyNames.Count;
 
             var waveEnemyPositions = mEnemyGeneratePoses
                 .OrderByDescending(e => (Player.Default.Position2D() - e.ToVector2()).magnitude)
                 .Take(enemyCount).ToList();
 
-            foreach (var enemyGeneratePose in waveEnemyPositions)
+            foreach (var enemyName in waveConfig.EnemyNames)
             {
-                var newEnemy = Instantiate(LevelController.Default.Enemy.GameObject);
-                var enemy = newEnemy.GetComponent<IEnemy>();
+                //根据名字生成敌人
+                var enemy = EnemyFactory.EnemyByName(enemyName)
+                    .GameObject.Instantiate()
+                    .Position2D(waveEnemyPositions.GetAndRemoveRandomItem())
+                    .Show()
+                    .GetComponent<IEnemy>();
 
-                newEnemy.transform.position = enemyGeneratePose;
-                newEnemy.gameObject.SetActive(true);
                 enemy.Room = this;
-
                 mEnemies.Add(enemy);
             }
         }
@@ -70,12 +71,7 @@ namespace QFramework.Gungeon
             }
             else if(Config.RoomType == RoomTypes.Normal)
             {
-                var waveCount = UnityEngine.Random.Range(1, 3 + 1);
-
-                for(var i = 0;i < waveCount;i++)
-                {
-                    mWaves.Add(new EnemyWaveConfig());
-                }
+               
             }
 		}
 
@@ -87,13 +83,16 @@ namespace QFramework.Gungeon
                 if(mEnemies.Count == 0)
                 {
                     if(State == RoomStates.PlayerIn)
-                    {
+                    {   
+                        //还有波次
                         if (mWaves.Count > 0)
                         {
-                            GenerateEnemy();
+                            var wave = mWaves.First();
+                            GenerateEnemy(wave);
                         }
                         else
                         {   
+                            //打完结束吃金币
                             if(Config.RoomType == RoomTypes.Normal)
                             {
                                 foreach(var powerUp in PowerUps.Where(p => p.GetType() == typeof(Coin)))
@@ -109,6 +108,7 @@ namespace QFramework.Gungeon
                                 }
                             }
 
+                            //改房间状态，开门
                             State = RoomStates.Unlocked;
                             foreach (var door in doors)
                             {   
@@ -135,7 +135,42 @@ namespace QFramework.Gungeon
                 {
                     State = RoomStates.PlayerIn;
 
-                    GenerateEnemy();
+                    //根据难度节奏动态配置波次
+                    var difficultyLevel = Global.CurrentPacing.Dequeue();
+                    var difficultyScore = 10 + difficultyLevel * 3;
+
+                    //波次数量
+                    int waveCount;
+                    if (difficultyLevel <= 3)
+                    {
+                        waveCount = UnityEngine.Random.Range(1, difficultyLevel + 1);
+                    }
+                    else
+                    {
+                        waveCount = UnityEngine.Random.Range(difficultyLevel / 3, difficultyLevel / 2);
+                    }
+
+                    //每波分别配置
+                    for(int i = 0;i < waveCount;i++)
+                    {   
+                        //当前波次目标配置分数
+                        var targetScore = difficultyScore / waveCount + UnityEngine.Random.Range(-difficultyScore / 10 * 2 + 1, 
+                            difficultyScore / 20 * 2 + 1 + 1);
+                        var waveConfig = new EnemyWaveConfig();
+
+                        //添加敌人
+                        while(targetScore > 0 && waveConfig.EnemyNames.Count < mEnemyGeneratePoses.Count)
+                        {
+                            var enemyScore = EnemyFactory.GenTargetEnemyScore();
+                            targetScore -= enemyScore;
+                            waveConfig.EnemyNames.Add(EnemyFactory.EnemyNameByScore(enemyScore));
+                        }
+
+                        mWaves.Add(waveConfig);
+                    }
+
+                    var wave = mWaves.First();
+                    GenerateEnemy(wave);
 
                     foreach (var door in doors)
                     {

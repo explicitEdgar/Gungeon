@@ -131,7 +131,7 @@ namespace QFramework.Gungeon
             Hp -= damage;
             if (Hp <= 0f)
             {
-                OnDeath(hitDirection, "EnemyGDie", 1.5f);
+                OnDeath(hitDirection, "EnemyHDie", 1.5f);
 
             }
         }

@@ -381,6 +381,7 @@ GameObject:
   - component: {fileID: 28532438}
   - component: {fileID: 28532437}
   - component: {fileID: 28532436}
+  - component: {fileID: 28532439}
   m_Layer: 7
   m_Name: EnemyH
   m_TagString: Enemy
@@ -489,6 +490,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
   - {fileID: 8300000, guid: 3c1ab17e4e4301549a06487469e77567, type: 3}
+--- !u!114 &28532439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28532434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: EnemyH
+  CustomComment: 
+  mComponentName: QFramework.Gungeon.EnemyH
 --- !u!1 &45349587
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,7 +617,7 @@ RectTransform:
   m_GameObject: {fileID: 51634661}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1719071146}
@@ -632,16 +649,16 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 313f3a53fabf86144b2059a5a37c0f7b, type: 3}
-    m_FontSize: 14
+    m_FontSize: 140
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 1
+    m_MaxSize: 140
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "\u91CD\u65B0\u5F00\u59CB"
 --- !u!222 &51634664
@@ -2816,6 +2833,7 @@ GameObject:
   - component: {fileID: 232443160}
   - component: {fileID: 232443159}
   - component: {fileID: 232443158}
+  - component: {fileID: 232443161}
   m_Layer: 7
   m_Name: EnemyG
   m_TagString: Enemy
@@ -2924,6 +2942,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
   - {fileID: 8300000, guid: 3c1ab17e4e4301549a06487469e77567, type: 3}
+--- !u!114 &232443161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232443156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: EnemyH
+  CustomComment: 
+  mComponentName: QFramework.Gungeon.EnemyG
 --- !u!1 &240037138
 GameObject:
   m_ObjectHideFlags: 0
@@ -3149,6 +3183,7 @@ GameObject:
   - component: {fileID: 259369098}
   - component: {fileID: 259369097}
   - component: {fileID: 259369096}
+  - component: {fileID: 259369099}
   m_Layer: 7
   m_Name: EnemyBBig
   m_TagString: Enemy
@@ -3257,6 +3292,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
   - {fileID: 8300000, guid: 3c1ab17e4e4301549a06487469e77567, type: 3}
+--- !u!114 &259369099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259369094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: EnemyH
+  CustomComment: 
+  mComponentName: EnemyBBig
 --- !u!1 &308826548
 GameObject:
   m_ObjectHideFlags: 0
@@ -4044,6 +4095,7 @@ GameObject:
   - component: {fileID: 388770058}
   - component: {fileID: 388770057}
   - component: {fileID: 388770056}
+  - component: {fileID: 388770059}
   m_Layer: 7
   m_Name: EnemyD
   m_TagString: Enemy
@@ -4152,6 +4204,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
   - {fileID: 8300000, guid: 3c1ab17e4e4301549a06487469e77567, type: 3}
+--- !u!114 &388770059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388770054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: EnemyH
+  CustomComment: 
+  mComponentName: EnemyD
 --- !u!1 &405806775
 GameObject:
   m_ObjectHideFlags: 0
@@ -4445,7 +4513,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.23515242, g: 0.6301887, b: 0.19856887, a: 0}
+  m_BackGroundColor: {r: 0.13962269, g: 0.13962269, b: 0.13962269, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -9477,6 +9545,7 @@ GameObject:
   - component: {fileID: 548751865}
   - component: {fileID: 548751864}
   - component: {fileID: 548751863}
+  - component: {fileID: 548751866}
   m_Layer: 7
   m_Name: EnemyB
   m_TagString: Enemy
@@ -9585,6 +9654,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
   - {fileID: 8300000, guid: 3c1ab17e4e4301549a06487469e77567, type: 3}
+--- !u!114 &548751866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548751861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: EnemyH
+  CustomComment: 
+  mComponentName: EnemyB
 --- !u!1 &552193814
 GameObject:
   m_ObjectHideFlags: 0
@@ -12458,7 +12543,7 @@ RectTransform:
   m_GameObject: {fileID: 914167051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 781412619}
@@ -12490,11 +12575,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 313f3a53fabf86144b2059a5a37c0f7b, type: 3}
-    m_FontSize: 71
+    m_FontSize: 140
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 130
+    m_MinSize: 1
+    m_MaxSize: 140
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -12933,7 +13018,7 @@ RectTransform:
   m_GameObject: {fileID: 973142140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1678473083}
@@ -12965,11 +13050,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 313f3a53fabf86144b2059a5a37c0f7b, type: 3}
-    m_FontSize: 71
+    m_FontSize: 140
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 130
+    m_MinSize: 1
+    m_MaxSize: 140
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -13244,6 +13329,7 @@ GameObject:
   - component: {fileID: 1043553439}
   - component: {fileID: 1043553438}
   - component: {fileID: 1043553437}
+  - component: {fileID: 1043553440}
   m_Layer: 7
   m_Name: EnemyCBig
   m_TagString: Enemy
@@ -13352,6 +13438,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
   - {fileID: 8300000, guid: 3c1ab17e4e4301549a06487469e77567, type: 3}
+--- !u!114 &1043553440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043553435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: EnemyH
+  CustomComment: 
+  mComponentName: EnemyCBig
 --- !u!1 &1075437383
 GameObject:
   m_ObjectHideFlags: 0
@@ -13884,7 +13986,7 @@ RectTransform:
   m_GameObject: {fileID: 1241903278}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1691815861}
@@ -13916,16 +14018,16 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 313f3a53fabf86144b2059a5a37c0f7b, type: 3}
-    m_FontSize: 14
+    m_FontSize: 140
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 140
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "\u91CD\u65B0\u5F00\u59CB"
 --- !u!222 &1241903281
@@ -14216,6 +14318,7 @@ GameObject:
   - component: {fileID: 1259890333}
   - component: {fileID: 1259890332}
   - component: {fileID: 1259890331}
+  - component: {fileID: 1259890334}
   m_Layer: 7
   m_Name: EnemyABig
   m_TagString: Enemy
@@ -14324,6 +14427,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
   - {fileID: 8300000, guid: 3c1ab17e4e4301549a06487469e77567, type: 3}
+--- !u!114 &1259890334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259890329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: EnemyH
+  CustomComment: 
+  mComponentName: QFramework.Gungeon.EnemyABig
 --- !u!1 &1266721928
 GameObject:
   m_ObjectHideFlags: 0
@@ -16172,6 +16291,7 @@ GameObject:
   - component: {fileID: 1519130558}
   - component: {fileID: 1519130561}
   - component: {fileID: 1519130562}
+  - component: {fileID: 1519130563}
   m_Layer: 7
   m_Name: EnemyA
   m_TagString: Enemy
@@ -16280,6 +16400,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1519130563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519130557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: EnemyH
+  CustomComment: 
+  mComponentName: QFramework.Gungeon.EnemyA
 --- !u!1 &1522705697
 GameObject:
   m_ObjectHideFlags: 0
@@ -16637,6 +16773,7 @@ GameObject:
   - component: {fileID: 1531529196}
   - component: {fileID: 1531529195}
   - component: {fileID: 1531529194}
+  - component: {fileID: 1531529197}
   m_Layer: 7
   m_Name: EnemyF
   m_TagString: Enemy
@@ -16745,6 +16882,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
   - {fileID: 8300000, guid: 3c1ab17e4e4301549a06487469e77567, type: 3}
+--- !u!114 &1531529197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531529192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: EnemyH
+  CustomComment: 
+  mComponentName: EnemyF
 --- !u!1 &1536973100
 GameObject:
   m_ObjectHideFlags: 0
@@ -16858,6 +17011,7 @@ GameObject:
   - component: {fileID: 1571707673}
   - component: {fileID: 1571707672}
   - component: {fileID: 1571707671}
+  - component: {fileID: 1571707674}
   m_Layer: 7
   m_Name: EnemyE
   m_TagString: Enemy
@@ -16966,6 +17120,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
   - {fileID: 8300000, guid: 3c1ab17e4e4301549a06487469e77567, type: 3}
+--- !u!114 &1571707674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571707669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: EnemyH
+  CustomComment: 
+  mComponentName: QFramework.Gungeon.EnemyE
 --- !u!1 &1583943702
 GameObject:
   m_ObjectHideFlags: 0
@@ -17295,6 +17465,7 @@ GameObject:
   - component: {fileID: 1664932350}
   - component: {fileID: 1664932349}
   - component: {fileID: 1664932348}
+  - component: {fileID: 1664932351}
   m_Layer: 7
   m_Name: EnemyC
   m_TagString: Enemy
@@ -17403,6 +17574,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
   - {fileID: 8300000, guid: 3c1ab17e4e4301549a06487469e77567, type: 3}
+--- !u!114 &1664932351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664932346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: EnemyH
+  CustomComment: 
+  mComponentName: EnemyC
 --- !u!1 &1676943974
 GameObject:
   m_ObjectHideFlags: 0
@@ -18044,6 +18231,7 @@ GameObject:
   - component: {fileID: 1708618933}
   - component: {fileID: 1708618932}
   - component: {fileID: 1708618931}
+  - component: {fileID: 1708618934}
   m_Layer: 7
   m_Name: EnemyDBig
   m_TagString: Enemy
@@ -18152,6 +18340,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
   - {fileID: 8300000, guid: 3c1ab17e4e4301549a06487469e77567, type: 3}
+--- !u!114 &1708618934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708618929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: EnemyH
+  CustomComment: 
+  mComponentName: EnemyDBig
 --- !u!1 &1718964117
 GameObject:
   m_ObjectHideFlags: 0
@@ -19302,6 +19506,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cd44e395f185f674e9361bc2a693d1d6, type: 3}
   - {fileID: 8300000, guid: 92e42f651b8368b4f824480657b45a97, type: 3}
   reloadSound: {fileID: 8300000, guid: d75109697e85e4341a6b990b76176ffa, type: 3}
+  needTime: 0.5
   Sprite: {fileID: 1399494065}
   Bullet: {fileID: 206246579}
   Ready: {fileID: 704753868}
@@ -20198,8 +20403,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2039907323}
+  - component: {fileID: 2039907324}
   m_Layer: 0
-  m_Name: EnemyDB
+  m_Name: EnemyFactory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20232,6 +20438,37 @@ Transform:
   - {fileID: 28532435}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2039907324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039907322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dee1bb7133a27b24c9e3ef67a29cf352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: QFramework.Gungeon
+  ScriptName: EnemyFactory
+  ScriptsFolder: Assets/Scripts/Game/Enemy
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
+  EnemyA: {fileID: 1519130558}
+  EnemyABig: {fileID: 1259890333}
+  EnemyB: {fileID: 548751865}
+  EnemyBBig: {fileID: 259369098}
+  EnemyC: {fileID: 1664932350}
+  EnemyCBig: {fileID: 1043553439}
+  EnemyD: {fileID: 388770058}
+  EnemyDBig: {fileID: 1708618933}
+  EnemyE: {fileID: 1571707673}
+  EnemyF: {fileID: 1531529196}
+  EnemyG: {fileID: 232443160}
+  EnemyH: {fileID: 28532438}
 --- !u!1 &2058001088
 GameObject:
   m_ObjectHideFlags: 0

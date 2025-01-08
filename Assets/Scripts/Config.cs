@@ -17,6 +17,7 @@ namespace QFramework.Gungeon
     public class EnemyWaveConfig
     {
         //敌人波次配置代码
+        public List<string> EnemyNames = new List<string>();
     }
     
     //配置类

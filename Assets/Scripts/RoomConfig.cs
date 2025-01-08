@@ -34,6 +34,12 @@ namespace QFramework.Gungeon
                 RoomType = type;
             }
 
+            public RoomNode Branch(Action<RoomNode> branch = null)
+            {
+                branch?.Invoke(this);
+                return this;
+            }
+
             public RoomNode Next(RoomTypes type, Action<RoomNode> branch = null)
             {
                 var roomNode = new RoomNode(type);
