@@ -15,5 +15,13 @@ namespace QFramework.Gungeon
 
             component.LocalPositionY(upDownOffset + posY);
         }
+
+        public static void RotateAnimation(Component component,float angle,long frameCount,int rotateFrames)
+        {
+            float frequency = 1;
+            var angleZ = angle * Mathf.Sin(2 * Mathf.PI * frequency * (frameCount % rotateFrames) / rotateFrames);
+
+            component.LocalEulerAnglesZ(angleZ);
+        }
     }
 }

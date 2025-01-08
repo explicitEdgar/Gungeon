@@ -155,8 +155,9 @@ namespace QFramework.Gungeon
 
             if(horizontal != 0  || vertical != 0)
             {
-                AnimationHelper.UpDownAnimation(Sprite,0.1f, Time.frameCount, 10);
-                AnimationHelper.UpDownAnimation(weapon,0.1f, Time.frameCount, 10);
+                AnimationHelper.UpDownAnimation(Sprite,0.05f, Time.frameCount, 10);
+                AnimationHelper.UpDownAnimation(weapon,0.05f, Time.frameCount, 10);
+                AnimationHelper.RotateAnimation(Sprite, 5, Time.frameCount, 30);
             }
 
             if (Global.CanDo)

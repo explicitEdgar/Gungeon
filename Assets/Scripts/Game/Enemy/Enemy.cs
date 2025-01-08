@@ -39,6 +39,39 @@ namespace QFramework.Gungeon
 
         public Room Room { get; set; }
 
+        public SpriteRenderer SpriteRenderer => gameObject.transform.Find("Sprite").GetComponent<SpriteRenderer>();
+
+        public enum States
+        {
+            FollowPlayer,
+            PrepareShoot,
+            Shoot,
+        }
+
+        public FSM<States> State = new FSM<States>();
+
+        public Rigidbody2D Rigidbody2D => gameObject.GetComponent<Rigidbody2D>();
+
         public abstract void Hurt(float damage, Vector2 hitDirection);
+
+        protected void FollowPlayer()
+        {
+            if (Global.player)
+            {
+                var direction2Player = (Global.player.transform.position - transform.position).normalized;
+                AnimationHelper.UpDownAnimation(SpriteRenderer, 0.05f, State.FrameCountOfCurrentState, 10);
+                AnimationHelper.RotateAnimation(SpriteRenderer, 5, State.FrameCountOfCurrentState, 30);
+                Rigidbody2D.velocity = direction2Player;
+
+                if (direction2Player.x < 0)
+                {
+                    SpriteRenderer.flipX = true;
+                }
+                else
+                {
+                    SpriteRenderer.flipX = false;
+                }
+            }
+        }
     }
 }

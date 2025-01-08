@@ -11,21 +11,12 @@ public class EnemyCBig : Enemy, IEnemy
 
     public EnemyBullet enemyBullet;
 
-    public Rigidbody2D mrigidbody2D;
-
-    public enum States
-    {
-        FollowPlayer,
-        Shoot,
-    }
-
-    public FSM<States> State = new FSM<States>();
-
+    
     public float followPlayerScd = 3.0f;
 
     public float shootScd = 1.0f;
 
-    public SpriteRenderer spriteRenderer;
+    
 
     public List<AudioClip> ShootSounds = new List<AudioClip>();
 
@@ -47,21 +38,7 @@ public class EnemyCBig : Enemy, IEnemy
             })
             .OnUpdate(() =>
             {
-                if (Global.player)
-                {
-                    var direction2Player = (Global.player.transform.position - transform.position).normalized;
-
-                    mrigidbody2D.velocity = direction2Player;
-
-                    if (direction2Player.x < 0)
-                    {
-                        spriteRenderer.flipX = true;
-                    }
-                    else
-                    {
-                        spriteRenderer.flipX = false;
-                    }
-                }
+                FollowPlayer();
 
                 if (State.SecondsOfCurrentState >= followPlayerScd)
                 {
@@ -74,7 +51,7 @@ public class EnemyCBig : Enemy, IEnemy
             {
                 if (Global.player)
                 {
-                    mrigidbody2D.velocity = new Vector2(0, 0);
+                    Rigidbody2D.velocity = new Vector2(0, 0);
                     var direction2Player = (Global.player.transform.position - transform.position).normalized;
 
                     ActionKit.Sequence()
@@ -116,11 +93,11 @@ public class EnemyCBig : Enemy, IEnemy
 
                     if (direction2Player.x < 0)
                     {
-                        spriteRenderer.flipX = true;
+                        SpriteRenderer.flipX = true;
                     }
                     else
                     {
-                        spriteRenderer.flipX = false;
+                        SpriteRenderer.flipX = false;
                     }
                 }
             })

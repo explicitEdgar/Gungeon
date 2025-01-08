@@ -14,21 +14,12 @@ namespace QFramework.Gungeon
 
         public EnemyBullet enemyBullet;
 
-        public Rigidbody2D mrigidbody2D;
-
-        public enum States
-        {
-            FollowPlayer,
-            Shoot,
-        }
-
-        public FSM<States> State = new FSM<States>();
-
+        
         public float followPlayerScd = 3.0f;
 
         public float shootScd = 1.0f;
 
-        public SpriteRenderer spriteRenderer;
+        
 
         public List<AudioClip> ShootSounds = new List<AudioClip>();
 
@@ -50,21 +41,7 @@ namespace QFramework.Gungeon
                 })
                 .OnUpdate(() =>
                 {
-                    if (Global.player)
-                    {
-                        var direction2Player = (Global.player.transform.position - transform.position).normalized;
-
-                        mrigidbody2D.velocity = direction2Player;
-
-                        if (direction2Player.x < 0)
-                        {
-                            spriteRenderer.flipX = true;
-                        }
-                        else
-                        {
-                            spriteRenderer.flipX = false;
-                        }
-                    }
+                    FollowPlayer();
 
                     if (State.SecondsOfCurrentState >= followPlayerScd)
                     {
@@ -75,7 +52,7 @@ namespace QFramework.Gungeon
             State.State(States.Shoot)
                 .OnEnter(() =>
                 {
-                    mrigidbody2D.velocity = new Vector2(0, 0);
+                    Rigidbody2D.velocity = new Vector2(0, 0);
 
                     shootScd = Random.Range(1, 6f);
 
@@ -94,11 +71,11 @@ namespace QFramework.Gungeon
 
                             if (direction2Player.x < 0)
                             {
-                                spriteRenderer.flipX = true;
+                                SpriteRenderer.flipX = true;
                             }
                             else
                             {
-                                spriteRenderer.flipX = false;
+                                SpriteRenderer.flipX = false;
                             }
                         }
                     }

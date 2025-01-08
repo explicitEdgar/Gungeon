@@ -7,7 +7,7 @@ public class EnemyBullet : MonoBehaviour
 {
     public Vector2 velocity;
 
-    public Rigidbody2D mrigidbody2D;
+    public Rigidbody2D Rigidbody2D => this.GetComponent<Rigidbody2D>();
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,7 @@ public class EnemyBullet : MonoBehaviour
 
     void FixedUpdate()
     {
-        mrigidbody2D.velocity = velocity;
+        Rigidbody2D.velocity = velocity;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
