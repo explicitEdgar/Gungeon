@@ -316,7 +316,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  mrigidbody2D: {fileID: 12462502}
 --- !u!212 &12462505
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -482,10 +481,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1525299618}
   enemyBullet: {fileID: 624378722}
-  mrigidbody2D: {fileID: 28532436}
   followPlayerScd: 3
   shootScd: 1
-  spriteRenderer: {fileID: 2140010691}
   ShootSounds:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
@@ -1784,7 +1781,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  mrigidbody2D: {fileID: 139546153}
 --- !u!212 &139546156
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1947,7 +1943,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  mrigidbody2D: {fileID: 139630389}
 --- !u!212 &139630392
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2505,7 +2500,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  mrigidbody2D: {fileID: 201081556}
 --- !u!212 &201081559
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2900,10 +2894,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1525299618}
   enemyBullet: {fileID: 308826552}
-  mrigidbody2D: {fileID: 232443158}
   followPlayerScd: 3
   shootScd: 1
-  spriteRenderer: {fileID: 45349589}
   ShootSounds:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
@@ -3250,10 +3242,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1525299618}
   enemyBullet: {fileID: 139546155}
-  mrigidbody2D: {fileID: 259369096}
   followPlayerScd: 3
   shootScd: 1
-  spriteRenderer: {fileID: 1612694802}
   ShootSounds:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
@@ -3384,7 +3374,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  mrigidbody2D: {fileID: 308826550}
 --- !u!212 &308826553
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4162,10 +4151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1525299618}
   enemyBullet: {fileID: 1215480961}
-  mrigidbody2D: {fileID: 388770056}
   followPlayerScd: 3
   shootScd: 1
-  spriteRenderer: {fileID: 1279861073}
   ShootSounds:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
@@ -4551,6 +4538,12 @@ MonoBehaviour:
   shaking: 0
   shakeWave: 0
   shakeFrames: 0
+  Colors:
+  - {r: 0.14117648, g: 0.14117648, b: 0.14117648, a: 0}
+  - {r: 1, g: 0.5384617, b: 1, a: 0}
+  - {r: 0.61960787, g: 0.509434, b: 0.509434, a: 0}
+  - {r: 0.7254902, g: 0.30791768, b: 0.3886792, a: 0}
+  - {r: 0.08140263, g: 0.3886792, b: 0.13542928, a: 0}
 --- !u!1 &530727807
 GameObject:
   m_ObjectHideFlags: 0
@@ -9612,10 +9605,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1525299618}
   enemyBullet: {fileID: 12462504}
-  mrigidbody2D: {fileID: 548751863}
   followPlayerScd: 3
   shootScd: 1
-  spriteRenderer: {fileID: 355379332}
   ShootSounds:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
@@ -9963,7 +9954,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  mrigidbody2D: {fileID: 583314689}
 --- !u!212 &583314692
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10309,7 +10299,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  mrigidbody2D: {fileID: 624378720}
 --- !u!212 &624378723
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11654,7 +11643,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  mrigidbody2D: {fileID: 875390354}
 --- !u!212 &875390357
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13213,7 +13201,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  mrigidbody2D: {fileID: 1035186975}
 --- !u!212 &1035186978
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13379,10 +13366,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1525299618}
   enemyBullet: {fileID: 583314691}
-  mrigidbody2D: {fileID: 1043553437}
   followPlayerScd: 3
   shootScd: 1
-  spriteRenderer: {fileID: 1022007687}
   ShootSounds:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
@@ -13855,7 +13840,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  mrigidbody2D: {fileID: 1215480959}
 --- !u!212 &1215480962
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14368,10 +14352,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1525299618}
   enemyBullet: {fileID: 1969126638}
-  mrigidbody2D: {fileID: 1259890331}
   followPlayerScd: 3
   shootScd: 1
-  spriteRenderer: {fileID: 1075437385}
   ShootSounds:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
@@ -15096,7 +15078,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  mrigidbody2D: {fileID: 1367912492}
 --- !u!58 &1367912491
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -16245,10 +16226,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1525299618}
   enemyBullet: {fileID: 1367912490}
-  mrigidbody2D: {fileID: 1519130562}
   followPlayerScd: 3
   shootScd: 1
-  spriteRenderer: {fileID: 646446983}
   ShootSounds:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
@@ -16807,10 +16786,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1525299618}
   enemyBullet: {fileID: 201081558}
-  mrigidbody2D: {fileID: 1531529194}
   followPlayerScd: 3
   shootScd: 1
-  spriteRenderer: {fileID: 377771957}
   ShootSounds:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
@@ -17028,10 +17005,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1525299618}
   enemyBullet: {fileID: 875390356}
-  mrigidbody2D: {fileID: 1571707671}
   followPlayerScd: 3
   shootScd: 1
-  spriteRenderer: {fileID: 10519546}
   ShootSounds:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
@@ -17482,10 +17457,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1525299618}
   enemyBullet: {fileID: 1035186977}
-  mrigidbody2D: {fileID: 1664932348}
   followPlayerScd: 3
   shootScd: 1
-  spriteRenderer: {fileID: 947236359}
   ShootSounds:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
@@ -18231,10 +18204,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1525299618}
   enemyBullet: {fileID: 139630391}
-  mrigidbody2D: {fileID: 1708618931}
   followPlayerScd: 3
   shootScd: 1
-  spriteRenderer: {fileID: 65251943}
   ShootSounds:
   - {fileID: 8300000, guid: 265dc2c3d80f3c44793601ef72e3ae6b, type: 3}
   - {fileID: 8300000, guid: d947ab495dffa3e4fbd5c9269e325ac8, type: 3}
@@ -20223,7 +20194,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  mrigidbody2D: {fileID: 1969126636}
 --- !u!212 &1969126639
 SpriteRenderer:
   m_ObjectHideFlags: 0

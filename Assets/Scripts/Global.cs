@@ -34,6 +34,8 @@ namespace QFramework.Gungeon
 
         public static Queue<int> CurrentPacing = null;
 
+        public static float GunAddtionSize;
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         public static void AutoInit()
         {

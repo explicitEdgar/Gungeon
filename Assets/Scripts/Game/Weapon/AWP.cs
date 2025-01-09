@@ -16,7 +16,7 @@ namespace QFramework.Gungeon
 
         public override BulletBag bulletBag { get; set; } = new BulletBag(20, 20);
 
-
+        public override float GunAddtionSize => 3f;
         public override void OnGunUse()
         {
             clip.UIReload();

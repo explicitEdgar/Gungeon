@@ -15,6 +15,8 @@ namespace QFramework.Gungeon
 
         public float needTime = 0.5f;
 
+        public override float GunAddtionSize => 1.5f;
+
         public override void OnGunUse()
         {
             clip.UIReload();

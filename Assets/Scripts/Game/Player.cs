@@ -77,6 +77,8 @@ namespace QFramework.Gungeon
             var gunTakeSfx = gunTakeSfxs.GetRandomItem();
             SelfAudioSource.clip = gunTakeSfx;
             SelfAudioSource.Play();
+
+            Global.GunAddtionSize = gun.GunAddtionSize;
         }
 
         // Start is called before the first frame update

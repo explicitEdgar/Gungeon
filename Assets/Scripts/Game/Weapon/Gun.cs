@@ -26,6 +26,8 @@ namespace QFramework.Gungeon
 
         public SpriteRenderer Sprite;
 
+        public virtual float GunAddtionSize { get; set; } = 1f;
+
         public void Start()
         {
             BackForce.Setup(Sprite);

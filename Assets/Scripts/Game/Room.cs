@@ -17,7 +17,7 @@ namespace QFramework.Gungeon
         }
 
         public RoomStates State { get; set; } = RoomStates.Close;
-
+        public static EasyEvent<Room> OnRoomEnter = new EasyEvent<Room>();
 		private List<Vector3> mEnemyGeneratePoses = new List<Vector3>();
         private List<Door> doors = new List<Door>();
         public List<Door> Doors => doors;
@@ -26,6 +26,7 @@ namespace QFramework.Gungeon
         private List<EnemyWaveConfig> mWaves = new List<EnemyWaveConfig>();
         public EnemyWaveConfig curWave;
         public HashSet<IPowerUp> PowerUps = new HashSet<IPowerUp>();
+        public int ColorIndex { get; set; } = -1;
 
         public RoomConfig Config { get; private set; }
         public Room WithConfig(RoomConfig roomConfig)
@@ -128,6 +129,7 @@ namespace QFramework.Gungeon
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            OnRoomEnter.Trigger(this);
             if(collision.CompareTag("Player") && Config.RoomType == RoomTypes.Normal)
 			{
                 Global.currentRoom = this;
