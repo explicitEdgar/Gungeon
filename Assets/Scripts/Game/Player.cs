@@ -33,8 +33,6 @@ namespace QFramework.Gungeon
 
         public Gun gun;
 
-        public List<Gun> Gunlist = new List<Gun>();
-
         public List<AudioClip> gunTakeSfxs = new List<AudioClip>();
 
         public static Player Default;
@@ -49,15 +47,6 @@ namespace QFramework.Gungeon
 
             Text.Hide();
 
-            Gunlist.Add(AK);
-            Gunlist.Add(AWP);
-            Gunlist.Add(Bow);
-            Gunlist.Add(Laser);
-            Gunlist.Add(MP5);
-            Gunlist.Add(Pistol);
-            Gunlist.Add(RocketGun);
-            Gunlist.Add(ShotGun);
-
             gunTakeSfxs.Add(GunTake1);
             gunTakeSfxs.Add(GunTake2);
             gunTakeSfxs.Add(GunTake3);
@@ -67,10 +56,33 @@ namespace QFramework.Gungeon
             UseGun(0);
         }
 
+        Gun GunwithKey(string key)
+        {   
+            if(key == GunConfig.Pistol.Key)
+                return Pistol;
+            if(key == GunConfig.MP5.Key)
+                return MP5;
+            if (key == GunConfig.AK.Key)
+                return AK;
+            if (key == GunConfig.AWP.Key)
+                return AWP;
+            if (key == GunConfig.Bow.Key)
+                return Bow;
+            if (key == GunConfig.Laser.Key)
+                return Laser;
+            if (key == GunConfig.RocketGun.Key)
+                return RocketGun;
+            if (key == GunConfig.ShotGun.Key)
+                return ShotGun;
+
+            return null;
+        }
         private void UseGun(int index)
         {
+            var gundata = GunSystem.GunList[index];
             gun.Hide();
-            gun = Gunlist[index];
+            gun = GunwithKey(gundata.Key);
+            gun.WithData(gundata);
             gun.Show();
             gun.OnGunUse();
 
@@ -84,7 +96,11 @@ namespace QFramework.Gungeon
         // Start is called before the first frame update
         void Start()
         {
-
+            var gunData = GunSystem.GunList.First();
+            if(gunData.Key == GunConfig.Pistol.Key)
+            {
+                UseGun(0);
+            }
         }
 
         private void OnDestroy()
@@ -182,9 +198,9 @@ namespace QFramework.Gungeon
                 }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    var index = Gunlist.FindIndex(gun1 => gun1 == gun);
+                    var index = GunSystem.GunList.FindIndex(gun1 => gun1 == gun.Data);
                     index++;
-                    if (index > Gunlist.Count - 1)
+                    if (index > GunSystem.GunList.Count - 1)
                     {
                         index = 0;
                     }
@@ -193,11 +209,11 @@ namespace QFramework.Gungeon
                 }
                 if (Input.GetKeyDown(KeyCode.Q))
                 {
-                    var index = Gunlist.FindIndex(gun1 => gun1 == gun);
+                    var index = GunSystem.GunList.FindIndex(gun1 => gun1 == gun.Data);
                     index--;
                     if (index < 0)
                     {
-                        index = Gunlist.Count - 1;
+                        index = GunSystem.GunList.Count - 1;
                     }
 
                     UseGun(index);

@@ -16,23 +16,23 @@ namespace QFramework.Gungeon
             {
                 Room.PowerUps.Remove(this);
 
-                foreach(var gun in Global.player.Gunlist)
-                {
-                    if (gun is Pistol) continue;
+                //foreach(var gun in GunSystem.GunList)
+                //{
+                //    if (gun is Pistol) continue;
   
-                    var bag = gun.bulletBag;
-                    var bulletCountToAdd = bag.MaxBulletCount / 2;
-                    var gunNeedBulletCount = bag.MaxBulletCount - bag.RemainBulletCount;
+                //    var bag = gun.bulletBag;
+                //    var bulletCountToAdd = bag.MaxBulletCount / 2;
+                //    var gunNeedBulletCount = bag.MaxBulletCount - bag.RemainBulletCount;
 
-                    if (bulletCountToAdd <= gunNeedBulletCount)
-                    {
-                        bag.RemainBulletCount += bulletCountToAdd;
-                    }
-                    else
-                    {
-                        bag.RemainBulletCount = bag.MaxBulletCount;
-                    }
-                }
+                //    if (bulletCountToAdd <= gunNeedBulletCount)
+                //    {
+                //        bag.RemainBulletCount += bulletCountToAdd;
+                //    }
+                //    else
+                //    {
+                //        bag.RemainBulletCount = bag.MaxBulletCount;
+                //    }
+                //}
 
                 AudioKit.PlaySound("Resources://AllHalfBullet");
                 Player.Default.gun.clip.UIReload();

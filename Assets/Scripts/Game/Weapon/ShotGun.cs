@@ -12,7 +12,7 @@ namespace QFramework.Gungeon
 
         public ShootLight shootLight = new ShootLight();
 
-        public override BulletBag bulletBag { get; set; } = new BulletBag(16, 16);
+        public override BulletBag bulletBag { get; set; } = new BulletBag( 16);
 
         public override float GunAddtionSize => 1.5f;
 

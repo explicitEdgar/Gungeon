@@ -15,7 +15,7 @@ namespace QFramework.Gungeon
 
         public ShootDuration shootDuration = new ShootDuration(0.02f);
 
-        public override BulletBag bulletBag { get; set; } = new BulletBag(2000,2000);
+        public override BulletBag bulletBag { get; set; } = new BulletBag(2000);
 
         public override float GunAddtionSize => 1.5f;
 

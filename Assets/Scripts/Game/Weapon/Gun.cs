@@ -83,5 +83,14 @@ namespace QFramework.Gungeon
                 }
             }
         }
+
+        public GunData Data { get; private set; }
+
+        public void WithData(GunData gunData)
+        {
+            Data = gunData;
+            clip.Data = Data;
+            bulletBag.Data = Data;
+        }
     }
 }

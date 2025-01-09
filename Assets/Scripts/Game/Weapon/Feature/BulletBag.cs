@@ -4,16 +4,16 @@ namespace QFramework.Gungeon
 {
     public class BulletBag
     {
-        public int RemainBulletCount { get; set; }
         public int MaxBulletCount { get; set; }
 
-        public bool hasBullet => RemainBulletCount != 0;
+        public bool hasBullet => Data.GunBagRemainBulletCount != 0;
 
-        public bool Full => RemainBulletCount == MaxBulletCount;
+        public bool Full => Data.GunBagRemainBulletCount == MaxBulletCount;
 
-        public BulletBag(int RemainBulletCount,int MaxBulletCount)
+        public GunData Data { get; internal set; }
+
+        public BulletBag(int MaxBulletCount)
         {
-            this.RemainBulletCount = RemainBulletCount;
             this.MaxBulletCount = MaxBulletCount;
         }
 
@@ -26,25 +26,25 @@ namespace QFramework.Gungeon
             else
             {
                 var needCount = clip.NeedCount;
-                if(RemainBulletCount == -1)
+                if(Data.GunBagRemainBulletCount == -1)
                 {
                     //子弹无限
                     //填满
                     clip.Reload(reloadSound, needCount);
                 }
-                else if(needCount <= RemainBulletCount)
+                else if(needCount <= Data.GunBagRemainBulletCount)
                 {   
                     //填满
                     clip.Reload(reloadSound, needCount);
-                    RemainBulletCount -= needCount;
+                    Data.GunBagRemainBulletCount -= needCount;
                     //Debug.Log("花了" + needCount);
                 }
                 else
                 {
                     //用完剩余子弹
-                    //Debug.Log("花了" + RemainBulletCount);
-                    clip.Reload(reloadSound, RemainBulletCount);
-                    RemainBulletCount = 0;
+                    //Debug.Log("花了" + Data.GunBagRemainBulletCount);
+                    clip.Reload(reloadSound, Data.GunBagRemainBulletCount);
+                    Data.GunBagRemainBulletCount = 0;
                 }
             }
         }

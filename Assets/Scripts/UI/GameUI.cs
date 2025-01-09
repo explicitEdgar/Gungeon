@@ -81,11 +81,11 @@ namespace QFramework.Gungeon
             var bulletBag = Player.Default.gun.bulletBag;
             if (bulletBag.MaxBulletCount == -1)
             {
-                GameUI.Default.GunInfo.text = "µ¯¼ÐÈÝÁ¿:" + clip.currentClipBullet + "/" + clip.clipBullet + "(\u211e)" + "(°´R»»µ¯)";
+                GameUI.Default.GunInfo.text = "µ¯¼ÐÈÝÁ¿:" + clip.Data.CurrentBulletCount + "/" + clip.clipBullet + "(\u211e)" + "(°´R»»µ¯)";
             }
             else
             {
-                GameUI.Default.GunInfo.text = "µ¯¼ÐÈÝÁ¿:" + clip.currentClipBullet + "/" + clip.clipBullet + "(" + bulletBag.RemainBulletCount + "/" + bulletBag.MaxBulletCount + ")" + "(°´R»»µ¯)";
+                GameUI.Default.GunInfo.text = "µ¯¼ÐÈÝÁ¿:" + clip.Data.CurrentBulletCount + "/" + clip.clipBullet + "(" + bulletBag.Data.GunBagRemainBulletCount + "/" + bulletBag.MaxBulletCount + ")" + "(°´R»»µ¯)";
             }
         }
 

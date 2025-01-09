@@ -11,7 +11,7 @@ namespace QFramework.Gungeon
 
         public override Clip clip { get; set; } = new Clip(5);
 
-        public override BulletBag bulletBag { get; set; } = new BulletBag(30, 30);
+        public override BulletBag bulletBag { get; set; } = new BulletBag(30);
 
         public float needTime = 0.5f;
 

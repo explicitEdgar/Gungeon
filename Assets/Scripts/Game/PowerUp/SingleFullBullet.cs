@@ -23,7 +23,7 @@ namespace QFramework.Gungeon
                 {
                     Room.PowerUps.Remove(this);
 
-                    gun.bulletBag.RemainBulletCount = gun.bulletBag.MaxBulletCount;
+                    gun.bulletBag.Data.GunBagRemainBulletCount = gun.bulletBag.MaxBulletCount;
 
                     AudioKit.PlaySound("Resources://AllHalfBullet");
                     Player.Default.gun.clip.UIReload();
