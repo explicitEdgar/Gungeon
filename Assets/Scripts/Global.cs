@@ -1,6 +1,7 @@
 using QFramework.Gungeon;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.Search;
 using UnityEngine;
 
@@ -19,6 +20,8 @@ namespace QFramework.Gungeon
         };
 
         public static LevelConfig CurrentLevel;
+
+        public static GunData CurrentGun;
 
         public static BindableProperty<int> HP = new BindableProperty<int>(3);
 
@@ -52,6 +55,13 @@ namespace QFramework.Gungeon
 
             GunSystem.GunList.Clear();
             GunSystem.GunList.Add(GunConfig.Pistol.CreateData());
+            GunSystem.GunList.Add(GunConfig.MP5.CreateData());
+            GunSystem.GunList.Add(GunConfig.AK.CreateData());
+            GunSystem.GunList.Add(GunConfig.AWP.CreateData());
+            GunSystem.GunList.Add(GunConfig.ShotGun.CreateData());
+            GunSystem.GunList.Add(GunConfig.Laser.CreateData());
+
+            CurrentGun = GunSystem.GunList.First();
 
             CurrentLevel = Level1.Config;
             CurrentPacing = new Queue<int>(CurrentLevel.Pacing);

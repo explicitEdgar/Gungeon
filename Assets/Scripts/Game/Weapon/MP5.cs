@@ -44,6 +44,8 @@ namespace QFramework.Gungeon
                 BackForce.Shoot(0.05f, 2);
 
                 clip.UseBullet();
+
+                BulletFactory.GenBulletShell(direction);
             }
         }
 

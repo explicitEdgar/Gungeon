@@ -1,4 +1,4 @@
-// Generate Id:4f91631b-83ca-470f-9ba4-0e53c55df79e
+// Generate Id:fbe128f1-2033-424f-aa47-10ce39d669e5
 using UnityEngine;
 
 namespace QFramework.Gungeon
@@ -7,6 +7,14 @@ namespace QFramework.Gungeon
 	{
 
 		public PlayerBullet PistolBullet;
+
+		public Rigidbody2D PistolShell;
+
+		public Rigidbody2D AKShell;
+
+		public Rigidbody2D AWPShell;
+
+		public Rigidbody2D ShotGunShell;
 
 	}
 }

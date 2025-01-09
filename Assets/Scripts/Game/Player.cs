@@ -83,6 +83,7 @@ namespace QFramework.Gungeon
             gun.Hide();
             gun = GunwithKey(gundata.Key);
             gun.WithData(gundata);
+            Global.CurrentGun = gundata;
             gun.Show();
             gun.OnGunUse();
 
@@ -96,11 +97,8 @@ namespace QFramework.Gungeon
         // Start is called before the first frame update
         void Start()
         {
-            var gunData = GunSystem.GunList.First();
-            if(gunData.Key == GunConfig.Pistol.Key)
-            {
-                UseGun(0);
-            }
+            var gunIndex = GunSystem.GunList.FindIndex(g => g == Global.CurrentGun);
+            UseGun(gunIndex);
         }
 
         private void OnDestroy()

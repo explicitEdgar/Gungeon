@@ -51,6 +51,8 @@ namespace QFramework.Gungeon
                 clip.UseBullet();
 
                 BackForce.Shoot(0.05f, 2);
+
+                BulletFactory.GenBulletShell(direction);               
             }
 
             if (!clip.CanShoot)

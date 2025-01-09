@@ -80,6 +80,8 @@ namespace QFramework.Gungeon
 
                 BackForce.Shoot(0.08f, 3);
 
+                BulletFactory.GenBulletShell(direction, BulletFactory.Default.ShotGunShell);
+
             }
 
         }
