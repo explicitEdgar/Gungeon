@@ -10,7 +10,7 @@ namespace QFramework.Gungeon
 
         public override AudioSource AudioPlayer => SelfAudioSource;
 
-        public override Clip clip { get; set; } = new Clip(30);
+        public override Clip clip { get; set; } = new Clip();
 
         public ShootDuration shootDuration = new ShootDuration(0.1f);
 

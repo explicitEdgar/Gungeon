@@ -80,16 +80,16 @@ namespace QFramework.Gungeon
     }
     public class GunSystem
     {
-        public static List<GunData> GunList = new List<GunData>()
-        {
-            GunConfig.Pistol.CreateData(),
-            GunConfig.MP5.CreateData(),
-            GunConfig.AK.CreateData(),
-            GunConfig.AWP.CreateData(),
-            GunConfig.Bow.CreateData(),
-            GunConfig.Laser.CreateData(),
-            GunConfig.RocketGun.CreateData(),
-            GunConfig.ShotGun.CreateData(),
-        };
+        public static List<GunData> GunList = new List<GunData>();
+        //{
+        //    GunConfig.Pistol.CreateData(),
+        //    GunConfig.MP5.CreateData(),
+        //    GunConfig.AK.CreateData(),
+        //    GunConfig.AWP.CreateData(),
+        //    GunConfig.Bow.CreateData(),
+        //    GunConfig.Laser.CreateData(),
+        //    GunConfig.RocketGun.CreateData(),
+        //    GunConfig.ShotGun.CreateData(),
+        //};
     }
 }

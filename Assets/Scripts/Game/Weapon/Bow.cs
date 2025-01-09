@@ -9,7 +9,7 @@ namespace QFramework.Gungeon
 
         public override AudioSource AudioPlayer => SelfAudioSource;
 
-        public override Clip clip { get; set; } = new Clip(5);
+        public override Clip clip { get; set; } = new Clip();
 
         public override BulletBag bulletBag { get; set; } = new BulletBag(30);
 

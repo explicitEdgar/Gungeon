@@ -8,7 +8,7 @@ namespace QFramework.Gungeon
 
         public override AudioSource AudioPlayer => SelfAudioSource;
 
-        public override Clip clip { get; set; } = new Clip(8);
+        public override Clip clip { get; set; } = new Clip();
 
         public ShootLight shootLight = new ShootLight();
 

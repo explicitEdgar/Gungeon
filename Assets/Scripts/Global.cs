@@ -50,6 +50,9 @@ namespace QFramework.Gungeon
             Armor.Value = 1;
             Time.timeScale = 1;
 
+            GunSystem.GunList.Clear();
+            GunSystem.GunList.Add(GunConfig.Pistol.CreateData());
+
             CurrentLevel = Level1.Config;
             CurrentPacing = new Queue<int>(CurrentLevel.Pacing);
         }

@@ -77,7 +77,7 @@ namespace QFramework.Gungeon
 
             return null;
         }
-        private void UseGun(int index)
+        public void UseGun(int index)
         {
             var gundata = GunSystem.GunList[index];
             gun.Hide();

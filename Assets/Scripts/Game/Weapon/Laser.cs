@@ -9,7 +9,7 @@ namespace QFramework.Gungeon
 
         public override AudioSource AudioPlayer => SelfAudioSource;
 
-        public override Clip clip { get; set; } = new Clip(1000);
+        public override Clip clip { get; set; } = new Clip();
 
         private bool mShooting = false;
 
@@ -32,7 +32,7 @@ namespace QFramework.Gungeon
         public void Shoot(Vector2 direction)
         {
             var bullet = Instantiate(BulletPrefab);
-            bullet.transform.position = BulletPrefab.transform.position;
+            bullet.transform.position = mLaserHitPoint;
             bullet.velocity = direction.normalized * 100;
             bullet.Damage = 1f;
             bullet.gameObject.SetActive(true);
@@ -70,6 +70,7 @@ namespace QFramework.Gungeon
                     var layers = LayerMask.GetMask("Default", "Enemy","Wall");
                     //从枪口发射一条物理射线
                     var hit = Physics2D.Raycast(BulletPrefab.Position2D(), direction, float.MaxValue, layers);
+                    mLaserHitPoint = hit.point;
                     SelfLineRenderer.SetPosition(0, BulletPrefab.Position2D());
                     SelfLineRenderer.SetPosition(1, hit.point);
                 }
@@ -81,6 +82,8 @@ namespace QFramework.Gungeon
                 SelfLineRenderer.enabled = false;
             }
         }
+
+        Vector2 mLaserHitPoint = Vector2.zero;
 
         public override void ShootUp(Vector2 direction)
         {
