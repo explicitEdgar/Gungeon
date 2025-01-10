@@ -26,11 +26,7 @@ namespace QFramework.Gungeon
 
             AudioKit.PlaySound("Resources://" + soundName);
 
-            var coin = PowerUpFactory.Default.Coin.Instantiate()
-                .Position2D(transform.Position2D())
-                .Show();
-
-            Room.AddPowerUp(coin);
+            PowerUpFactory.GeneratePowerUp(this);
 
             Destroy(gameObject);
         }

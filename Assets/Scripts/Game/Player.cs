@@ -10,7 +10,7 @@ namespace QFramework.Gungeon
 {
     public partial class Player : ViewController
     {   
-        public static void DisplayText(string text,float duration)
+        public static void DisplayText(string text,float duration = 1.0f)
         {
             Default.StartCoroutine(Default.DoDisplayText(text, duration));
         }

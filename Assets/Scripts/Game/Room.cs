@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using UnityEngine.Rendering;
+using static UnityEditor.PlayerSettings;
+using static UnityEditor.Progress;
 
 namespace QFramework.Gungeon
 {
@@ -19,6 +21,8 @@ namespace QFramework.Gungeon
         public RoomStates State { get; set; } = RoomStates.Close;
         public static EasyEvent<Room> OnRoomEnter = new EasyEvent<Room>();
 		private List<Vector3> mEnemyGeneratePoses = new List<Vector3>();
+        private List<Vector3> mShopItemGeneratePoses = new List<Vector3>();
+
         private List<Door> doors = new List<Door>();
         public List<Door> Doors => doors;
         private HashSet<IEnemy> mEnemies = new HashSet<IEnemy>();
@@ -127,65 +131,108 @@ namespace QFramework.Gungeon
 			mEnemyGeneratePoses.Add(enemyGeneratePos);
         }
 
+        public void AddShopItemGeneratePos(Vector3 shopItemGeneratePos)
+        {
+            mShopItemGeneratePoses.Add(shopItemGeneratePos);
+        }
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            OnRoomEnter.Trigger(this);
-            if(collision.CompareTag("Player") && Config.RoomType == RoomTypes.Normal)
-			{
-                Global.currentRoom = this;
-                if (State == RoomStates.Close)
+            if (collision.CompareTag("Player"))
+            {
+                OnRoomEnter.Trigger(this);
+                if (Config.RoomType == RoomTypes.Normal)
                 {
-                    State = RoomStates.PlayerIn;
-
-                    //根据难度节奏动态配置波次
-                    var difficultyLevel = Global.CurrentPacing.Dequeue();
-                    var difficultyScore = 10 + difficultyLevel * 3;
-
-                    //波次数量
-                    int waveCount;
-                    if (difficultyLevel <= 3)
+                    Global.currentRoom = this;
+                    if (State == RoomStates.Close)
                     {
-                        waveCount = UnityEngine.Random.Range(1, difficultyLevel + 1);
-                    }
-                    else
-                    {
-                        waveCount = UnityEngine.Random.Range(difficultyLevel / 3, difficultyLevel / 2);
-                    }
+                        State = RoomStates.PlayerIn;
 
-                    //每波分别配置
-                    for(int i = 0;i < waveCount;i++)
-                    {   
-                        //当前波次目标配置分数
-                        var targetScore = difficultyScore / waveCount + UnityEngine.Random.Range(-difficultyScore / 10 * 2 + 1, 
-                            difficultyScore / 20 * 2 + 1 + 1);
-                        var waveConfig = new EnemyWaveConfig();
+                        //根据难度节奏动态配置波次
+                        var difficultyLevel = Global.CurrentPacing.Dequeue();
+                        var difficultyScore = 10 + difficultyLevel * 3;
 
-                        //添加敌人
-                        while(targetScore > 0 && waveConfig.EnemyNames.Count < mEnemyGeneratePoses.Count)
+                        //波次数量
+                        int waveCount;
+                        if (difficultyLevel <= 3)
                         {
-                            var enemyScore = EnemyFactory.GenTargetEnemyScore();
-                            targetScore -= enemyScore;
-                            waveConfig.EnemyNames.Add(EnemyFactory.EnemyNameByScore(enemyScore));
+                            waveCount = UnityEngine.Random.Range(1, difficultyLevel + 1);
+                        }
+                        else
+                        {
+                            waveCount = UnityEngine.Random.Range(difficultyLevel / 3, difficultyLevel / 2);
                         }
 
-                        mWaves.Add(waveConfig);
-                    }
+                        //每波分别配置
+                        for (int i = 0; i < waveCount; i++)
+                        {
+                            //当前波次目标配置分数
+                            var targetScore = difficultyScore / waveCount + UnityEngine.Random.Range(-difficultyScore / 10 * 2 + 1,
+                                difficultyScore / 20 * 2 + 1 + 1);
+                            var waveConfig = new EnemyWaveConfig();
 
-                    var wave = mWaves.First();
-                    GenerateEnemy(wave);
+                            //添加敌人
+                            while (targetScore > 0 && waveConfig.EnemyNames.Count < mEnemyGeneratePoses.Count)
+                            {
+                                var enemyScore = EnemyFactory.GenTargetEnemyScore();
+                                targetScore -= enemyScore;
+                                waveConfig.EnemyNames.Add(EnemyFactory.EnemyNameByScore(enemyScore));
+                            }
 
-                    foreach (var door in doors)
-                    {
-                        door.State.ChangeState(Door.States.BattleClose);
+                            mWaves.Add(waveConfig);
+                        }
+
+                        var wave = mWaves.First();
+                        GenerateEnemy(wave);
+
+                        foreach (var door in doors)
+                        {
+                            door.State.ChangeState(Door.States.BattleClose);
+                        }
                     }
                 }
-            }
-            else if(collision.CompareTag("Player"))
-            {
-                Global.currentRoom = this;
-                if (State == RoomStates.Close)
-                { 
-                    State = RoomStates.Unlocked;
+                else
+                {
+                    Global.currentRoom = this;
+                    if(Config.RoomType == RoomTypes.Shop && State == RoomStates.Close)
+                    {
+                        var takeCount = UnityEngine.Random.Range(2, 5 + 1);
+                        var normalShopItem = ShopSystem.CalculateNormalShopItems();
+
+                        for(int i = 0;i < takeCount;i++)
+                        {
+                            var item = normalShopItem.GetRandomItem();
+                            var pos = mShopItemGeneratePoses.GetAndRemoveRandomItem();
+
+                            LevelController.Default.ShopItem.Instantiate()
+                                .Position2D(pos)
+                                .Self(self =>
+                                {
+                                    self.ItemPrice = item.Item2;
+                                    self.PowerUp = item.Item1;
+                                    self.Room = this;
+                                })
+                                .UpdateView()
+                                .Show();
+                        }
+
+                        //必定生成一把钥匙
+                        var key = normalShopItem.First(i => i.Item1.SpriteRenderer == PowerUpFactory.Default.Key.SpriteRenderer);
+                        LevelController.Default.ShopItem.Instantiate()
+                                .Position2D(mShopItemGeneratePoses.GetAndRemoveRandomItem())
+                                .Self(self =>
+                                {
+                                    self.ItemPrice = key.Item2;
+                                    self.PowerUp = key.Item1;
+                                    self.Room = this;
+                                })
+                                .UpdateView()
+                                .Show();
+                    }
+                    if (State == RoomStates.Close)
+                    {
+                        State = RoomStates.Unlocked;
+                    }
                 }
             }
         }

@@ -19,29 +19,32 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: PlayerBullet
-      PathToRoot: PistolBullet
-      MemberName: PistolBullet
-    - TypeName: Rigidbody2D
-      PathToRoot: PistolShell
-      MemberName: PistolShell
-    - TypeName: Rigidbody2D
-      PathToRoot: AKShell
-      MemberName: AKShell
-    - TypeName: Rigidbody2D
-      PathToRoot: AWPShell
-      MemberName: AWPShell
-    - TypeName: Rigidbody2D
-      PathToRoot: ShotGunShell
-      MemberName: ShotGunShell
-    ScriptsFolder: Assets/Scripts/Game/Weapon
-    ClassName: BulletFactory
+    - TypeName: QFramework.Gungeon.Room
+      PathToRoot: Room
+      MemberName: Room
+    - TypeName: QFramework.Gungeon.Door
+      PathToRoot: Door
+      MemberName: Door
+    - TypeName: QFramework.Gungeon.Chest
+      PathToRoot: Chest
+      MemberName: Chest
+    - TypeName: QFramework.Gungeon.ShopItem
+      PathToRoot: ShopItem
+      MemberName: ShopItem
+    ScriptsFolder: Assets/Scripts/Game
+    ClassName: LevelController
     Namespace: QFramework.Gungeon
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
-      partial class BulletFactory : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class LevelController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:fbe128f1-2033-424f-aa47-10ce39d669e5\r\nusing UnityEngine;\r\n\r\nnamespace
-      QFramework.Gungeon\r\n{\r\n\tpublic partial class BulletFactory\r\n\t{\r\n\r\n\t\tpublic
-      PlayerBullet PistolBullet;\r\n\r\n\t\tpublic Rigidbody2D PistolShell;\r\n\r\n\t\tpublic
-      Rigidbody2D AKShell;\r\n\r\n\t\tpublic Rigidbody2D AWPShell;\r\n\r\n\t\tpublic
-      Rigidbody2D ShotGunShell;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:0532bdc0-a0ba-4516-9197-0ca2841338b0\r\nusing UnityEngine;\r\n\r\nnamespace
+      QFramework.Gungeon\r\n{\r\n\tpublic partial class LevelController\r\n\t{\r\n\r\n\t\tpublic
+      QFramework.Gungeon.Room Room;\r\n\r\n\t\tpublic QFramework.Gungeon.Door Door;\r\n\r\n\t\tpublic
+      QFramework.Gungeon.Chest Chest;\r\n\r\n\t\tpublic QFramework.Gungeon.ShopItem
+      ShopItem;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyA;\r\n\r\n\t\tpublic
+      UnityEngine.GameObject EnemyB;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyC;\r\n\r\n\t\tpublic
+      UnityEngine.GameObject EnemyD;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyE;\r\n\r\n\t\tpublic
+      UnityEngine.GameObject EnemyF;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyG;\r\n\r\n\t\tpublic
+      UnityEngine.GameObject EnemyH;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyABig;\r\n\r\n\t\tpublic
+      UnityEngine.GameObject EnemyBBig;\r\n\r\n\t\tpublic UnityEngine.GameObject
+      EnemyCBig;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyDBig;\r\n\r\n\t}\r\n}\r\n"

@@ -9,11 +9,18 @@ namespace QFramework.Gungeon
         {
             if(collision.CompareTag("Player"))
             {
-                Room.PowerUps.Remove(this);
+                if (Global.HP.Value < Global.MaxHP.Value)
+                {
+                    Room.PowerUps.Remove(this);
 
-                Global.HP.Value++;
-                AudioKit.PlaySound("Resources://HP1");
-                this.DestroyGameObjGracefully();
+                    Global.HP.Value++;
+                    AudioKit.PlaySound("Resources://HP1");
+                    this.DestroyGameObjGracefully();
+                }
+                else
+                {
+                    Player.DisplayText("现在还不需要");
+                }
             }
         }
         public Room Room { get; set; }

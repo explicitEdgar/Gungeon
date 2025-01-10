@@ -564,16 +564,17 @@ namespace QFramework.Gungeon
                     }
                     else if (code == 's')
                     {
-                        var shopItem = ShopItem.InstantiateWithParent(room)
-                            .Position2D(new Vector3(x, y, 0))
-                            .Self(self =>
-                            {
-                                self.PowerUp = LevelController.Default.Hp1;
-                                self.Room = room;
-                                self.ItemPrice = 8;
-                            })
-                            .UpdateView()
-                            .Show();
+                        room.AddShopItemGeneratePos(new Vector3(x + 0.5f, y + 0.5f, 0));
+                        //var shopItem = ShopItem.InstantiateWithParent(room)
+                        //    .Position2D(new Vector3(x, y, 0))
+                        //    .Self(self =>
+                        //    {
+                        //        self.PowerUp = PowerUpFactory.Default.Key;
+                        //        self.Room = room;
+                        //        self.ItemPrice = 5;
+                        //    })
+                        //    .UpdateView()
+                        //    .Show();
                     }
                 }
             }

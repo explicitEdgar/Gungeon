@@ -25,9 +25,13 @@ namespace QFramework.Gungeon
 
         public static BindableProperty<int> HP = new BindableProperty<int>(3);
 
+        public static BindableProperty<int> MaxHP = new BindableProperty<int>(6);
+
         public static BindableProperty<int> Armor = new BindableProperty<int>(1);
 
         public static BindableProperty<int> Coin = new BindableProperty<int>();
+
+        public static BindableProperty<int> Key = new BindableProperty<int>();
 
         public static DynaGrid<Room> RoomGrid { get; set; }
 
@@ -49,7 +53,9 @@ namespace QFramework.Gungeon
         {
             UIOpened = false;
             Coin.Value = 0;
+            Key.Value = 0;
             HP.Value = 3;
+            MaxHP.Value = 6;
             Armor.Value = 1;
             Time.timeScale = 1;
 

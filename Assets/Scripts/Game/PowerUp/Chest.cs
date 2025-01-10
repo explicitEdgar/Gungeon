@@ -12,29 +12,32 @@ namespace QFramework.Gungeon
         {
             if (collision.CompareTag("Player"))
             {
-                Room.PowerUps.Remove(this);
+                if (Global.Key.Value > 0)
+                {
+                    Global.Key.Value--;
+                    Room.PowerUps.Remove(this);
 
-                //var hp1 = LevelController.Default.Hp1.Instantiate()
-                //    .Position2D(transform.Position2D())
-                //    .Show();
-                //Room.AddPowerUp(hp1);
+                    //var hp1 = LevelController.Default.Hp1.Instantiate()
+                    //    .Position2D(transform.Position2D())
+                    //    .Show();
+                    //Room.AddPowerUp(hp1);
 
-                //var armor = PowerUpFactory.Default.ArmorDroped.Instantiate()
-                //    .Position2D(transform.Position2D())
-                //    .Show();
-                //Room.AddPowerUp(armor);
+                    //var armor = PowerUpFactory.Default.ArmorDroped.Instantiate()
+                    //    .Position2D(transform.Position2D())
+                    //    .Show();
+                    //Room.AddPowerUp(armor);
 
-                //var halfBullet = PowerUpFactory.Default.AllBulletHalf.Instantiate()
-                //    .Position2D(transform.Position2D())
-                //    .Show();
-                //Room.AddPowerUp(halfBullet);
+                    //var halfBullet = PowerUpFactory.Default.AllBulletHalf.Instantiate()
+                    //    .Position2D(transform.Position2D())
+                    //    .Show();
+                    //Room.AddPowerUp(halfBullet);
 
-                //var singleFullBullet = PowerUpFactory.Default.SingleFullBullet.Instantiate()
-                //   .Position2D(transform.Position2D())
-                //   .Show();
-                //Room.AddPowerUp(singleFullBullet);
+                    //var singleFullBullet = PowerUpFactory.Default.SingleFullBullet.Instantiate()
+                    //   .Position2D(transform.Position2D())
+                    //   .Show();
+                    //Room.AddPowerUp(singleFullBullet);
 
-                var configs = new List<GunConfig>()
+                    var configs = new List<GunConfig>()
                     {
                         GunConfig.ShotGun,
                         GunConfig.MP5,
@@ -44,25 +47,30 @@ namespace QFramework.Gungeon
                         GunConfig.Laser,
                         GunConfig.AWP
                     };
-                configs.RemoveAll(c => GunSystem.GunList.Any(g => g.Key == c.Key));
+                    configs.RemoveAll(c => GunSystem.GunList.Any(g => g.Key == c.Key));
 
-                if(configs.Count > 0)
-                {
-                    var gunConfig = configs.GetRandomItem();
-                    GunSystem.GunList.Add(gunConfig.CreateData());
-                    Player.Default.UseGun(GunSystem.GunList.Count - 1);
+                    if (configs.Count > 0)
+                    {
+                        var gunConfig = configs.GetRandomItem();
+                        GunSystem.GunList.Add(gunConfig.CreateData());
+                        Player.Default.UseGun(GunSystem.GunList.Count - 1);
+                    }
+                    else
+                    {
+                        var hp1 = PowerUpFactory.Default.Hp1.Instantiate()
+                            .Position2D(transform.Position2D())
+                            .Show();
+                        Room.AddPowerUp(hp1);
+                    }
+
+
+                    AudioKit.PlaySound("Resources://Chest");
+                    this.DestroyGameObjGracefully();
                 }
                 else
                 {
-                    var hp1 = LevelController.Default.Hp1.Instantiate()
-                        .Position2D(transform.Position2D())
-                        .Show();
-                    Room.AddPowerUp(hp1);
+                    Player.DisplayText("我没有钥匙了");
                 }
-
-
-                AudioKit.PlaySound("Resources://Chest");
-                this.DestroyGameObjGracefully();
             }
         }
 

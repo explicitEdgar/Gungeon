@@ -46,7 +46,7 @@ namespace QFramework.Gungeon
 
             Global.HP.RegisterWithInitValue(hp =>
             {
-                HPText.text = "生命值：" + hp.ToString();
+                HPText.text = "生命值：" + hp.ToString() + "/" + Global.MaxHP.Value;
             });
 
             Global.Armor.RegisterWithInitValue(armor =>
@@ -57,6 +57,11 @@ namespace QFramework.Gungeon
             Global.Coin.RegisterWithInitValue(coin =>
             {
                 CoinInfo.text = coin.ToString();
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+            Global.Key.RegisterWithInitValue(key =>
+            {
+                KeyInfo.text = key.ToString();
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
 
