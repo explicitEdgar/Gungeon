@@ -1,4 +1,4 @@
-// Generate Id:0532bdc0-a0ba-4516-9197-0ca2841338b0
+// Generate Id:76f06297-8c0d-4023-ba26-8487cc669be9
 using UnityEngine;
 
 namespace QFramework.Gungeon
@@ -37,6 +37,30 @@ namespace QFramework.Gungeon
 		public UnityEngine.GameObject EnemyCBig;
 
 		public UnityEngine.GameObject EnemyDBig;
+
+		public UnityEngine.Tilemaps.AnimatedTile Floor10;
+
+		public UnityEngine.Tilemaps.AnimatedTile Floor11;
+
+		public UnityEngine.Tilemaps.AnimatedTile Floor12;
+
+		public UnityEngine.Tilemaps.AnimatedTile Floor13;
+
+		public UnityEngine.Tilemaps.AnimatedTile Floor20;
+
+		public UnityEngine.Tilemaps.AnimatedTile Floor21;
+
+		public UnityEngine.Tilemaps.AnimatedTile Floor22;
+
+		public UnityEngine.Tilemaps.AnimatedTile Floor23;
+
+		public UnityEngine.Tilemaps.AnimatedTile Floor30;
+
+		public UnityEngine.Tilemaps.AnimatedTile Floor31;
+
+		public UnityEngine.Tilemaps.AnimatedTile Floor32;
+
+		public UnityEngine.Tilemaps.AnimatedTile Floor33;
 
 	}
 }

@@ -1,4 +1,4 @@
-// Generate Id:d9f52e5c-019f-42e5-b352-5d2849917078
+// Generate Id:43f329e7-a8dc-421c-a2f8-1bc4cee1c69f
 using UnityEngine;
 
 namespace QFramework.Gungeon
@@ -30,6 +30,8 @@ namespace QFramework.Gungeon
 
 		public SpriteRenderer Aim;
 
+		public CircleCollider2D WallCollider;
+
 		public UnityEngine.AudioClip GunTake1;
 
 		public UnityEngine.AudioClip GunTake2;
@@ -41,6 +43,10 @@ namespace QFramework.Gungeon
 		public UnityEngine.AudioClip GunTake5;
 
 		public UnityEngine.AudioSource SelfAudioSource;
+
+		public UnityEngine.CircleCollider2D SelfCircleCollider2D;
+
+		public UnityEngine.Rigidbody2D SelfRigidbody2D;
 
 	}
 }

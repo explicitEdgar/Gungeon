@@ -39,6 +39,7 @@ namespace QFramework.Gungeon
                     var spriteRenderer = self.GetComponent<SpriteRenderer>();
                     self.velocity = velocity;
                     self.angularVelocity = Random.Range(-720, 720);
+                    spriteRenderer.sortingLayerName = "Fx";
 
                     ActionKit.Sequence()
                     .Delay(Random.Range(0.5f, 1), () =>
@@ -58,6 +59,7 @@ namespace QFramework.Gungeon
                             self.angularVelocity = 0;
                             self.gravityScale = 0;
                             self.velocity = Vector2.zero;
+                            spriteRenderer.sortingLayerName = "OnFloor";
                         });
                     }).Start(Default);
 

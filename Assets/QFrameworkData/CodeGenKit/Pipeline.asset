@@ -37,7 +37,7 @@ MonoBehaviour:
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
       partial class LevelController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:0532bdc0-a0ba-4516-9197-0ca2841338b0\r\nusing UnityEngine;\r\n\r\nnamespace
+    DesignerCode: "// Generate Id:76f06297-8c0d-4023-ba26-8487cc669be9\r\nusing UnityEngine;\r\n\r\nnamespace
       QFramework.Gungeon\r\n{\r\n\tpublic partial class LevelController\r\n\t{\r\n\r\n\t\tpublic
       QFramework.Gungeon.Room Room;\r\n\r\n\t\tpublic QFramework.Gungeon.Door Door;\r\n\r\n\t\tpublic
       QFramework.Gungeon.Chest Chest;\r\n\r\n\t\tpublic QFramework.Gungeon.ShopItem
@@ -47,4 +47,12 @@ MonoBehaviour:
       UnityEngine.GameObject EnemyF;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyG;\r\n\r\n\t\tpublic
       UnityEngine.GameObject EnemyH;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyABig;\r\n\r\n\t\tpublic
       UnityEngine.GameObject EnemyBBig;\r\n\r\n\t\tpublic UnityEngine.GameObject
-      EnemyCBig;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyDBig;\r\n\r\n\t}\r\n}\r\n"
+      EnemyCBig;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyDBig;\r\n\r\n\t\tpublic
+      UnityEngine.Tilemaps.AnimatedTile Floor10;\r\n\r\n\t\tpublic UnityEngine.Tilemaps.AnimatedTile
+      Floor11;\r\n\r\n\t\tpublic UnityEngine.Tilemaps.AnimatedTile Floor12;\r\n\r\n\t\tpublic
+      UnityEngine.Tilemaps.AnimatedTile Floor13;\r\n\r\n\t\tpublic UnityEngine.Tilemaps.AnimatedTile
+      Floor20;\r\n\r\n\t\tpublic UnityEngine.Tilemaps.AnimatedTile Floor21;\r\n\r\n\t\tpublic
+      UnityEngine.Tilemaps.AnimatedTile Floor22;\r\n\r\n\t\tpublic UnityEngine.Tilemaps.AnimatedTile
+      Floor23;\r\n\r\n\t\tpublic UnityEngine.Tilemaps.AnimatedTile Floor30;\r\n\r\n\t\tpublic
+      UnityEngine.Tilemaps.AnimatedTile Floor31;\r\n\r\n\t\tpublic UnityEngine.Tilemaps.AnimatedTile
+      Floor32;\r\n\r\n\t\tpublic UnityEngine.Tilemaps.AnimatedTile Floor33;\r\n\r\n\t}\r\n}\r\n"

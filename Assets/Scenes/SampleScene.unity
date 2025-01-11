@@ -11408,6 +11408,18 @@ MonoBehaviour:
   EnemyBBig: {fileID: 259369094}
   EnemyCBig: {fileID: 1043553435}
   EnemyDBig: {fileID: 1708618929}
+  Floor10: {fileID: 11400000, guid: ed6824d22fede244189ab2b7676e074a, type: 2}
+  Floor11: {fileID: 11400000, guid: 2516d81de427bea4da654c181c2f26f0, type: 2}
+  Floor12: {fileID: 11400000, guid: e02ca255283fd194ab1a983ddc0c6676, type: 2}
+  Floor13: {fileID: 11400000, guid: add2f82f20098f14a88e75864670f4b7, type: 2}
+  Floor20: {fileID: 11400000, guid: 7b0df0d060c31734db9c5aaf34067df7, type: 2}
+  Floor21: {fileID: 11400000, guid: a8ebd2743a73da54a84298f15cec86ce, type: 2}
+  Floor22: {fileID: 11400000, guid: 0d4659e2c2dfca04fa7f0adf5eb9cb0d, type: 2}
+  Floor23: {fileID: 11400000, guid: c57af0a8e1c67b249be28509ab97bad7, type: 2}
+  Floor30: {fileID: 11400000, guid: 111b02547f46e9643b26ca5060fcba99, type: 2}
+  Floor31: {fileID: 11400000, guid: efd61a29e85396b4a9a18ed69db78448, type: 2}
+  Floor32: {fileID: 11400000, guid: 7e551fd42fc079e409d35abb6e29cb1f, type: 2}
+  Floor33: {fileID: 11400000, guid: 11c185f4318cf3d4da75d7e23522b71e, type: 2}
 --- !u!4 &749609642
 Transform:
   m_ObjectHideFlags: 0
@@ -11466,6 +11478,30 @@ MonoBehaviour:
     Object: {fileID: 1043553435}
   - MemberName: EnemyDBig
     Object: {fileID: 1708618929}
+  - MemberName: Floor10
+    Object: {fileID: 11400000, guid: ed6824d22fede244189ab2b7676e074a, type: 2}
+  - MemberName: Floor11
+    Object: {fileID: 11400000, guid: 2516d81de427bea4da654c181c2f26f0, type: 2}
+  - MemberName: Floor12
+    Object: {fileID: 11400000, guid: e02ca255283fd194ab1a983ddc0c6676, type: 2}
+  - MemberName: Floor13
+    Object: {fileID: 11400000, guid: add2f82f20098f14a88e75864670f4b7, type: 2}
+  - MemberName: Floor20
+    Object: {fileID: 11400000, guid: 7b0df0d060c31734db9c5aaf34067df7, type: 2}
+  - MemberName: Floor21
+    Object: {fileID: 11400000, guid: a8ebd2743a73da54a84298f15cec86ce, type: 2}
+  - MemberName: Floor22
+    Object: {fileID: 11400000, guid: 0d4659e2c2dfca04fa7f0adf5eb9cb0d, type: 2}
+  - MemberName: Floor23
+    Object: {fileID: 11400000, guid: c57af0a8e1c67b249be28509ab97bad7, type: 2}
+  - MemberName: Floor30
+    Object: {fileID: 11400000, guid: 111b02547f46e9643b26ca5060fcba99, type: 2}
+  - MemberName: Floor31
+    Object: {fileID: 11400000, guid: efd61a29e85396b4a9a18ed69db78448, type: 2}
+  - MemberName: Floor32
+    Object: {fileID: 11400000, guid: 7e551fd42fc079e409d35abb6e29cb1f, type: 2}
+  - MemberName: Floor33
+    Object: {fileID: 11400000, guid: 11c185f4318cf3d4da75d7e23522b71e, type: 2}
 --- !u!114 &749609644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13470,6 +13506,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973142140}
   m_CullTransparentMesh: 1
+--- !u!1 &998108685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 998108686}
+  - component: {fileID: 998108688}
+  - component: {fileID: 998108687}
+  m_Layer: 13
+  m_Name: WallCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &998108686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998108685}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1525299620}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &998108687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998108685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: WallCollider
+  CustomComment: 
+  mComponentName: CircleCollider2D
+--- !u!58 &998108688
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998108685}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0031510592, y: -0.03}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!1 &1022007685
 GameObject:
   m_ObjectHideFlags: 0
@@ -17095,12 +17215,15 @@ MonoBehaviour:
   GunShootLight: {fileID: 948966634}
   Text: {fileID: 1440418244}
   Aim: {fileID: 1702342629}
+  WallCollider: {fileID: 998108688}
   GunTake1: {fileID: 8300000, guid: e624b7e6ac86c344e94df035e25283e5, type: 3}
   GunTake2: {fileID: 8300000, guid: 13c12a42cb32a604ea7b8e10b771fd69, type: 3}
   GunTake3: {fileID: 8300000, guid: 38d6e819c6d33794fb6301b0016799a9, type: 3}
   GunTake4: {fileID: 8300000, guid: 9fc66bce2a0508e4c9ff3f68a9098f9b, type: 3}
   GunTake5: {fileID: 8300000, guid: 4fd2a756873c71e499c55a785dd40a15, type: 3}
   SelfAudioSource: {fileID: 1525299623}
+  SelfCircleCollider2D: {fileID: 1525299621}
+  SelfRigidbody2D: {fileID: 1525299622}
 --- !u!4 &1525299620
 Transform:
   m_ObjectHideFlags: 0
@@ -17118,6 +17241,7 @@ Transform:
   - {fileID: 500253771}
   - {fileID: 2102925315}
   - {fileID: 1702342628}
+  - {fileID: 998108686}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1525299621
@@ -17303,6 +17427,10 @@ MonoBehaviour:
     Object: {fileID: 8300000, guid: 4fd2a756873c71e499c55a785dd40a15, type: 3}
   - MemberName: SelfAudioSource
     Object: {fileID: 1525299623}
+  - MemberName: SelfCircleCollider2D
+    Object: {fileID: 1525299621}
+  - MemberName: SelfRigidbody2D
+    Object: {fileID: 1525299622}
 --- !u!114 &1525299625
 MonoBehaviour:
   m_ObjectHideFlags: 0

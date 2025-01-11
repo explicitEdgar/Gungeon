@@ -27,7 +27,8 @@ namespace QFramework.Gungeon
         public TileBase Wall
         {
             get
-            {
+            {   
+                
                 var wallIndex = Random.Range(0, 3 + 1);
 
                 if (wallIndex == 0)
@@ -47,16 +48,43 @@ namespace QFramework.Gungeon
         {
             get
             {
-                var floorIndex = Random.Range(0, 3 + 1);
+                if (Global.CurrentLevel == Level1.Config)
+                {
+                    return RandomUtility.Choose
+                        (
+                            Floor0,
+                            Floor0,
+                            Floor0,
+                            Floor0,
+                            Floor0,
+                            Floor0,
+                            Floor0,
+                            Floor1,
+                            Floor1,
+                            Floor2,
+                            Floor2,
+                            Floor3
+                        );
+                }
 
-                if (floorIndex == 0)
-                    return Floor0;
-                if (floorIndex == 1)
-                    return Floor1;
-                if (floorIndex == 2)
-                    return Floor2;
-                if (floorIndex == 3)
-                    return Floor3;
+                if (Global.CurrentLevel == Level2.Config)
+                {
+                    return RandomUtility.Choose
+                        (
+                            Floor20,
+                            Floor20,
+                            Floor20,
+                            Floor20,
+                            Floor20,
+                            Floor20,
+                            Floor20,
+                            Floor21,
+                            Floor21,
+                            Floor22,
+                            Floor22,
+                            Floor23
+                        );       
+                }
 
                 return Floor0;
             }
@@ -565,16 +593,6 @@ namespace QFramework.Gungeon
                     else if (code == 's')
                     {
                         room.AddShopItemGeneratePos(new Vector3(x + 0.5f, y + 0.5f, 0));
-                        //var shopItem = ShopItem.InstantiateWithParent(room)
-                        //    .Position2D(new Vector3(x, y, 0))
-                        //    .Self(self =>
-                        //    {
-                        //        self.PowerUp = PowerUpFactory.Default.Key;
-                        //        self.Room = room;
-                        //        self.ItemPrice = 5;
-                        //    })
-                        //    .UpdateView()
-                        //    .Show();
                     }
                 }
             }

@@ -10,6 +10,14 @@ namespace QFramework.Gungeon
 {
     public partial class Player : ViewController
     {   
+        public enum States
+        {
+            Idle,
+            Rolling
+        }
+
+        public FSM<States> State = new FSM<States>();
+
         public static void DisplayText(string text,float duration = 1.0f)
         {
             Default.StartCoroutine(Default.DoDisplayText(text, duration));
@@ -99,6 +107,169 @@ namespace QFramework.Gungeon
         {
             var gunIndex = GunSystem.GunList.FindIndex(g => g == Global.CurrentGun);
             UseGun(gunIndex);
+
+            State.State(States.Idle)
+                .OnUpdate(() =>
+                {
+                    var horizontal = Input.GetAxisRaw("Horizontal");
+                    var vertical = Input.GetAxisRaw("Vertical");
+
+                    //×Óµ¯³¯Ïò
+                    var mouseScreePosition = Input.mousePosition;
+                    var mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreePosition);
+                    var bulletDirection = (mouseWorldPosition - transform.position).normalized;
+
+                    if (Global.currentRoom && Global.currentRoom.Enemies.Count > 0)
+                    {
+                        targetEnemy = Global.currentRoom.Enemies
+                        .OrderBy(e => (e.GameObject.Position2D() - mouseWorldPosition.ToVector2()).magnitude)
+                        .FirstOrDefault(e =>
+                        {
+                            var direction = this.Direction2DTo(e.GameObject);
+
+                            if (Physics2D.Raycast(this.Position2D(), direction.normalized, direction.magnitude, LayerMask.GetMask("Wall")))
+                            {
+                                return false;
+                            }
+
+                            return true;
+                        });
+
+                        if (targetEnemy != null && targetEnemy.GameObject)
+                        {
+                            bulletDirection = this.NormalizedDirection2DTo(targetEnemy.GameObject);
+                            Aim.Position2D(targetEnemy.GameObject.Position2D());
+                            Aim.Show();
+                        }
+                        else
+                        {
+                            Aim.Hide();
+                        }
+                    }
+                    else
+                    {
+                        Aim.Hide();
+                    }
+
+                    //ÎäÆ÷Ðý×ª
+                    var radius = Mathf.Atan2(bulletDirection.y, bulletDirection.x);
+                    var eulerAngles = radius * Mathf.Rad2Deg;
+                    weapon.localRotation = Quaternion.Euler(0, 0, eulerAngles);
+
+                    //ÎäÆ÷Ðý×ª¾ÀÕý
+                    if (bulletDirection.x > 0)
+                    {
+                        weapon.transform.localScale = new Vector3(1, 1, 1);
+                        spriteRenderer.flipX = false;
+                    }
+                    else if (bulletDirection.x < 0)
+                    {
+                        weapon.transform.localScale = new Vector3(1, -1, 1);
+                        spriteRenderer.flipX = true;
+                    }
+
+                    mrigidbody2D.velocity = new Vector3(horizontal, vertical).normalized * 5;
+
+                    if (horizontal != 0 || vertical != 0)
+                    {
+                        AnimationHelper.UpDownAnimation(Sprite, 0.05f, Time.frameCount, 10);
+                        AnimationHelper.UpDownAnimation(weapon, 0.05f, Time.frameCount, 10);
+                        AnimationHelper.RotateAnimation(Sprite, 5, Time.frameCount, 30);
+                    }
+
+                    if (Global.CanDo)
+                    {
+                        if (Input.GetMouseButtonDown(0))
+                        {
+                            gun.ShootDown(bulletDirection);
+                        }
+                        if (Input.GetMouseButton(0))
+                        {
+                            gun.Shooting(bulletDirection);
+                        }
+                        if (Input.GetMouseButtonUp(0))
+                        {
+                            gun.ShootUp(bulletDirection);
+                        }
+                        if (Input.GetKeyDown(KeyCode.R))
+                        {
+                            gun.Reload();
+                        }
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            var index = GunSystem.GunList.FindIndex(gun1 => gun1 == gun.Data);
+                            index++;
+                            if (index > GunSystem.GunList.Count - 1)
+                            {
+                                index = 0;
+                            }
+
+                            UseGun(index);
+                        }
+                        if (Input.GetKeyDown(KeyCode.Q))
+                        {
+                            var index = GunSystem.GunList.FindIndex(gun1 => gun1 == gun.Data);
+                            index--;
+                            if (index < 0)
+                            {
+                                index = GunSystem.GunList.Count - 1;
+                            }
+
+                            UseGun(index);
+                        }
+                        if(Input.GetMouseButtonDown(1))
+                        {
+                            if(horizontal != 0 || vertical != 0)
+                            {
+                                State.ChangeState(States.Rolling);
+                            }
+                        }
+                    }
+                });
+
+            var faceDirection = Vector2.zero;
+            State.State(States.Rolling)
+                .OnEnter(() =>
+                {
+                    SelfCircleCollider2D.Disable();
+                    Aim.Hide();
+
+                    var x = Input.GetAxis("Horizontal");
+                    var y = Input.GetAxis("Vertical");
+
+                    if(x != 0 || y != 0)
+                    {
+                        faceDirection = new Vector2(x, y).normalized;
+                    }
+
+                    ActionKit.Lerp(0, 1, 0.4f, p =>
+                    {
+                        p = EaseUtility.InCubic(0, 1, p);
+
+                        if(x > 0)
+                        {
+                            Sprite.LocalEulerAnglesZ(p * -360f);
+                        }
+                        else
+                        {
+                            Sprite.LocalEulerAnglesZ(p * 360f);
+                        }
+                    },
+                    () =>
+                    {
+                        Sprite.LocalEulerAnglesZ(0);
+                        State.ChangeState(States.Idle);
+                    }).Start(this);
+                })
+                .OnFixedUpdate(() =>
+                {
+                    SelfRigidbody2D.velocity = faceDirection * 8;
+                })
+                .OnExit(() =>
+                {
+                    SelfCircleCollider2D.Enable();
+                });
+            State.StartState(States.Idle);
         }
 
         private void OnDestroy()
@@ -110,113 +281,12 @@ namespace QFramework.Gungeon
         // Update is called once per frame
         void Update()
         {
-            var horizontal = Input.GetAxisRaw("Horizontal");
-            var vertical = Input.GetAxisRaw("Vertical");
+            State.Update();
+        }
 
-            //×Óµ¯³¯Ïò
-            var mouseScreePosition = Input.mousePosition;
-            var mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreePosition);
-            var bulletDirection = (mouseWorldPosition - transform.position).normalized;
-
-            if (Global.currentRoom && Global.currentRoom.Enemies.Count > 0)
-            {
-                targetEnemy = Global.currentRoom.Enemies
-                .OrderBy(e => (e.GameObject.Position2D() - mouseWorldPosition.ToVector2()).magnitude)
-                .FirstOrDefault(e =>
-                {
-                    var direction = this.Direction2DTo(e.GameObject);
-
-                    if (Physics2D.Raycast(this.Position2D(), direction.normalized, direction.magnitude, LayerMask.GetMask("Wall")))
-                    {
-                        return false;
-                    }
-
-                    return true;
-                });
-
-                if (targetEnemy != null && targetEnemy.GameObject)
-                {
-                    bulletDirection = this.NormalizedDirection2DTo(targetEnemy.GameObject);
-                    Aim.Position2D(targetEnemy.GameObject.Position2D());
-                    Aim.Show();
-                }
-                else
-                {
-                    Aim.Hide();
-                }
-            }
-            else
-            {
-                Aim.Hide();
-            }
-
-            //ÎäÆ÷Ðý×ª
-            var radius = Mathf.Atan2(bulletDirection.y, bulletDirection.x);
-            var eulerAngles = radius * Mathf.Rad2Deg;
-            weapon.localRotation = Quaternion.Euler(0, 0, eulerAngles);
-
-            //ÎäÆ÷Ðý×ª¾ÀÕý
-            if (bulletDirection.x > 0)
-            {
-                weapon.transform.localScale = new Vector3(1, 1, 1);
-                spriteRenderer.flipX = false;
-            }
-            else if(bulletDirection.x < 0)
-            {
-                weapon.transform.localScale = new Vector3(1, -1, 1);
-                spriteRenderer.flipX = true;
-            }
-
-            mrigidbody2D.velocity = new Vector3(horizontal, vertical).normalized * 5;
-
-            if(horizontal != 0  || vertical != 0)
-            {
-                AnimationHelper.UpDownAnimation(Sprite,0.05f, Time.frameCount, 10);
-                AnimationHelper.UpDownAnimation(weapon,0.05f, Time.frameCount, 10);
-                AnimationHelper.RotateAnimation(Sprite, 5, Time.frameCount, 30);
-            }
-
-            if (Global.CanDo)
-            {
-                if (Input.GetMouseButtonDown(0))
-                {
-                    gun.ShootDown(bulletDirection);
-                }
-                if (Input.GetMouseButton(0))
-                {
-                    gun.Shooting(bulletDirection);
-                }
-                if (Input.GetMouseButtonUp(0))
-                {
-                    gun.ShootUp(bulletDirection);
-                }
-                if (Input.GetKeyDown(KeyCode.R))
-                {
-                    gun.Reload();
-                }
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    var index = GunSystem.GunList.FindIndex(gun1 => gun1 == gun.Data);
-                    index++;
-                    if (index > GunSystem.GunList.Count - 1)
-                    {
-                        index = 0;
-                    }
-
-                    UseGun(index);
-                }
-                if (Input.GetKeyDown(KeyCode.Q))
-                {
-                    var index = GunSystem.GunList.FindIndex(gun1 => gun1 == gun.Data);
-                    index--;
-                    if (index < 0)
-                    {
-                        index = GunSystem.GunList.Count - 1;
-                    }
-
-                    UseGun(index);
-                }
-            }
+        private void FixedUpdate()
+        {
+            State.FixedUpdate();
         }
 
         public void hurt(int damage)
