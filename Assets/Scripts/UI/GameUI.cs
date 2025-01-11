@@ -44,16 +44,6 @@ namespace QFramework.Gungeon
                     Global.ResetData();
                 });
 
-            Global.HP.RegisterWithInitValue(hp =>
-            {
-                HPText.text = "生命值：" + hp.ToString() + "/" + Global.MaxHP.Value;
-            });
-
-            Global.Armor.RegisterWithInitValue(armor =>
-            {
-                ArmorText.text = "护盾：" + armor.ToString();
-            });
-
             Global.Coin.RegisterWithInitValue(coin =>
             {
                 CoinInfo.text = coin.ToString();
@@ -63,6 +53,50 @@ namespace QFramework.Gungeon
             {
                 KeyInfo.text = key.ToString();
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+            Global.HP.Or(Global.MaxHP).Or(Global.Armor).Register(() =>
+            {
+                UpdateHPAndArmorView();
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+            UpdateHPAndArmorView();
+        }
+
+        void UpdateHPAndArmorView()
+        {
+            HpArmorBg.DestroyChildrenWithCondition(item => item != HP.transform && item != Armor.transform);
+            //用下面这种会导致子模版被删除而无法正常clone
+            //HpArmorBg.DestroyChildren();
+
+            for(int i = 0;i < Global.MaxHP.Value / 2;i++)
+            {
+                var hp = HP.InstantiateWithParent(HpArmorBg)
+                    .Show();
+
+                var result = Global.HP.Value - i * 2;
+                var image = hp.transform.Find("Value").GetComponent<Image>();
+
+                if(result > 0)
+                {
+                    if(result == 1)
+                    {
+                        image.fillAmount = 0.5f;
+                    }
+                    else
+                    {
+                        image.fillAmount = 1;
+                    }
+                }
+                else
+                {
+                    image.fillAmount = 0;
+                }
+            }
+
+            for(int i = 0;i < Global.Armor.Value;i++)
+            {
+                Armor.InstantiateWithParent(HpArmorBg)
+                    .Show();
+            }
         }
 
         // Update is called once per frame
@@ -79,6 +113,27 @@ namespace QFramework.Gungeon
                     UImap.Show();
                 }
             }
+        }
+
+        public static void PlayerHurtFlashScreen()
+        {
+            ActionKit.Sequence()
+                .Lerp01(0.01f,p =>
+                {
+                    Default.ScreenColor.ColorAlpha(p);
+                },() =>
+                {
+                    Default.ScreenColor.ColorAlpha(1);
+                })
+                .Lerp(1, 0, 0.3f, p =>
+                {
+                    Default.ScreenColor.ColorAlpha(p);
+                }, () =>
+                {
+                    Default.ScreenColor.ColorAlpha(0);
+                })
+                .StartCurrentScene()
+                .IgnoreTimeScale();
         }
 
         public static void UpdateGunInfo(Clip clip)

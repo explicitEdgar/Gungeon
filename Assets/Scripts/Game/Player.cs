@@ -323,6 +323,8 @@ namespace QFramework.Gungeon
                 Global.UIOpened = true;
                 Time.timeScale = 0;
             }
+
+            GameUI.PlayerHurtFlashScreen();
         }
 
     }

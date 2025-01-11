@@ -1,4 +1,4 @@
-// Generate Id:889f4ca3-d1fd-4992-bd79-0f4ea86b3348
+// Generate Id:e6d8a596-7786-4957-ab1a-175ed662696b
 using UnityEngine;
 
 namespace QFramework.Gungeon
@@ -6,7 +6,11 @@ namespace QFramework.Gungeon
 	public partial class GameUI
 	{
 
-		public UnityEngine.UI.Text ArmorText;
+		public RectTransform HpArmorBg;
+
+		public UnityEngine.UI.Image HP;
+
+		public UnityEngine.UI.Image Armor;
 
 		public UnityEngine.UI.Text GunInfo;
 
@@ -15,6 +19,8 @@ namespace QFramework.Gungeon
 		public UnityEngine.UI.Text KeyInfo;
 
 		public QFramework.Gungeon.UImap UImap;
+
+		public UnityEngine.UI.Image ScreenColor;
 
 	}
 }
