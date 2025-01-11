@@ -1,4 +1,4 @@
-// Generate Id:fb153bfe-7cbf-4837-8b04-a1263e2b550a
+// Generate Id:3e4f3f3a-68bb-44e3-9141-b8517510a37d
 using UnityEngine;
 
 namespace QFramework.Gungeon
@@ -13,6 +13,8 @@ namespace QFramework.Gungeon
 		public UnityEngine.BoxCollider2D SelfBoxCollider2D;
 
 		public UnityEngine.SpriteRenderer SelfSpriteRenderer;
+
+		public UnityEngine.BoxCollider2D SelfBoxCollider2DWithBullet;
 
 	}
 }

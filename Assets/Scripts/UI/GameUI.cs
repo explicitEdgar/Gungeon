@@ -1,6 +1,7 @@
 using QFramework;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -30,6 +31,8 @@ namespace QFramework.Gungeon
         // Start is called before the first frame update
         void Start()
         {
+            AudioKit.PlayMusic(MusicSystem.list[0], volume: 0.5f);
+
             gamePass.transform.Find("RestartBtn").GetComponent<Button>()
                 .onClick.AddListener(() =>
                 {
@@ -138,14 +141,29 @@ namespace QFramework.Gungeon
 
         public static void UpdateGunInfo(Clip clip)
         {
-            var bulletBag = Player.Default.gun.bulletBag;
-            if (bulletBag.MaxBulletCount == -1)
+            var data = Player.Default.gun.Data;
+            Default.Icon.sprite = Player.Default?.gun?.Sprite?.sprite;
+            if (data.Config.GunBagMaxBulletCount == -1)
             {
-                GameUI.Default.GunInfo.text = "µ¯¼ÐÈÝÁ¿:" + clip.Data.CurrentBulletCount + "/" + clip.Data.Config.ClipBulletCount + "(\u211e)" + "(°´R»»µ¯)";
+                if (data.Reloading)
+                {
+                    Default.BulletText.text = $"(<size=48>Reloading</size>) \u221e";
+                }
+                else
+                {
+                    GameUI.Default.BulletText.text = $"({data.CurrentBulletCount}/{data.Config.ClipBulletCount}) \u221e"; 
+                }
             }
             else
             {
-                GameUI.Default.GunInfo.text = "µ¯¼ÐÈÝÁ¿:" + clip.Data.CurrentBulletCount + "/" + clip.Data.Config.ClipBulletCount + "(" + bulletBag.Data.GunBagRemainBulletCount + "/" + bulletBag.MaxBulletCount + ")" + "(°´R»»µ¯)";
+                if (data.Reloading)
+                {
+                    Default.BulletText.text = $"(<size=48>Reloading</size>)";
+                }
+                else
+                {
+                    GameUI.Default.BulletText.text = "(" + clip.Data.CurrentBulletCount + "/" + clip.Data.Config.ClipBulletCount + ")" + data.GunBagRemainBulletCount + "/" + data.Config.GunBagMaxBulletCount;
+                }
             }
         }
 

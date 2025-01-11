@@ -77,6 +77,7 @@ namespace QFramework.Gungeon
         public int CurrentBulletCount;
         public int GunBagRemainBulletCount;
         public GunConfig Config;
+        public bool Reloading;
     }
     public class GunSystem
     {

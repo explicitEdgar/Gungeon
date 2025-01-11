@@ -73,7 +73,7 @@ namespace QFramework.Gungeon
 
         public void TryPlayEmptySound()
         {
-            if (!clip.CanShoot && !clip.reloading)
+            if (!clip.CanShoot && !Data.Reloading)
             {
                 AudioPlayer.Stop();
 

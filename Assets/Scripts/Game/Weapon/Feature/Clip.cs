@@ -7,9 +7,7 @@ namespace QFramework.Gungeon
 
         public int NeedCount => Data.Config.ClipBulletCount - Data.CurrentBulletCount;
 
-        public bool CanShoot => Data.CurrentBulletCount > 0 && !reloading;
-
-        public bool reloading = false;
+        public bool CanShoot => Data.CurrentBulletCount > 0 && !Data.Reloading;
 
         public bool Full => Data.CurrentBulletCount == Data.Config.ClipBulletCount;
 
@@ -18,13 +16,17 @@ namespace QFramework.Gungeon
         public void Reload(AudioClip reloadSound,int needCount = -1)
         {
             if (needCount == -1) needCount = NeedCount;
-            reloading = true;
+            Data.Reloading = true;
             Player.Default.gun.AudioPlayer.Stop();
             ActionKit.Sequence()
+                .Callback(() =>
+                {
+                    UIReload();
+                })
                 .PlaySound(reloadSound)
                 .Callback(() =>
                 {
-                    reloading = false;
+                    Data.Reloading = false;
                     Data.CurrentBulletCount += needCount;
                     UIReload();
                 }).StartCurrentScene();

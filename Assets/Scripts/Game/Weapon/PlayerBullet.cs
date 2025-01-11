@@ -53,6 +53,7 @@ namespace QFramework.Gungeon
             }
             else if(other.gameObject.CompareTag("Wall"))
             {
+                Debug.Log(0);
                 this.Hide();
                 if (hitWallSfxs.Count > 0)
                 {

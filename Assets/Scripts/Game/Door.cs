@@ -32,12 +32,14 @@ namespace QFramework.Gungeon
             State.State(States.IdleOpen)
                .OnEnter(() =>
                {
+                   SelfBoxCollider2DWithBullet.Disable();
                    SelfBoxCollider2D.Disable();
                    SelfSpriteRenderer.sprite = DoorOpen;
                });
             State.State(States.IdleClose)
                 .OnEnter(() =>
                 {
+                    SelfBoxCollider2DWithBullet.Enable();
                     SelfBoxCollider2D.isTrigger = true;
                     SelfSpriteRenderer.sprite = DoorClose;
                 });
@@ -46,6 +48,7 @@ namespace QFramework.Gungeon
 				{
 					AudioKit.PlaySound("Resources://DoorOpen");
                     SelfBoxCollider2D.Enable(false);
+                    SelfBoxCollider2DWithBullet.Disable();
                     SelfSpriteRenderer.sprite = DoorOpen;
 				});
             State.State(States.BattleClose)
