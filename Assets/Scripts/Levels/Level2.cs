@@ -6,6 +6,7 @@ namespace QFramework.Gungeon
     public class Level2
     {
         public static LevelConfig Config = new LevelConfig()
+            .NormalRooms(Lv2Rooms.normalRooms)
             .Self(self =>
             {
                 self.Pacing = new List<int>()

@@ -58,7 +58,7 @@ namespace QFramework.Gungeon
             if (shaking)
             {
                 //目标位置
-                var targetPosition = new Vector2(Global.player.transform.position.x, Global.player.transform.position.y);
+                var targetPosition = new Vector2(Global.player.transform.position.x, Global.player.transform.position.y) + Global.CameraOffset;
                 //计算当前应到达的位置
                 Vector3 currentPosition = Vector2.Lerp(transform.position, targetPosition, (1.0f - Mathf.Exp(-Time.deltaTime * 5)));
                 currentPosition.z = -10;
@@ -80,7 +80,7 @@ namespace QFramework.Gungeon
             else
             {
                 //目标位置
-                var targetPosition = new Vector2(Global.player.transform.position.x, Global.player.transform.position.y);
+                var targetPosition = new Vector2(Global.player.transform.position.x, Global.player.transform.position.y) + Global.CameraOffset;
                 //计算当前应到达的位置
                 Vector3 currentPosition = Vector2.Lerp(transform.position, targetPosition, (1.0f - Mathf.Exp(-Time.deltaTime * 5)));
                 currentPosition.z = -10;

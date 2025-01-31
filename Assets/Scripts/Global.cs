@@ -43,6 +43,8 @@ namespace QFramework.Gungeon
 
         public static float GunAddtionSize;
 
+        public static Vector2 CameraOffset { get; set; }
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         public static void AutoInit()
         {
@@ -69,7 +71,7 @@ namespace QFramework.Gungeon
 
             CurrentGun = GunSystem.GunList.First();
 
-            CurrentLevel = Level1.Config;
+            CurrentLevel = Level2.Config;
             CurrentPacing = new Queue<int>(CurrentLevel.Pacing);
         }
 

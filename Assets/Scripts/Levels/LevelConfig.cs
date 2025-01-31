@@ -7,6 +7,15 @@ namespace QFramework.Gungeon
     {
         public RoomNode InitRoom = new RoomNode(RoomTypes.Init);
 
+        //关卡难度节奏
         public List<int> Pacing = new List<int>();
+
+        public List<RoomConfig> NormalRoomTemplates { get; set; }
+
+        public LevelConfig NormalRooms(List<RoomConfig> normalRooms)
+        {
+            NormalRoomTemplates = normalRooms;
+            return this;
+        }
     }
 }

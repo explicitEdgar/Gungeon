@@ -177,6 +177,9 @@ namespace QFramework.Gungeon
                         AnimationHelper.RotateAnimation(Sprite, 5, Time.frameCount, 30);
                     }
 
+                    var offsetLength = (mouseWorldPosition - transform.position).magnitude;
+                    Global.CameraOffset = (bulletDirection * (3 + Mathf.Clamp(offsetLength * 0.15f, 0, 3))).ToVector2();
+
                     if (Global.CanDo)
                     {
                         if (Input.GetMouseButtonDown(0))
