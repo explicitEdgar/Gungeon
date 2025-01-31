@@ -11,6 +11,34 @@ namespace QFramework.Gungeon
 {
 	public partial class Room : ViewController
 	{
+        public DynaGrid<PathFindingHelper.TileNode> PathFindingGrid;
+
+        public Vector3Int LB;
+        public Vector3Int RT;
+
+        public void PrepareAStarNodes()
+        {
+            if(Config.RoomType == RoomTypes.Final || Config.RoomType == RoomTypes.Normal)
+            {
+                PathFindingGrid = new DynaGrid<PathFindingHelper.TileNode>();
+
+                for(int i = LB.x; i <= RT.x;i++)
+                {
+                    for(int j = LB.y; j <= RT.y;j++)
+                    {
+                        var walkable = LevelController.Default.wallMap.GetTile(new Vector3Int(i, j, 0)) == null;
+
+                        PathFindingGrid[i, j] = new PathFindingHelper.TileNode(PathFindingGrid);
+                        PathFindingGrid[i, j].Init(walkable, new PathFindingHelper.TileCoords()
+                        {
+                            Pos = new Vector3Int(i, j, 0)
+                        });
+                    }
+                }
+
+                PathFindingGrid.ForEach(node => node.CatchNeighbors());
+            }
+        }
         public enum RoomStates
         {
             Close,

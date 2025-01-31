@@ -92,6 +92,8 @@ namespace QFramework.Gungeon
         }
         public static string EnemyNameByScore(int score)
         {
+            return Constant.EnemyA;
+
             if(score == 2)
             {
                 return Constant.EnemyA;
