@@ -59,6 +59,7 @@ namespace QFramework.Gungeon
         public EnemyWaveConfig curWave;
         public HashSet<IPowerUp> PowerUps = new HashSet<IPowerUp>();
         public int ColorIndex { get; set; } = -1;
+        public Final Final { get; set; }
 
         public RoomConfig Config { get; private set; }
         public Room WithConfig(RoomConfig roomConfig)
@@ -106,6 +107,10 @@ namespace QFramework.Gungeon
             {
                
             }
+            else if(Config.RoomType == RoomTypes.Final)
+            {
+                Final.Hide();
+            }
 		}
 
         private void Update()
@@ -125,7 +130,7 @@ namespace QFramework.Gungeon
                         }
                         else
                         {   
-                            //打完结束吃金币
+                            //打完正常房结束吃金币
                             if(Config.RoomType == RoomTypes.Normal)
                             {
                                 foreach(var powerUp in PowerUps.Where(p => p.GetType() == typeof(Coin)))
@@ -139,6 +144,11 @@ namespace QFramework.Gungeon
                                         );
                                     }).UnRegisterWhenGameObjectDestroyed(cachedPowerUp.SpriteRenderer.gameObject);
                                 }
+                            }
+                            //打完Boss房显示出口
+                            else if(Config.RoomType == RoomTypes.Final && mEnemies.Count == 0)
+                            {
+                                Final.Show();
                             }
 
                             //改房间状态，开门
@@ -213,10 +223,27 @@ namespace QFramework.Gungeon
                         var wave = mWaves.First();
                         GenerateEnemy(wave);
 
+                        //关门
                         foreach (var door in doors)
                         {
                             door.State.ChangeState(Door.States.BattleClose);
                         }
+                    }
+                }
+                else if(Config.RoomType == RoomTypes.Final && State == RoomStates.Close)
+                {
+                    State = RoomStates.PlayerIn;
+
+                    var boss = EnemyFactory.Default.BossA.Instantiate()
+                        .Position2D(mEnemyGeneratePoses.GetRandomItem())
+                        .Show();
+                    boss.Room = this;
+                    this.Enemies.Add(boss);
+
+                    //关门
+                    foreach (var door in doors)
+                    {
+                        door.State.ChangeState(Door.States.BattleClose);
                     }
                 }
                 else

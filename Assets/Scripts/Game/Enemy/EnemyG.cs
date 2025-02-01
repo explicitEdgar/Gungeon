@@ -38,6 +38,7 @@ namespace QFramework.Gungeon
                 .OnEnter(() =>
                 {
                     followPlayerScd = Random.Range(1.0f, 4.0f);
+                    MovementPath.Clear();
                 })
                 .OnUpdate(() =>
                 {

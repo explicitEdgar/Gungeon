@@ -7,7 +7,7 @@ using UnityEngine;
 namespace QFramework.Gungeon
 {
 
-    public class EnemyH : Enemy, IEnemy
+    public class BossA : Enemy, IEnemy
     {
         
         public Player player;
@@ -23,17 +23,22 @@ namespace QFramework.Gungeon
 
         public List<AudioClip> ShootSounds = new List<AudioClip>();
 
-        private float Hp = 3;
+        private float Hp = 30;
+
+        private float maxHp { get; set; }
 
 
         // Start is called before the first frame update
         void Start()
         {
             Application.targetFrameRate = 60;
+            GameUI.Default.BossHpBar.Show();
+            GameUI.Default.BossHp.fillAmount = 1.0f;
         }
 
         public void Awake()
         {
+            maxHp = Hp;
             State.State(States.FollowPlayer)
                 .OnEnter(() =>
                 {
@@ -99,6 +104,7 @@ namespace QFramework.Gungeon
         private void OnDestroy()
         {
             Room.Enemies.Remove(this);
+            GameUI.Default.BossHpBar.Hide();
         }
 
         public override void Hurt(float damage,Vector2 hitDirection)
@@ -107,10 +113,10 @@ namespace QFramework.Gungeon
             FxFactory.Default.GenerateEnemyBlood(transform.Position2D());
 
             Hp -= damage;
+            GameUI.Default.BossHp.fillAmount = Hp / maxHp;
             if (Hp <= 0f)
             {
                 OnDeath(hitDirection, "EnemyHDie", 1.5f);
-
             }
         }
 

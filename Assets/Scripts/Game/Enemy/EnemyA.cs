@@ -25,8 +25,6 @@ namespace QFramework.Gungeon
 
         private float Hp = 3;
 
-        public List<PathFindingHelper.NodeBase<Vector3Int>> MovementPath = new List<PathFindingHelper.NodeBase<Vector3Int>>();
-
         // Start is called before the first frame update
         void Start()
         {
@@ -34,39 +32,7 @@ namespace QFramework.Gungeon
         }
 
         public void Awake()
-        {
-            Vector2? posToMove = null;
-            Vector2 Move()
-            {
-                if(posToMove == null)
-                {
-                    if(MovementPath.Count > 0)
-                    {
-                        var pathPos = MovementPath.Last().Coords.Pos;
-                        posToMove = new Vector2(pathPos.x + 0.5f, pathPos.y + 0.5f);
-                        MovementPath.RemoveAt(MovementPath.Count - 1);
-                    }
-                }
-
-                var directionToPlayer = Player.Default.NormalizedDirectionTo(transform);
-
-                if(posToMove == null)
-                {
-                    Rigidbody2D.velocity = directionToPlayer;
-                }
-                else
-                {
-                    var direction = posToMove.Value - transform.Position2D();
-                    Rigidbody2D.velocity = direction.normalized;
-
-                    if(direction.magnitude < 0.2f)
-                    {
-                        posToMove = null;
-                    }
-                }
-
-                return directionToPlayer;
-            }
+        {   
             State.State(States.FollowPlayer)
                 .OnEnter(() =>
                 {
@@ -74,32 +40,8 @@ namespace QFramework.Gungeon
                     MovementPath.Clear();
                 })
                 .OnUpdate(() =>
-                {   
-                    if(MovementPath.Count == 0)
-                    {
-                        var grid = LevelController.Default.wallMap.layoutGrid;
-                        var myCellPos = grid.WorldToCell(transform.position);
-                        var playerCellPos = grid.WorldToCell(Player.Default.Position());
-                        PathFindingHelper.FindPath(Room.PathFindingGrid[myCellPos.x, myCellPos.y],
-                            Room.PathFindingGrid[playerCellPos.x, playerCellPos.y],MovementPath);
-                    }
-
-                    if (Global.player)
-                    {
-                        var direction2Player = Move();
-                        AnimationHelper.UpDownAnimation(SpriteRenderer, 0.05f, State.FrameCountOfCurrentState, 10);
-                        AnimationHelper.RotateAnimation(SpriteRenderer, 5, State.FrameCountOfCurrentState, 30);
-                        //Rigidbody2D.velocity = direction2Player;
-
-                        if (direction2Player.x < 0)
-                        {
-                            SpriteRenderer.flipX = true;
-                        }
-                        else
-                        {
-                            SpriteRenderer.flipX = false;
-                        }
-                    }
+                {
+                    FollowPlayer();
 
                     if (State.SecondsOfCurrentState >= followPlayerScd)
                     {

@@ -42,6 +42,15 @@ namespace QFramework.Gungeon
 
                     toSearch.Release2Pool();
                     processed.Release2Pool();
+
+                    foreach (var node in pathNode)
+                    {
+                        if (!node.Walkable)
+                        {
+                            Debug.LogError("路径中包含不可行走的节点！");
+                            break;
+                        }
+                    }
                     return;
                 }
 

@@ -27,7 +27,7 @@ namespace QFramework.Gungeon
             {
                 var randomIndex = UnityEngine.Random.Range(0, 2 + 1);
 
-                switch(randomIndex)
+                switch(3)
                 {
                     case 0:
                         self.InitRoom
@@ -72,6 +72,8 @@ namespace QFramework.Gungeon
                         break;
 
                     default:
+                        self.InitRoom
+                            .Next(RoomTypes.Final);
                         break;
                 }
                 

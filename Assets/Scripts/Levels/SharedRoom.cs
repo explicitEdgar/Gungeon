@@ -69,7 +69,7 @@ namespace QFramework.Gungeon
             .L("1                 1")
             .L("1                 1")
             .L("1                 1")
-            .L("d        #        d")
+            .L("d        #e       d")
             .L("1                 1")
             .L("1                 1")
             .L("1                 1")

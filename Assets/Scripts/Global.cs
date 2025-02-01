@@ -71,7 +71,7 @@ namespace QFramework.Gungeon
 
             CurrentGun = GunSystem.GunList.First();
 
-            CurrentLevel = Level2.Config;
+            CurrentLevel = Level1.Config;
             CurrentPacing = new Queue<int>(CurrentLevel.Pacing);
         }
 

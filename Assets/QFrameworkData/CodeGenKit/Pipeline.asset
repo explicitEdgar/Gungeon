@@ -18,15 +18,54 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos: []
-    ScriptsFolder: Assets/Scripts/Game
-    ClassName: Door
+    BindInfos:
+    - TypeName: RectTransform
+      PathToRoot: HpArmorBg
+      MemberName: HpArmorBg
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: HpArmorBg/HP
+      MemberName: HP
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: HpArmorBg/Armor
+      MemberName: Armor
+    - TypeName: RectTransform
+      PathToRoot: GunInfo
+      MemberName: GunInfo
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: GunInfo/Icon
+      MemberName: Icon
+    - TypeName: UnityEngine.UI.Text
+      PathToRoot: GunInfo/BulletText
+      MemberName: BulletText
+    - TypeName: UnityEngine.UI.Text
+      PathToRoot: CoinInfo
+      MemberName: CoinInfo
+    - TypeName: UnityEngine.UI.Text
+      PathToRoot: KeyInfo
+      MemberName: KeyInfo
+    - TypeName: QFramework.Gungeon.UImap
+      PathToRoot: UImap
+      MemberName: UImap
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: ScreenColor
+      MemberName: ScreenColor
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: BossHpBar
+      MemberName: BossHpBar
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: BossHpBar/BossHp
+      MemberName: BossHp
+    ScriptsFolder: Assets\Scripts\UI
+    ClassName: GameUI
     Namespace: QFramework.Gungeon
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
-      partial class Door : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class GameUI : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:3e4f3f3a-68bb-44e3-9141-b8517510a37d\r\nusing UnityEngine;\r\n\r\nnamespace
-      QFramework.Gungeon\r\n{\r\n\tpublic partial class Door\r\n\t{\r\n\r\n\t\tpublic
-      UnityEngine.Sprite DoorClose;\r\n\r\n\t\tpublic UnityEngine.Sprite DoorOpen;\r\n\r\n\t\tpublic
-      UnityEngine.BoxCollider2D SelfBoxCollider2D;\r\n\r\n\t\tpublic UnityEngine.SpriteRenderer
-      SelfSpriteRenderer;\r\n\r\n\t\tpublic UnityEngine.BoxCollider2D SelfBoxCollider2DWithBullet;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:5ab88133-ddbc-4d68-b587-3d7d8ed1ba98\r\nusing UnityEngine;\r\n\r\nnamespace
+      QFramework.Gungeon\r\n{\r\n\tpublic partial class GameUI\r\n\t{\r\n\r\n\t\tpublic
+      RectTransform HpArmorBg;\r\n\r\n\t\tpublic UnityEngine.UI.Image HP;\r\n\r\n\t\tpublic
+      UnityEngine.UI.Image Armor;\r\n\r\n\t\tpublic RectTransform GunInfo;\r\n\r\n\t\tpublic
+      UnityEngine.UI.Image Icon;\r\n\r\n\t\tpublic UnityEngine.UI.Text BulletText;\r\n\r\n\t\tpublic
+      UnityEngine.UI.Text CoinInfo;\r\n\r\n\t\tpublic UnityEngine.UI.Text KeyInfo;\r\n\r\n\t\tpublic
+      QFramework.Gungeon.UImap UImap;\r\n\r\n\t\tpublic UnityEngine.UI.Image ScreenColor;\r\n\r\n\t\tpublic
+      UnityEngine.UI.Image BossHpBar;\r\n\r\n\t\tpublic UnityEngine.UI.Image BossHp;\r\n\r\n\t}\r\n}\r\n"

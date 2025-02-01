@@ -1,4 +1,4 @@
-// Generate Id:837d9471-f78c-42a1-9bff-11e9d17c3837
+// Generate Id:aa8da816-20fe-4bd1-aead-d75206093f61
 using UnityEngine;
 
 namespace QFramework.Gungeon
@@ -29,6 +29,8 @@ namespace QFramework.Gungeon
 		public QFramework.Gungeon.EnemyG EnemyG;
 
 		public QFramework.Gungeon.EnemyH EnemyH;
+
+		public QFramework.Gungeon.BossA BossA;
 
 	}
 }
