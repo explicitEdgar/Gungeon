@@ -1,4 +1,4 @@
-// Generate Id:5ab88133-ddbc-4d68-b587-3d7d8ed1ba98
+// Generate Id:4a7291d9-8b76-4334-8088-9c88017ce48a
 using UnityEngine;
 
 namespace QFramework.Gungeon
@@ -22,6 +22,8 @@ namespace QFramework.Gungeon
 
 		public UnityEngine.UI.Text KeyInfo;
 
+		public UnityEngine.UI.Text ColorInfo;
+
 		public QFramework.Gungeon.UImap UImap;
 
 		public UnityEngine.UI.Image ScreenColor;
@@ -29,6 +31,8 @@ namespace QFramework.Gungeon
 		public UnityEngine.UI.Image BossHpBar;
 
 		public UnityEngine.UI.Image BossHp;
+
+		public QFramework.Gungeon.UIGunList UIGunList;
 
 	}
 }

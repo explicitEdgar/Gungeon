@@ -62,6 +62,11 @@ namespace QFramework.Gungeon
                 UpdateHPAndArmorView();
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
             UpdateHPAndArmorView();
+
+            Global.Color.RegisterWithInitValue(color =>
+            {
+                ColorInfo.text = color.ToString();
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
 
         void UpdateHPAndArmorView()

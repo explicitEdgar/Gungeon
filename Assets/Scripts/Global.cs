@@ -25,6 +25,8 @@ namespace QFramework.Gungeon
 
         public static BindableProperty<int> HP = new BindableProperty<int>(3);
 
+        public static BindableProperty<int> Color = new BindableProperty<int>(0);
+
         public static BindableProperty<int> MaxHP = new BindableProperty<int>(6);
 
         public static BindableProperty<int> Armor = new BindableProperty<int>(1);
@@ -49,6 +51,15 @@ namespace QFramework.Gungeon
         public static void AutoInit()
         {
             ResetData();
+
+            var globalObj = new GameObject("Global")
+                .DontDestroyOnLoad();
+
+            Color.SetValueWithoutEvent(PlayerPrefs.GetInt(nameof(Color), 0));
+            Color.Register(color =>
+            {
+                PlayerPrefs.SetInt(nameof(Color), color);
+            }).UnRegisterWhenGameObjectDestroyed(globalObj);
         }
 
         public static void ResetData()

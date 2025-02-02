@@ -601,6 +601,13 @@ namespace QFramework.Gungeon
                     {
                         room.AddShopItemGeneratePos(new Vector3(x + 0.5f, y + 0.5f, 0));
                     }
+                    else if(code == 'y')
+                    {
+                        var color = PowerUpFactory.Default.PowerUpColor.Instantiate()
+                            .Position2D(new Vector2(x + 0.5f, y + 0.5f))
+                            .Show();
+                        room.AddPowerUp(color);
+                    }
                 }
             }
 
