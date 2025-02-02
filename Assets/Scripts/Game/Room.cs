@@ -230,15 +230,29 @@ namespace QFramework.Gungeon
                         }
                     }
                 }
+                //Boss∑ø
                 else if(Config.RoomType == RoomTypes.Final && State == RoomStates.Close)
                 {
+                    Global.currentRoom = this;
                     State = RoomStates.PlayerIn;
 
-                    var boss = EnemyFactory.Default.BossA.Instantiate()
-                        .Position2D(mEnemyGeneratePoses.GetRandomItem())
-                        .Show();
-                    boss.Room = this;
-                    this.Enemies.Add(boss);
+                    if(Global.CurrentLevel == Level1.Config)
+                    {
+                        var boss = EnemyFactory.Default.BossA.Instantiate()
+                       .Position2D(mEnemyGeneratePoses.GetRandomItem())
+                       .Show();
+                        boss.Room = this;
+                        this.Enemies.Add(boss);
+                    }
+                    else if(Global.CurrentLevel == Level2.Config)
+                    {
+                        var boss = EnemyFactory.Default.BossB.Instantiate()
+                       .Position2D(mEnemyGeneratePoses.GetRandomItem())
+                       .Show();
+                        boss.Room = this;
+                        this.Enemies.Add(boss);
+                    }
+                   
 
                     //πÿ√≈
                     foreach (var door in doors)

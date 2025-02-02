@@ -27,7 +27,7 @@ namespace QFramework.Gungeon
             {
                 var randomIndex = UnityEngine.Random.Range(0, 2 + 1);
 
-                switch(3)
+                switch(randomIndex)
                 {
                     case 0:
                         self.InitRoom

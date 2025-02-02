@@ -119,6 +119,7 @@ namespace QFramework.Gungeon
                     var mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreePosition);
                     var bulletDirection = (mouseWorldPosition - transform.position).normalized;
 
+                    //自动瞄准
                     if (Global.currentRoom && Global.currentRoom.Enemies.Count > 0)
                     {
                         targetEnemy = Global.currentRoom.Enemies
@@ -127,6 +128,7 @@ namespace QFramework.Gungeon
                         {
                             var direction = this.Direction2DTo(e.GameObject);
 
+                            //有墙挡着
                             if (Physics2D.Raycast(this.Position2D(), direction.normalized, direction.magnitude, LayerMask.GetMask("Wall")))
                             {
                                 return false;
@@ -140,6 +142,7 @@ namespace QFramework.Gungeon
                             bulletDirection = this.NormalizedDirection2DTo(targetEnemy.GameObject);
                             Aim.Position2D(targetEnemy.GameObject.Position2D());
                             Aim.Show();
+                            Debug.Log("有");
                         }
                         else
                         {

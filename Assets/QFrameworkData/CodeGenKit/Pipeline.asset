@@ -19,53 +19,61 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: RectTransform
-      PathToRoot: HpArmorBg
-      MemberName: HpArmorBg
-    - TypeName: UnityEngine.UI.Image
-      PathToRoot: HpArmorBg/HP
-      MemberName: HP
-    - TypeName: UnityEngine.UI.Image
-      PathToRoot: HpArmorBg/Armor
-      MemberName: Armor
-    - TypeName: RectTransform
-      PathToRoot: GunInfo
-      MemberName: GunInfo
-    - TypeName: UnityEngine.UI.Image
-      PathToRoot: GunInfo/Icon
-      MemberName: Icon
-    - TypeName: UnityEngine.UI.Text
-      PathToRoot: GunInfo/BulletText
-      MemberName: BulletText
-    - TypeName: UnityEngine.UI.Text
-      PathToRoot: CoinInfo
-      MemberName: CoinInfo
-    - TypeName: UnityEngine.UI.Text
-      PathToRoot: KeyInfo
-      MemberName: KeyInfo
-    - TypeName: QFramework.Gungeon.UImap
-      PathToRoot: UImap
-      MemberName: UImap
-    - TypeName: UnityEngine.UI.Image
-      PathToRoot: ScreenColor
-      MemberName: ScreenColor
-    - TypeName: UnityEngine.UI.Image
-      PathToRoot: BossHpBar
-      MemberName: BossHpBar
-    - TypeName: UnityEngine.UI.Image
-      PathToRoot: BossHpBar/BossHp
-      MemberName: BossHp
-    ScriptsFolder: Assets\Scripts\UI
-    ClassName: GameUI
+    - TypeName: QFramework.Gungeon.EnemyA
+      PathToRoot: EnemyA
+      MemberName: EnemyA
+    - TypeName: QFramework.Gungeon.EnemyABig
+      PathToRoot: EnemyABig
+      MemberName: EnemyABig
+    - TypeName: EnemyB
+      PathToRoot: EnemyB
+      MemberName: EnemyB
+    - TypeName: EnemyBBig
+      PathToRoot: EnemyBBig
+      MemberName: EnemyBBig
+    - TypeName: EnemyC
+      PathToRoot: EnemyC
+      MemberName: EnemyC
+    - TypeName: EnemyCBig
+      PathToRoot: EnemyCBig
+      MemberName: EnemyCBig
+    - TypeName: EnemyD
+      PathToRoot: EnemyD
+      MemberName: EnemyD
+    - TypeName: EnemyDBig
+      PathToRoot: EnemyDBig
+      MemberName: EnemyDBig
+    - TypeName: QFramework.Gungeon.EnemyE
+      PathToRoot: EnemyE
+      MemberName: EnemyE
+    - TypeName: EnemyF
+      PathToRoot: EnemyF
+      MemberName: EnemyF
+    - TypeName: QFramework.Gungeon.EnemyG
+      PathToRoot: EnemyG
+      MemberName: EnemyG
+    - TypeName: QFramework.Gungeon.EnemyH
+      PathToRoot: EnemyH
+      MemberName: EnemyH
+    - TypeName: QFramework.Gungeon.BossA
+      PathToRoot: BossA
+      MemberName: BossA
+    - TypeName: QFramework.Gungeon.BossB
+      PathToRoot: BossB
+      MemberName: BossB
+    ScriptsFolder: Assets/Scripts/Game/Enemy
+    ClassName: EnemyFactory
     Namespace: QFramework.Gungeon
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
-      partial class GameUI : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class EnemyFactory : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:5ab88133-ddbc-4d68-b587-3d7d8ed1ba98\r\nusing UnityEngine;\r\n\r\nnamespace
-      QFramework.Gungeon\r\n{\r\n\tpublic partial class GameUI\r\n\t{\r\n\r\n\t\tpublic
-      RectTransform HpArmorBg;\r\n\r\n\t\tpublic UnityEngine.UI.Image HP;\r\n\r\n\t\tpublic
-      UnityEngine.UI.Image Armor;\r\n\r\n\t\tpublic RectTransform GunInfo;\r\n\r\n\t\tpublic
-      UnityEngine.UI.Image Icon;\r\n\r\n\t\tpublic UnityEngine.UI.Text BulletText;\r\n\r\n\t\tpublic
-      UnityEngine.UI.Text CoinInfo;\r\n\r\n\t\tpublic UnityEngine.UI.Text KeyInfo;\r\n\r\n\t\tpublic
-      QFramework.Gungeon.UImap UImap;\r\n\r\n\t\tpublic UnityEngine.UI.Image ScreenColor;\r\n\r\n\t\tpublic
-      UnityEngine.UI.Image BossHpBar;\r\n\r\n\t\tpublic UnityEngine.UI.Image BossHp;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:9a3a2523-5a7e-49c2-9473-97690d9c2c06\r\nusing UnityEngine;\r\n\r\nnamespace
+      QFramework.Gungeon\r\n{\r\n\tpublic partial class EnemyFactory\r\n\t{\r\n\r\n\t\tpublic
+      QFramework.Gungeon.EnemyA EnemyA;\r\n\r\n\t\tpublic QFramework.Gungeon.EnemyABig
+      EnemyABig;\r\n\r\n\t\tpublic EnemyB EnemyB;\r\n\r\n\t\tpublic EnemyBBig EnemyBBig;\r\n\r\n\t\tpublic
+      EnemyC EnemyC;\r\n\r\n\t\tpublic EnemyCBig EnemyCBig;\r\n\r\n\t\tpublic EnemyD
+      EnemyD;\r\n\r\n\t\tpublic EnemyDBig EnemyDBig;\r\n\r\n\t\tpublic QFramework.Gungeon.EnemyE
+      EnemyE;\r\n\r\n\t\tpublic EnemyF EnemyF;\r\n\r\n\t\tpublic QFramework.Gungeon.EnemyG
+      EnemyG;\r\n\r\n\t\tpublic QFramework.Gungeon.EnemyH EnemyH;\r\n\r\n\t\tpublic
+      QFramework.Gungeon.BossA BossA;\r\n\r\n\t\tpublic QFramework.Gungeon.BossB
+      BossB;\r\n\r\n\t}\r\n}\r\n"

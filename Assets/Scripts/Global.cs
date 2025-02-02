@@ -89,9 +89,9 @@ namespace QFramework.Gungeon
             else
             {
                 CurrentLevel = Levels[levelIndex];
-
-                return true;
+                CurrentPacing = new Queue<int>(CurrentLevel.Pacing);
             }
+            return true;
         }
     }
 }

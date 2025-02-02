@@ -7,7 +7,7 @@ using UnityEngine;
 namespace QFramework.Gungeon
 {
 
-    public class BossA : Enemy, IEnemy
+    public class BossB : Enemy, IEnemy
     {
         
         public Player player;
@@ -23,7 +23,7 @@ namespace QFramework.Gungeon
 
         public List<AudioClip> ShootSounds = new List<AudioClip>();
 
-        private float Hp = 200;
+        private float Hp = 250;
 
         private float maxHp { get; set; }
 
@@ -66,62 +66,53 @@ namespace QFramework.Gungeon
                     }
                 });
 
-            var count = 0;
             State.State(States.Shoot)
                 .OnEnter(() =>
                 {
                     Rigidbody2D.velocity = new Vector2(0, 0);
-
-                    count = 0;
 
                     //Ò»½×¶Î
                     if (Hp / maxHp > 0.7)
                     {
                         if (Global.player)
                         {
-                            shootScd = Random.Range(1, 2f);
                             Rigidbody2D.velocity = new Vector2(0, 0);
-                            var bullet = Instantiate(enemyBullet);
-                            bullet.transform.position = transform.position;
-                            var direction2Player = (Global.player.transform.position - transform.position).normalized;
-                            bullet.velocity = direction2Player.normalized * 10;
-                            bullet.gameObject.SetActive(true);
+
+                            BulletHelper.ShootAround(10, transform.Position2D(), 0.5f, enemyBullet);
 
                             var soundIndex = Random.Range(0, ShootSounds.Count);
                             AudioKit.PlaySound(ShootSounds[soundIndex]);
-
-                            if (direction2Player.x < 0)
-                            {
-                                SpriteRenderer.flipX = true;
-                            }
-                            else
-                            {
-                                SpriteRenderer.flipX = false;
-                            }
                         }
                     }
                     //¶þ½×¶Î
                     else if (Hp / maxHp > 0.3)
                     {
                         if (Global.player)
-                        {
-                            shootScd = Random.Range(1, 2f);
+                        {   
                             Rigidbody2D.velocity = new Vector2(0, 0);
 
-                            var direction2Player = (Global.player.transform.position - transform.position).normalized;
-                            BulletHelper.ShootSpread(3, transform.Position2D(), direction2Player.ToVector2(), 0.5f, enemyBullet, 15f, 10f);
-
-                            var soundIndex = Random.Range(0, ShootSounds.Count);
-                            AudioKit.PlaySound(ShootSounds[soundIndex]);
-
-                            if (direction2Player.x < 0)
+                            ActionKit.Sequence()
+                            .Callback(() =>
                             {
-                                SpriteRenderer.flipX = true;
-                            }
-                            else
+                                BulletHelper.ShootAround(15, transform.Position2D(), 0.5f, enemyBullet);
+                                var soundIndex = Random.Range(0, ShootSounds.Count);
+                                AudioKit.PlaySound(ShootSounds[soundIndex]);
+                            })
+                            .Delay(0.2f)
+                            .Callback(() =>
                             {
-                                SpriteRenderer.flipX = false;
-                            }
+                                BulletHelper.ShootAround(15, transform.Position2D(), 0.5f, enemyBullet);
+                                var soundIndex = Random.Range(0, ShootSounds.Count);
+                                AudioKit.PlaySound(ShootSounds[soundIndex]);
+                            })
+                            .Delay(0.2f)
+                            .Callback(() =>
+                            {
+                                BulletHelper.ShootAround(15, transform.Position2D(), 0.5f, enemyBullet);
+                                var soundIndex = Random.Range(0, ShootSounds.Count);
+                                AudioKit.PlaySound(ShootSounds[soundIndex]);
+                            })
+                            .Start(this);
                         }
                     }
                     //Èý½×¶Î
@@ -143,25 +134,16 @@ namespace QFramework.Gungeon
                     //Èý½×¶Î
                     else if (Hp / maxHp <= 0.3)
                     {
-                        if (State.FrameCountOfCurrentState % 20 == 0)
+                        if (State.FrameCountOfCurrentState % 15 == 0)
                         {
                             if (Global.player)
                             {
-                                if (count <= 8) count++;
-                                var direction2Player = (Global.player.transform.position - transform.position).normalized;
-                                BulletHelper.ShootSpread(count, transform.Position2D(), direction2Player.ToVector2(), 0.5f, enemyBullet, 15f);
+                                Rigidbody2D.velocity = new Vector2(0, 0);
+
+                                BulletHelper.ShootAround(18, transform.Position2D(), 0.5f, enemyBullet);
 
                                 var soundIndex = Random.Range(0, ShootSounds.Count);
                                 AudioKit.PlaySound(ShootSounds[soundIndex]);
-
-                                if (direction2Player.x < 0)
-                                {
-                                    SpriteRenderer.flipX = true;
-                                }
-                                else
-                                {
-                                    SpriteRenderer.flipX = false;
-                                }
                             }
                         }
 

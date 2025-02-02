@@ -55,7 +55,7 @@ namespace QFramework.Gungeon
 
         //可空变量
         public Vector2? posToMove = null;
-        protected Vector2 Move()
+        protected Vector2 Move(float velocity = 1)
         {
             if (posToMove == null)
             {
@@ -73,12 +73,12 @@ namespace QFramework.Gungeon
             //有要移动的就进行A*寻路的移动，没有就直线寻路
             if (posToMove == null)
             {
-                Rigidbody2D.velocity = directionToPlayer;
+                Rigidbody2D.velocity = directionToPlayer * velocity;
             }
             else
             {
                 var direction = posToMove.Value - transform.Position2D();
-                Rigidbody2D.velocity = direction.normalized;
+                Rigidbody2D.velocity = direction.normalized * velocity;
 
                 if (direction.magnitude < 0.2f)
                 {
@@ -89,7 +89,7 @@ namespace QFramework.Gungeon
             return directionToPlayer;
         }
 
-        protected void FollowPlayer()
+        protected void FollowPlayer(float velocity = 1f)
         {
             if (Global.player)
             {
@@ -103,7 +103,7 @@ namespace QFramework.Gungeon
                         Room.PathFindingGrid[playerCellPos.x, playerCellPos.y], MovementPath);
                 }
 
-                var direction2Player = Move();
+                var direction2Player = Move(velocity);
                 AnimationHelper.UpDownAnimation(SpriteRenderer, 0.05f, State.FrameCountOfCurrentState, 10);
                 AnimationHelper.RotateAnimation(SpriteRenderer, 5, State.FrameCountOfCurrentState, 30);
 
