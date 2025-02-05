@@ -117,8 +117,11 @@ namespace QFramework.Gungeon
                     UImap.Hide();
                 }
                 else
-                {
-                    UImap.Show();
+                {   
+                    if(!Global.UIOpened)
+                    {
+                        UImap.Show();
+                    }
                 }
             }
         }

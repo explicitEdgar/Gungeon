@@ -19,61 +19,44 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: RectTransform
-      PathToRoot: HpArmorBg
-      MemberName: HpArmorBg
-    - TypeName: UnityEngine.UI.Image
-      PathToRoot: HpArmorBg/HP
-      MemberName: HP
-    - TypeName: UnityEngine.UI.Image
-      PathToRoot: HpArmorBg/Armor
-      MemberName: Armor
-    - TypeName: RectTransform
-      PathToRoot: GunInfo
-      MemberName: GunInfo
-    - TypeName: UnityEngine.UI.Image
-      PathToRoot: GunInfo/Icon
-      MemberName: Icon
-    - TypeName: UnityEngine.UI.Text
-      PathToRoot: GunInfo/BulletText
-      MemberName: BulletText
-    - TypeName: UnityEngine.UI.Text
-      PathToRoot: CoinInfo
-      MemberName: CoinInfo
-    - TypeName: UnityEngine.UI.Text
-      PathToRoot: KeyInfo
-      MemberName: KeyInfo
-    - TypeName: UnityEngine.UI.Text
-      PathToRoot: ColorInfo
-      MemberName: ColorInfo
-    - TypeName: QFramework.Gungeon.UImap
-      PathToRoot: UImap
-      MemberName: UImap
-    - TypeName: UnityEngine.UI.Image
-      PathToRoot: ScreenColor
-      MemberName: ScreenColor
-    - TypeName: UnityEngine.UI.Image
-      PathToRoot: BossHpBar
-      MemberName: BossHpBar
-    - TypeName: UnityEngine.UI.Image
-      PathToRoot: BossHpBar/BossHp
-      MemberName: BossHp
-    - TypeName: QFramework.Gungeon.UIGunList
-      PathToRoot: UIGunList
-      MemberName: UIGunList
-    ScriptsFolder: Assets\Scripts\UI
-    ClassName: GameUI
+    - TypeName: QFramework.Gungeon.Room
+      PathToRoot: Room
+      MemberName: Room
+    - TypeName: QFramework.Gungeon.Door
+      PathToRoot: Door
+      MemberName: Door
+    - TypeName: QFramework.Gungeon.Chest
+      PathToRoot: Chest
+      MemberName: Chest
+    - TypeName: QFramework.Gungeon.ShopItem
+      PathToRoot: ShopItem
+      MemberName: ShopItem
+    - TypeName: QFramework.Gungeon.GunBase
+      PathToRoot: GunBase
+      MemberName: GunBase
+    ScriptsFolder: Assets/Scripts/Game
+    ClassName: LevelController
     Namespace: QFramework.Gungeon
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
-      partial class GameUI : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class LevelController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:4a7291d9-8b76-4334-8088-9c88017ce48a\r\nusing UnityEngine;\r\n\r\nnamespace
-      QFramework.Gungeon\r\n{\r\n\tpublic partial class GameUI\r\n\t{\r\n\r\n\t\tpublic
-      RectTransform HpArmorBg;\r\n\r\n\t\tpublic UnityEngine.UI.Image HP;\r\n\r\n\t\tpublic
-      UnityEngine.UI.Image Armor;\r\n\r\n\t\tpublic RectTransform GunInfo;\r\n\r\n\t\tpublic
-      UnityEngine.UI.Image Icon;\r\n\r\n\t\tpublic UnityEngine.UI.Text BulletText;\r\n\r\n\t\tpublic
-      UnityEngine.UI.Text CoinInfo;\r\n\r\n\t\tpublic UnityEngine.UI.Text KeyInfo;\r\n\r\n\t\tpublic
-      UnityEngine.UI.Text ColorInfo;\r\n\r\n\t\tpublic QFramework.Gungeon.UImap UImap;\r\n\r\n\t\tpublic
-      UnityEngine.UI.Image ScreenColor;\r\n\r\n\t\tpublic UnityEngine.UI.Image BossHpBar;\r\n\r\n\t\tpublic
-      UnityEngine.UI.Image BossHp;\r\n\r\n\t\tpublic QFramework.Gungeon.UIGunList
-      UIGunList;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:4c650da8-38e5-4248-9631-29e6063fdbaa\r\nusing UnityEngine;\r\n\r\nnamespace
+      QFramework.Gungeon\r\n{\r\n\tpublic partial class LevelController\r\n\t{\r\n\r\n\t\tpublic
+      QFramework.Gungeon.Room Room;\r\n\r\n\t\tpublic QFramework.Gungeon.Door Door;\r\n\r\n\t\tpublic
+      QFramework.Gungeon.Chest Chest;\r\n\r\n\t\tpublic QFramework.Gungeon.ShopItem
+      ShopItem;\r\n\r\n\t\tpublic QFramework.Gungeon.GunBase GunBase;\r\n\r\n\t\tpublic
+      UnityEngine.GameObject EnemyA;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyB;\r\n\r\n\t\tpublic
+      UnityEngine.GameObject EnemyC;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyD;\r\n\r\n\t\tpublic
+      UnityEngine.GameObject EnemyE;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyF;\r\n\r\n\t\tpublic
+      UnityEngine.GameObject EnemyG;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyH;\r\n\r\n\t\tpublic
+      UnityEngine.GameObject EnemyABig;\r\n\r\n\t\tpublic UnityEngine.GameObject
+      EnemyBBig;\r\n\r\n\t\tpublic UnityEngine.GameObject EnemyCBig;\r\n\r\n\t\tpublic
+      UnityEngine.GameObject EnemyDBig;\r\n\r\n\t\tpublic UnityEngine.Tilemaps.AnimatedTile
+      Floor10;\r\n\r\n\t\tpublic UnityEngine.Tilemaps.AnimatedTile Floor11;\r\n\r\n\t\tpublic
+      UnityEngine.Tilemaps.AnimatedTile Floor12;\r\n\r\n\t\tpublic UnityEngine.Tilemaps.AnimatedTile
+      Floor13;\r\n\r\n\t\tpublic UnityEngine.Tilemaps.AnimatedTile Floor20;\r\n\r\n\t\tpublic
+      UnityEngine.Tilemaps.AnimatedTile Floor21;\r\n\r\n\t\tpublic UnityEngine.Tilemaps.AnimatedTile
+      Floor22;\r\n\r\n\t\tpublic UnityEngine.Tilemaps.AnimatedTile Floor23;\r\n\r\n\t\tpublic
+      UnityEngine.Tilemaps.AnimatedTile Floor30;\r\n\r\n\t\tpublic UnityEngine.Tilemaps.AnimatedTile
+      Floor31;\r\n\r\n\t\tpublic UnityEngine.Tilemaps.AnimatedTile Floor32;\r\n\r\n\t\tpublic
+      UnityEngine.Tilemaps.AnimatedTile Floor33;\r\n\r\n\t}\r\n}\r\n"

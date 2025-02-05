@@ -608,6 +608,12 @@ namespace QFramework.Gungeon
                             .Show();
                         room.AddPowerUp(color);
                     }
+                    else if (code == 'g')
+                    {
+                            GunBase.Instantiate()
+                                .Position2D(new Vector2(x + 0.5f, y + 0.5f))
+                                .Show();
+                    }
                 }
             }
 

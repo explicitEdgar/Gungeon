@@ -17,7 +17,7 @@ namespace QFramework.Gungeon
             .Type(RoomTypes.Init)
             .L("111111111d111111111")
             .L("1                 1")
-            .L("1    y y y y      1")
+            .L("1    y y y y  g   1")
             .L("1                 1")
             .L("1                 1")
             .L("1                 1")
