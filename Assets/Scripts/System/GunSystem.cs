@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using static QFramework.Gungeon.UIGunList;
 
 namespace QFramework.Gungeon
 {   
@@ -58,6 +60,16 @@ namespace QFramework.Gungeon
             GunBagMaxBulletCount = 16,
         };
 
+        public static List<GunConfig> Configs = new List<GunConfig>()
+        {
+            GunConfig.ShotGun,
+            GunConfig.MP5,
+            GunConfig.AK,
+            GunConfig.Bow,
+            GunConfig.RocketGun,
+            GunConfig.Laser,
+            GunConfig.AWP
+        };
 
         public GunData CreateData()
         {
@@ -92,5 +104,22 @@ namespace QFramework.Gungeon
         //    GunConfig.RocketGun.CreateData(),
         //    GunConfig.ShotGun.CreateData(),
         //};
+
+        public static List<GunConfig> GetAvailableGuns()
+        {
+            var availableGunConfigs = new List<GunConfig>();
+
+            foreach (var gunConfig in GunConfig.Configs)
+            {
+                var gunBaseItem = UIGunList.GunBaseItems.First(gun => gun.Key == gunConfig.Key);
+                //如果已解锁且手里没有
+                if(gunBaseItem.Unlocked && GunList.All(g => g.Key != gunConfig.Key))
+                {
+                    availableGunConfigs.Add(gunConfig);
+                }
+            }
+
+            return availableGunConfigs;
+        }
     }
 }

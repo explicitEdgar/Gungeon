@@ -18,7 +18,9 @@ namespace QFramework.Gungeon
 			public bool InitUnlockState;
 		}
 
-		private List<GunBaseItem> mGunBaseItems = new List<GunBaseItem>()
+		public static List<GunBaseItem> GunBaseItems => mGunBaseItems;
+
+        static List<GunBaseItem> mGunBaseItems = new List<GunBaseItem>()
 		{
 			new() {Name = "ö±µ¯Ç¹",Price = 0,Key = GunConfig.ShotGun.Key,InitUnlockState = true },
 			new() {Name = "MP5",Price = 0,Key = GunConfig.MP5.Key,InitUnlockState = true },
@@ -107,5 +109,7 @@ namespace QFramework.Gungeon
         {
             Global.UIOpened = false;
         }
+
+		
     }
 }

@@ -37,17 +37,7 @@ namespace QFramework.Gungeon
                     //   .Show();
                     //Room.AddPowerUp(singleFullBullet);
 
-                    var configs = new List<GunConfig>()
-                    {
-                        GunConfig.ShotGun,
-                        GunConfig.MP5,
-                        GunConfig.AK,
-                        GunConfig.Bow,
-                        GunConfig.RocketGun,
-                        GunConfig.Laser,
-                        GunConfig.AWP
-                    };
-                    configs.RemoveAll(c => GunSystem.GunList.Any(g => g.Key == c.Key));
+                    var configs = GunSystem.GetAvailableGuns();
 
                     if (configs.Count > 0)
                     {

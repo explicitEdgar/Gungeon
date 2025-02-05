@@ -53,6 +53,8 @@ namespace QFramework.Gungeon
 
         public List<PathFindingHelper.NodeBase<Vector3Int>> MovementPath = new List<PathFindingHelper.NodeBase<Vector3Int>>();
 
+        public virtual bool isBoss => false;
+
         //©и©у╠Да©
         public Vector2? posToMove = null;
         protected Vector2 Move(float velocity = 1)

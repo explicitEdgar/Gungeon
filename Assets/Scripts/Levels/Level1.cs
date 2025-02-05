@@ -7,6 +7,7 @@ namespace QFramework.Gungeon
     {
         public static LevelConfig Config = new LevelConfig()
             .NormalRooms(Lv1Rooms.normalRooms)
+            .AddBoss(Constant.BossA)
             .Self(self =>
             {
                 self.Pacing = new List<int>()

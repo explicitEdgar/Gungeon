@@ -236,23 +236,14 @@ namespace QFramework.Gungeon
                     Global.currentRoom = this;
                     State = RoomStates.PlayerIn;
 
-                    if(Global.CurrentLevel == Level1.Config)
-                    {
-                        var boss = EnemyFactory.Default.BossA.Instantiate()
-                       .Position2D(mEnemyGeneratePoses.GetRandomItem())
-                       .Show();
-                        boss.Room = this;
-                        this.Enemies.Add(boss);
-                    }
-                    else if(Global.CurrentLevel == Level2.Config)
-                    {
-                        var boss = EnemyFactory.Default.BossB.Instantiate()
-                       .Position2D(mEnemyGeneratePoses.GetRandomItem())
-                       .Show();
-                        boss.Room = this;
-                        this.Enemies.Add(boss);
-                    }
-                   
+                    var bossName = Global.CurrentLevel.BossList.GetRandomItem();
+                    var boss = EnemyFactory.EnemyByName(bossName)
+                    .GameObject
+                    .Position2D(mEnemyGeneratePoses.GetRandomItem())
+                    .Show()
+                    .GetComponent<IEnemy>();
+                    boss.Room = this;
+                    this.Enemies.Add(boss);
 
                     //πÿ√≈
                     foreach (var door in doors)

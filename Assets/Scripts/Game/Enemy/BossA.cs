@@ -23,6 +23,8 @@ namespace QFramework.Gungeon
 
         public List<AudioClip> ShootSounds = new List<AudioClip>();
 
+        public override bool isBoss => true;
+
         private float Hp = 200;
 
         private float maxHp { get; set; }

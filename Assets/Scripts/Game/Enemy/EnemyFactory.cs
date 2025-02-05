@@ -23,58 +23,24 @@ namespace QFramework.Gungeon
 
         public static IEnemy EnemyByName(string enemyName)
         {
-            if(enemyName == Constant.EnemyA)
+            return enemyName switch
             {
-                return Default.EnemyA;
-            }
-            else if(enemyName == Constant.EnemyB)
-            {
-                return Default.EnemyB;
-            }
-            else if (enemyName == Constant.EnemyC)
-            {
-                return Default.EnemyC;
-            }
-            else if (enemyName == Constant.EnemyD)
-            {
-                return Default.EnemyD;
-            }
-            else if (enemyName == Constant.EnemyE)
-            {
-                return Default.EnemyE;
-            }
-            else if (enemyName == Constant.EnemyF)
-            {
-                return Default.EnemyF;
-            }
-            else if (enemyName == Constant.EnemyG)
-            {
-                return Default.EnemyG;
-            }
-            else if (enemyName == Constant.EnemyH)
-            {
-                return Default.EnemyH;
-            }
-            else if (enemyName == Constant.EnemyABig)
-            {
-                return Default.EnemyABig;
-            }
-            else if (enemyName == Constant.EnemyBBig)
-            {
-                return Default.EnemyBBig;
-            }
-            else if (enemyName == Constant.EnemyCBig)
-            {
-                return Default.EnemyCBig;
-            }
-            else if (enemyName == Constant.EnemyDBig)
-            {
-                return Default.EnemyDBig;
-            }
-            else
-            {
-                return null;
-            }
+                Constant.EnemyA => Default.EnemyA,
+                Constant.EnemyB => Default.EnemyB,
+                Constant.EnemyC => Default.EnemyC,
+                Constant.EnemyD => Default.EnemyD,
+                Constant.EnemyE => Default.EnemyE,
+                Constant.EnemyF => Default.EnemyF,
+                Constant.EnemyG => Default.EnemyG,
+                Constant.EnemyH => Default.EnemyH,
+                Constant.EnemyABig => Default.EnemyABig,
+                Constant.EnemyBBig => Default.EnemyBBig,
+                Constant.EnemyCBig => Default.EnemyCBig,
+                Constant.EnemyDBig => Default.EnemyDBig,
+                Constant.BossA => Default.BossA,
+                Constant.BossB => Default.BossB,
+                _ => null
+            };
         }
 
         public static int GenTargetEnemyScore()

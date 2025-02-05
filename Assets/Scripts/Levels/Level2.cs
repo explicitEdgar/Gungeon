@@ -7,6 +7,7 @@ namespace QFramework.Gungeon
     {
         public static LevelConfig Config = new LevelConfig()
             .NormalRooms(Lv2Rooms.normalRooms)
+            .AddBoss(Constant.BossB)
             .Self(self =>
             {
                 self.Pacing = new List<int>()
@@ -25,7 +26,7 @@ namespace QFramework.Gungeon
             })
             .Self(self =>
             {
-                var randomIndex = UnityEngine.Random.Range(0, 2 + 1);
+                var randomIndex = UnityEngine.Random.Range(0, 0 + 1);
 
                 switch(randomIndex)
                 {
