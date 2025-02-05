@@ -5,7 +5,6 @@ namespace QFramework.Gungeon
 {
 	public partial class GunBase : ViewController
 	{
-        private bool playerIn = false;
 		void Start()
 		{
 			// Code Here
@@ -15,7 +14,6 @@ namespace QFramework.Gungeon
         {
             if(collision.CompareTag("Player"))
             {
-                playerIn = true;
                 GameUI.Default.UIGunList.Show();
             }
         }
@@ -24,7 +22,6 @@ namespace QFramework.Gungeon
         {
             if (collision.CompareTag("Player"))
             {
-                playerIn = false;
                 GameUI.Default.UIGunList.Hide();
             }
         }

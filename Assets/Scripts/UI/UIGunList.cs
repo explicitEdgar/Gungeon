@@ -6,14 +6,15 @@ using Unity.VisualScripting;
 namespace QFramework.Gungeon
 {
 	public partial class UIGunList : ViewController
-	{	
+	{
+		private static readonly int GrayValue = Shader.PropertyToID("_GrayValue");
 		public class GunBaseItem
 		{
 			public string Name;
 			public string Key;
 			public int Price;
 			public bool Unlocked = false;
-			public Sprite Icon;
+			public Sprite Icon => Player.Default.GunwithKey(Key).Sprite.sprite;
 			public bool InitUnlockState;
 		}
 
@@ -56,20 +57,22 @@ namespace QFramework.Gungeon
 
 				gunItem.Name.text = gunBaseItem.Name;
 				gunItem.ButtonUnlock.gameObject.SetActive(!gunBaseItem.Unlocked);
-				//gunItem.Icon.sprite = gunBaseItem.Icon;
+				gunItem.Icon.sprite = gunBaseItem.Icon;
 
-				if(gunBaseItem.Unlocked)
+				if (gunBaseItem.Unlocked)
 				{
 					gunItem.PriceText.Hide();
 					gunItem.ColorIcon.Hide();
-					gunItem.Icon.color = Color.white;
+					gunItem.Icon.material = gunItem.Icon.material.Instantiate();
+					gunItem.Icon.material.SetFloat(GrayValue, 0);
 				}
 				else
 				{
 					gunItem.PriceText.text = "x" + gunBaseItem.Price;
-					gunItem.Icon.color = Color.gray;
+                    gunItem.Icon.material = gunItem.Icon.material.Instantiate();
+                    gunItem.Icon.material.SetFloat(GrayValue, 1);
 
-					var cachedItem = gunBaseItem;
+                    var cachedItem = gunBaseItem;
 					var cachedItemView = gunItem;
 					gunItem.ButtonUnlock.onClick.AddListener(() =>
 					{
@@ -80,9 +83,9 @@ namespace QFramework.Gungeon
 							cachedItem.Unlocked = true;
 							Player.DisplayText("<color=yellow>" + cachedItem.Name + "</color>º”»Î’Ω∂∑!", 2);
 							cachedItemView.ButtonUnlock.Hide();
-							cachedItemView.Icon.color = Color.gray;
+                            cachedItemView.Icon.material.SetFloat(GrayValue, 0);
 
-							AudioKit.PlaySound("Resources://UnlockGun");
+                            AudioKit.PlaySound("Resources://UnlockGun");
 
 							Save();
 						}

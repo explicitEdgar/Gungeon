@@ -64,7 +64,7 @@ namespace QFramework.Gungeon
             UseGun(0);
         }
 
-        Gun GunwithKey(string key)
+        public Gun GunwithKey(string key)
         {   
             if(key == GunConfig.Pistol.Key)
                 return Pistol;
