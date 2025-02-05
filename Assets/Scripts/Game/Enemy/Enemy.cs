@@ -22,9 +22,12 @@ namespace QFramework.Gungeon
     public abstract class Enemy : MonoBehaviour,IEnemy
     {
         protected void OnDeath(Vector2 hitDirection,string bodyName,float scale,string soundName = "EnemyDie")
-        {
-            FxFactory.Default.GeneratoEnemyBody(transform.Position2D(), hitDirection, bodyName, scale);
-
+        {   
+            if(bodyName.IsNotNullAndEmpty())
+            {
+                FxFactory.Default.GeneratoEnemyBody(transform.Position2D(), hitDirection, bodyName, scale);
+            }
+            
             AudioKit.PlaySound("Resources://" + soundName);
 
             PowerUpFactory.GeneratePowerUp(this);

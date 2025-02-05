@@ -324,6 +324,7 @@ namespace QFramework.Gungeon
             Global.HP.Value -= damage;
             if (Global.HP.Value <= 0)
             {
+                AudioKit.PlaySound("Resources://PlayerDie");
                 Global.HP.Value = 0;
                 GameUI.Default.gameOver.SetActive(true);
                 Global.UIOpened = true;

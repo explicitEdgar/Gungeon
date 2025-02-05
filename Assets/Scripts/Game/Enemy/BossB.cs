@@ -177,7 +177,7 @@ namespace QFramework.Gungeon
             GameUI.Default.BossHp.fillAmount = Hp / maxHp;
             if (Hp <= 0f)
             {
-                OnDeath(hitDirection, "EnemyHDie", 1.5f);
+                OnDeath(hitDirection, null, 1.5f);
             }
         }
 
