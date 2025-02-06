@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace QFramework.Gungeon
 {
-    public class Global
+    public class Global : Architecture<Global>
     {
         public static Player player;
 
@@ -50,6 +50,7 @@ namespace QFramework.Gungeon
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         public static void AutoInit()
         {
+            Interface.LogInfo();
             ResetData();
 
             var globalObj = new GameObject("Global")
@@ -66,7 +67,7 @@ namespace QFramework.Gungeon
         {
             UIOpened = false;
             Coin.Value = 0;
-            Key.Value = 0;
+            Key.Value = 20;
             HP.Value = 3;
             MaxHP.Value = 6;
             Armor.Value = 1;
@@ -74,10 +75,6 @@ namespace QFramework.Gungeon
 
             GunSystem.GunList.Clear();
             GunSystem.GunList.Add(GunConfig.Pistol.CreateData());
-            GunSystem.GunList.Add(GunConfig.MP5.CreateData());
-            GunSystem.GunList.Add(GunConfig.AK.CreateData());
-            GunSystem.GunList.Add(GunConfig.AWP.CreateData());
-            GunSystem.GunList.Add(GunConfig.ShotGun.CreateData());
             GunSystem.GunList.Add(GunConfig.Laser.CreateData());
 
             CurrentGun = GunSystem.GunList.First();
@@ -103,6 +100,11 @@ namespace QFramework.Gungeon
                 CurrentPacing = new Queue<int>(CurrentLevel.Pacing);
             }
             return true;
+        }
+
+        protected override void Init()
+        {
+            RegisterSystem(new GunSystem());
         }
     }
 }

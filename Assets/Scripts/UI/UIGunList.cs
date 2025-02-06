@@ -5,54 +5,24 @@ using Unity.VisualScripting;
 
 namespace QFramework.Gungeon
 {
-	public partial class UIGunList : ViewController
+	public partial class UIGunList : ViewController, IController
 	{
 		private static readonly int GrayValue = Shader.PropertyToID("_GrayValue");
-		public class GunBaseItem
-		{
-			public string Name;
-			public string Key;
-			public int Price;
-			public bool Unlocked = false;
-			public Sprite Icon => Player.Default.GunwithKey(Key).Sprite.sprite;
-			public bool InitUnlockState;
-		}
 
-		public static List<GunBaseItem> GunBaseItems => mGunBaseItems;
-
-        static List<GunBaseItem> mGunBaseItems = new List<GunBaseItem>()
-		{
-			new() {Name = "ö±µ¯Ç¹",Price = 0,Key = GunConfig.ShotGun.Key,InitUnlockState = true },
-			new() {Name = "MP5",Price = 0,Key = GunConfig.MP5.Key,InitUnlockState = true },
-			new() {Name = "AK47",Price = 5,Key = GunConfig.AK.Key,InitUnlockState = false },
-			new() {Name = "AWP",Price = 6,Key = GunConfig.AWP.Key,InitUnlockState = false },
-			new() {Name = "¼¤¹âÇ¹",Price = 7,Key = GunConfig.Laser.Key,InitUnlockState = false },
-			new() {Name = "¹­¼ý",Price = 10,Key = GunConfig.Bow.Key,InitUnlockState = false },
-			new() {Name = "»ð¼ýÍ²",Price = 15,Key = GunConfig.RocketGun.Key,InitUnlockState = false },
-		};
-
+		private GunSystem mGunsystem;
         private void Awake()
         {
-            foreach(var gunBaseItem in mGunBaseItems)
-			{
-				gunBaseItem.Unlocked = PlayerPrefs.GetInt(gunBaseItem.Key + "_unlocked", gunBaseItem.InitUnlockState ? 1 : 0) == 1;
-			}
+			mGunsystem = this.GetSystem<GunSystem>();
         }
 
-		private void Save()
-		{
-            foreach (var gunBaseItem in mGunBaseItems)
-            {
-                PlayerPrefs.SetInt(gunBaseItem.Key + "_unlocked", gunBaseItem.Unlocked ? 1 : 0);
-            }
-        }
+		
 
         private void OnEnable()
         {
 			Global.UIOpened = true;
 			GunItemRoot.DestroyChildren();
 
-			foreach(var gunBaseItem in mGunBaseItems)
+			foreach(var gunBaseItem in mGunsystem.GunBaseItems)
 			{
 				var gunItem = GunItem.InstantiateWithParent(GunItemRoot)
 					.Show();
@@ -89,7 +59,7 @@ namespace QFramework.Gungeon
 
                             AudioKit.PlaySound("Resources://UnlockGun");
 
-							Save();
+							mGunsystem.Save();
 						}
 						else
 						{
@@ -110,6 +80,9 @@ namespace QFramework.Gungeon
             Global.UIOpened = false;
         }
 
-		
+        public IArchitecture GetArchitecture()
+        {
+			return Global.Interface;
+        }
     }
 }

@@ -91,7 +91,7 @@ namespace QFramework.Gungeon
         public GunConfig Config;
         public bool Reloading;
     }
-    public class GunSystem
+    public class GunSystem : AbstractSystem
     {
         public static List<GunData> GunList = new List<GunData>();
         //{
@@ -105,13 +105,52 @@ namespace QFramework.Gungeon
         //    GunConfig.ShotGun.CreateData(),
         //};
 
+        public class GunBaseItem
+        {
+            public string Name;
+            public string Key;
+            public int Price;
+            public bool Unlocked = false;
+            public Sprite Icon => Player.Default.GunwithKey(Key).Sprite.sprite;
+            public bool InitUnlockState;
+        }
+
+        public List<GunBaseItem> GunBaseItems => mGunBaseItems;
+
+        void Load()
+        {
+            foreach (var gunBaseItem in mGunBaseItems)
+            {
+                gunBaseItem.Unlocked = PlayerPrefs.GetInt(gunBaseItem.Key + "_unlocked", gunBaseItem.InitUnlockState ? 1 : 0) == 1;
+            }
+        }
+
+        public void Save()
+        {
+            foreach (var gunBaseItem in mGunBaseItems)
+            {
+                PlayerPrefs.SetInt(gunBaseItem.Key + "_unlocked", gunBaseItem.Unlocked ? 1 : 0);
+            }
+        }
+
+        static List<GunBaseItem> mGunBaseItems = new List<GunBaseItem>()
+        {
+            new() {Name = "霰弹枪",Price = 0,Key = GunConfig.ShotGun.Key,InitUnlockState = true },
+            new() {Name = "MP5",Price = 0,Key = GunConfig.MP5.Key,InitUnlockState = true },
+            new() {Name = "AK47",Price = 5,Key = GunConfig.AK.Key,InitUnlockState = false },
+            new() {Name = "AWP",Price = 6,Key = GunConfig.AWP.Key,InitUnlockState = false },
+            new() {Name = "激光枪",Price = 7,Key = GunConfig.Laser.Key,InitUnlockState = false },
+            new() {Name = "弓箭",Price = 10,Key = GunConfig.Bow.Key,InitUnlockState = false },
+            new() {Name = "火箭筒",Price = 15,Key = GunConfig.RocketGun.Key,InitUnlockState = false },
+        };
+
         public static List<GunConfig> GetAvailableGuns()
         {
             var availableGunConfigs = new List<GunConfig>();
 
             foreach (var gunConfig in GunConfig.Configs)
             {
-                var gunBaseItem = UIGunList.GunBaseItems.First(gun => gun.Key == gunConfig.Key);
+                var gunBaseItem = mGunBaseItems.First(gun => gun.Key == gunConfig.Key);
                 //如果已解锁且手里没有
                 if(gunBaseItem.Unlocked && GunList.All(g => g.Key != gunConfig.Key))
                 {
@@ -120,6 +159,11 @@ namespace QFramework.Gungeon
             }
 
             return availableGunConfigs;
+        }
+
+        protected override void OnInit()
+        {
+            Load();
         }
     }
 }

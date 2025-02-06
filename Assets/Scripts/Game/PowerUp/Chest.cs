@@ -41,9 +41,14 @@ namespace QFramework.Gungeon
 
                     if (configs.Count > 0)
                     {
-                        var gunConfig = configs.GetRandomItem();
-                        GunSystem.GunList.Add(gunConfig.CreateData());
-                        Player.Default.UseGun(GunSystem.GunList.Count - 1);
+                        var powerUpGun = PowerUpFactory.Default.PowerUpGun.Instantiate()
+                            .Position2D(transform.Position2D())
+                            .Self(self =>
+                            {
+                                self.gunConfig = configs.GetRandomItem();
+                            })
+                            .Show();
+                        Room.AddPowerUp(powerUpGun);
                     }
                     else
                     {

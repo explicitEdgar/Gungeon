@@ -1,4 +1,4 @@
-// Generate Id:ada83d12-c287-4598-bcf9-5a88772380c4
+// Generate Id:e1556f64-1e16-40c1-8a41-87bdaa7d119a
 using UnityEngine;
 
 namespace QFramework.Gungeon
@@ -9,6 +9,8 @@ namespace QFramework.Gungeon
 		public QFramework.Gungeon.Coin Coin;
 
 		public QFramework.Gungeon.PowerUpColor PowerUpColor;
+
+		public QFramework.Gungeon.PowerUpGun PowerUpGun;
 
 		public QFramework.Gungeon.Key Key;
 

@@ -142,7 +142,6 @@ namespace QFramework.Gungeon
                             bulletDirection = this.NormalizedDirection2DTo(targetEnemy.GameObject);
                             Aim.Position2D(targetEnemy.GameObject.Position2D());
                             Aim.Show();
-                            Debug.Log("сп");
                         }
                         else
                         {
