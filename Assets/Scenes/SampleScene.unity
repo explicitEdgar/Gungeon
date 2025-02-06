@@ -2916,6 +2916,195 @@ MonoBehaviour:
   CustomComponentName: HpArmorBg
   CustomComment: 
   mComponentName: RectTransform
+--- !u!1 &197255867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 197255868}
+  - component: {fileID: 197255869}
+  - component: {fileID: 197255873}
+  - component: {fileID: 197255871}
+  - component: {fileID: 197255870}
+  - component: {fileID: 197255872}
+  m_Layer: 0
+  m_Name: Explosion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &197255868
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197255867}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.171, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1188065075}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &197255869
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197255867}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1211416961
+  m_SortingLayer: 5
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 643024557, guid: b55ccb53faec96e478d4b477fc9f0b0c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &197255870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197255867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a1c46024598fd143890912a20b2e8bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: QFramework.Gungeon
+  ScriptName: Explosion
+  ScriptsFolder: Assets/Scripts/Game/Weapon/Feature
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
+  Frames:
+  - {fileID: 643024557, guid: b55ccb53faec96e478d4b477fc9f0b0c, type: 3}
+  - {fileID: -1143193909, guid: b55ccb53faec96e478d4b477fc9f0b0c, type: 3}
+  - {fileID: -1862326051, guid: b55ccb53faec96e478d4b477fc9f0b0c, type: 3}
+  - {fileID: -102612988, guid: b55ccb53faec96e478d4b477fc9f0b0c, type: 3}
+  - {fileID: 1007212967, guid: b55ccb53faec96e478d4b477fc9f0b0c, type: 3}
+  - {fileID: 1589359123, guid: b55ccb53faec96e478d4b477fc9f0b0c, type: 3}
+  - {fileID: -916008519, guid: b55ccb53faec96e478d4b477fc9f0b0c, type: 3}
+  - {fileID: 663167112, guid: b55ccb53faec96e478d4b477fc9f0b0c, type: 3}
+  - {fileID: 1373518833, guid: b55ccb53faec96e478d4b477fc9f0b0c, type: 3}
+  - {fileID: -944537419, guid: b55ccb53faec96e478d4b477fc9f0b0c, type: 3}
+  - {fileID: 355413355, guid: b55ccb53faec96e478d4b477fc9f0b0c, type: 3}
+  HurtTag: Enemy
+  MinDamage: 5
+  MaxDamage: 15
+  SelfCircleCollider2D: {fileID: 197255871}
+--- !u!58 &197255871
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197255867}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.4375
+--- !u!114 &197255872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197255867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411e729afed24c62a04e2b99d9122e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binds:
+  - MemberName: SelfCircleCollider2D
+    Object: {fileID: 197255871}
+--- !u!114 &197255873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197255867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: Explosion
+  CustomComment: 
+  mComponentName: QFramework.Gungeon.Explosion
 --- !u!1 &201081554
 GameObject:
   m_ObjectHideFlags: 0
@@ -3241,8 +3430,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  hitEnemySfxs: []
-  hitWallSfxs: []
+  mRigidbody2D: {fileID: 0}
+  hitEnemySfxs:
+  - {fileID: 8300000, guid: c818745370eb9bf439dc0d041271df31, type: 3}
+  hitWallSfxs:
+  - {fileID: 8300000, guid: 87223efaf86e4a74c9277e5de5235d02, type: 3}
 --- !u!114 &206246580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13839,6 +14031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
+  mRigidbody2D: {fileID: 0}
   hitEnemySfxs:
   - {fileID: 8300000, guid: 3fa3c3724664d9b4188a2ace49917074, type: 3}
   - {fileID: 8300000, guid: 0f07a98565c1f1a48bb90dc1fe86c907, type: 3}
@@ -14170,12 +14363,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 880631923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f970ee731cf5ed4c9e472bbb8648417, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a757e3101eb6dd449dbf2fa5ad1ed47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  hitEnemySfxs: []
-  hitWallSfxs: []
+  mRigidbody2D: {fileID: 0}
+  hitEnemySfxs:
+  - {fileID: 8300000, guid: f541a6a1689c4b94e9b044a8f67bd000, type: 3}
+  - {fileID: 8300000, guid: fa31d06a9a333754499efc6f312fab61, type: 3}
+  - {fileID: 8300000, guid: 2de6fb3ccca4cd9489f0f1e902c0fbcd, type: 3}
+  hitWallSfxs:
+  - {fileID: 8300000, guid: f541a6a1689c4b94e9b044a8f67bd000, type: 3}
+  - {fileID: 8300000, guid: fa31d06a9a333754499efc6f312fab61, type: 3}
+  - {fileID: 8300000, guid: 2de6fb3ccca4cd9489f0f1e902c0fbcd, type: 3}
 --- !u!114 &880631930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14191,7 +14391,7 @@ MonoBehaviour:
   MarkType: 0
   CustomComponentName: Bullet
   CustomComment: 
-  mComponentName: PlayerBullet
+  mComponentName: QFramework.Gungeon.RocketBullet
 --- !u!1 &885529090
 GameObject:
   m_ObjectHideFlags: 0
@@ -16082,6 +16282,7 @@ MonoBehaviour:
   AKShell: {fileID: 1589601607}
   AWPShell: {fileID: 1502594682}
   ShotGunShell: {fileID: 690898760}
+  Explosion: {fileID: 197255870}
 --- !u!4 &1188065075
 Transform:
   m_ObjectHideFlags: 0
@@ -16100,6 +16301,7 @@ Transform:
   - {fileID: 1589601604}
   - {fileID: 1502594679}
   - {fileID: 690898757}
+  - {fileID: 197255868}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1215480957
@@ -18449,6 +18651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
+  mRigidbody2D: {fileID: 0}
   hitEnemySfxs: []
   hitWallSfxs: []
 --- !u!114 &1470137572
@@ -23158,6 +23361,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 92e42f651b8368b4f824480657b45a97, type: 3}
   reloadSound: {fileID: 8300000, guid: d75109697e85e4341a6b990b76176ffa, type: 3}
   Sprite: {fileID: 1399494065}
+  PrepareSounds:
+  - {fileID: 8300000, guid: de3e4a40179fce24d9987d16b635d489, type: 3}
+  - {fileID: 8300000, guid: 7a3223ec67423524998c3b7cfedadba2, type: 3}
+  - {fileID: 8300000, guid: ae1da057a6607bc48abcda5ca0655582, type: 3}
+  - {fileID: 8300000, guid: 7caf290e1f7276f46b0b98658601a401, type: 3}
+  - {fileID: 8300000, guid: 0138ba013c416894284cfdedb16a9052, type: 3}
+  - {fileID: 8300000, guid: 8e2c5b604b920f3419378babf6ade0af, type: 3}
+  - {fileID: 8300000, guid: 1c1d8ccc3a562d14abb31f73528348fe, type: 3}
+  - {fileID: 8300000, guid: 953144b189de8ad40ba6cf1ddfb5e696, type: 3}
+  - {fileID: 8300000, guid: 80dddf0d9f6446c47990c719eb24e33f, type: 3}
+  - {fileID: 8300000, guid: 738b9916c16cc6f4586d508185fcb32e, type: 3}
   needTime: 0.5
   Bullet: {fileID: 206246579}
   Ready: {fileID: 704753868}

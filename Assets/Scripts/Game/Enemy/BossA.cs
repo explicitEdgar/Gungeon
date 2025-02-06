@@ -188,6 +188,7 @@ namespace QFramework.Gungeon
 
         public override void Hurt(float damage,Vector2 hitDirection)
         {
+            if (isDead) return;
             FxFactory.Default.GenerateHurtFx(transform.Position2D());
             FxFactory.Default.GenerateEnemyBlood(transform.Position2D());
 

@@ -1,4 +1,4 @@
-// Generate Id:fbe128f1-2033-424f-aa47-10ce39d669e5
+// Generate Id:bf165ac2-6cbc-4b71-9c93-a9a98ab09579
 using UnityEngine;
 
 namespace QFramework.Gungeon
@@ -15,6 +15,8 @@ namespace QFramework.Gungeon
 		public Rigidbody2D AWPShell;
 
 		public Rigidbody2D ShotGunShell;
+
+		public QFramework.Gungeon.Explosion Explosion;
 
 	}
 }

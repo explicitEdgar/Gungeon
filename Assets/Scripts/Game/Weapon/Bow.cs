@@ -1,5 +1,6 @@
 using UnityEngine;
 using QFramework;
+using System.Collections.Generic;
 
 namespace QFramework.Gungeon
 {
@@ -8,6 +9,8 @@ namespace QFramework.Gungeon
         public override PlayerBullet BulletPrefab => Bullet;
 
         public override AudioSource AudioPlayer => SelfAudioSource;
+
+        public List<AudioClip> PrepareSounds = new List<AudioClip>();
 
         public override Clip clip { get; set; } = new Clip();
 
@@ -46,6 +49,7 @@ namespace QFramework.Gungeon
         private float mCurrentScd = 0f;
         private bool isPressing = false;
 
+        private AudioPlayer mPullBowPlayer = null;
         public override void ShootDown(Vector2 direction)
         {
             if (!clip.CanShoot)
@@ -55,6 +59,10 @@ namespace QFramework.Gungeon
             }
             mCurrentScd = 0f;
             isPressing = true;
+            mPullBowPlayer = AudioKit.PlaySound(PrepareSounds.GetRandomItem(),callBack:(_) =>
+            {
+                mPullBowPlayer = null;
+            });
         }
 
         public override void Shooting(Vector2 direction)
@@ -84,6 +92,14 @@ namespace QFramework.Gungeon
             if (mCurrentScd >= needTime)
             {
                 Shoot(BulletPrefab.Position2D(),direction);
+            }
+            else
+            {
+                if(mPullBowPlayer != null)
+                {
+                    mPullBowPlayer.Stop();
+                    mPullBowPlayer = null;
+                }
             }
             isPressing = false;
             mCurrentScd = 0f;

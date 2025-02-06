@@ -19,41 +19,16 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: QFramework.Gungeon.Coin
-      PathToRoot: Coin
-      MemberName: Coin
-    - TypeName: QFramework.Gungeon.PowerUpColor
-      PathToRoot: PowerUpColor
-      MemberName: PowerUpColor
-    - TypeName: QFramework.Gungeon.PowerUpGun
-      PathToRoot: PowerUpGun
-      MemberName: PowerUpGun
-    - TypeName: QFramework.Gungeon.Key
-      PathToRoot: Key
-      MemberName: Key
-    - TypeName: QFramework.Gungeon.ArmorDroped
-      PathToRoot: ArmorDroped
-      MemberName: ArmorDroped
-    - TypeName: QFramework.Gungeon.AllBulletHalf
-      PathToRoot: AllBulletHalf
-      MemberName: AllBulletHalf
-    - TypeName: QFramework.Gungeon.SingleFullBullet
-      PathToRoot: SingleFullBullet
-      MemberName: SingleFullBullet
-    - TypeName: QFramework.Gungeon.Hp1
-      PathToRoot: Hp1
-      MemberName: Hp1
-    ScriptsFolder: Assets/Scripts/Game
-    ClassName: PowerUpFactory
+    - TypeName: QFramework.Gungeon.RocketBullet
+      PathToRoot: Bullet
+      MemberName: Bullet
+    ScriptsFolder: Assets/Scripts/Game/Weapon
+    ClassName: RocketGun
     Namespace: QFramework.Gungeon
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace QFramework.Gungeon\r\n{\r\n\tpublic
-      partial class PowerUpFactory : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class RocketGun : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:e1556f64-1e16-40c1-8a41-87bdaa7d119a\r\nusing UnityEngine;\r\n\r\nnamespace
-      QFramework.Gungeon\r\n{\r\n\tpublic partial class PowerUpFactory\r\n\t{\r\n\r\n\t\tpublic
-      QFramework.Gungeon.Coin Coin;\r\n\r\n\t\tpublic QFramework.Gungeon.PowerUpColor
-      PowerUpColor;\r\n\r\n\t\tpublic QFramework.Gungeon.PowerUpGun PowerUpGun;\r\n\r\n\t\tpublic
-      QFramework.Gungeon.Key Key;\r\n\r\n\t\tpublic QFramework.Gungeon.ArmorDroped
-      ArmorDroped;\r\n\r\n\t\tpublic QFramework.Gungeon.AllBulletHalf AllBulletHalf;\r\n\r\n\t\tpublic
-      QFramework.Gungeon.SingleFullBullet SingleFullBullet;\r\n\r\n\t\tpublic QFramework.Gungeon.Hp1
-      Hp1;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:45e3194e-83c7-42de-b9c9-228ab142f7a7\r\nusing UnityEngine;\r\n\r\nnamespace
+      QFramework.Gungeon\r\n{\r\n\tpublic partial class RocketGun\r\n\t{\r\n\r\n\t\tpublic
+      QFramework.Gungeon.RocketBullet Bullet;\r\n\r\n\t\tpublic UnityEngine.AudioSource
+      SelfAudioSource;\r\n\r\n\t}\r\n}\r\n"

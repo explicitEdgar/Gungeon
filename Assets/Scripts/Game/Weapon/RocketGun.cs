@@ -33,10 +33,10 @@ namespace QFramework.Gungeon
         {
             var bullet = Instantiate(BulletPrefab);
             bullet.transform.position = pos;
-            bullet.velocity = direction.normalized * 5;
             bullet.Damage = Random.Range(5f, 10f);
             bullet.gameObject.SetActive(true);
             bullet.transform.right = direction;
+            bullet.velocity = direction.normalized * 15;
         }
 
         public override void ShootDown(Vector2 direction)

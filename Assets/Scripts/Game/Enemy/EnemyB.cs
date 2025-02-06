@@ -92,6 +92,7 @@ public class EnemyB : Enemy,IEnemy
 
     public override void Hurt(float damage, Vector2 hitDirection)
     {
+        if (isDead) return;
         FxFactory.Default.GenerateHurtFx(transform.Position2D());
         FxFactory.Default.GenerateEnemyBlood(transform.Position2D());
 
@@ -99,7 +100,6 @@ public class EnemyB : Enemy,IEnemy
         if (Hp <= 0f)
         {
             OnDeath(hitDirection, "EnemyBDie", 1.5f);
-
         }
     }
 }
