@@ -52,10 +52,21 @@ namespace QFramework.Gungeon
                     }
                     else
                     {
-                        var hp1 = PowerUpFactory.Default.Hp1.Instantiate()
+                        List<IPowerUp> powerUps = new List<IPowerUp>
+                        {
+                            PowerUpFactory.Default.SingleFullBullet,
+                            PowerUpFactory.Default.Hp1,
+                            PowerUpFactory.Default.ArmorDroped,
+                        };
+
+                        var powerUp = powerUps.GetRandomItem()
+                            .SpriteRenderer.gameObject
+                            .Instantiate()
                             .Position2D(transform.Position2D())
-                            .Show();
-                        Room.AddPowerUp(hp1);
+                            .Show()
+                            .GetComponent<IPowerUp>();
+ 
+                        Room.AddPowerUp(powerUp);
                     }
 
 
