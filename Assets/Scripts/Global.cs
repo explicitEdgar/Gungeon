@@ -2,7 +2,6 @@ using QFramework.Gungeon;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Search;
 using UnityEngine;
 
 namespace QFramework.Gungeon
@@ -67,7 +66,7 @@ namespace QFramework.Gungeon
         {
             UIOpened = false;
             Coin.Value = 0;
-            Key.Value = 20;
+            Key.Value = 0;
             HP.Value = 3;
             MaxHP.Value = 6;
             Armor.Value = 1;

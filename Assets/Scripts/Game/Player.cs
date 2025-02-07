@@ -230,6 +230,12 @@ namespace QFramework.Gungeon
                             }
                         }
                     }
+
+                    //ÍË³öÓÎÏ·
+                    if (Input.GetKeyDown(KeyCode.Escape))
+                    {
+                        Application.Quit();
+                    }
                 });
 
             var faceDirection = Vector2.zero;

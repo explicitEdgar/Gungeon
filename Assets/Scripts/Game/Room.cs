@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using UnityEngine.Rendering;
-using static UnityEditor.PlayerSettings;
-using static UnityEditor.Progress;
 
 namespace QFramework.Gungeon
 {
