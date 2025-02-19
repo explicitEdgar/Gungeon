@@ -62,7 +62,7 @@ namespace QFramework.Gungeon
                 })
                 .OnUpdate(() =>
                 {
-                    if (State.FrameCountOfCurrentState % 12 == 0)
+                    if (State.FrameCountOfCurrentState % 30 == 0)
                     {
                         if (Global.player)
                         {

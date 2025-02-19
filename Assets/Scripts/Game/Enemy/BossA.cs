@@ -145,7 +145,7 @@ namespace QFramework.Gungeon
                     //Èý½×¶Î
                     else if (Hp / maxHp <= 0.3)
                     {
-                        if (State.FrameCountOfCurrentState % 20 == 0)
+                        if (State.FrameCountOfCurrentState % 30 == 0)
                         {
                             if (Global.player)
                             {

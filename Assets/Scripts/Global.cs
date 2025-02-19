@@ -74,7 +74,12 @@ namespace QFramework.Gungeon
 
             GunSystem.GunList.Clear();
             GunSystem.GunList.Add(GunConfig.Pistol.CreateData());
-            GunSystem.GunList.Add(GunConfig.Laser.CreateData());
+            //GunSystem.GunList.Add(GunConfig.Laser.CreateData());
+            //GunSystem.GunList.Add(GunConfig.AWP.CreateData());
+            //GunSystem.GunList.Add(GunConfig.RocketGun.CreateData());
+            //GunSystem.GunList.Add(GunConfig.MP5.CreateData());
+            //GunSystem.GunList.Add(GunConfig.Bow.CreateData());
+
 
             CurrentGun = GunSystem.GunList.First();
 

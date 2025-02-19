@@ -195,7 +195,7 @@ namespace QFramework.Gungeon
 
                     foreach (var roomNodeChild in roomGenerateNode.Node.Children)
                     {
-                        var nextRoomDirection = predictGenerate ? directionWithCount.First().direction : directionWithCount.GetRandomItem().direction;
+                        var nextRoomDirection = predictGenerate ? directionWithCount.First().direction : directionWithCount.GetAndRemoveRandomItem().direction;
 
                         if (predictGenerate)
                         {
