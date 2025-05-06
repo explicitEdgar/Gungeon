@@ -114,12 +114,12 @@ namespace QFramework.Gungeon
                     var horizontal = Input.GetAxisRaw("Horizontal");
                     var vertical = Input.GetAxisRaw("Vertical");
 
-                    //�ӵ�����
+                    //子弹朝向
                     var mouseScreePosition = Input.mousePosition;
                     var mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreePosition);
                     var bulletDirection = (mouseWorldPosition - transform.position).normalized;
 
-                    //�Զ���׼
+                    //自动瞄准
                     if (Global.currentRoom && Global.currentRoom.Enemies.Count > 0)
                     {
                         targetEnemy = Global.currentRoom.Enemies
@@ -128,7 +128,7 @@ namespace QFramework.Gungeon
                         {
                             var direction = this.Direction2DTo(e.GameObject);
 
-                            //��ǽ����
+                            //有墙挡着
                             if (Physics2D.Raycast(this.Position2D(), direction.normalized, direction.magnitude, LayerMask.GetMask("Wall")))
                             {
                                 return false;
@@ -153,12 +153,12 @@ namespace QFramework.Gungeon
                         Aim.Hide();
                     }
 
-                    //������ת
+                    //武器旋转
                     var radius = Mathf.Atan2(bulletDirection.y, bulletDirection.x);
                     var eulerAngles = radius * Mathf.Rad2Deg;
                     weapon.localRotation = Quaternion.Euler(0, 0, eulerAngles);
 
-                    //������ת����
+                    //武器旋转纠正
                     if (bulletDirection.x > 0)
                     {
                         weapon.transform.localScale = new Vector3(1, 1, 1);
@@ -182,24 +182,39 @@ namespace QFramework.Gungeon
                     var offsetLength = (mouseWorldPosition - transform.position).magnitude;
                     Global.CameraOffset = (bulletDirection * (3 + Mathf.Clamp(offsetLength * 0.15f, 0, 3))).ToVector2();
 
+                    //角色能够进行按键操作
                     if (Global.CanDo)
-                    {
+                    {   
+                        //点击鼠标左键射击
                         if (Input.GetMouseButtonDown(0))
-                        {
-                            gun.ShootDown(bulletDirection);
+                        {   
+                            //没子弹且没在换弹则换弹
+                            if(gun.Data.CurrentBulletCount == 0 && !gun.Data.Reloading)
+                            {
+                                gun.Reload();
+                            }
+                            //有子弹直接射击
+                            else
+                            {
+                                gun.ShootDown(bulletDirection);
+                            }
                         }
+                        //长按鼠标左键射击
                         if (Input.GetMouseButton(0))
                         {
                             gun.Shooting(bulletDirection);
                         }
+                        //松开鼠标左键停止射击
                         if (Input.GetMouseButtonUp(0))
                         {
                             gun.ShootUp(bulletDirection);
                         }
+                        //点击R键装弹
                         if (Input.GetKeyDown(KeyCode.R))
                         {
                             gun.Reload();
                         }
+                        //点击E键切换武器
                         if (Input.GetKeyDown(KeyCode.E))
                         {
                             var index = GunSystem.GunList.FindIndex(gun1 => gun1 == gun.Data);
@@ -211,6 +226,7 @@ namespace QFramework.Gungeon
 
                             UseGun(index);
                         }
+                        //点击Q键切换武器
                         if (Input.GetKeyDown(KeyCode.Q))
                         {
                             var index = GunSystem.GunList.FindIndex(gun1 => gun1 == gun.Data);
@@ -222,7 +238,8 @@ namespace QFramework.Gungeon
 
                             UseGun(index);
                         }
-                        if(Input.GetMouseButtonDown(1))
+                        //点击鼠标右键翻滚
+                        if (Input.GetMouseButtonDown(1))
                         {
                             if(horizontal != 0 || vertical != 0)
                             {
@@ -231,7 +248,7 @@ namespace QFramework.Gungeon
                         }
                     }
 
-                    //�˳���Ϸ
+                    //退出游戏
                     if (Input.GetKeyDown(KeyCode.Escape))
                     {
                         Application.Quit();
