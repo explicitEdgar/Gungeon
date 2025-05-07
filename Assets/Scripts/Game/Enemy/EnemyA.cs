@@ -76,6 +76,7 @@ namespace QFramework.Gungeon
                 })
                 .OnUpdate(() =>
                 {
+                    Rigidbody2D.velocity = new Vector2(0, 0);
 
                     if (State.SecondsOfCurrentState >= shootScd)
                     {

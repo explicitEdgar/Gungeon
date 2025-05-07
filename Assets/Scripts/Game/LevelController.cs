@@ -163,7 +163,7 @@ namespace QFramework.Gungeon
 
                     if (availableDirections.Count < roomGenerateNode.Node.Children.Count)
                     {
-                        Debug.Log("³öÏÖ³åÍ»");
+                        Debug.Log("å‡ºçŽ°å†²çª");
                         return false; 
                     }
 
@@ -173,7 +173,7 @@ namespace QFramework.Gungeon
                     }
                     else
                     {
-                        Debug.Log("³öÏÖ³åÍ»");
+                        Debug.Log("å‡ºçŽ°å†²çª");
                         return false;
                     }
 
@@ -273,12 +273,12 @@ namespace QFramework.Gungeon
             }
 
             var predictWeight = 0;
-            print(predictWeight + ": generate");
+            //print(predictWeight + ": generate");
 
             while (!GenerateLayoutBFS(layout, layoutGrid,predictWeight))
             {
                 predictWeight++;
-                print(predictWeight + ": generate");
+                //print(predictWeight + ": generate");
                 layoutGrid.Clear();
             }
             

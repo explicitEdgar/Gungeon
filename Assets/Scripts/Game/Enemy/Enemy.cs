@@ -63,7 +63,7 @@ namespace QFramework.Gungeon
 
         public virtual bool isBoss => false;
 
-        //�ɿձ���
+        //可空变量
         public Vector2? posToMove = null;
         protected Vector2 Move(float velocity = 1)
         {
@@ -71,7 +71,7 @@ namespace QFramework.Gungeon
             {
                 if (MovementPath.Count > 0)
                 {
-                    //��·�����õ���һ��λ��
+                    //从路径中拿到下一个位置
                     var pathPos = MovementPath.Last().Coords.Pos;
                     posToMove = new Vector2(pathPos.x + 0.5f, pathPos.y + 0.5f);
                     MovementPath.RemoveAt(MovementPath.Count - 1);
@@ -80,7 +80,7 @@ namespace QFramework.Gungeon
 
             var directionToPlayer = Player.Default.NormalizedDirectionFrom(transform);
 
-            //��Ҫ�ƶ��ľͽ���A*Ѱ·���ƶ���û�о�ֱ��Ѱ·
+            //有要移动的就进行A*寻路的移动，没有就直线寻路
             if (posToMove == null)
             {
                 Rigidbody2D.velocity = directionToPlayer * velocity;
@@ -103,7 +103,7 @@ namespace QFramework.Gungeon
         {
             if (Global.player)
             {
-
+                //加载路径
                 if (MovementPath.Count == 0)
                 {
                     var grid = LevelController.Default.wallMap.layoutGrid;
@@ -113,10 +113,14 @@ namespace QFramework.Gungeon
                         Room.PathFindingGrid[playerCellPos.x, playerCellPos.y], MovementPath);
                 }
 
+                //移动
                 var direction2Player = Move(velocity);
+
+                //摇摆动画
                 AnimationHelper.UpDownAnimation(SpriteRenderer, 0.05f, State.FrameCountOfCurrentState, 10);
                 AnimationHelper.RotateAnimation(SpriteRenderer, 5, State.FrameCountOfCurrentState, 30);
 
+                //判断是否面向玩家以进行翻转
                 if (direction2Player.x < 0)
                 {
                     SpriteRenderer.flipX = true;
