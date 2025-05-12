@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa3c59b908c17f468de2d04e00f9531, type: 3}
+  m_Name: Display Table
+  m_EditorClassIdentifier: 
+  id: 101
+  name: Display Table
+  description: You can display your item for sale with this.
+  price: 25
+  image: {fileID: 21300000, guid: 0d25eaf5edebbea4d95cfb08122892a3, type: 3}
+  isStackable: 0
+  isConsumable: 0
+  isBuildable: 1
+  building: {fileID: 2630622893111662406, guid: f95330b8cd6139442b50ebba6cad30ae, type: 3}
+  isTools: 0
+  isAxe: 0
+  isPickaxe: 0
