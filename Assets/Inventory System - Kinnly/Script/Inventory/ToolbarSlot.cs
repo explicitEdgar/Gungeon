@@ -17,7 +17,7 @@ namespace Kinnly
         Color32 selectedColor = new Color32(255, 161, 161, 128);
 
         void Update()
-        {
+        {   
             if (playerInventory.CurrentlySelectedToolBar == slotNumber)
             {
                 image.color = selectedColor;
